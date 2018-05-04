@@ -1,0 +1,105 @@
+<div class='main-container'>
+    <section>
+        <div class='header'>
+            <div class='navbar container-fluid'>
+                <div>
+                    <a href='/about-us'>ABOUT US</a>
+                    <a href='/tents'>TENTS</a>
+                    <a href='/sleepingbags'>SLEEPING BAGS</a>
+                    <a href='/backpacks'>BACKPACKS</a>
+                </div>
+                <div>
+                    {{#if loggedIn}}
+                    <a href="/logout" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Logout</a>
+                    <a href='/profile'>PROFILE</a>
+                    {{else}}
+                    <a href="/auth/facebook" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                    {{/if}}
+                    <a href='/cart'>CART</a>
+                </div>
+            </div>
+            <div class='header-copy'>
+                <p id='first-line'>For the love of</p>
+                <br>
+                <p id='second-line'>OUTDOOR</p>
+                <br>
+                <p id='third-line'>Whether you're a weekend warrior or a
+                    <br> Navy SEAL, we've got you covered.</p>
+            </div>
+            <a href='/learn-more' id='learn'>
+                <button>LEARN MORE</button>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class='shopping-tiles'>
+            <div id='shop-tents'>
+                <a href='/api/tents'>
+                    <img src='../img/shop_tents.jpg' alt='Shop Tents' id='tents-tile'>
+                    <div class="centered">Shop Tents</div>
+                </a>
+            </div>
+            <div id='shop-sleepingBags'>
+                <a href='/api/sleeping-bags'>
+                    <img src='../img/shop_sleepingBags.jpg' alt='Shop Sleeping Bags' id='bags-tile'>
+                    <div class="centered">Shop Sleeping Bags</div>
+                </a>
+            </div>
+            <div id='shop-backpacks'>
+                <a href='/api/backpacks'>
+                    <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
+                    <div class="centered">Shop Backpacks</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class='marketing'>
+            <a href='/api/clearance' id='clearance'>
+                <button id='clearance-btn'>SHOP CLEARANCE</button>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class='accepted-payment'>
+            <div class='section'>
+                <img src='../img/credit_card.png' alt='Credit Card' id='credit-card'>
+            </div>
+            <div class='section'>
+                <img src='../img/bitcoin.png' alt='Credit Card' id='bitcoin'>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class='empty-section'>
+
+        </div>
+    </section>
+    <section>
+        <div class='footer'>
+            <div class='social'>
+                <a href='https://www.facebook.com' target='_blank'>
+                    <img src='/img/facebook.svg' alt='facebook' class='social-icon'>
+                </a>
+                <a href='https://www.twitter.com' target='_blank'>
+                    <img src='/img/twitter.svg' alt='twitter' class='social-icon'>
+                </a>
+                <a href='https://www.instagram.com' target='_blank'>
+                    <img src='/img/instagram.svg' alt='instagram' class='social-icon'>
+                </a>
+                <a href='https://plus.google.com/' target='_blank'>
+                    <img src='/img/google+.svg' alt='google+' class='social-icon'>
+                </a>
+            </div>
+            <p class="footer-block">
+                <span>
+                    <a target="_blank" href='https://github.com/project2-ecommerce/Wecommerce'>
+                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                    </a>
+                </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
+            </p>
+        </div>
+    </section>
+</div>
