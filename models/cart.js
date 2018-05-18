@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Cart = sequelize.define("Cart", {
+    var Cart = sequelize.define('Cart', {
       sessionID: DataTypes.STRING,
       user: {
         type: DataTypes.STRING,

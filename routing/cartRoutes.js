@@ -1,14 +1,14 @@
-var db = require("../models");
+var db = require('../models');
 module.exports = function(app, passport) {
   // shopping cart view route
-  app.get("/cart", function(req, res) {
+  app.get('/cart', function(req, res) {
     if (req.user) {
       db.Cart.findOne({
         where: {
           purchased: false,
           user: req.user.facebook_id
         },
-        Order: [["updatedAt", "DESC"]]
+        Order: [['updatedAt', 'DESC']]
       }).then(function(result) {
         db.CartItems.findAll({
           where: { cartId: result.dataValues.id }
@@ -17,10 +17,10 @@ module.exports = function(app, passport) {
           for (var i = 0; i < result.length; i++) {
             items.push(result[i].dataValues);
           }
-          res.render("shoppingcart", {
-            title: "Cart",
-            css: "shoppingCart.css",
-            javascript: "shoppingCart.js",
+          res.render('shoppingcart', {
+            title: 'Cart',
+            css: 'shoppingCart.css',
+            javascript: 'shoppingCart.js',
             items: items,
             loggedIn: loggedInView(req)
           });
@@ -41,19 +41,19 @@ module.exports = function(app, passport) {
             for (var i = 0; i < result.length; i++) {
               items.push(result[i].dataValues);
             }
-            res.render("shoppingcart", {
-              title: "Cart",
-              css: "shoppingCart.css",
-              javascript: "shoppingCart.js",
+            res.render('shoppingcart', {
+              title: 'Cart',
+              css: 'shoppingCart.css',
+              javascript: 'shoppingCart.js',
               items: items,
               loggedIn: loggedInView(req)
             });
           });
         } else {
-          res.render("shoppingcart", {
-            title: "Cart",
-            css: "shoppingCart.css",
-            javascript: "shoppingCart.js",
+          res.render('shoppingcart', {
+            title: 'Cart',
+            css: 'shoppingCart.css',
+            javascript: 'shoppingCart.js',
             loggedIn: loggedInView(req)
           });
         }
@@ -61,7 +61,7 @@ module.exports = function(app, passport) {
     }
   });
   // Add product to shopping cart from page
-  app.post("/addtocart/:category/:itemid", function(req, res) {
+  app.post('/addtocart/:category/:itemid', function(req, res) {
     var user;
     if (req.user) {
       user = req.user.facebook_id;
@@ -82,12 +82,12 @@ module.exports = function(app, passport) {
           quantity: req.body.quantity
         }
       }).then(function(result) {
-        res.redirect("/cart");
+        res.redirect('/cart');
       });
     });
   });
   // update item quantity from shopping cart
-  app.post("/updateitem/:id", function(req, res) {
+  app.post('/updateitem/:id', function(req, res) {
     db.cartItems
       .update({
         quantity: req.body.quantity,
@@ -96,17 +96,17 @@ module.exports = function(app, passport) {
         }
       })
       .then(function(result) {
-        res.redirect("/cart");
+        res.redirect('/cart');
       });
   });
   // delete item from shopping cart
-  app.post("/deleteitem/:id", function(req, res) {
+  app.post('/deleteitem/:id', function(req, res) {
     db.cartItems
       .delete({
         where: { id: req.params.id }
       })
       .then(function(result) {
-        res.redirect("/cart");
+        res.redirect('/cart');
       });
   });
 };

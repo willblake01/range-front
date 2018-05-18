@@ -1,10 +1,10 @@
 <div class='main-container'>
     <div class='grid-container'>
         <div class='header'>
-            <!-- <button type="button" id='learn'>LEARN MORE</button> -->
+            <!-- <button type='button' id='learn'>LEARN MORE</button> -->
             <div class='navbar container-fluid'>
                 <div>
-                    <a href="/">HOME</a>
+                    <a href='/'>HOME</a>
                     <a href='/about-us'>ABOUT US</a>
                     <a href='/products/tent'>TENTS</a>
                     <a href='/products/sleepingbag'>SLEEPING BAGS</a>
@@ -12,12 +12,12 @@
                 </div>
                 <div>
                     {{#if loggedIn}}
-                    <a href="/logout" class="btn btn-primary">
-                        <span class="fa fa-facebook-official"></span> Logout</a>
+                    <a href='/logout' class='btn btn-primary'>
+                        <span class='fa fa-facebook-official'></span> Logout</a>
                     <a href='/profile'>PROFILE</a>
                     {{else}}
-                    <a href="/auth/facebook" class="btn btn-primary">
-                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                    <a href='/auth/facebook' class='btn btn-primary'>
+                        <span class='fa fa-facebook-official'></span> Facebook Login</a>
                     {{/if}}
                     <a href='/cart'>CART</a>
                 </div>
@@ -25,16 +25,16 @@
             <div class='header-copy'>
             </div>
         </div>
-        <div class="displayCase">
+        <div class='displayCase'>
             {{#each item}}
             <div class='marketing'>
-                <div class="shopWrap">
-                    <a href="/products/{{category}}/{{id}}">
-                        <img class="shopImage" src="../img/{{image}}" alt="Picture of app.">
+                <div class='shopWrap'>
+                    <a href='/products/{{category}}/{{id}}'>
+                        <img class='shopImage' src='../img/{{image}}' alt='Picture of app.'>
                     </a>
-                    <div class="shopText1">{{name}}</div>
-                    <div class="shopText2">${{this.price}}</div>
-                    <a href="/products/{{category}}/{{id}}">
+                    <div class='shopText1'>{{name}}</div>
+                    <div class='shopText2'>${{this.price}}</div>
+                    <a href='/products/{{category}}/{{id}}'>
                     </a>
                 </div>
             </div>
@@ -58,10 +58,10 @@
                     <img src='/img/google+.svg' alt='google+' class='social-icon'>
                 </a>
             </div>
-            <p class="footer-block">
+            <p class='footer-block'>
                 <span>
                     <a href='https://github.com/project2-ecommerce/Wecommerce'>
-                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                        <i class='fa fa-github fa-2x' aria-hidden='true'></i>
                     </a>
                 </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
             </p>

@@ -1,12 +1,12 @@
 // load all the things we need
-var FacebookStrategy = require("passport-facebook").Strategy;
-var db = require("../models");
+var FacebookStrategy = require('passport-facebook').Strategy;
+var db = require('../models');
 
 // load up the user model
-var User = require("../models/user.js");
+var User = require('../models/user.js');
 
 // load the auth variables
-var configAuth = require("./auth");
+var configAuth = require('./auth');
 
 module.exports = function(passport, user) {
   // used to serialize the user for the session
@@ -40,7 +40,7 @@ module.exports = function(passport, user) {
         // check if the user is already logged in
         // first check if the user is an admin first, otherwise regular user
         var admin = false;
-        if (profile.id === "402943280150235") {
+        if (profile.id === '402943280150235') {
           admin = true;
         }
         // console.log(profile);
@@ -66,7 +66,7 @@ module.exports = function(passport, user) {
           });
         } else {
           // user already exists and is logged in, we have to link accounts
-          console.log("USER IS ALREADY SIGNED IN, LINK ACCOUNTS");
+          console.log('USER IS ALREADY SIGNED IN, LINK ACCOUNTS');
           // db.User.update(
           //   {
           //     facebook_id: profile.id,
