@@ -3,10 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var request = require('request');
-
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
 var stripe = require('stripe')('sk_test_OH63QANsfLtddjDsbkWH122t');
 
 // Set up express app
