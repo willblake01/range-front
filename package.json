@@ -1,7 +1,7 @@
 {
-  "name": "wecommerce",
+  "name": "range-front",
   "version": "1.0.0",
-  "description": "WIP",
+  "description": "Range Front is a faux ecommerce site for a fictional outdoors company",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/project2-ecommerce/Wecommerce.git"
+    "url": "git+https://github.com/willblake01/range-front.git"
   },
   "author": "Mark Alaniz, Will Blake, Pete Garcia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/project2-ecommerce/Wecommerce/issues"
+    "url": "https://github.com/willblake01/range-front/issues"
   },
-  "homepage": "https://github.com/project2-ecommerce/Wecommerce#readme",
+  "homepage": "https://github.com/willblake01/range-front#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
