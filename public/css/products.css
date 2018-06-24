@@ -81,7 +81,6 @@ button {
 .marketing {
     /* height: 607px;
     width: 1440px; */
-    width:33%;
     background-image: url("../img/topography.png");
     text-align: center;
     display:inline;
@@ -124,8 +123,8 @@ button {
 }
 
 .shopImage {
-    width: 400px;
-    height: auto;
+    height: 400px;
+    width: auto;
 }
 
 .shopText1 {
@@ -160,8 +159,9 @@ button {
     top: 50px;
     height: 40px;
 }
+
 .displayCase {
-  display:inline;
+display:inline;
 }
 
 .shopFrontText1 {
@@ -172,23 +172,22 @@ color: #CB7257;
 }
 
 .shopFrontText2 {
-  float: right;
-  color: #8E3f30;
-  font-size: 30px;
-  font-weight:bold;
-}
+float: right;
+color: #8E3f30;
+font-size: 30px;
+font-weight:bold;
 }
 
 .shopFrontWrap {
-  padding-top: 60px;
+padding-top: 60px;
 }
 
 .shopFrontImage {
-  padding-top:20px;
+padding-top:20px;
 }
 
 .purchaseBox {
-  float: right;
-  width: 400px;
+float: right;
+width: 400px;
 
 }

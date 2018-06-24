@@ -4,18 +4,18 @@
             <div class='navbar container-fluid'>
                 <div>
                     <a href='/about-us'>ABOUT US</a>
-                    <a href='/tents'>TENTS</a>
-                    <a href='/sleepingbags'>SLEEPING BAGS</a>
-                    <a href='/backpacks'>BACKPACKS</a>
+                    <a href='/products/tents'>TENTS</a>
+                    <a href='/products/sleepingbags'>SLEEPING BAGS</a>
+                    <a href='/products/backpacks'>BACKPACKS</a>
                 </div>
                 <div>
                     {{#if loggedIn}}
-                    <a href='/logout' class='btn btn-primary'>
-                        <span class='fa fa-facebook-official'></span> Logout</a>
+                    <a href="/logout" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Logout</a>
                     <a href='/profile'>PROFILE</a>
                     {{else}}
-                    <a href='/auth/facebook' class='btn btn-primary'>
-                        <span class='fa fa-facebook-official'></span> Facebook Login</a>
+                    <a href="/auth/facebook" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
                     {{/if}}
                     <a href='/cart'>CART</a>
                 </div>
@@ -36,21 +36,21 @@
     <section>
         <div class='shopping-tiles'>
             <div id='shop-tents'>
-                <a href='/api/tents'>
+                <a href='/products/tents'>
                     <img src='../img/shop_tents.jpg' alt='Shop Tents' id='tents-tile'>
-                    <div class='centered'>Shop Tents</div>
+                    <div class="centered">Shop Tents</div>
                 </a>
             </div>
             <div id='shop-sleepingBags'>
-                <a href='/api/sleeping-bags'>
+                <a href='/products/sleepingbags'>
                     <img src='../img/shop_sleepingBags.jpg' alt='Shop Sleeping Bags' id='bags-tile'>
-                    <div class='centered'>Shop Sleeping Bags</div>
+                    <div class="centered">Shop Sleeping Bags</div>
                 </a>
             </div>
             <div id='shop-backpacks'>
-                <a href='/api/backpacks'>
+                <a href='/products/backpacks'>
                     <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
-                    <div class='centered'>Shop Backpacks</div>
+                    <div class="centered">Shop Backpacks</div>
                 </a>
             </div>
         </div>
@@ -93,12 +93,12 @@
                     <img src='/img/google+.svg' alt='google+' class='social-icon'>
                 </a>
             </div>
-            <p class='footer-block'>
+            <p class="footer-block">
                 <span>
-                    <a target='_blank' href='https://github.com/project2-ecommerce/Wecommerce'>
-                        <i class='fa fa-github fa-2x' aria-hidden='true'></i>
+                    <a target="_blank" href='https://github.com/project2-ecommerce/Wecommerce'>
+                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
                     </a>
-                </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
+                </span> Created By: Will Blake 2018 &copy;
             </p>
         </div>
     </section>

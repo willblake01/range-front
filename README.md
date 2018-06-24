@@ -1,3 +1,3 @@
 # Range-Front
 ----
-Range Front is a faux ecommerce site for a fictional outdoors company. 
+Range Front is a faux e-commerce site for a fictional outdoors company. 
