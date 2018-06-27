@@ -112,18 +112,18 @@ button {
 }
 
 .shopWrap {
-    display:inline-block;
+    /* display:inline-block; */
     float: left;
     top: 20px;
     background-color: #FFFFFF;
     padding: 20px;
-    /* width: 400px;
-    height: 400px; */
+    width: 400px;
+    height: 400px;
 
 }
 
 .shopImage {
-    height: 400px;
+    height: 200px;
     width: auto;
 }
 
