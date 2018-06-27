@@ -33,63 +33,22 @@ button {
 }
 
 .header {
-    height: 165px;
+    background-image: url("../img/mountain-range.jpg");
+    height: 260px;
     width: 1440px;
-    background-image: url("../img/main_img.png");
-}
+    margin-bottom: 20px;
 
-.header-copy {
-    color: #DF997D;
-}
-
-#first-line {
-    position: relative;
-    padding-left: 132px;
-    top: 70px;
-    font-family: AbrilFatface-Regular;
-    font-size: 40px;
-}
-
-#second-line {
-    position: relative;
-    padding-left: 132px;
-    top: 7px;
-    font-family: AbrilFatface-Regular;
-    font-size: 88px;
-}
-
-#third-line {
-    position: relative;
-    padding-left: 132px;
-    bottom: 36px;
-    font-family: Raleway-Medium;
-    font-size: 20px;
-    line-height: 26px;
 }
 
 .navbar {
     height: 55px;
     width: 1440px;
     position: relative;
-    top: 110px;
+    top: 205px;
     background-color: #C65837;
     opacity: .8;
     padding-left: 132px;
     padding-right: 132px;
-}
-
-.marketing {
-    /* height: 607px;
-    width: 1440px; */
-    background-image: url("../img/topography.png");
-    text-align: center;
-    display:inline;
-}
-
-.accepted-payment {
-    height: 580px;
-    width: 1440px;
-    background-image: url("../img/marketing.png");
 }
 
 .footer {
@@ -98,23 +57,9 @@ button {
     background-color: #2E5564;
 }
 
-#clearance {
-    background-color: #8E3F30;
-    position: relative;
-    top: 520px;
-}
-
-#learn {
-    background-color: #2E5564;
-    position: relative;
-    top: 348px;
-    left: 132px;
-}
-
 .shopWrap {
-    /* display:inline-block; */
     float: left;
-    top: 20px;
+    margin-top: 20px;
     background-color: #FFFFFF;
     padding: 20px;
     width: 400px;
@@ -123,7 +68,7 @@ button {
 }
 
 .shopImage {
-    height: 200px;
+    height: 220px;
     width: auto;
 }
 
