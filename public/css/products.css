@@ -34,6 +34,8 @@ button {
 
 .header {
     background-image: url("../img/mountain-range.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 260px;
     width: 1440px;
     margin-bottom: 20px;
@@ -46,7 +48,7 @@ button {
     position: relative;
     top: 205px;
     background-color: #C65837;
-    opacity: .8;
+    opacity: .9;
     padding-left: 132px;
     padding-right: 132px;
 }

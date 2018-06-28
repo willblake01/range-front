@@ -68,7 +68,8 @@ button {
     top: 120px;
     left: 132px;
     line-height: 27px;
-    color: #DF997D;
+    color: #C65837;
+    opacity: .9;
 }
 
 #first-line {
@@ -93,7 +94,7 @@ button {
     position: relative;
     top: 110px;
     background-color: #C65837;
-    opacity: .8;
+    opacity: .9;
     padding-left: 132px;
     padding-right: 132px;
 }
