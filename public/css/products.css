@@ -14,12 +14,6 @@ a {
     padding-right: 30px;
 }
 
-button {
-    height: 42px;
-    width: 180px;
-    color: #FFFFFF;
-}
-
 .main-container {
     max-width: 1440px;
     max-height: 1800px;
