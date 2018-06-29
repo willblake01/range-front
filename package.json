@@ -2,7 +2,7 @@
   "name": "range-front",
   "version": "1.0.0",
   "engines": {
-    "node": "9.8.0"
+    "node": "10.5.0"
   },
   "description": "Range Front is a faux ecommerce site for a fictional outdoors company",
   "main": "server.js",
