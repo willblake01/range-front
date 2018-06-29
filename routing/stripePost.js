@@ -1,3 +1,5 @@
+var db = require("../models");
+
 var stripe = require('stripe')('sk_test_OH63QANsfLtddjDsbkWH122t');
 module.exports = function (app, passport) {
     app.post('/stripe-post', function (req, res) {
