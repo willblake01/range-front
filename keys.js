@@ -9,5 +9,7 @@ exports.facebook = {
 exports.stripe = process.env.STRIPE_ID;
 
 exports.session = {
-    secret: process.env.SESSION_SECRET
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
 };
