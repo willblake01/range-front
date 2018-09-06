@@ -52,14 +52,19 @@ require('./routing/stripePost.js')(app, passport);
 //setInterval(function(){
 //  https.get('https://range-front.herokuapp.com/');
 //}, 300000);
-app.use(function (req, res) {
-  res.send('404');
+app.use(function (err, req, res, next) {
+  if (err) {
+    console.log(err.message);
+    res.status('404').send(err);
+  }
 });
 
 // Start the server
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
-    console.log('App listening on PORT ' + PORT);
+    console.log(`🌎 ==> Server now on port ${PORT}!`);
   });
 
 });
+
+module.exports = app;
