@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 * {
     box-sizing: border-box;
 }
@@ -21,12 +23,12 @@ h1 {
 }
 .navbar {
     width: 100%;
-    background-color: #C65837;
+    background-color: var(--dark-orange);
     opacity: 1;
 }
 .navbar a {
     font-family: Raleway-Regular;
     font-size: 12px;
-    color: #FFFFFF;
+    color: var(--white);
     padding-right: 30px;
 }

@@ -1,3 +1,4 @@
+@import url('variables.css');
 
 * {
     box-sizing: border-box;
@@ -10,7 +11,7 @@ p {
 a {
     font-family: Raleway-Regular;
     font-size: 12px;
-    color: #FFFFFF;
+    color: var(--white);
     padding-right: 30px;
 }
 
@@ -41,7 +42,7 @@ a {
     width: 1440px;
     position: relative;
     top: 205px;
-    background-color: #C65837;
+    background-color: var(--dark-orange);
     opacity: .9;
     padding-left: 132px;
     padding-right: 132px;
@@ -50,13 +51,13 @@ a {
 .footer {
     height: 140px;
     width: 1440px;
-    background-color: #2E5564;
+    background-color: var(--green);
 }
 
 .shopWrap {
     float: left;
     margin-top: 20px;
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 20px;
     width: 400px;
     height: 400px;
@@ -69,18 +70,18 @@ a {
 }
 
 .shopText1 {
-    color: #CB7257;
+    color: var(--light-orange);
     font-size: 40px;
 }
 
 .shopText2 {
-    color: #8E3f30;
+    color: var(--brown);
     font-size: 30px;
     font-weight:bold;
 }
 
 .addCartButton {
-    background-color: #CB7257;
+    background-color: var(--light-orange);
     float:right;
 }
 
@@ -88,7 +89,7 @@ a {
     position: relative;
     top: 64px;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .social {
@@ -109,12 +110,12 @@ display:inline;
 float: left;
 padding-left: 20px;
 font-size: 40px;
-color: #CB7257;
+color: var(--light-orange);
 }
 
 .shopFrontText2 {
 float: right;
-color: #8E3f30;
+color: var(--brown);
 font-size: 30px;
 font-weight:bold;
 }
