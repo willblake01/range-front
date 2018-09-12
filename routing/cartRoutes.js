@@ -1,4 +1,5 @@
 var db = require('../models');
+
 module.exports = function(app, passport) {
   // shopping cart view route
   app.get('/cart', function(req, res) {

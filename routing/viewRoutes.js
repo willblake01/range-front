@@ -1,4 +1,5 @@
 var db = require("../models");
+
 module.exports = function (app, passport) {
   app.get("/test", function (req, res) {
     res.render("test", {
