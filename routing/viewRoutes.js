@@ -1,33 +1,33 @@
-var db = require("../models");
+var db = require('../models');
 module.exports = function (app, passport) {
-  app.get("/test", function (req, res) {
-    res.render("test", {
-      javascript: "productSubmit.js"
+  app.get('/test', function (req, res) {
+    res.render('test', {
+      javascript: 'productSubmit.js'
     });
   });
   //index route for landing page
-  app.get("/", function (req, res) {
-    res.render("index", {
-      title: "RangeFront",
-      css: "index.css",
-      javascript: "index.js",
+  app.get('/', function (req, res) {
+    res.render('index', {
+      title: 'RangeFront',
+      css: 'index.css',
+      javascript: 'index.js',
       loggedIn: loggedInView(req)
     });
   });
 
-  app.get("/learn-more", function (req, res) {
-    res.render("learnMore", {
-      title: "Learn More",
-      css: "learnMore.css",
-      javascript: "learnMore.js",
+  app.get('/learn-more', function (req, res) {
+    res.render('learnMore', {
+      title: 'Learn More',
+      css: 'learnMore.css',
+      javascript: 'learnMore.js',
       loggedIn: loggedInView(req)
     });
   });
-  app.get("/about-us", function (req, res) {
-    res.render("aboutUs", {
-      title: "About Us",
-      css: "aboutUs.css",
-      javascript: "learnMore.js",
+  app.get('/about-us', function (req, res) {
+    res.render('aboutUs', {
+      title: 'About Us',
+      css: 'aboutUs.css',
+      javascript: 'learnMore.js',
       loggedIn: loggedInView(req)
     });
   });
@@ -40,10 +40,10 @@ module.exports = function (app, passport) {
       for (var i = 0; i < results.length; i++) {
         item.push(results[i].dataValues)
       }
-      res.render("products", {
-        title: "Products - RangeFront",
-        css: "products.css",
-        javascript: "index.js",
+      res.render('products', {
+        title: 'Products - RangeFront',
+        css: 'products.css',
+        javascript: 'index.js',
         item: item,
         loggedIn: loggedInView(req)
       });
@@ -54,10 +54,10 @@ module.exports = function (app, passport) {
     db.Products.findById(
       req.params.id
     ).then(function (results) {
-      res.render("productFront", {
-        title: "Product- RangeFront",
-        css: "products.css",
-        javascript: "productSubmit.js",
+      res.render('productFront', {
+        title: 'Product- RangeFront',
+        css: 'products.css',
+        javascript: 'productSubmit.js',
         item: results,
         loggedIn: loggedInView(req)
       });
@@ -68,7 +68,7 @@ module.exports = function (app, passport) {
 
 
   // route for showing the profile page
-  app.get("/profile", isLoggedIn, function (req, res) {
+  app.get('/profile', isLoggedIn, function (req, res) {
     var usersCarts = [];
     var usersItems = [];
     db.Cart.findOne({
@@ -104,9 +104,9 @@ module.exports = function (app, passport) {
       for (var i = 0; i < newresult.length; i++) {
         usersCarts.push(newresult[i].dataValues);
       }
-      res.render("profile", {
-        title: "Your Profile",
-        css: "profile.css",
+      res.render('profile', {
+        title: 'Your Profile',
+        css: 'profile.css',
         user: req.user, // get the user out of session and pass to template
         carts: usersCarts,
         loggedIn: loggedInView(req)
@@ -119,7 +119,7 @@ function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated()) return next();
   // if they aren't redirect them to the home page
-  res.redirect("/");
+  res.redirect('/');
 }
 
 function loggedInView(req) {
