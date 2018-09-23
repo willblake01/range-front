@@ -2,13 +2,14 @@
   "name": "range-front",
   "version": "1.0.0",
   "engines": {
-    "node": "10.5.0"
+    "node": "10.9.0",
+    "npm": "6.4.1"
   },
   "description": "Range Front is a faux ecommerce site for a fictional outdoors company",
   "main": "server.js",
   "scripts": {
     "test": "mocha test/test.js",
-    "start": "node server.js"
+    "start": "pm2-runtime start ecosystem.config.js --env production"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,10 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "mysql2": "^1.6.1",
-    "nodemon": "^1.18.3",
     "npm": "^6.4.0",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
+    "pm2": "^3.1.2",
     "request": "^2.88.0",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.1.0",
@@ -42,6 +43,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "browser-sync": "^2.24.7"
+    "browser-sync": "^2.24.7",
+    "nodemon": "^1.18.3"
   }
 }
