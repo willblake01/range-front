@@ -36,6 +36,12 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+// Implement Request Logger
+app.use((request, response, next) => {
+  console.log(new Date().toISOString(), request.method, request.originalUrl);
+  return next();
+})
+
 // required for passport
 app.use(session(keys.session)); // session secret
 app.use(passport.initialize());
@@ -52,11 +58,12 @@ require('./routing/stripePost.js')(app, passport);
 //setInterval(function(){
 //  https.get('https://range-front.herokuapp.com/');
 //}, 300000);
-app.use(function (err, req, res, next) {
-  if (err) {
-    console.log(err.message);
-    res.status('404').send(err);
-  }
+
+app.use((request, response) => {
+  console.warn(new Date().toISOString(), request.method, request.originalUrl, '404');
+  return response.status(404).render('404', {
+    title: '404',
+  })
 });
 
 // Start the server
