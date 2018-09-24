@@ -1,24 +1,25 @@
 // Dependencies
 require('dotenv').config();
-var express = require('express');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var request = require('request');
-var keys = require('./keys.js')
-var https = require('https');
+const express = require('express');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const request = require('request');
+const keys = require('./keys.js')
+const https = require('https');
+const logger = require('./log/lib/logger.js');
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
-var stripe = require('stripe')(keys.stripe);
+const stripe = require('stripe')(keys.stripe);
 
 // Set up Express app
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // configuration ============================================================
 // Setup database connection
-var db = require('./models');
+const db = require('./models');
 
 // pass passport for configuration
 require('./config/passport')(passport, db.user);
