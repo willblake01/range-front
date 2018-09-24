@@ -12,12 +12,12 @@ var session = require('express-session');
 
 var stripe = require('stripe')(keys.stripe);
 
-// Set up express app
+// Set up Express app
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // configuration ============================================================
-// set up database connection
+// Setup database connection
 var db = require('./models');
 
 // pass passport for configuration
@@ -36,13 +36,13 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// Implement Request Logger
+// Implement request logger
 app.use((request, response, next) => {
   console.log(new Date().toISOString(), request.method, request.originalUrl);
   return next();
 })
 
-// required for passport
+// Required for Passport
 app.use(session(keys.session)); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -54,11 +54,12 @@ require('./routing/cartRoutes.js')(app, passport);
 require('./routing/fbRoutes.js')(app, passport);
 require('./routing/stripePost.js')(app, passport);
 
-// Pings heroku app to keep awake
+// Pings Heroku app to keep awake
 //setInterval(function(){
 //  https.get('https://range-front.herokuapp.com/');
 //}, 300000);
 
+// Request error handling
 app.use((request, response) => {
   console.warn(new Date().toISOString(), request.method, request.originalUrl, '404');
   return response.status(404).render('404', {
@@ -66,7 +67,7 @@ app.use((request, response) => {
   })
 });
 
-// Error Handling
+// Error handling
 app.use((error, request, response, next) => {
   if (response.headersSent) {
     return next(error);
