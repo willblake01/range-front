@@ -2,6 +2,8 @@
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
+const winston = require('winston');
+const expressWinston = require('express-winston');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const request = require('request');
@@ -48,12 +50,33 @@ app.use(session(keys.session)); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+// express-winston logger BEFORE the router
+app.use(expressWinston.logger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      timestamp: new Date().toISOString(),
+      colorize: true
+    })
+  ]
+}));
+
 //Routes
 require('./routing/apiRoutes.js')(app, passport);
 require('./routing/viewRoutes.js')(app, passport);
 require('./routing/cartRoutes.js')(app, passport);
 require('./routing/fbRoutes.js')(app, passport);
 require('./routing/stripePost.js')(app, passport);
+
+// express-winston errorLogger makes sense AFTER the router.
+app.use(expressWinston.errorLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      colorize: true
+    })
+  ]
+}));
 
 // Request error handling
 app.use((request, response) => {

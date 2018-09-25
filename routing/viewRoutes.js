@@ -28,7 +28,7 @@ module.exports = function (app, passport) {
     res.render("aboutUs", {
       title: "About Us",
       css: "aboutUs.css",
-      javascript: "learnMore.js",
+      javascript: "aboutUs.js",
       loggedIn: loggedInView(req)
     });
   });
@@ -44,7 +44,7 @@ module.exports = function (app, passport) {
       res.render("products", {
         title: "Products - RangeFront",
         css: "products.css",
-        javascript: "index.js",
+        // javascript: "index.js",
         item: item,
         loggedIn: loggedInView(req)
       });
