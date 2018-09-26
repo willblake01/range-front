@@ -5,12 +5,13 @@ const morgan = require('morgan');
 const winston = require('winston');
 const expressWinston = require('express-winston');
 const bodyParser = require('body-parser');
+const path = require('path');
 const passport = require('passport');
 const request = require('request');
 const keys = require('./keys.js')
 const https = require('https');
 const logger = require('./log/lib/logger.js');
-const requestLogger = require('./log/lib/requestLogger');
+const requestLogger = require('./log/lib/requestLogger.js');
 
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -29,10 +30,12 @@ const db = require('./models');
 require('./config/passport')(passport, db.user);
 
 // Set up body parser from documentation
-app.use(morgan('dev'));
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Implement Morgan request logger
+app.use(requestLogger);
 
 // Access static directory
 app.use(express.static(__dirname + '/public'));
@@ -41,9 +44,6 @@ app.use(express.static(__dirname + '/public'));
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-// Implement Morgan request logger
-app.use(requestLogger);
 
 // Required for Passport
 app.use(session(keys.session)); // session secret
@@ -102,7 +102,7 @@ db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, () => {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
   })
-  .on('listening', () => logger.info(PORT, 'HTTP server listening on port ${PORT}!'));
+  .on('listening', () => logger.info('HTTP server listening on port ${PORT}!'));
 });
 
 module.exports = app;
