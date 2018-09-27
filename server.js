@@ -12,6 +12,7 @@ const keys = require('./keys.js')
 const https = require('https');
 const logger = require('./log/lib/logger.js');
 const requestLogger = require('./log/lib/requestLogger.js');
+const expressRequestId = require('express-request-id')();
 
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -36,6 +37,9 @@ app.use(bodyParser.json());
 
 // Implement Morgan request logger
 app.use(requestLogger);
+
+// Appends request ID to request object
+app.use(expressRequestId);
 
 // Access static directory
 app.use(express.static(__dirname + '/public'));
