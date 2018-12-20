@@ -1,14 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const ClearanceButtonStyle = styled.button`
+const ClearanceButton = styled.button`
   background-color: ${props => props.theme.brown};
+  :hover {
+    color: ${props => props.theme.green};
+    zoom: 105%;
+  }
 `;
-
-const ClearanceButton = () => (
-  <ClearanceButtonStyle>
-    SHOP CLEARANCE
-  </ClearanceButtonStyle>
-)
 
 export default ClearanceButton;

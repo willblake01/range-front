@@ -13,7 +13,7 @@ const MarketingStyle = styled.div`
   }
   #button {
     position: relative;
-    top: 520 px;
+    top: 520px;
   }
 `;
 
@@ -23,7 +23,7 @@ const Marketing = () => (
       <div id='button'>
         <Link href='/api/clearance'>
           <a>
-            <ClearanceButton />
+            <ClearanceButton>SHOP CLEARANCE</ClearanceButton>
           </a>
         </Link>
       </div>

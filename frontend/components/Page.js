@@ -76,7 +76,7 @@ class Page extends Component {
           <Header />
           <ShoppingTiles />
           <Landing />
-            <Inner>{this.props.children}</Inner>
+            {/* <Inner>{this.props.children}</Inner> */}
           <Marketing />
           <AcceptedPayments />
           <Parallax />

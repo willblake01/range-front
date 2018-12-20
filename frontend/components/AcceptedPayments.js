@@ -9,6 +9,9 @@ const AcceptedPaymentsStyle = styled.div`
     height: 580px;
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   }
+  .section {
+    width: 720 px;
+  }
   #credit-card {
     width: 400px;
     position: relative;

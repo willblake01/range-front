@@ -1,17 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const LearnMoreButtonStyle = styled.button`
-  position: relative;
-  top: 130px;
-  left: 132px;
+const LearnMoreButton = styled.button`
   background-color: ${props => props.theme.green};
+  :hover {
+    color: ${props => props.theme.darkOrange};
+    zoom: 105%;
+  }
 `;
-
-const LearnMoreButton = () => (
-  <LearnMoreButtonStyle>
-    LEARN MORE
-  </LearnMoreButtonStyle>
-)
 
 export default LearnMoreButton;

@@ -18,27 +18,27 @@ var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/
 var AcceptedPaymentsStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "AcceptedPayments__AcceptedPaymentsStyle",
   componentId: "sc-6m0whn-0"
-})([".accepted-payment{display:flex;flex-wrap:wrap;width:100%;height:580px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');}#credit-card{width:400px;position:relative;top:140px;left:150px;text-align:center;}#bitcoin{width:280px;position:relative;top:120px;left:190px;text-align:center;}"]);
+})([".accepted-payment{display:flex;flex-wrap:wrap;width:100%;height:580px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');}.section{width:720 px;}#credit-card{width:400px;position:relative;top:140px;left:150px;text-align:center;}#bitcoin{width:280px;position:relative;top:120px;left:190px;text-align:center;}"]);
 
 var AcceptedPayments = function AcceptedPayments() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AcceptedPaymentsStyle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 32
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "accepted-payment",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 33
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "section",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -47,14 +47,14 @@ var AcceptedPayments = function AcceptedPayments() {
     id: "credit-card",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 35
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "section",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 40
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -63,7 +63,7 @@ var AcceptedPayments = function AcceptedPayments() {
     id: "bitcoin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 41
     },
     __self: this
   }))));
@@ -141,29 +141,16 @@ var Cart = function Cart() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/ClearanceButton.js";
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-var ClearanceButtonStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
-  displayName: "ClearanceButton__ClearanceButtonStyle",
+var ClearanceButton = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
+  displayName: "ClearanceButton",
   componentId: "sc-11d6yy2-0"
-})(["background-color:", ";"], function (props) {
+})(["background-color:", ";:hover{color:", ";zoom:105%;}"], function (props) {
   return props.theme.brown;
+}, function (props) {
+  return props.theme.green;
 });
-
-var ClearanceButton = function ClearanceButton() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearanceButtonStyle, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, "SHOP CLEARANCE");
-};
-
 /* harmony default export */ __webpack_exports__["default"] = (ClearanceButton);
 
 /***/ }),
@@ -182,14 +169,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _Social__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Social */ "./components/Social.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/Footer.js";
+
 
 
 
 var StyledFooter = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].footer.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-1goco5d-0"
-})([".footer{width:100%;height:140px;background-color:", ";}.footer-block{position:relative;top:54px;text-align:center;color:", ";}.social{text-align:right;}.social-icon{position:relative;top:50px;height:40px;}"], function (props) {
+})(["width:100%;height:140px;background-color:", ";text-align:right;a{padding-right:24px;}.footer-block{position:relative;top:54px;text-align:center;color:", ";}"], function (props) {
   return props.theme.green;
 }, function (props) {
   return props.theme.white;
@@ -199,120 +188,20 @@ var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledFooter, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 23
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "footer",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Social__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 24
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "social",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "https://www.facebook.com",
-    target: "_blank",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/facebook.svg",
-    alt: "facebook",
-    className: "social-icon",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "https://www.twitter.com",
-    target: "_blank",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/twitter.svg",
-    alt: "twitter",
-    className: "social-icon",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45
-    },
-    __self: this
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "https://www.instagram.com",
-    target: "_blank",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/instagram.svg",
-    alt: "instagram",
-    className: "social-icon",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 54
-    },
-    __self: this
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "https://plus.google.com/",
-    target: "_blank",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 61
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 62
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/google.svg",
-    alt: "google+",
-    className: "social-icon",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 63
-    },
-    __self: this
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "footer-block",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 25
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -320,13 +209,13 @@ var Footer = function Footer() {
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 26
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -334,10 +223,10 @@ var Footer = function Footer() {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 28
     },
     __self: this
-  }))), " Created By: Will Blake 2018 \xA9")));
+  }))), " Created By: Will Blake 2018 \xA9"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -363,12 +252,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Nav */ "./components/Nav.js");
-/* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Cart */ "./components/Cart.js");
-/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Search */ "./components/Search.js");
-/* harmony import */ var _HeaderCopy__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HeaderCopy */ "./components/HeaderCopy.js");
-/* harmony import */ var _LearnMoreButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./LearnMoreButton */ "./components/LearnMoreButton.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Search */ "./components/Search.js");
+/* harmony import */ var _HeaderCopy__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./HeaderCopy */ "./components/HeaderCopy.js");
+/* harmony import */ var _LearnMoreButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LearnMoreButton */ "./components/LearnMoreButton.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/Header.js";
-
 
 
 
@@ -400,94 +287,129 @@ var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h1.withConf
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].header.withConfig({
   displayName: "Header__StyledHeader",
   componentId: "sc-1k1mu8t-1"
-})([".bar{width:100%;height:480px;border-bottom:10px solid ", ";display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid ", ";}#button{position:relative;top:130px;left:132px;}"], function (props) {
+})([".bar{width:100%;height:480px;border-bottom:4px solid ", ";display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');#button{position:relative;left:132px;bottom:60px;}.header-copy{align-self:flex-start;position:relative;left:132px;#first-line{font-family:AbrilFatface-Regular;font-size:40px;}#second-line{position:relative;bottom:34px;font-family:AbrilFatface-Regular;font-size:88px;}#third-line{position:relative;bottom:74px;font-family:Raleway-Medium;font-size:20px;}#fourth-line{position:relative;bottom:70px;font-family:Raleway-Medium;font-size:20px;}}@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:1fr auto;border-bottom:4px solid ", ";}"], function (props) {
   return props.theme.green;
 }, function (props) {
-  return props.theme.lightGrey;
+  return props.theme.green;
 });
 
 var Header = function Header() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 94
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 95
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 96
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 97
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 98
     },
     __self: this
   }, "Range Front"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 101
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeaderCopy__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeaderCopy__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 102
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header-copy",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "first-line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: this
+  }, "For the love of"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "second-line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105
+    },
+    __self: this
+  }, "OUTDOOR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "third-line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106
+    },
+    __self: this
+  }, "Whether you're a weekend warrior or a"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "fourth-line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: this
+  }, "Navy SEAL, we've got you covered.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 109
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/learn-more",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 110
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 111
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LearnMoreButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LearnMoreButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 112
     },
     __self: this
-  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "LEARN MORE")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sub-bar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 118
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Search__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Search__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 119
     },
     __self: this
   })));
@@ -506,57 +428,14 @@ var Header = function Header() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/HeaderCopy.js";
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-var CopyStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
-  displayName: "HeaderCopy__CopyStyle",
+var HeaderCopy = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "HeaderCopy",
   componentId: "qp57an-0"
-})([".header-copy{align-self:flex-start;position:relative;top:120px;left:132px;line-height:27px;color:", ";opacity:.9;#first-line{font-family:AbrilFatface-Regular;font-size:40px;}#second-line{font-family:AbrilFatface-Regular;font-size:88px;}#third-line{font-family:Raleway-Medium;font-size:20px;line-height:26px;}}"], function (props) {
+})(["line-height:0px;color:", ";opacity:.9;"], function (props) {
   return props.theme.darkOrange;
 });
-
-var HeaderCopy = function HeaderCopy() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CopyStyle, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "header-copy",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    id: "first-line",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, "For the love of"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    id: "second-line",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
-  }, "OUTDOOR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    id: "third-line",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }, "Whether you're a weekend warrior or a Navy SEAL, we've got you covered.")));
-};
-
 /* harmony default export */ __webpack_exports__["default"] = (HeaderCopy);
 
 /***/ }),
@@ -619,29 +498,16 @@ var Landing = function Landing() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/LearnMoreButton.js";
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-var LearnMoreButtonStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
-  displayName: "LearnMoreButton__LearnMoreButtonStyle",
+var LearnMoreButton = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
+  displayName: "LearnMoreButton",
   componentId: "sc-574g5m-0"
-})(["position:relative;top:130px;left:132px;background-color:", ";"], function (props) {
+})(["background-color:", ";:hover{color:", ";zoom:105%;}"], function (props) {
   return props.theme.green;
+}, function (props) {
+  return props.theme.darkOrange;
 });
-
-var LearnMoreButton = function LearnMoreButton() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LearnMoreButtonStyle, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, "LEARN MORE");
-};
-
 /* harmony default export */ __webpack_exports__["default"] = (LearnMoreButton);
 
 /***/ }),
@@ -669,7 +535,7 @@ var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/
 var MarketingStyle = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "Marketing__MarketingStyle",
   componentId: "sc-17fyd0i-0"
-})([".marketing{display:flex;justify-content:center;width:100%;height:607px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/marketing_img.png');}#button{position:relative;top:520 px;}"]);
+})([".marketing{display:flex;justify-content:center;width:100%;height:607px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/marketing_img.png');}#button{position:relative;top:520px;}"]);
 
 var Marketing = function Marketing() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MarketingStyle, {
@@ -711,7 +577,7 @@ var Marketing = function Marketing() {
       lineNumber: 26
     },
     __self: this
-  }))))));
+  }, "SHOP CLEARANCE"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Marketing);
@@ -989,13 +855,7 @@ function (_Component) {
           lineNumber: 78
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 79
-        },
-        __self: this
-      }, this.props.children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marketing__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marketing__WEBPACK_IMPORTED_MODULE_7__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 80
@@ -1484,6 +1344,135 @@ var ShoppingTiles = function ShoppingTiles() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShoppingTiles);
+
+/***/ }),
+
+/***/ "./components/Social.js":
+/*!******************************!*\
+  !*** ./components/Social.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/Social.js";
+
+
+
+var SocialStyle = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "Social__SocialStyle",
+  componentId: "sc-1ax48l3-0"
+})([".social-icon{position:relative;top:50px;height:40px;}"]);
+
+var Social = function Social() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SocialStyle, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "https://www.facebook.com",
+    target: "_blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/facebook.svg",
+    alt: "facebook",
+    className: "social-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "https://www.twitter.com",
+    target: "_blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/twitter.svg",
+    alt: "twitter",
+    className: "social-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "https://www.instagram.com",
+    target: "_blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/instagram.svg",
+    alt: "instagram",
+    className: "social-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "https://plus.google.com/",
+    target: "_blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/google.svg",
+    alt: "google+",
+    className: "social-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: this
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Social);
 
 /***/ }),
 
