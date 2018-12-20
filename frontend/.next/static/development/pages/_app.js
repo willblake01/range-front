@@ -18,7 +18,7 @@ var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/
 var AcceptedPaymentsStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "AcceptedPayments__AcceptedPaymentsStyle",
   componentId: "sc-6m0whn-0"
-})([".accepted-payment{display:flex;flex-wrap:wrap;width:100%;height:580px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');}.section{width:720 px;}#credit-card{width:400px;position:relative;top:140px;left:150px;text-align:center;}#bitcoin{width:280px;position:relative;top:120px;left:190px;text-align:center;}"]);
+})([".accepted-payment{display:flex;flex-wrap:wrap;width:100%;height:580px;background-image:url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');}.section{max-width:720 px;}#credit-card{width:400px;position:relative;top:140px;left:150px;text-align:center;}#bitcoin{width:280px;position:relative;top:120px;left:580px;text-align:center;}"]);
 
 var AcceptedPayments = function AcceptedPayments() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AcceptedPaymentsStyle, {

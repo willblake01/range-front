@@ -10,7 +10,7 @@ const AcceptedPaymentsStyle = styled.div`
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   }
   .section {
-    width: 720 px;
+    max-width: 720 px;
   }
   #credit-card {
     width: 400px;
@@ -23,7 +23,7 @@ const AcceptedPaymentsStyle = styled.div`
     width: 280px;
     position: relative;
     top: 120px;
-    left: 190px;
+    left: 580px;
     text-align: center;
   }
 `;
