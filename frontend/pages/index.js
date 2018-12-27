@@ -1,8 +1,16 @@
-import Items from '../components/Items';
+import Header from '../components/Header';
+import ShoppingTiles from '../components/ShoppingTiles';
+import Marketing from '../components/Marketing';
+import AcceptedPayments from '../components/AcceptedPayments';
+import Parallax from '../components/Parallax';
 
 const Home = props => (
   <div>
-    <Items page={parseFloat(props.query.page) || 1} />
+    <Header />
+    <ShoppingTiles />
+    <Marketing />
+    <AcceptedPayments />
+    <Parallax />
   </div>
 );
 

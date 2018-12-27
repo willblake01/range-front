@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components'
-import Header from './Header';
 import Meta from './Meta';
-import Landing from './Landing';
 import Footer from './Footer';
-import ShoppingTiles from './ShoppingTiles';
-import Marketing from './Marketing';
-import AcceptedPayments from './AcceptedPayments';
-import Parallax from './Parallax';
 
 
 const theme = {
@@ -29,7 +23,6 @@ const StyledPage = styled.div`
 const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
-  padding: 2rem;
 `;
 
 injectGlobal `
@@ -73,13 +66,7 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
-          <Header />
-          <ShoppingTiles />
-          <Landing />
-            {/* <Inner>{this.props.children}</Inner> */}
-          <Marketing />
-          <AcceptedPayments />
-          <Parallax />
+            <Inner>{this.props.children}</Inner>
           <Footer />
         </StyledPage>
       </ThemeProvider>

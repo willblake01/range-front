@@ -107,7 +107,7 @@ const Header = () => (
           <p id='fourth-line'>Navy SEAL, we've got you covered.</p>
         </div>
         <div id='button'>
-          <Link href='/learn-more'>
+          <Link href='/learnMore'>
             <a>
               <LearnMoreButton>LEARN MORE</LearnMoreButton>
             </a>
