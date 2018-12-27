@@ -53,7 +53,7 @@ const ShoppingTiles = () => (
   <TileStyle>
     <div className='shopping-tiles'>
       <div className='shop' id='shop-tents'>
-          <Link href='/products/tents'>
+          <Link href='/tents'>
             <a>
               <img
                 src='https://res.cloudinary.com/willblake01/image/upload/v1538509890/range-front/shop_tents.jpg'
@@ -65,7 +65,7 @@ const ShoppingTiles = () => (
           </Link>
       </div>
       <div className='shop' id='shop-sleepingBags'>
-          <Link href='/products/sleepingbags'>
+          <Link href='/sleepingBags'>
             <a>
               <img
                 src='https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg'
@@ -77,7 +77,7 @@ const ShoppingTiles = () => (
           </Link>
       </div>
       <div className='shop' id='shop-backpacks'>
-          <Link href='/products/backpacks'>
+          <Link href='/backpacks'>
             <a>
               <img
                 src='https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg'

@@ -14,8 +14,12 @@ const NavStyle = styled.ul`
   justify-self: end;
   font-size: 2rem;
   a {
+    color: ${props => props.theme.white};
     margin-right: 10px;
     margin-left: 5px;
+  }
+  a:hover {
+    color: blue;
   }
 `;
 
