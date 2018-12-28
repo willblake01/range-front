@@ -11,8 +11,8 @@ const SocialStyle = styled.div`
 
 const Social = () => (
   <SocialStyle>
-    <Link href='https://www.facebook.com' target='_blank'>
-      <a>
+    <Link href='https://www.facebook.com'>
+      <a target='_blank'>
         <img
           src='https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/facebook.svg'
           alt='facebook'
@@ -20,8 +20,8 @@ const Social = () => (
         />
       </a>
     </Link>
-    <Link href='https://www.twitter.com' target='_blank'>
-      <a>
+    <Link href='https://www.twitter.com'>
+      <a target='_blank'>
         <img
           src='https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/twitter.svg'
           alt='twitter'
@@ -29,8 +29,8 @@ const Social = () => (
         />
       </a>
     </Link>
-    <Link href='https://www.instagram.com' target='_blank'>
-      <a>
+    <Link href='https://www.instagram.com'>
+      <a target='_blank'>
         <img
           src='https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/instagram.svg'
           alt='instagram'
@@ -38,8 +38,8 @@ const Social = () => (
         />
       </a>
     </Link>
-    <Link href='https://plus.google.com/' target='_blank'>
-      <a>
+    <Link href='https://plus.google.com/'>
+      <a target='_blank'>
         <img
           src='https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/google.svg'
           alt='google+'

@@ -22,10 +22,10 @@ const StyledFooter = styled.footer`
 const Footer = () => (
   <StyledFooter>
     <Social />
-    <p className="footer-block">
-      <Link href='https://github.com/project2-ecommerce/Wecommerce' target="_blank">
-        <a>
-          <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+    <p className='footer-block'>
+      <Link href='https://github.com/willblake01/range-front'>
+        <a target='_blank'>
+          <i aria-hidden='true'>Repository Link</i>
         </a>
       </Link> Created By: Will Blake 2018 &copy;
     </p>

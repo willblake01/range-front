@@ -203,28 +203,27 @@ var Footer = function Footer() {
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "https://github.com/project2-ecommerce/Wecommerce",
-    target: "_blank",
+    href: "https://github.com/willblake01/range-front",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fa fa-github fa-2x",
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28
     },
     __self: this
-  }))), " Created By: Will Blake 2018 \xA9"));
+  }, "Repository Link"))), " Created By: Will Blake 2018 \xA9"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -464,13 +463,13 @@ var Social = function Social() {
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "https://www.facebook.com",
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
@@ -487,13 +486,13 @@ var Social = function Social() {
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "https://www.twitter.com",
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24
@@ -510,13 +509,13 @@ var Social = function Social() {
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "https://www.instagram.com",
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 33
@@ -533,13 +532,13 @@ var Social = function Social() {
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "https://plus.google.com/",
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 42
