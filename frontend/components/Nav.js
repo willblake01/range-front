@@ -12,7 +12,7 @@ const NavStyle = styled.ul`
   padding: 0;
   display: flex;
   justify-self: end;
-  font-size: 2rem;
+  font-size: 1.6rem;
   a {
     color: ${props => props.theme.white};
     margin-right: 10px;

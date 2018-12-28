@@ -26,13 +26,6 @@ const Inner = styled.div`
 `;
 
 injectGlobal `
-  @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2');
-    foramt: woff2;
-    font-weight: normal;
-    font-size: normal;
-  }
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -41,7 +34,6 @@ injectGlobal `
     box-sizing: inherit;
   }
   body {
-    font-family: 'radnika_next';
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
@@ -55,6 +47,7 @@ injectGlobal `
     color: ${theme.white};
 }
   a {
+    font-family: Raleway-Regular;
     text-decoration: none;
     color: ${theme.black}
   }

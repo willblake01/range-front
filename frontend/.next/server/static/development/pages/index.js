@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -515,7 +515,7 @@ var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/
 var NavStyle = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.ul.withConfig({
   displayName: "Nav__NavStyle",
   componentId: "sc-1i5dvnb-0"
-})(["width:100%;height:55px;position:relative;top:110px;background-color:", ";opacity:.9;margin:0;padding:0;display:flex;justify-self:end;font-size:2rem;a{color:", ";margin-right:10px;margin-left:5px;}a:hover{color:blue;}"], function (props) {
+})(["width:100%;height:55px;position:relative;top:110px;background-color:", ";opacity:.9;margin:0;padding:0;display:flex;justify-self:end;font-size:1.6rem;a{color:", ";margin-right:10px;margin-left:5px;}a:hover{color:blue;}"], function (props) {
   return props.theme.darkOrange;
 }, function (props) {
   return props.theme.white;
@@ -1170,7 +1170,7 @@ var Home = function Home(props) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
