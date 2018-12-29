@@ -1,7 +1,6 @@
 endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://us1.prisma.sh/will-blake/range-front/dev
 datamodel: datamodel.prisma
-secret: ${env:PRISMA_SECRET}
+# secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:
@@ -9,4 +8,4 @@ hooks:
 
 generate:
   - generator: javascript-client
-    output: ./generated/prisma-client/
+    output: ./src/generated/prisma-client/
