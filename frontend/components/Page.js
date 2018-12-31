@@ -12,6 +12,7 @@ const theme = {
   brown: '#8E3F30',
   darkOrange: '#C65837',
   lightOrange: '#DF997D',
+  maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 };
 

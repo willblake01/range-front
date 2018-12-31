@@ -1,7 +1,9 @@
-const Items = props => (
+import Items from '../components/Items';
+
+const ItemsPage = props => (
   <div>
-    <p>Items!</p>
+    <Items page={parseFloat(props.query.page) || 1} />
   </div>
 );
 
-export default Items;
+export default ItemsPage;
