@@ -8,11 +8,14 @@ const theme = {
   red: '#FF0000',
   black: '#000000',
   white: '#FFFFFF',
+  offWhite: '#EDEDED',
+  grey: '#3A3A3A',
+  lightGrey: '#E1E1E1',
   green: '#2E5564',
   brown: '#8E3F30',
   darkOrange: '#C65837',
   lightOrange: '#DF997D',
-  maxWidth: '1000px',
+  maxWidth: '1440px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 };
 
