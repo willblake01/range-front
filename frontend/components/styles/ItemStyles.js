@@ -29,6 +29,7 @@ const Item = styled.div`
     background: ${props => props.theme.lightGrey};
     & > * {
       background: white;
+      color: ${props => props.theme.black};
       border: 0;
       font-size: 1rem;
       padding: 1rem;

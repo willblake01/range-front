@@ -119,40 +119,16 @@ function (_Component) {
         className: "buttonList",
         __source: {
           fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        __source: {
+          fileName: _jsxFileName,
           lineNumber: 30
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        href: {
-          pathname: 'update',
-          query: {
-            id: item.id
-          }
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 31
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        },
-        __self: this
-      }, "Edit \u270F\uFE0F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, "Add to Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, "Delete")));
+      }, "Add to Cart")));
     }
   }]);
 
@@ -281,7 +257,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ItemsList, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 41
           },
           __self: this
         }, data.items.map(function (item) {
@@ -290,7 +266,7 @@ function (_React$Component) {
             key: item.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 42
             },
             __self: this
           });
@@ -320,7 +296,7 @@ __webpack_require__.r(__webpack_exports__);
 var Item = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "ItemStyles__Item",
   componentId: "sc-365gi9-0"
-})(["background:white;border:1px solid ", ";box-shadow:", ";position:relative;display:flex;flex-direction:column;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";& > *{background:white;border:0;font-size:1rem;padding:1rem;}}"], function (props) {
+})(["background:white;border:1px solid ", ";box-shadow:", ";position:relative;display:flex;flex-direction:column;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";& > *{background:white;color:", ";border:0;font-size:1rem;padding:1rem;}}"], function (props) {
   return props.theme.offWhite;
 }, function (props) {
   return props.theme.bs;
@@ -328,6 +304,8 @@ var Item = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withCon
   return props.theme.lightGrey;
 }, function (props) {
   return props.theme.lightGrey;
+}, function (props) {
+  return props.theme.black;
 });
 /* harmony default export */ __webpack_exports__["default"] = (Item);
 
@@ -348,7 +326,7 @@ var PriceTag = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.wi
   displayName: "PriceTag",
   componentId: "sc-13uh6k-0"
 })(["background:", ";transform:rotate(3deg);color:white;font-weight:600;padding:5px;line-height:1;font-size:3rem;display:inline-block;position:absolute;top:-3px;right:-3px;"], function (props) {
-  return props.theme.green;
+  return props.theme.red;
 });
 /* harmony default export */ __webpack_exports__["default"] = (PriceTag);
 
@@ -369,7 +347,7 @@ var Title = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3.withCon
   displayName: "Title",
   componentId: "c296v7-0"
 })(["margin:0 1rem;text-align:center;transform:skew(-5deg) rotate(-1deg);margin-top:-3rem;text-shadow:2px 2px 0 rgba(0,0,0,0.1);a{background:", ";display:inline;line-height:1.3;font-size:4rem;text-align:center;color:white;padding:0 1rem;}"], function (props) {
-  return props.theme.red;
+  return props.theme.green;
 });
 /* harmony default export */ __webpack_exports__["default"] = (Title);
 
