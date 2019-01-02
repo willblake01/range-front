@@ -259,11 +259,14 @@ var theme = {
   red: '#FF0000',
   black: '#000000',
   white: '#FFFFFF',
+  offWhite: '#EDEDED',
+  grey: '#3A3A3A',
+  lightGrey: '#E1E1E1',
   green: '#2E5564',
   brown: '#8E3F30',
   darkOrange: '#C65837',
   lightOrange: '#DF997D',
-  maxWidth: '1000px',
+  maxWidth: '1440px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 };
 var StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
@@ -298,31 +301,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 64
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 65
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 66
         },
         __self: this
       }, this.props.children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 67
         },
         __self: this
       })));

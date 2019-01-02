@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/will-blake/range-front/dev
-# timestamp: Sat Dec 29 2018 17:07:31 GMT-0600 (Central Standard Time)
+# timestamp: Wed Jan 02 2019 12:23:05 GMT-0600 (Central Standard Time)
 
 type AggregateItem {
   count: Int!
