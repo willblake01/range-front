@@ -26,30 +26,41 @@ const NavStyle = styled.ul`
 
 const Nav = () => (
   <>
-    <NavStyle>
     <User>
-      {({data: { me } }) => {
-        console.log(me);
-        if(me) return <p>{me.name}</p>;
-        return null;
-      }}
+      {({data: { me } }) => (
+        <NavStyle>
+          <Link href='/aboutUs'>
+          <a>About</a>
+          </Link>
+          <Link href='/items'>
+            <a>Shop</a>
+          </Link>
+          {me && (
+            <>
+              <Link href='/cart'>
+                <a>Cart</a>
+              </Link>
+              <Link href='/orders'>
+                <a>Orders</a>
+              </Link>
+              <Link href='/me'>
+                <a>Account</a>
+              </Link>
+            </>
+          )}
+          {!me && (
+            <>
+              <Link href='/signup'>
+                <a>Sign In</a>
+              </Link>
+              <Link href='/signup'>
+                <a>Sign Up</a>
+              </Link>
+            </>
+          )}
+        </NavStyle>
+      )}
     </User>
-      <Link href='/aboutUs'>
-        <a>About</a>
-      </Link>
-      <Link href='/items'>
-        <a>Shop</a>
-      </Link>
-      <Link href='/cart'>
-        <a>Cart</a>
-      </Link>
-      <Link href='/signIn'>
-        <a>Sign In</a>
-      </Link>
-      <Link href='/signIn'>
-        <a>Sign Up</a>
-      </Link>
-    </NavStyle>
   </>
 );
 

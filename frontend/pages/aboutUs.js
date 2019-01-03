@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Nav from '../components/Nav';
-
-const NavStyle = styled.div `
-  position: relative;
-  bottom: 110px;
-`;
 
 const AboutUsStyle = styled.div`
   img {
@@ -39,10 +33,6 @@ const AboutUsStyle = styled.div`
 `;
 
 const AboutUs = () => (
-  <>
-    <NavStyle>
-      <Nav />
-    </NavStyle>
     <AboutUsStyle>
       <div class='container'>
         <h1>About RangeFront</h1>
@@ -66,7 +56,6 @@ const AboutUs = () => (
         </Link>
       </div>
     </AboutUsStyle>
-  </>
 );
 
 export default AboutUs;
