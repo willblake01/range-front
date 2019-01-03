@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import User from './User';
 
 const NavStyle = styled.ul`
   width: 100%;
@@ -26,6 +27,13 @@ const NavStyle = styled.ul`
 const Nav = () => (
   <>
     <NavStyle>
+    <User>
+      {({data: { me } }) => {
+        console.log(me);
+        if(me) return <p>{me.name}</p>;
+        return null;
+      }}
+    </User>
       <Link href='/aboutUs'>
         <a>About</a>
       </Link>
