@@ -4,7 +4,6 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Nav from './Nav';
 import Search from './Search';
-import HeaderCopy from './HeaderCopy';
 import LearnMoreButton from './LearnMoreButton';
 
 Router.onRouteChangeStart = () => {
@@ -90,6 +89,12 @@ const StyledHeader = styled.header`
   }
 `;
 
+const CopyStyle = styled.div`
+  line-height: 0px;
+  color: ${props => props.theme.darkOrange};
+  opacity: .9;
+`;
+
 const Header = () => (
   <StyledHeader>
     <div className='bar'>
@@ -99,7 +104,7 @@ const Header = () => (
         </Link>
       </Logo>
       <Nav />
-      <HeaderCopy>
+      <CopyStyle>
         <div className='header-copy'>
           <p id='first-line'>For the love of</p>
           <p id='second-line'>OUTDOOR</p>
@@ -113,7 +118,7 @@ const Header = () => (
             </a>
           </Link>
         </div>
-      </HeaderCopy>
+      </CopyStyle>
     </div>
     <div className='sub-bar'>
       <Search />

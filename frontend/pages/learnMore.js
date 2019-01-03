@@ -1,23 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import AlternateHeader from '../components/AlternateHeader';
 import Nav from '../components/Nav';
 
-const NavStyle = styled.div`
-    position: relative;
-    bottom: 110px;
-`;
-
-const Header = styled.div`
-    background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/mountain-range.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 260px;
-    width: 1440px;
-`;
-
 const LearnMoreStyle = styled.div`
-    /* margin-top: 110px; */
     .container {
         max-width: 1440px;
         padding-right: 200px;
@@ -67,9 +54,9 @@ const LearnMoreStyle = styled.div`
 
 const LearnMore = () => (
     <>
-    <NavStyle>
+    <AlternateHeader>
         <Nav />
-    </NavStyle>
+    </AlternateHeader>
     <LearnMoreStyle>
         <div class='container'>
             <h1>How to Choose Tents for Camping</h1>
