@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import User from './User';
+import SignOut from './SignOut';
 
 const NavStyle = styled.ul`
   width: 100%;
@@ -46,6 +47,7 @@ const Nav = () => (
               <Link href='/me'>
                 <a>Account</a>
               </Link>
+              <SignOut />
             </>
           )}
           {!me && (
