@@ -13,7 +13,8 @@ const NavStyle = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  justify-self: end;
+  align-items: center;
+  /* justify-self: end; */
   font-size: 1.6rem;
   a {
     color: ${props => props.theme.white};
