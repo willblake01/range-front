@@ -3,6 +3,7 @@ import AlternateHeader from '../components/AlternateHeader';
 import Nav from '../components/Nav';
 import SignUp from '../components/SignUp';
 import SignIn from '../components/SignIn';
+import RequestReset from '../components/RequestReset';
 
 const NavStyle = styled.div`
   position: relative;
@@ -26,6 +27,7 @@ const signup = props => (
   <Columns>
     <SignUp />
     <SignIn />
+    <RequestReset />
   </Columns>
   </>
 );
