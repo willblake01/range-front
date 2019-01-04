@@ -11,14 +11,14 @@ const NavStyle = styled.ul`
   background-color: ${props => props.theme.darkOrange};
   opacity: .9;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   display: flex;
   align-items: center;
   /* justify-self: end; */
   font-size: 1.6rem;
   a {
     color: ${props => props.theme.white};
-    margin-right: 10px;
+    margin-right: 5px;
     margin-left: 5px;
   }
   a:hover {
