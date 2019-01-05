@@ -3,8 +3,7 @@ import Items from '../components/Items';
 import AlternateHeader from '../components/AlternateHeader';
 
 const ItemsStyle = styled.div`
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: 20px;
 `;
 
 const ItemsPage = props => (

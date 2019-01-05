@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
     }
       .footer-block {
         position: relative;
-        top: 54px;
+        top: 42px;
         text-align: center;
         color: ${props => props.theme.white};
       }
