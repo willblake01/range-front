@@ -25298,7 +25298,7 @@ var Item = function Item(props) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 8:
 /*!*****************************!*\
   !*** multi ./pages/item.js ***!
   \*****************************/
@@ -25323,5 +25323,5 @@ module.exports = dll_ecf3a5bbb48abe85e1e6;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js"]]]));;
+},[[8,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=item.js.map
