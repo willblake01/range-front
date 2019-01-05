@@ -176,7 +176,7 @@ var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/
 var StyledFooter = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.footer.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-1goco5d-0"
-})(["width:100%;height:140px;background-color:", ";text-align:right;a{padding-right:24px;}.footer-block{position:relative;top:54px;text-align:center;color:", ";}"], function (props) {
+})(["width:100%;height:140px;background-color:", ";text-align:right;a{padding-right:24px;}.footer-block{position:relative;top:42px;text-align:center;color:", ";}"], function (props) {
   return props.theme.green;
 }, function (props) {
   return props.theme.white;
