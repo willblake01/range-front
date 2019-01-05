@@ -5,6 +5,10 @@ import SignIn from './SignIn';
 
 const SignInStyle = styled.div`
   margin-bottom: 10px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 20px;
 `;
 
 const PleaseSignIn = props => (
