@@ -10,9 +10,7 @@ const NavStyle = styled.div`
 `;
 
 const Columns = styled.div`
-  position: relative;
-  top: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
