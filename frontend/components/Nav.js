@@ -53,7 +53,7 @@ const Nav = () => (
           )}
           {!me && (
             <>
-              <Link href='/signup'>
+              <Link href='/signin'>
                 <a>Sign In</a>
               </Link>
               <Link href='/signup'>
