@@ -1,7 +1,18 @@
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
 import Error from './ErrorMessage';
 import Table from './styles/Table';
+
+const StyledButton = styled.button`
+    width: auto;
+    background: red;
+    color: white;
+    border: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+`;
 
 const possiblePermissions = [
   'ADMIN',
@@ -24,31 +35,31 @@ const ALL_USERS_QUERY = gql`
 `;
 
 const Permissions = props => (
-  <Query query={ALL_USERS_QUERY}>
-    {({data, loading, error}) =>
-    console.log(data) || (
-      <div>
-        <Error error={error} />
+    <Query query={ALL_USERS_QUERY}>
+      {({data, loading, error}) =>
+      console.log(data) || (
         <div>
-          <h2>Manage Permissions</h2>
-          <Table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                {possiblePermissions.map(permission =>
-                  <th>{permission}</th>)}
-                  <th>👇🏻</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.users.map(user => <User user={user} />)}
-            </tbody>
-          </Table>
+          <Error error={error} />
+          <div>
+            <h2>Manage Permissions</h2>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  {possiblePermissions.map(permission =>
+                    <th>{permission}</th>)}
+                    <th>👇🏻</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.users.map(user => <User user={user} />)}
+              </tbody>
+            </Table>
+          </div>
         </div>
-      </div>
-    )}
-  </Query>
+      )}
+    </Query>
 );
 
 class User extends React.Component {
@@ -66,7 +77,7 @@ class User extends React.Component {
           </td>
         ))}
         <td>
-          <button>Update!</button>
+          <StyledButton>Update!</StyledButton>
         </td>
       </tr>
     )
