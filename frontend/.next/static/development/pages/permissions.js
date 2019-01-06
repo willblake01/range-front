@@ -303,12 +303,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _styles_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/Table */ "./components/styles/Table.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _styles_Table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Table */ "./components/styles/Table.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/Permissions.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -318,13 +329,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  query ALL_USERS_QUERY {\n    users {\n      id\n      name\n      email\n      permissions\n    }\n  }\n"]);
@@ -342,6 +355,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
+var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "Permissions__StyledButton",
+  componentId: "o5oqs4-0"
+})(["width:auto;background:red;color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;"]);
 var possiblePermissions = ['ADMIN', 'USER', 'ITEMCREATE', 'ITEMUPDATE', 'ITEMDELETE', 'PERMISSIONUPDATE'];
 var ALL_USERS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
@@ -350,7 +369,7 @@ var Permissions = function Permissions(props) {
     query: ALL_USERS_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 39
     },
     __self: this
   }, function (_ref) {
@@ -360,84 +379,86 @@ var Permissions = function Permissions(props) {
     return console.log(data) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 42
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__["default"], {
       error: error,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 43
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 44
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 45
       },
       __self: this
-    }, "Manage Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "Manage Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Table__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 46
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 49
       },
       __self: this
     }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 50
       },
       __self: this
     }, "Email"), possiblePermissions.map(function (permission) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        key: permission,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 52
         },
         __self: this
       }, permission);
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 53
       },
       __self: this
     }, "\uD83D\uDC47\uD83C\uDFFB"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 56
       },
       __self: this
     }, data.users.map(function (user) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(User, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(UserPermissions, {
         user: user,
+        key: user.id,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 57
         },
         __self: this
       });
@@ -445,79 +466,128 @@ var Permissions = function Permissions(props) {
   });
 };
 
-var User =
+var UserPermissions =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(User, _React$Component);
+  _inherits(UserPermissions, _React$Component);
 
-  function User() {
-    _classCallCheck(this, User);
+  function UserPermissions() {
+    var _getPrototypeOf2;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(User).apply(this, arguments));
+    var _this;
+
+    _classCallCheck(this, UserPermissions);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(UserPermissions)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      permissions: _this.props.user.permissions
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlePermissionChange", function (e) {
+      var checkbox = e.target; // Take a copy of the updated permissions
+
+      var updatedPermissions = _toConsumableArray(_this.state.permissions); // Find out if we need to remove or add this
+
+
+      if (checkbox.checked) {
+        // Add it in!
+        updatedPermissions.push(checkbox.value);
+      } else {
+        updatedPermissions = updatedPermissions.filter(function (permission) {
+          return permission !== checkbox.value;
+        });
+      }
+
+      _this.setState({
+        permissions: updatedPermissions
+      });
+    });
+
+    return _this;
   }
 
-  _createClass(User, [{
+  _createClass(UserPermissions, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var user = this.props.user;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 94
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 95
         },
         __self: this
       }, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 96
         },
         __self: this
       }, user.email), possiblePermissions.map(function (permission) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+          key: permission,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 98
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "".concat(user.id, "-permission-").concat(permission),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 99
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "checkbox",
+          checked: _this2.state.permissions.includes(permission),
+          value: permission,
+          onChange: _this2.handlePermissionChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 100
           },
           __self: this
         })));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 109
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledButton, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 110
         },
         __self: this
       }, "Update!")));
     }
   }]);
 
-  return User;
+  return UserPermissions;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+_defineProperty(UserPermissions, "propTypes", {
+  user: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.shape({
+    name: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    email: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    permissions: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array
+  }).isRequired
+});
 
 /* harmony default export */ __webpack_exports__["default"] = (Permissions);
 
@@ -848,8 +918,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./User */ "./components/User.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/SignOut.js";
 
@@ -870,6 +939,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "SignOut__StyledButton",
+  componentId: "d3z9gm-0"
+})(["background-color:", ";"], function (props) {
+  return props.theme.darkOrange;
+});
 var SIGNOUT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
 var SignOut = function SignOut(props) {
@@ -880,21 +955,21 @@ var SignOut = function SignOut(props) {
     }],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 20
     },
     __self: this
   }, function (signout) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledButton, {
       onClick: signout,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 24
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 24
       },
       __self: this
     }, "Sign Out"));
@@ -29852,41 +29927,53 @@ if (hasSymbols()) {
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_AlternateHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AlternateHeader */ "./components/AlternateHeader.js");
-/* harmony import */ var _components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PleaseSignIn */ "./components/PleaseSignIn.js");
-/* harmony import */ var _components_Permissions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Permissions */ "./components/Permissions.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _components_AlternateHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AlternateHeader */ "./components/AlternateHeader.js");
+/* harmony import */ var _components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PleaseSignIn */ "./components/PleaseSignIn.js");
+/* harmony import */ var _components_Permissions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Permissions */ "./components/Permissions.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/pages/permissions.js";
 
 
 
 
 
+var PermissionsStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "permissions__PermissionsStyle",
+  componentId: "sc-33ocdt-0"
+})(["padding:20px;min-height:320px;"]);
+
 var PermissionsPage = function PermissionsPage(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 12
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AlternateHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AlternateHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 13
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 14
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Permissions__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PermissionsStyle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 15
     },
     __self: this
-  })));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Permissions__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PermissionsPage);
