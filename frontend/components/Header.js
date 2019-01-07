@@ -90,6 +90,11 @@ const StyledHeader = styled.header`
   }
 `;
 
+const NavStyle = styled.div`
+  position: relative;
+  top: 110px;
+`;
+
 const CopyStyle = styled.div`
   line-height: 0px;
   color: ${props => props.theme.darkOrange};
@@ -104,7 +109,9 @@ const Header = () => (
           <a>Range Front</a>
         </Link>
       </Logo>
-      <Nav />
+      <NavStyle>
+        <Nav />
+      </NavStyle>
       <CopyStyle>
         <div className='header-copy'>
           <p id='first-line'>For the love of</p>
