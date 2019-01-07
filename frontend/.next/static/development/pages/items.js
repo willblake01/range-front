@@ -36,7 +36,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation AddToCart($id: ID!) {\n    AddToCart(id: $id) {\n      id\n      quantity\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation addToCart($id: ID!) {\n    addToCart(id: $id) {\n      id\n      quantity\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -77,9 +77,9 @@ function (_React$Component) {
           lineNumber: 18
         },
         __self: this
-      }, function (AddToCart) {
+      }, function (addToCart) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: AddToCart,
+          onClick: addToCart,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 25
@@ -30120,7 +30120,7 @@ var ItemsPage = function ItemsPage(props) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/items.js ***!
   \******************************/
@@ -30145,5 +30145,5 @@ module.exports = dll_ecf3a5bbb48abe85e1e6;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=items.js.map
