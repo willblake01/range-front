@@ -35,6 +35,9 @@ const AboutUsStyle = styled.div`
 const AboutUs = () => (
     <AboutUsStyle>
       <div class='container'>
+        <Link>
+          <a href='/'>BACK</a>
+        </Link>
         <h1>About RangeFront</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg' alt='about us' />
         <p>At RangeFront, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand

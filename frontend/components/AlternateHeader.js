@@ -11,7 +11,7 @@ const HeaderStyle = styled.div`
 
 const NavStyle = styled.div`
   position: relative;
-  top: 96px;
+  top: 206px;
 `;
 
 const AlternateHeader = () => (

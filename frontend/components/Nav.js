@@ -8,8 +8,6 @@ import SignOut from './SignOut';
 const NavStyle = styled.ul`
   width: 100%;
   height: 55px;
-  position: relative;
-  top: 110px;
   background-color: ${props => props.theme.darkOrange};
   opacity: .9;
   margin: 0;
