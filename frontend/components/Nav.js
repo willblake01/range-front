@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { Mutation } from 'react-apollo';
+import { TOGGLE_CART_MUTATION } from './Cart';
 import User from './User';
 import SignOut from './SignOut';
 
@@ -26,6 +28,10 @@ const NavStyle = styled.ul`
   }
 `;
 
+const StyledButton = styled.button `
+  background-color: ${props => props.theme.darkOrange};
+`;
+
 const Nav = () => (
   <>
     <User>
@@ -39,9 +45,6 @@ const Nav = () => (
           </Link>
           {me && (
             <>
-              <Link href='/cart'>
-                <a>Cart</a>
-              </Link>
               <Link href='/orders'>
                 <a>Orders</a>
               </Link>
@@ -49,6 +52,11 @@ const Nav = () => (
                 <a>Account</a>
               </Link>
               <SignOut />
+              <Mutation mutation={TOGGLE_CART_MUTATION}>
+                {(toggleCart) => (
+                  <StyledButton onClick={toggleCart}><a>My Cart</a></StyledButton>
+                )}
+              </Mutation>
             </>
           )}
           {!me && (
