@@ -30,13 +30,16 @@ const AboutUsStyle = styled.div`
     padding-bottom: 60px;
     padding-left: 200px;
 }
+a:hover {
+  color: blue;
+}
 `;
 
 const AboutUs = () => (
     <AboutUsStyle>
       <div class='container'>
         <Link>
-          <a href='/'>BACK</a>
+          <a href='/'>HOME</a>
         </Link>
         <h1>About RangeFront</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg' alt='about us' />
