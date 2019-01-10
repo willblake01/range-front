@@ -86,7 +86,7 @@ const StyledHeader = styled.header`
   .sub-bar {
     display: grid;
     grid-template-columns: 1fr auto;
-    border-bottom: 4px solid ${props => props.theme.green};
+    border: 4px solid ${props => props.theme.green};
   }
 `;
 
