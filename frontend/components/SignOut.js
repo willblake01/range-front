@@ -6,6 +6,8 @@ import { CURRENT_USER_QUERY } from './User';
 
 const StyledButton = styled.button`
   background-color: ${props => props.theme.darkOrange};
+  border: none;
+  width: 88px;
 `;
 
 const SIGNOUT_MUTATION = gql`

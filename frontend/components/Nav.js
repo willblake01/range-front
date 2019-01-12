@@ -29,6 +29,8 @@ const NavStyle = styled.ul`
 
 const StyledButton = styled.button `
   background-color: ${props => props.theme.darkOrange};
+  border: none;
+  width: 82px;
 `;
 
 const Nav = () => (
