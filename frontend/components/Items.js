@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Item from './Item';
 import Cart from './Cart';
+import Search from './Search';
 
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
@@ -30,10 +31,18 @@ const ItemsList = styled.div`
   margin: 0 auto;
 `;
 
+const SearchStyle = styled.div`
+  border: 4px solid ${props => props.theme.green};
+  margin-bottom: 20px;
+`;
+
 class Items extends React.Component {
   render() {
     return (
       <>
+        <SearchStyle>
+          <Search />
+        </SearchStyle>
         <Center>
           <Query query={ALL_ITEMS_QUERY}>
             {({data, error, loading}) => {
