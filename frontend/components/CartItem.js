@@ -21,6 +21,8 @@ const CartItemStyle = styled.li`
 `;
 
 const CartItem = ({ cartItem }) => {
+  // First check if that item exists
+  if(!cartItem.item) return null;
   return (
     <CartItemStyle>
       <img src={cartItem.item.image} alt={cartItem.item.title} />
