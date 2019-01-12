@@ -15,7 +15,23 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/sleepingBags": [
+    "/items": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/aboutUs": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/item": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/admin": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/learnMore": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

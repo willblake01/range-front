@@ -15,11 +15,13 @@ const NavStyle = styled.div`
 `;
 
 const AlternateHeader = () => (
-  <HeaderStyle>
-    <NavStyle>
-      <Nav />
-    </NavStyle>
-  </HeaderStyle>
+  <>
+    <HeaderStyle>
+      <NavStyle>
+        <Nav />
+      </NavStyle>
+    </HeaderStyle>
+  </>
 );
 
 export default AlternateHeader;
