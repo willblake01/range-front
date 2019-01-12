@@ -1,6 +1,7 @@
 import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import { adopt } from 'react-adopt';
 import User from './User';
 import CartStyle from './styles/CartStyle';
 import Supreme from './styles/Supreme';
@@ -22,11 +23,18 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `;
 
+const Composed = adopt({
+  user: ({ render }) => <User>{render}</User>,
+  toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
+  localState: ({render}) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
+});
+
 const Cart = () => (
-  <User>{({data: { me }}) => {
-    if(!me) return null;
-    return (
-  <Mutation mutation={TOGGLE_CART_MUTATION}>{(toggleCart) => (
+  <Composed>
+    {({user, toggleCart, localState}) => {
+      const me = user.data.me;
+      if(!me) return null;
+      return (
     <Query query={LOCAL_STATE_QUERY}>{({ data }) => (
       <CartStyle open={data.cartOpen}>
         <header>
@@ -48,9 +56,8 @@ const Cart = () => (
         </footer>
       </CartStyle>
     )}</Query>
-  )}</Mutation>
     )
-  }}</User>
+  }}</Composed>
 );
 
 export default Cart;
