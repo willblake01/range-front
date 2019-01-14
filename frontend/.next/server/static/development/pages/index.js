@@ -550,8 +550,10 @@ __webpack_require__.r(__webpack_exports__);
 var ClearanceButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "ClearanceButton",
   componentId: "sc-11d6yy2-0"
-})(["background-color:", ";width:180px;height:42px;font-family:Raleway-Regular;font-size:16px;:hover{color:blue;zoom:105%;}"], function (props) {
+})(["background-color:", ";color:", ";width:180px;height:42px;font-family:Raleway-Regular;font-size:16px;:hover{color:blue;zoom:105%;}"], function (props) {
   return props.theme.brown;
+}, function (props) {
+  return props.theme.white;
 });
 /* harmony default export */ __webpack_exports__["default"] = (ClearanceButton);
 
@@ -867,8 +869,10 @@ __webpack_require__.r(__webpack_exports__);
 var LearnMoreButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "LearnMoreButton",
   componentId: "sc-574g5m-0"
-})(["background-color:", ";width:180px;height:42px;font-family:Raleway-Regular;font-size:16px;:hover{color:blue;zoom:105%;}"], function (props) {
+})(["background-color:", ";color:", ";width:180px;height:42px;font-family:Raleway-Regular;font-size:16px;:hover{color:blue;zoom:105%;}"], function (props) {
   return props.theme.green;
+}, function (props) {
+  return props.theme.white;
 });
 /* harmony default export */ __webpack_exports__["default"] = (LearnMoreButton);
 
@@ -1873,6 +1877,17 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation createOrder($token: String!) {\n    createOrder(token: $token) {\n      id\n      charge\n      total\n      items {\n        id\n        title\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -1883,6 +1898,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+var CREATE_ORDER_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_6___default()(_templateObject());
 
 function totalItems(cart) {
   return cart.reduce(function (tally, cartItem) {
@@ -1910,9 +1927,17 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TakeMyMoney)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToken", function (res) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToken", function (res, createOrder) {
       console.log('onToken called');
-      console.log(res);
+      console.log(res); // Manually call the mutation once we have the Stripe token
+
+      createOrder({
+        variables: {
+          token: res.id
+        }
+      }).catch(function (err) {
+        alert(err.message);
+      });
     });
 
     return _this;
@@ -1926,28 +1951,40 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 45
         },
         __self: this
       }, function (_ref) {
         var me = _ref.data.me;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          amount: Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_7__["default"])(me.cart),
-          name: "Range Front",
-          description: "Order of ".concat(totalItems(me.cart), " items!"),
-          image: me.cart[0].item && me.cart[0].item.image,
-          stripeKey: "pk_test_TWkMSIUvATWhLhvIxi8UMBwB",
-          currency: "USD",
-          email: me.email,
-          token: function token(res) {
-            return _this2.onToken(res, createOrder);
-          },
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+          mutation: CREATE_ORDER_MUTATION,
+          refetchQueries: [{
+            query: _User__WEBPACK_IMPORTED_MODULE_9__["CURRENT_USER_QUERY"]
+          }],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 47
           },
           __self: this
-        }, _this2.props.children);
+        }, function (createOrder) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_stripe_checkout__WEBPACK_IMPORTED_MODULE_1___default.a, {
+            amount: Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_7__["default"])(me.cart),
+            name: "Range Front",
+            description: "Order of ".concat(totalItems(me.cart), " items!"),
+            image: me.cart[0].item && me.cart[0].item.image,
+            stripeKey: "pk_test_TWkMSIUvATWhLhvIxi8UMBwB",
+            currency: "USD",
+            email: me.email,
+            token: function token(res) {
+              return _this2.onToken(res, createOrder);
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 52
+            },
+            __self: this
+          }, _this2.props.children);
+        });
       });
     }
   }]);
