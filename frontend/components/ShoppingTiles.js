@@ -45,7 +45,6 @@ const TileStyle = styled.div`
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 16px;
-      color: ${props => props.theme.white};
   }
 `;
 

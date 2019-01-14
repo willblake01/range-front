@@ -43,17 +43,10 @@ injectGlobal `
     font-size: 1.5rem;
     line-height: 2;
   }
-  button {
-    width: 180px;
-    height: 42px;
-    font-family: Raleway-Regular;
-    font-size: 16px;
-    color: ${theme.white};
-}
   a {
     font-family: Raleway-Regular;
     text-decoration: none;
-    color: ${theme.black}
+    color: ${theme.white}
   }
 `;
 
