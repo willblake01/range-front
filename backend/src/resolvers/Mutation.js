@@ -306,8 +306,8 @@ const Mutations = {
         charge: charge.id,
         items: { create: orderItems },
         user: { connect: { id: userId } },
-      }
-    })
+      },
+    });
     // 6. Clean up - clear the user's cart, delete cartItems
     const cartItemIds = user.cart.map(cartItem => cartItem.id);
     await ctx.db.mutation.deleteManyCartItems({

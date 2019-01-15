@@ -46,7 +46,7 @@ injectGlobal `
   a {
     font-family: Raleway-Regular;
     text-decoration: none;
-    color: ${theme.white}
+    color: ${theme.grey};
   }
 `;
 

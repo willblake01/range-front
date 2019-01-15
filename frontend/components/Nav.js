@@ -20,6 +20,7 @@ const NavStyle = styled.ul`
   a {
     margin-right: 5px;
     margin-left: 5px;
+    color: ${props => props.theme.white};
   }
   a:hover {
     color: blue;
