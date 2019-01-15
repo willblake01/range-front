@@ -1,9 +1,18 @@
+import styled from 'styled-components';
 import PleaseSignIn from '../components/PleaseSignIn';
 import Order from '../components/Order';
+import Nav from '../components/Nav';
+
+const OrderStyle = styled.div`
+  padding: 20px;
+`;
 
 const OrderPage = props => (
   <PleaseSignIn>
-    <Order id={props.query.id} />
+    <Nav />
+    <OrderStyle>
+      <Order id={props.query.id} />
+    </OrderStyle>
   </PleaseSignIn>
 );
 

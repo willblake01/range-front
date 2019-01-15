@@ -10,9 +10,12 @@ const Query = {
     if(!ctx.request.userId) {
       return null;
     }
-    return ctx.db.query.user({
-      where: { id: ctx.request.userId }
-    }, info);
+    return ctx.db.query.user(
+      {
+        where: { id: ctx.request.userId }
+      },
+      info
+    );
   },
   async users(parent, args, ctx, info) {
     // 1. Check if they're logged in
@@ -30,7 +33,7 @@ const Query = {
       throw new Error('You must be logged in!');
     }
     // 2. Query the current order
-    const order = ctx.db.query.order(
+    const order = await ctx.db.query.order(
       {
         where: { id: args.id },
       },
