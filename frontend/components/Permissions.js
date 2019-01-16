@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Error from './ErrorMessage';
 import Table from './styles/Table';
+import Cart from './Cart';
 
 const StyledButton = styled.button`
     width: auto;
@@ -102,42 +103,45 @@ class UserPermissions extends React.Component {
   render() {
     const user = this.props.user;
     return (
-      <Mutation mutation={UPDATE_PERMISSIONS_MUTATIONS} variables={{
-        permissions: this.state.permissions,
-        userId: this.props.user.id
-      }}>
-        {(updatePermissions, { loading, error }) => (
-          <>
-          {error && <tr><td colspan='8'><Error error={error} /></td></tr>}
-          <tr>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            {possiblePermissions.map(permission => (
-              <td key={permission}>
-                <label htmlFor={`${user.id}-permission-${permission}`}>
-                  <input
-                    id={`${user.id}-permission-${permission}`}
-                    type='checkbox'
-                    checked={this.state.permissions.includes(permission)}
-                    value={permission}
-                    onChange={this.handlePermissionChange}
-                  />
-                </label>
+      <>
+        <Mutation mutation={UPDATE_PERMISSIONS_MUTATIONS} variables={{
+          permissions: this.state.permissions,
+          userId: this.props.user.id
+        }}>
+          {(updatePermissions, { loading, error }) => (
+            <>
+            {error && <tr><td colspan='8'><Error error={error} /></td></tr>}
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              {possiblePermissions.map(permission => (
+                <td key={permission}>
+                  <label htmlFor={`${user.id}-permission-${permission}`}>
+                    <input
+                      id={`${user.id}-permission-${permission}`}
+                      type='checkbox'
+                      checked={this.state.permissions.includes(permission)}
+                      value={permission}
+                      onChange={this.handlePermissionChange}
+                    />
+                  </label>
+                </td>
+              ))}
+              <td>
+                <StyledButton
+                  type='button'
+                  disabled={loading}
+                  onClick={updatePermissions}
+                >
+                  Updat{loading ? 'ing' : 'e'}
+                </StyledButton>
               </td>
-            ))}
-            <td>
-              <StyledButton
-                type='button'
-                disabled={loading}
-                onClick={updatePermissions}
-              >
-                Updat{loading ? 'ing' : 'e'}
-              </StyledButton>
-            </td>
-          </tr>
-          </>
-        )}
-      </Mutation>
+            </tr>
+            </>
+          )}
+        </Mutation>
+        <Cart />
+      </>
     )
   }
 }

@@ -3,6 +3,10 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const TileStyle = styled.div`
+  a {
+    color: ${props => props.theme.white};
+  }
+
   .shopping-tiles {
     display: flex;
     flex-wrap: wrap;

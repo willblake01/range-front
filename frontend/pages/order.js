@@ -1,19 +1,17 @@
-import styled from 'styled-components';
 import PleaseSignIn from '../components/PleaseSignIn';
+import AlternateHeader from '../components/AlternateHeader';
+import ComponentPadding from '../components/styles/ComponentPadding';
 import Order from '../components/Order';
-import Nav from '../components/Nav';
-
-const OrderStyle = styled.div`
-  padding: 20px;
-`;
 
 const OrderPage = props => (
-  <PleaseSignIn>
-    <Nav />
-    <OrderStyle>
-      <Order id={props.query.id} />
-    </OrderStyle>
-  </PleaseSignIn>
+  <>
+    <PleaseSignIn>
+      <AlternateHeader />
+      <ComponentPadding>
+        <Order id={props.query.id} />
+      </ComponentPadding>
+    </PleaseSignIn>
+  </>
 );
 
 export default OrderPage;

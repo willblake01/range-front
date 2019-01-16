@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Nav from './Nav';
+import Cart from './Cart';
 
 const HeaderStyle = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/mountain-range.jpg');
@@ -21,6 +22,7 @@ const AlternateHeader = () => (
         <Nav />
       </NavStyle>
     </HeaderStyle>
+    <Cart />
   </>
 );
 

@@ -4,7 +4,6 @@ import { formatDistance } from 'date-fns';
 import Link from 'next/link';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
-import Nav from './Nav';
 import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
 import OrderItemStyle from './styles/OrderItemStyle';
@@ -42,7 +41,6 @@ class OrderList extends React.Component {
   render() {
     return (
       <>
-        <Nav />
         <Query query={USER_ORDERS_QUERY}>
           {({ data: { orders }, loading, error}) => {
             if(loading) return <p>Loading...</p>;

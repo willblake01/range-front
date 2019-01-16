@@ -7,7 +7,6 @@ import gql from 'graphql-tag';
 import formatMoney from '../lib/formatMoney';
 import Error from './ErrorMessage';
 import OrderStyle from './styles/OrderStyle';
-import Cart from './Cart';
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -38,7 +37,6 @@ class Order extends React.Component {
 
   render() {
     return (
-      <>
         <Query
           query={SINGLE_ORDER_QUERY}
           variables={{ id: this.props.id }}
@@ -80,7 +78,7 @@ class Order extends React.Component {
                         <h2>{item.title}</h2>
                         <p>Qty: {item.quantity}</p>
                         <p>Price: {formatMoney(item.price)}</p>
-                        <p>Subtotal: {item.quantity * item.price}</p>
+                        <p>Subtotal: {formatMoney(item.quantity * item.price)}</p>
                         <p>{item.description}</p>
                       </div>
                     </div>
@@ -90,8 +88,6 @@ class Order extends React.Component {
             );
           }}
         </Query>
-        <Cart />
-      </>
     );
   }
 }
