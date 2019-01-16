@@ -1,8 +1,14 @@
+
+import AlternateHeader from '../components/AlternateHeader';
+import ComponentPadding from '../components/styles/ComponentPadding';
 import UpdateItem from '../components/UpdateItem';
 
 const UpdateItemPage = props => (
   <div>
-    <UpdateItem id={props.query.id} />
+    <AlternateHeader />
+    <ComponentPadding>
+      <UpdateItem id={props.query.id} />
+    </ComponentPadding>
   </div>
 );
 

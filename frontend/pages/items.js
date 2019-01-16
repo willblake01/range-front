@@ -1,17 +1,13 @@
-import styled from 'styled-components';
-import Items from '../components/Items';
+import ComponentPadding from '../components/styles/ComponentPadding';
 import AlternateHeader from '../components/AlternateHeader';
-
-const ItemsStyle = styled.div`
-  padding: 20px;
-`;
+import Items from '../components/Items';
 
 const ItemsPage = props => (
   <div>
     <AlternateHeader />
-    <ItemsStyle>
+    <ComponentPadding>
       <Items page={parseFloat(props.query.page) || 1} />
-    </ItemsStyle>
+    </ComponentPadding>
   </div>
 );
 
