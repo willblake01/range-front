@@ -40,9 +40,9 @@ const StyledHeader = styled.header`
   .bar {
     width: 100%;
     height: 480px;
-    border-bottom: 4px solid ${props => props.theme.green};
     display: grid;
     grid-template-columns: auto 1fr;
+    grid-template-rows: 120px;
     justify-content: space-between;
     align-items: stretch;
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');
@@ -90,15 +90,14 @@ const StyledHeader = styled.header`
   }
 `;
 
-const NavStyle = styled.div`
-  position: relative;
-  top: 110px;
-`;
-
 const CopyStyle = styled.div`
   line-height: 0px;
   color: ${props => props.theme.darkOrange};
   opacity: .9;
+`;
+
+const NavStyle = styled.div`
+  grid-column: 1/-1;
 `;
 
 const Header = () => (
