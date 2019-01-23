@@ -62,6 +62,16 @@ const Query = {
     info
     );
   },
+  async tents(parent, args, ctx, info) {
+    const tents = ctx.db.query.items(
+      {
+        where: {
+          item: { category: tents },
+        },
+      },
+    info
+    );
+  },
 };
 
 module.exports = Query;

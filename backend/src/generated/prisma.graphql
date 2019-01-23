@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/will-blake/range-front/dev
-# timestamp: Wed Jan 16 2019 15:47:48 GMT-0600 (Central Standard Time)
+# timestamp: Thu Jan 17 2019 16:07:02 GMT-0600 (Central Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -326,8 +326,10 @@ scalar DateTime
 
 type Item implements Node {
   id: ID!
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
@@ -347,8 +349,10 @@ type ItemConnection {
 }
 
 input ItemCreateInput {
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
@@ -373,10 +377,14 @@ type ItemEdge {
 enum ItemOrderByInput {
   id_ASC
   id_DESC
+  brand_ASC
+  brand_DESC
   title_ASC
   title_DESC
   description_ASC
   description_DESC
+  category_ASC
+  category_DESC
   image_ASC
   image_DESC
   largeImage_ASC
@@ -393,8 +401,10 @@ enum ItemOrderByInput {
 
 type ItemPreviousValues {
   id: ID!
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
@@ -442,8 +452,10 @@ input ItemSubscriptionWhereInput {
 }
 
 input ItemUpdateDataInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
@@ -452,8 +464,10 @@ input ItemUpdateDataInput {
 }
 
 input ItemUpdateInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
@@ -462,8 +476,10 @@ input ItemUpdateInput {
 }
 
 input ItemUpdateManyMutationInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
@@ -533,6 +549,46 @@ input ItemWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  brand: String
+
+  """All values that are not equal to given value."""
+  brand_not: String
+
+  """All values that are contained in given list."""
+  brand_in: [String!]
+
+  """All values that are not contained in given list."""
+  brand_not_in: [String!]
+
+  """All values less than the given value."""
+  brand_lt: String
+
+  """All values less than or equal the given value."""
+  brand_lte: String
+
+  """All values greater than the given value."""
+  brand_gt: String
+
+  """All values greater than or equal the given value."""
+  brand_gte: String
+
+  """All values containing the given string."""
+  brand_contains: String
+
+  """All values not containing the given string."""
+  brand_not_contains: String
+
+  """All values starting with the given string."""
+  brand_starts_with: String
+
+  """All values not starting with the given string."""
+  brand_not_starts_with: String
+
+  """All values ending with the given string."""
+  brand_ends_with: String
+
+  """All values not ending with the given string."""
+  brand_not_ends_with: String
   title: String
 
   """All values that are not equal to given value."""
@@ -613,6 +669,46 @@ input ItemWhereInput {
 
   """All values not ending with the given string."""
   description_not_ends_with: String
+  category: String
+
+  """All values that are not equal to given value."""
+  category_not: String
+
+  """All values that are contained in given list."""
+  category_in: [String!]
+
+  """All values that are not contained in given list."""
+  category_not_in: [String!]
+
+  """All values less than the given value."""
+  category_lt: String
+
+  """All values less than or equal the given value."""
+  category_lte: String
+
+  """All values greater than the given value."""
+  category_gt: String
+
+  """All values greater than or equal the given value."""
+  category_gte: String
+
+  """All values containing the given string."""
+  category_contains: String
+
+  """All values not containing the given string."""
+  category_not_contains: String
+
+  """All values starting with the given string."""
+  category_starts_with: String
+
+  """All values not starting with the given string."""
+  category_not_starts_with: String
+
+  """All values ending with the given string."""
+  category_ends_with: String
+
+  """All values not ending with the given string."""
+  category_not_ends_with: String
   image: String
 
   """All values that are not equal to given value."""
