@@ -20,8 +20,10 @@ type User {
 
 type Item {
   id: ID! @unique
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!

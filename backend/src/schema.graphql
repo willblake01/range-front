@@ -20,13 +20,16 @@ type Mutation {
 }
 
 type Query {
-  items: [Item]!
+  items(where: ItemWhereInput): [Item]!
   item(where: ItemWhereUniqueInput!): Item
   itemsConnection(where: ItemWhereInput): ItemConnection!
   me: User
   users: [User]!
   order(id: ID!): Order
   orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
+  tents: [Item]!
+  sleepingBags: [Item]!
+  backpacks: [Item]!
 }
 
 type User {
