@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/will-blake/range-front/dev
-# timestamp: Thu Jan 17 2019 16:07:02 GMT-0600 (Central Standard Time)
+# source: https://range-front-bcf7aa669b.herokuapp.com/range-front-prod/prod
+# timestamp: Tue Jan 29 2019 10:37:40 GMT-0600 (Central Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -213,7 +213,6 @@ input CartItemUpdateManyMutationInput {
 input CartItemUpdateManyWithoutUserInput {
   create: [CartItemCreateWithoutUserInput!]
   connect: [CartItemWhereUniqueInput!]
-  set: [CartItemWhereUniqueInput!]
   disconnect: [CartItemWhereUniqueInput!]
   delete: [CartItemWhereUniqueInput!]
   update: [CartItemUpdateWithWhereUniqueWithoutUserInput!]
@@ -1351,7 +1350,6 @@ input OrderItemUpdateManyDataInput {
 input OrderItemUpdateManyInput {
   create: [OrderItemCreateInput!]
   connect: [OrderItemWhereUniqueInput!]
-  set: [OrderItemWhereUniqueInput!]
   disconnect: [OrderItemWhereUniqueInput!]
   delete: [OrderItemWhereUniqueInput!]
   update: [OrderItemUpdateWithWhereUniqueNestedInput!]
