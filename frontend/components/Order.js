@@ -46,7 +46,7 @@ class Order extends React.Component {
             if(loading) return <p>Loading...</p>;
             const order = data.order;
             return (
-              <OrderStyle>
+              <OrderStyle data-test='order'>
               <Head>
                 <title>Range Front - Order {order.id}</title>
               </Head>
@@ -93,3 +93,4 @@ class Order extends React.Component {
 }
 
 export default Order;
+export { SINGLE_ORDER_QUERY };

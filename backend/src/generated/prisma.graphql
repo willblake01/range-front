@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/will-blake/range-front/dev
-# timestamp: Mon Jan 14 2019 14:21:09 GMT-0600 (Central Standard Time)
+# source: https://range-front-bcf7aa669b.herokuapp.com/range-front-prod/prod
+# timestamp: Tue Jan 29 2019 10:37:40 GMT-0600 (Central Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -213,7 +213,6 @@ input CartItemUpdateManyMutationInput {
 input CartItemUpdateManyWithoutUserInput {
   create: [CartItemCreateWithoutUserInput!]
   connect: [CartItemWhereUniqueInput!]
-  set: [CartItemWhereUniqueInput!]
   disconnect: [CartItemWhereUniqueInput!]
   delete: [CartItemWhereUniqueInput!]
   update: [CartItemUpdateWithWhereUniqueWithoutUserInput!]
@@ -326,11 +325,15 @@ scalar DateTime
 
 type Item implements Node {
   id: ID!
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
+  createAt: DateTime!
+  updatedAt: DateTime!
   user: User!
 }
 
@@ -345,11 +348,14 @@ type ItemConnection {
 }
 
 input ItemCreateInput {
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
+  createAt: DateTime!
   user: UserCreateOneInput!
 }
 
@@ -370,16 +376,22 @@ type ItemEdge {
 enum ItemOrderByInput {
   id_ASC
   id_DESC
+  brand_ASC
+  brand_DESC
   title_ASC
   title_DESC
   description_ASC
   description_DESC
+  category_ASC
+  category_DESC
   image_ASC
   image_DESC
   largeImage_ASC
   largeImage_DESC
   price_ASC
   price_DESC
+  createAt_ASC
+  createAt_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -388,11 +400,15 @@ enum ItemOrderByInput {
 
 type ItemPreviousValues {
   id: ID!
+  brand: String
   title: String!
   description: String!
+  category: String
   image: String
   largeImage: String
   price: Int!
+  createAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type ItemSubscriptionPayload {
@@ -435,29 +451,38 @@ input ItemSubscriptionWhereInput {
 }
 
 input ItemUpdateDataInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
+  createAt: DateTime
   user: UserUpdateOneRequiredInput
 }
 
 input ItemUpdateInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
+  createAt: DateTime
   user: UserUpdateOneRequiredInput
 }
 
 input ItemUpdateManyMutationInput {
+  brand: String
   title: String
   description: String
+  category: String
   image: String
   largeImage: String
   price: Int
+  createAt: DateTime
 }
 
 input ItemUpdateOneInput {
@@ -523,6 +548,46 @@ input ItemWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  brand: String
+
+  """All values that are not equal to given value."""
+  brand_not: String
+
+  """All values that are contained in given list."""
+  brand_in: [String!]
+
+  """All values that are not contained in given list."""
+  brand_not_in: [String!]
+
+  """All values less than the given value."""
+  brand_lt: String
+
+  """All values less than or equal the given value."""
+  brand_lte: String
+
+  """All values greater than the given value."""
+  brand_gt: String
+
+  """All values greater than or equal the given value."""
+  brand_gte: String
+
+  """All values containing the given string."""
+  brand_contains: String
+
+  """All values not containing the given string."""
+  brand_not_contains: String
+
+  """All values starting with the given string."""
+  brand_starts_with: String
+
+  """All values not starting with the given string."""
+  brand_not_starts_with: String
+
+  """All values ending with the given string."""
+  brand_ends_with: String
+
+  """All values not ending with the given string."""
+  brand_not_ends_with: String
   title: String
 
   """All values that are not equal to given value."""
@@ -603,6 +668,46 @@ input ItemWhereInput {
 
   """All values not ending with the given string."""
   description_not_ends_with: String
+  category: String
+
+  """All values that are not equal to given value."""
+  category_not: String
+
+  """All values that are contained in given list."""
+  category_in: [String!]
+
+  """All values that are not contained in given list."""
+  category_not_in: [String!]
+
+  """All values less than the given value."""
+  category_lt: String
+
+  """All values less than or equal the given value."""
+  category_lte: String
+
+  """All values greater than the given value."""
+  category_gt: String
+
+  """All values greater than or equal the given value."""
+  category_gte: String
+
+  """All values containing the given string."""
+  category_contains: String
+
+  """All values not containing the given string."""
+  category_not_contains: String
+
+  """All values starting with the given string."""
+  category_starts_with: String
+
+  """All values not starting with the given string."""
+  category_not_starts_with: String
+
+  """All values ending with the given string."""
+  category_ends_with: String
+
+  """All values not ending with the given string."""
+  category_not_ends_with: String
   image: String
 
   """All values that are not equal to given value."""
@@ -705,6 +810,50 @@ input ItemWhereInput {
 
   """All values greater than or equal the given value."""
   price_gte: Int
+  createAt: DateTime
+
+  """All values that are not equal to given value."""
+  createAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
   user: UserWhereInput
 }
 
@@ -1201,7 +1350,6 @@ input OrderItemUpdateManyDataInput {
 input OrderItemUpdateManyInput {
   create: [OrderItemCreateInput!]
   connect: [OrderItemWhereUniqueInput!]
-  set: [OrderItemWhereUniqueInput!]
   disconnect: [OrderItemWhereUniqueInput!]
   delete: [OrderItemWhereUniqueInput!]
   update: [OrderItemUpdateWithWhereUniqueNestedInput!]

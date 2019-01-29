@@ -55,7 +55,7 @@ const LearnMore = () => (
     <>
         <AlternateHeader />
         <LearnMoreStyle>
-            <div class='container'>
+            <div className='container'>
                 <h1>How to Choose Tents for Camping</h1>
                 <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
                 <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
@@ -172,11 +172,11 @@ const LearnMore = () => (
                 <h1>How to Choose a Backpack</h1>
                 <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_backpack.jpg' alt='backpacks' />
                 <p>Planning to buy a new pack for the backcountry? There are three main areas where you'll need to make choices:</p>
-                <p class='boldPara'>Backpack capacity: </p>
+                <p className='boldPara'>Backpack capacity: </p>
                 <p>The size pack you'll need is tied to the length of your trip and how much weight and bulk you want to carry.</p>
-                <p class='boldPara'>Backpack features: </p>
+                <p className='boldPara'>Backpack features: </p>
                 <p>These are the refinements that affect how the pack works for you.</p>
-                <p class='boldPara'>Backpack fit: </p>
+                <p className='boldPara'>Backpack fit: </p>
                 <p>Torso length, not your height, matters most.</p>
 
                 <h2>Types of Backpacks</h2>

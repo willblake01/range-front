@@ -31,7 +31,6 @@ server.express.use(async (req, res, next) => {
     next();
 });
 
-// Start it!
 server.start(
   {
     cors: {

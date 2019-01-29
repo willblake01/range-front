@@ -38,7 +38,7 @@ const Nav = () => (
   <>
     <User>
       {({data: { me } }) => (
-        <NavStyle>
+        <NavStyle data-test='nav'>
           <Link href='/aboutUs'>
           <a>About</a>
           </Link>
