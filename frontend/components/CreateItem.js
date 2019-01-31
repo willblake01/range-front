@@ -27,6 +27,8 @@ const CREATE_ITEM_MUTATION = gql`
 
 class CreateItem extends Component {
   state = {
+    brand: '',
+    category: '',
     title: '',
     description: '',
     image: '',
@@ -87,6 +89,30 @@ class CreateItem extends Component {
                   onChange={this.uploadFile}
                   />
                   {this.state.image && (<img src={this.state.image} alt='Upload Preview' width='200'/>)}
+              </label>
+
+              <label htmlFor='title'>
+                Brand (optional)
+                <input
+                  type='text'
+                  id='brand'
+                  name='brand'
+                  placeholder='Brand'
+                  requiredvalue={this.state.brand}
+                  onChange={this.handleChange}
+                  />
+              </label>
+
+              <label htmlFor='title'>
+                Category (optional)
+                <input
+                  type='text'
+                  id='category'
+                  name='category'
+                  placeholder='Category'
+                  requiredvalue={this.state.category}
+                  onChange={this.handleChange}
+                  />
               </label>
 
               <label htmlFor='title'>

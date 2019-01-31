@@ -8,6 +8,8 @@ const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     item(where: { id: $id }) {
       id
+      brand
+      category
       title
       description
       price
@@ -18,17 +20,23 @@ const SINGLE_ITEM_QUERY = gql`
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
       $id: ID!
+      $brand: String
+      $category: String
       $title: String
       $description: String
       $price: Int
   ) {
     updateItem(
       id: $id
+      brand: $brand
+      category: $category
       title: $title
       description: $description
       price: $price
     ) {
       id
+      brand
+      category
       title
       description
       price
@@ -76,6 +84,32 @@ class UpdateItem extends Component {
         <Form onSubmit={e => this.updateItem(e, updateItem)}>
         <Error error={error} />
         <fieldset disabled={loading} aria-busy={loading}>
+
+            <label htmlFor='title'>
+              Brand (optional)
+              <input
+                type='text'
+                id='brand'
+                name='brand'
+                placeholder='Brand'
+                required
+                defaultValue={data.item.brand}
+                onChange={this.handleChange}
+                />
+            </label>
+
+            <label htmlFor='title'>
+              Category (optional)
+              <input
+                type='text'
+                id='category'
+                name='category'
+                placeholder='Category'
+                required
+                defaultValue={data.item.category}
+                onChange={this.handleChange}
+                />
+            </label>
 
             <label htmlFor='title'>
               Title
