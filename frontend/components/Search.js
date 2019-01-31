@@ -16,6 +16,7 @@ const SEARCH_ITEMS_QUERY = gql`
     }) {
         id
         image
+        brand
         title
       }
   }
@@ -79,7 +80,7 @@ class Autocomplete extends React.Component {
                   highlighted={index === highlightedIndex}
                 >
                     <img width='50' src={item.image} alt={item.title} />
-                    {item.title}
+                    {item.brand} {item.title}
                 </DropDownItem>
                 ))}
                 {!this.state.items.length &&

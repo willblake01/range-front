@@ -9,6 +9,7 @@ const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
     items {
       id
+      brand
       title
       price
       description

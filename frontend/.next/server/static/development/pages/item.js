@@ -1054,6 +1054,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/formatMoney */ "./lib/formatMoney.js");
 var _jsxFileName = "/Users/williamblake/Desktop/range-front/frontend/components/SingleItem.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1075,7 +1076,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SINGLE_ITEM_QUERY($id: ID!) {\n    item(where: { id: $id }) {\n      id\n      title\n      description\n      largeImage\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SINGLE_ITEM_QUERY($id: ID!) {\n    item(where: { id: $id }) {\n      id\n      brand\n      title\n      price\n      description\n      largeImage\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1085,6 +1086,7 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -1123,7 +1125,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 45
         },
         __self: this
       }, function (_ref) {
@@ -1134,21 +1136,21 @@ function (_Component) {
           error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 52
           },
           __self: this
         });
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 53
           },
           __self: this
         }, "Loading...");
         if (!data.item) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 54
           },
           __self: this
         }, "No Item Found for ", _this.props.id, ".");
@@ -1156,19 +1158,19 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SingleItemStyle, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 57
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 58
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 59
           },
           __self: this
         }, "Range Front | ", item.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1176,29 +1178,41 @@ function (_Component) {
           alt: item.title,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 61
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "details",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 62
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 63
           },
           __self: this
         }, "Viewing ", item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 64
           },
           __self: this
-        }, item.description)));
+        }, item.brand), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          },
+          __self: this
+        }, item.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 66
+          },
+          __self: this
+        }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price))));
       });
     }
   }]);

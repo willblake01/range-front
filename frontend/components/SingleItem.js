@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Error from './ErrorMessage';
+import formatMoney from '../lib/formatMoney';
 
 
 const SingleItemStyle = styled.div`
@@ -29,7 +30,9 @@ const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     item(where: { id: $id }) {
       id
+      brand
       title
+      price
       description
       largeImage
     }
@@ -58,7 +61,9 @@ class SingleItem extends Component {
               <img src={item.largeImage} alt={item.title} />
               <div className='details'>
                 <h2>Viewing {item.title}</h2>
+                <p>{item.brand}</p>
                 <p>{item.description}</p>
+                <p>{formatMoney(item.price)}</p>
               </div>
             </SingleItemStyle>
           );
