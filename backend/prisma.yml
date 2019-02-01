@@ -1,7 +1,7 @@
-#endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://range-front-prod-b62655b9fd.herokuapp.com/range-front-prod/prod
+endpoint: ${env:PRISMA_ENDPOINT}
+# endpoint: https://range-front-prod-b62655b9fd.herokuapp.com/range-front-prod/prod
 datamodel: datamodel.prisma
-secret: ${env:PRISMA_SECRET}
+# secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:

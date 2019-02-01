@@ -11,7 +11,8 @@ const SEARCH_ITEMS_QUERY = gql`
     items(where: {
       OR: [
         { title_contains: $searchTerm },
-        { description_contains: $searchTerm }
+        { description_contains: $searchTerm },
+        { brand_contains: $searchTerm }
       ]
     }) {
         id

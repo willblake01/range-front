@@ -10,6 +10,7 @@ import formatMoney from '../lib/formatMoney';
 const SingleItemStyle = styled.div`
   max-width: 1200px;
   margin: 2rem auto;
+  padding: 20px;
   box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-auto-columns: 1fr;
