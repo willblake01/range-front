@@ -1194,22 +1194,16 @@ function (_Component) {
             lineNumber: 64
           },
           __self: this
-        }, "Viewing ", item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Viewing ", item.brand, " ", item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 65
           },
           __self: this
-        }, item.brand), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 66
-          },
-          __self: this
         }, item.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 66
           },
           __self: this
         }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price))));
