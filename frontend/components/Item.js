@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Title from './styles/Title';
 import ItemStyle from './styles/ItemStyle';
 import PriceTag from './styles/PriceTag';
+import BrandTag from './styles/BrandTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
@@ -17,7 +18,14 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <ItemStyle>
-        {item.image && <img src={item.image} alt={item.title} />}
+      <Link
+        href={{
+          pathname: '/item',
+          query: { id: item.id },
+        }}
+      >
+        <a>{item.image && <img src={item.image} alt={item.title} />}</a>
+      </Link>
         <Title>
           <Link
             href={{
@@ -28,6 +36,7 @@ export default class Item extends Component {
             <a>{item.title}</a>
           </Link>
         </Title>
+        <BrandTag>{item.brand}</BrandTag>
         <PriceTag>{formatMoney(item.price)}</PriceTag>
         <p>{item.description}</p>
         <div className='buttonList'>

@@ -1201,7 +1201,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_ITEMS_QUERY($searchTerm: String!) {\n    items(where: {\n      OR: [\n        { title_contains: $searchTerm },\n        { description_contains: $searchTerm }\n      ]\n    }) {\n        id\n        image\n        title\n      }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_ITEMS_QUERY($searchTerm: String!) {\n    items(where: {\n      OR: [\n        { title_contains: $searchTerm },\n        { description_contains: $searchTerm },\n        { brand_contains: $searchTerm }\n      ]\n    }) {\n        id\n        image\n        brand\n        title\n      }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1311,7 +1311,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 56
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1321,7 +1321,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 57
         },
         __self: this
       }, function (_ref2) {
@@ -1333,13 +1333,13 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 59
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 60
           },
           __self: this
         }, function (client) {
@@ -1356,14 +1356,14 @@ function (_React$Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 62
             },
             __self: this
           }));
         }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 77
           },
           __self: this
         }, _this2.state.items.map(function (item, index) {
@@ -1374,7 +1374,7 @@ function (_React$Component) {
             highlighted: index === highlightedIndex,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 79
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -1383,14 +1383,14 @@ function (_React$Component) {
             alt: item.title,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 83
             },
             __self: this
-          }), item.title);
+          }), item.brand, " ", item.title);
         }), !_this2.state.items.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 88
           },
           __self: this
         }, "Nothing Found for ", inputValue)));
@@ -35982,7 +35982,7 @@ var Home = function Home(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 7:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -36007,5 +36007,5 @@ module.exports = dll_ecf3a5bbb48abe85e1e6;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[7,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const ItemStyle = styled.div`
-  padding: 20px;
   background: white;
   border: 1px solid ${props => props.theme.offWhite};
   box-shadow: ${props => props.theme.bs};
@@ -11,6 +10,7 @@ const ItemStyle = styled.div`
   img {
     width: 100%;
     height: 400px;
+    padding: 20px;
     object-fit: contain;
   }
   p {

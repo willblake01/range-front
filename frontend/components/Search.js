@@ -11,11 +11,13 @@ const SEARCH_ITEMS_QUERY = gql`
     items(where: {
       OR: [
         { title_contains: $searchTerm },
-        { description_contains: $searchTerm }
+        { description_contains: $searchTerm },
+        { brand_contains: $searchTerm }
       ]
     }) {
         id
         image
+        brand
         title
       }
   }
@@ -79,7 +81,7 @@ class Autocomplete extends React.Component {
                   highlighted={index === highlightedIndex}
                 >
                     <img width='50' src={item.image} alt={item.title} />
-                    {item.title}
+                    {item.brand} {item.title}
                 </DropDownItem>
                 ))}
                 {!this.state.items.length &&

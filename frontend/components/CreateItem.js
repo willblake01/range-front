@@ -7,6 +7,8 @@ import Error from './ErrorMessage';
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
+    $brand: String
+    $category: String
     $title: String!
     $description: String!
     $price: Int!
@@ -14,6 +16,8 @@ const CREATE_ITEM_MUTATION = gql`
     $largeImage: String
   ) {
     createItem(
+      brand: $brand
+      category: $category
       title: $title
       description: $description
       price: $price
@@ -79,7 +83,7 @@ class CreateItem extends Component {
           <Error error={error} />
           <fieldset disabled={loading} aria-busy={loading}>
               <label htmlFor='file'>
-                Image
+                Image (optional)
                 <input
                   type='file'
                   id='file'

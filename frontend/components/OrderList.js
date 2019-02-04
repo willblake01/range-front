@@ -31,6 +31,7 @@ const OrderUl = styled.ul`
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  min-height: 222px;
 `;
 
 const HeaderStyle = styled.h2`
