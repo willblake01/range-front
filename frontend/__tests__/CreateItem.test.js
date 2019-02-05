@@ -65,6 +65,8 @@ describe('<CreateIem />', () => {
           request: {
             query: CREATE_ITEM_MUTATION,
             variables: {
+              brand: item.brand,
+              category: item.category,
               title: item.title,
               description: item.description,
               image: '',
@@ -89,6 +91,8 @@ describe('<CreateIem />', () => {
       </MockedProvider>
     );
     // Simulate someone filling out the form
+    wrapper.find('#brand').simulate('change', { target: { value: item.brand, name: 'brand' } });
+    wrapper.find('#category').simulate('change', { target: { value: item.category, name: 'category' } });
     wrapper.find('#title').simulate('change', { target: { value: item.title, name: 'title' } });
     wrapper.find('#price').simulate('change', { target: { value: item.price, name: 'price', type: 'number' } });
     wrapper.find('#description').simulate('change', { target: { value: item.description, name: 'description' } });

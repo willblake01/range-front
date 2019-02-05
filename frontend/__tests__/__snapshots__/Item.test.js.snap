@@ -2,10 +2,23 @@
 
 exports[`<Item/> Renders and matches the snapshot 1`] = `
 <ItemStyle>
-  <img
-    alt="A cool item"
-    src="dog.jpg"
-  />
+  <Link
+    href={
+      Object {
+        "pathname": "/item",
+        "query": Object {
+          "id": "ABC123",
+        },
+      }
+    }
+  >
+    <a>
+      <img
+        alt="A cool item"
+        src="dog.jpg"
+      />
+    </a>
+  </Link>
   <Title>
     <Link
       href={
@@ -22,6 +35,7 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
       </a>
     </Link>
   </Title>
+  <BrandTag />
   <PriceTag>
     $50
   </PriceTag>

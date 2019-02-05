@@ -16,7 +16,7 @@ exports[`<CreateIem /> Renders and matches Snapshot 1`] = `
     <label
       htmlFor="file"
     >
-      Image
+      Image (optional)
       <input
         id="file"
         name="file"
@@ -24,6 +24,32 @@ exports[`<CreateIem /> Renders and matches Snapshot 1`] = `
         placeholder="Upload an image"
         requiredvalue=""
         type="file"
+      />
+    </label>
+    <label
+      htmlFor="title"
+    >
+      Brand (optional)
+      <input
+        id="brand"
+        name="brand"
+        onChange={[Function]}
+        placeholder="Brand"
+        requiredvalue=""
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="title"
+    >
+      Category (optional)
+      <input
+        id="category"
+        name="category"
+        onChange={[Function]}
+        placeholder="Category"
+        requiredvalue=""
+        type="text"
       />
     </label>
     <label
