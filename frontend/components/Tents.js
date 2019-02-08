@@ -9,6 +9,8 @@ const TENTS_QUERY = gql`
   query TENTS_QUERY {
     tents {
       id
+      brand
+      category
       title
       price
       description

@@ -9,6 +9,8 @@ const SLEEPING_BAGS_QUERY = gql`
   query SLEEPING_BAGS_QUERY {
     sleepingBags {
       id
+      brand
+      category
       title
       price
       description
@@ -49,7 +51,7 @@ class SleepingBags extends React.Component {
               if(error) return <p>Error: {error.message}</p>
               return (
                 <ItemsList>
-                  {data.items.map(item => <Item item={item} key={item.id} />)}
+                  {data.sleepingBags.map(item => <Item item={item} key={item.id} />)}
                 </ItemsList>
               );
             }}

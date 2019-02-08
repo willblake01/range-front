@@ -9,6 +9,8 @@ const BACKPACKS_QUERY = gql`
   query BACKPACKS_QUERY {
     backpacks {
       id
+      brand
+      category
       title
       price
       description
@@ -49,7 +51,7 @@ class Backpacks extends React.Component {
               if(error) return <p>Error: {error.message}</p>
               return (
                 <ItemsList>
-                  {data.items.map(item => <Item item={item} key={item.id} />)}
+                  {data.backpacks.map(item => <Item item={item} key={item.id} />)}
                 </ItemsList>
               );
             }}

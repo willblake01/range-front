@@ -76,7 +76,6 @@ describe('<AddToCart />', () => {
     await wait(55);
     // Check if item is in cart
     const { data: { me: me2 } } = await apolloClient.query({ query: CURRENT_USER_QUERY });
-    console.log(me2.cart);
     expect(me2.cart).toHaveLength(1);
     expect(me2.cart[0].id).toBe('omg123');
     expect(me2.cart[0].quantity).toBe(3);
