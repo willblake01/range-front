@@ -2349,7 +2349,7 @@ var DropDown = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.with
 var DropDownItem = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "DropDown__DropDownItem",
   componentId: "fwzgco-1"
-})(["border-bottom:1px solid ", ";background:", ";padding:1rem;transition:all 0.2s;", ";display:flex;align-items:center;border-left:10px solid ", ";img{margin-right:10px;}"], function (props) {
+})(["border-bottom:1px solid ", ";background:", ";padding:1rem;transition:all 0.2s;", ";display:flex;align-items:center;border-left:10px solid ", ";img{max-height:32px;object-fit:contain;margin-right:10px;}"], function (props) {
   return props.theme.lightGrey;
 }, function (props) {
   return props.highlighted ? '#f7f7f7' : 'white';
