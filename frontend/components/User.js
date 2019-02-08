@@ -17,6 +17,8 @@ const CURRENT_USER_QUERY = gql`
         quantity
         item {
           id
+          brand
+          category
           price
           image
           title

@@ -11,14 +11,29 @@ exports[`<SingleItem /> Errors with a not found item 1`] = `
 </p>
 `;
 
-exports[`<SingleItem /> Renders with proper data 1`] = `null`;
+exports[`<SingleItem /> Renders with proper data 1`] = `
+<h2>
+  Viewing 
+  Top Dog
+   
+  dogs are best
+</h2>
+`;
 
-exports[`<SingleItem /> Renders with proper data 2`] = `null`;
+exports[`<SingleItem /> Renders with proper data 2`] = `
+<img
+  alt="dogs are best"
+  src="dog.jpg"
+/>
+`;
 
 exports[`<SingleItem /> Renders with proper data 3`] = `
-<p>
-  No Item Found for 
-  123
-  .
-</p>
+Array [
+  <p>
+    dogs
+  </p>,
+  <p>
+    $50
+  </p>,
+]
 `;
