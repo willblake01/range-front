@@ -32,6 +32,7 @@ const SINGLE_ITEM_QUERY = gql`
     item(where: { id: $id }) {
       id
       brand
+      category
       title
       price
       description

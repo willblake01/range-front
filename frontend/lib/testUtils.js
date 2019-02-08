@@ -10,6 +10,8 @@ const fakeItem = () => ({
   user: null,
   image: 'dog-small.jpg',
   title: 'dogs are best',
+  brand: 'Top Dog',
+  category: 'toys',
   description: 'dogs',
   largeImage: 'dog.jpg',
 });

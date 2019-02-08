@@ -60,7 +60,7 @@ describe('<AddToCart />', () => {
     const wrapper = mount(
       <MockedProvider mocks={mocks}>
         <ApolloConsumer>
-          {(client) => {
+          {client => {
             apolloClient = client;
             return <AddToCart id="abc123" />;
           }}
@@ -73,9 +73,10 @@ describe('<AddToCart />', () => {
     expect(me.cart).toHaveLength(0);
     // Add an item to the cart
     wrapper.find('button').simulate('click');
-    await wait();
+    await wait(55);
     // Check if item is in cart
     const { data: { me: me2 } } = await apolloClient.query({ query: CURRENT_USER_QUERY });
+    console.log(me2.cart);
     expect(me2.cart).toHaveLength(1);
     expect(me2.cart[0].id).toBe('omg123');
     expect(me2.cart[0].quantity).toBe(3);

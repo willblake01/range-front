@@ -269,6 +269,8 @@ const Mutations = {
         id
         quantity
         item {
+          brand
+          category
           title
           price
           id
