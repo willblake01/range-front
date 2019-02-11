@@ -63,13 +63,27 @@ const Query = {
     );
   },
   async tents(parent, args, ctx, info) {
-    const tents = ctx.db.query.items(
+    return ctx.db.query.items(
       {
-        where: {
-          item: { category: tents },
-        },
+        where: { category: 'tents' },
       },
     info
+    );
+  },
+  async sleepingBags(parent, args, ctx, info) {
+    return ctx.db.query.items(
+      {
+        where: { category: 'sleeping-bags' },
+      },
+      info
+    );
+  },
+  async backpacks(parent, args, ctx, info) {
+    return ctx.db.query.items(
+      {
+        where: { category: 'backpacks' },
+      },
+      info
     );
   },
 };

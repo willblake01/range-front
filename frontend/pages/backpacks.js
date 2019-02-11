@@ -2,7 +2,7 @@ import ComponentPadding from '../components/styles/ComponentPadding';
 import AlternateHeader from '../components/AlternateHeader';
 import Backpacks from '../components/Backpacks';
 
-const SleepingBagsPage = props => (
+const BackpacksPage = props => (
   <div>
     <AlternateHeader />
     <ComponentPadding>
@@ -11,4 +11,4 @@ const SleepingBagsPage = props => (
   </div>
 );
 
-export default SleepingBagsPage;
+export default BackpacksPage;

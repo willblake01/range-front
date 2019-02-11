@@ -17,6 +17,8 @@ const DropDownItem = styled.div`
   align-items: center;
   border-left: 10px solid ${props => (props.highlighted ? props.theme.lightGrey : 'white')};
   img {
+    max-height: 32px;
+    object-fit: contain;
     margin-right: 10px;
   }
 `;
