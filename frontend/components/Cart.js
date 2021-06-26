@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query, Mutation } from 'react-apollo';
+import { Query, Mutation } from '@apollo/client/react/components';
 import gql from 'graphql-tag';
 import { adopt } from 'react-adopt';
 import User from './User';

@@ -1,11 +1,11 @@
 import { mount } from 'enzyme';
 import wait from 'waait';
 import toJSON from 'enzyme-to-json';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider } from '@apollo/client/testing';
 import SignUp, { SIGNUP_MUTATION } from '../components/SignUp';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser } from '../lib/testUtils';
-import { ApolloConsumer } from 'react-apollo';
+import { ApolloConsumer } from '@apollo/client';
 
 function type(wrapper, name, value) {
   wrapper.find(`input[name="${name}"]`).simulate('change', {

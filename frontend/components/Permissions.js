@@ -1,4 +1,4 @@
-import { Query, Mutation } from 'react-apollo';
+import { Query, Mutation } from '@apollo/client/react/components';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';

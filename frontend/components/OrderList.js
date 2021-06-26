@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { formatDistance } from 'date-fns';
 import Link from 'next/link';
 import styled from 'styled-components';

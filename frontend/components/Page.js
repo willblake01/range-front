@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import Meta from './Meta';
 import Footer from './Footer';
 
@@ -29,7 +29,7 @@ const Inner = styled.div`
   margin: 0 auto;
 `;
 
-injectGlobal `
+createGlobalStyle `
   html {
     box-sizing: border-box;
     font-size: 10px;

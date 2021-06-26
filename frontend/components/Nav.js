@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { TOGGLE_CART_MUTATION } from './Cart';
 import User from './User';
 import SignOut from './SignOut';

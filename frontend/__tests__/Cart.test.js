@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import wait from 'waait';
 import toJSON from 'enzyme-to-json';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider } from '@apollo/client/testing';
 import Cart, { LOCAL_STATE_QUERY } from '../components/Cart';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';

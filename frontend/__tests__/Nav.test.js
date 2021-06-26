@@ -3,7 +3,7 @@ import wait from 'waait';
 import toJSON from 'enzyme-to-json';
 import Nav from '../components/Nav';
 import { CURRENT_USER_QUERY } from '../components/User';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider } from '@apollo/client/testing';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';
 
 const notSignedInMocks = [
