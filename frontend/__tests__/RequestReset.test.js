@@ -1,44 +1,47 @@
-import { mount } from 'enzyme';
-import wait from 'waait';
-import toJSON from 'enzyme-to-json';
-import { MockedProvider } from '@apollo/client/testing';
-import RequestReset, { REQUEST_RESET_MUTATION } from '../components/RequestReset';
+  
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import waait from 'waait';
+import { MockedProvider } from '@apollo/react-testing';
+import RequestReset, {
+  REQUEST_RESET_MUTATION,
+} from '../components/RequestReset';
 
 const mocks = [
   {
     request: {
       query: REQUEST_RESET_MUTATION,
-      variables: { email: 'first.last@example.com' },
+      variables: { email: 'wesbos@gmail.com' },
     },
     result: {
-      data: { requestReset: { message: 'success', __typename: 'Message' } },
+      data: { sendUserPasswordResetLink: null },
     },
   },
 ];
 
-describe('<RequestReset />', () => {
-  it('Renders and matches Snapshot', async () => {
-    const wrapper = mount(
+describe('<RequestReset/>', () => {
+  it('renders and matches snapshot', async () => {
+    const { container } = render(
       <MockedProvider>
         <RequestReset />
       </MockedProvider>
     );
-    const form = wrapper.find('form[data-test="form"]');
-    expect(toJSON(form)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
-  it('Calls the mutation', async () => {
-    const wrapper = mount(
+  it('calls the mutation', async () => {
+    const { container } = render(
       <MockedProvider mocks={mocks}>
         <RequestReset />
       </MockedProvider>
     );
-    // Simulate typing an email
-    wrapper.find('input').simulate('change', { target: { name: 'email', value: 'first.last@example.com' }});
-    // Submit the form
-    wrapper.find('form').simulate('submit');
-    await wait();
-    wrapper.update();
-    expect(wrapper.find('p').text()).toContain('Success! Check your email for a reset link!');
+
+    userEvent.type(screen.getByPlaceholderText('email'), 'wesbos@gmail.com');
+    userEvent.click(screen.getByText(/Request Reset/i));
+    const success = await screen.findByText(/Success/i);
+    expect(success).toBeInTheDocument();
+    // expect(wrapper.find('p').text()).toContain(
+    //   'Success! Check your email for a reset link!'
+    // );
   });
 });

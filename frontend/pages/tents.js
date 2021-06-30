@@ -1,14 +1,18 @@
-import ComponentPadding from '../components/styles/ComponentPadding';
 import AlternateHeader from '../components/AlternateHeader';
+import { SearchStyles } from '../components/styles/DropDown';
+import Search from '../components/Search';
 import Tents from '../components/Tents';
+import Footer from '../components/Footer';
 
-const TentsPage = props => (
-  <div>
+const TentsPage = ({ query }) => (
+  <>
     <AlternateHeader />
-    <ComponentPadding>
-      <Tents page={parseFloat(props.query.page) || 1} />
-    </ComponentPadding>
-  </div>
+    <SearchStyles>
+      <Search />
+    </SearchStyles>
+    <Tents page={parseFloat(query.page) || 1} />
+    <Footer />
+  </>
 );
 
 export default TentsPage;

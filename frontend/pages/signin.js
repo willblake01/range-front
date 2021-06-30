@@ -1,26 +1,25 @@
 import styled from 'styled-components';
 import AlternateHeader from '../components/AlternateHeader';
-import ComponentPadding from '../components/styles/ComponentPadding';
 import SignIn from '../components/SignIn';
-import RequestReset from '../components/RequestReset';
+import Footer from '../components/Footer';
 
-const Columns = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  margin-bottom: 4px;
+const StyledSignIn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
 `;
 
-const signup = props => (
-  <>
-    <AlternateHeader />
-    <ComponentPadding>
-      <Columns>
-        <SignIn />
-        <RequestReset />
-      </Columns>
-    </ComponentPadding>
-  </>
-);
-
-export default signup;
+export default function SignInPage() {
+  return (
+    <>
+      <AlternateHeader />
+      <StyledSignIn>
+        <SignIn /> 
+      </StyledSignIn> 
+      <Footer />
+    </>
+  );
+}

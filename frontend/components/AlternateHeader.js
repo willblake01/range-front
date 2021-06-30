@@ -1,27 +1,33 @@
 import styled from 'styled-components';
 import Nav from './Nav';
 import Cart from './Cart';
+import Logo from '../components/Logo';
 
-const HeaderStyle = styled.div`
+const StyledAlternateHeader = styled.header`
+  height: 260px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/mountain-range.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 260px;
-  width: 1440px;
 `;
 
-const NavStyle = styled.div`
+const NavPosition = styled.div`
   position: relative;
   top: 206px;
+  height: max-content;
 `;
 
 const AlternateHeader = () => (
   <>
-    <HeaderStyle>
-      <NavStyle>
+    <StyledAlternateHeader>
+      <Logo />
+      <NavPosition>
         <Nav />
-      </NavStyle>
-    </HeaderStyle>
+      </NavPosition>
+    </StyledAlternateHeader>
     <Cart />
   </>
 );

@@ -7,13 +7,13 @@ const { hasPermission } = require('../utils');
 const stripe = require('../stripe');
 
 const Mutations = {
-  async createItem(parent, args, ctx, info) {
+  async createProduct(parent, args, ctx, info) {
     // TODO: Check if they are logged in
     if(!ctx.request.userId) {
       throw new Error('You must be logged in to do that!');
     }
 
-    const item = await ctx.db.mutation.createItem(
+    const product = await ctx.db.mutation.createProduct(
       {
         data: {
           // This is how we create a relationship between the item and the user
@@ -28,17 +28,17 @@ const Mutations = {
       info
     );
 
-    console.log(item);
+    console.log(product);
 
-    return item;
+    return product;
   },
-  updateItem(parent, args, ctx, info) {
+  updateProduct(parent, args, ctx, info) {
     // First take a copy of the updates
     const updates = { ...args };
     // Remove the ID from the updates
     delete updates.id;
     // Run the update method
-    return ctx.db.mutation.updateItem(
+    return ctx.db.mutation.updateProduct(
       {
         data: updates,
         where: {
@@ -48,12 +48,12 @@ const Mutations = {
       info
     );
   },
-  async deleteItem(parent, args, ctx, info) {
+  async deleteProduct(parent, args, ctx, info) {
     const where = { id: args.id };
-    // 1. Find the item
-    const item = await ctx.db.query.item({ where }, `{ id title user { id }}`);
-    // 2. Check if they own that item, or have permissions
-    const ownsItem = item.user.id === ctx.request.userId;
+    // 1. Find the product
+    const product = await ctx.db.query.product({ where }, `{ id title user { id }}`);
+    // 2. Check if they own that product, or have permissions
+    const ownsProduct = product.user.id === ctx.request.userId;
     const hasPermissions = ctx.request.user.permissions.some(permission =>
       ['ADMIN', 'ITEMDELETE'].includes(permission)
     );
@@ -61,7 +61,7 @@ const Mutations = {
       throw new Error('You don\'t have the required permissions to do that!');
     }
     // 3. Delete it!
-    return ctx.db.mutation.deleteItem({ where }, info);
+    return ctx.db.mutation.deleteProduct({ where }, info);
   },
   async signup(parent, args, ctx, info) {
     args.email = args.email.toLowerCase();
@@ -268,7 +268,7 @@ const Mutations = {
       cart {
         id
         quantity
-        item {
+        product {
           brand
           category
           title

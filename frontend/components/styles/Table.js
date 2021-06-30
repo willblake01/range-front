@@ -1,17 +1,18 @@
+
 import styled from 'styled-components';
 
 const Table = styled.table`
   border-spacing: 0;
   width: 100%;
-  border: 1px solid ${props => props.theme.offWhite};
+  border: 1px solid var(--offWhite);
   thead {
     font-size: 10px;
   }
   td,
   th {
-    border-bottom: 1px solid ${props => props.theme.offWhite};
-    border-right: 1px solid ${props => props.theme.offWhite};
-    padding: 5px;
+    border-bottom: 1px solid var(--offWhite);
+    border-right: 1px solid var(--offWhite);
+    padding: 10px 5px;
     position: relative;
     &:last-child {
       border-right: none;
@@ -20,14 +21,10 @@ const Table = styled.table`
         width: 100%;
       }
     }
-    label {
-      display: block;
-      padding: 10px 5px;
-    }
   }
   tr {
     &:hover {
-      background: ${props => props.theme.offWhite};
+      background: var(--offWhite);
     }
   }
 `;

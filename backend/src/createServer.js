@@ -1,17 +1,21 @@
-const { GraphQLServer } = require('graphql-yoga');
+const { ApolloServer, gql } = require('apollo-server-express');
+const { importSchema } = require('graphql-import');
+const path = require('path');
 const Mutation = require('./resolvers/Mutation');
 const Query = require('./resolvers/Query');
 const db = require('./db');
 
-// Create the GraphQL Yoga Server
+const typeDefsFile = importSchema(path.resolve(__dirname, '../data/schema.graphql'));
+const typeDefs = gql(typeDefsFile);
+const resolvers = {
+  Mutation,
+  Query
+}
 
 function createServer() {
-  return new GraphQLServer({
-    typeDefs: 'src/schema.graphql',
-    resolvers: {
-      Mutation,
-      Query
-    },
+  return new ApolloServer({
+    typeDefs,
+    resolvers,
     resolverValidationOptions: {
       requireResolversForResolveType: false
     },

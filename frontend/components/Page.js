@@ -1,36 +1,26 @@
-import React, { Component } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import Meta from './Meta';
-import Footer from './Footer';
+import PropTypes from 'prop-types';
+import styled, { createGlobalStyle } from 'styled-components';
 
-
-const theme = {
-  red: '#FF0000',
-  black: '#000000',
-  white: '#FFFFFF',
-  offWhite: '#EDEDED',
-  grey: '#3A3A3A',
-  lightGrey: '#E1E1E1',
-  green: '#2E5564',
-  brown: '#8E3F30',
-  darkOrange: '#C65837',
-  lightOrange: '#DF997D',
-  maxWidth: '1440px',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
-};
-
-const StyledPage = styled.div`
-  background: white;
-  color: ${props => props.theme.black};
-`;
-
-const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-`;
-
-createGlobalStyle `
+const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'radnika_next';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
   html {
+    --red: #FF0000;
+    --black: #000000;
+    --white: #FFFFFF;
+    --offWhite: #EDEDED;
+    --grey: #3A3A3A;
+    --lightGrey:'#E1E1E';
+    --green: #2E5564;
+    --brown: #8E3F30;
+    --darkOrange: #C65837;
+    --lightOrange: #DF997D;
+    --maxWidth: 1440px;
+    --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
     box-sizing: border-box;
     font-size: 10px;
   }
@@ -38,30 +28,40 @@ createGlobalStyle `
     box-sizing: inherit;
   }
   body {
+    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
-    line-height: 2;
+    line-height:2;
+    max-width: var(--maxWidth);
   }
   a {
-    font-family: Raleway-Regular;
     text-decoration: none;
-    color: ${theme.grey};
+    color: var(--black);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  button {
+    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `;
 
-class Page extends Component {
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        <StyledPage>
-          <Meta />
-            <Inner>{this.props.children}</Inner>
-          <Footer />
-        </StyledPage>
-      </ThemeProvider>
-    );
-  }
+const InnerStyles = styled.div`
+  margin: 0;
+  padding: 0;
+`;
+
+export default function Page({ children, cool }) {
+  return (
+    <>
+      <GlobalStyles />
+      <InnerStyles>{children}</InnerStyles>
+    </>
+  );
 }
 
-export default Page;
+Page.propTypes = {
+  cool: PropTypes.string,
+  children: PropTypes.any,
+};

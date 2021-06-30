@@ -1,43 +1,32 @@
-import { Query } from '@apollo/client/react/components';
-import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
+import { gql, useQuery } from '@apollo/client';
 
 const CURRENT_USER_QUERY = gql`
   query {
-    me {
-      id
-      email
-      name
-      permissions
-      orders {
+    authenticatedItem {
+      ... on User {
         id
-      }
-      cart {
-        id
-        quantity
-        item {
+        email
+        firstName
+        lastName
+        cart {
           id
-          brand
-          category
-          price
-          image
-          title
-          description
+          quantity
+          item {
+            id
+            price
+            title
+            description
+            image
+          }
         }
       }
     }
   }
 `;
 
-const User = props => (
-  <Query {...props} query={CURRENT_USER_QUERY}>
-    {payload => props.children(payload)}
-  </Query>
-);
+export function useUser() {
+  const { data } = useQuery(CURRENT_USER_QUERY);
+  return data?.authenticatedItem;
+}
 
-User.propTypes = {
-  children: PropTypes.func.isRequired,
-};
-
-export default User;
 export { CURRENT_USER_QUERY };

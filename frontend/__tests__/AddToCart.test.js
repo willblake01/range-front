@@ -1,29 +1,33 @@
-import { mount } from 'enzyme';
-import wait from 'waait';
-import toJSON from 'enzyme-to-json';
-import { MockedProvider } from '@apollo/client/testing';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MockedProvider } from '@apollo/react-testing';
 import { ApolloConsumer } from '@apollo/client';
+import waait from 'waait';
 import AddToCart, { ADD_TO_CART_MUTATION } from '../components/AddToCart';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';
 
 const mocks = [
+  // First time no items
   {
     request: { query: CURRENT_USER_QUERY },
     result: {
       data: {
-        me: {
+        authenticatedItem: {
+          __typename: 'User',
           ...fakeUser(),
           cart: [],
         },
       },
     },
   },
+  // Second Time, 1 item
   {
     request: { query: CURRENT_USER_QUERY },
     result: {
       data: {
-        me: {
+        authenticatedItem: {
+          __typename: 'User',
           ...fakeUser(),
           cart: [fakeCartItem()],
         },
@@ -43,54 +47,47 @@ const mocks = [
   },
 ];
 
-describe('<AddToCart />', () => {
-  it('Renders and matches the Snapshot', async () => {
-    const wrapper = mount(
+describe('<AddToCart/>', () => {
+  it('renders and matches the snap shot', async () => {
+    const { container } = render(
       <MockedProvider mocks={mocks}>
-        <AddToCart id='abc123' />
+        <AddToCart id="abc123" />
       </MockedProvider>
     );
-    await wait();
-    wrapper.update();
-    expect(toJSON(wrapper.find('button'))).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
-  it('Adds an item to cart when clicked', async () => {
+  it('adds an item to cart when clicked', async () => {
+    // Here I show you how to reach directly into the apollo cache to test the data. This is against react-testing-library's whole ethos but I'm gonna show you anyway because sometimes you just gotta do it
     let apolloClient;
-    const wrapper = mount(
+    const { container } = render(
       <MockedProvider mocks={mocks}>
         <ApolloConsumer>
-          {client => {
+          {(client) => {
             apolloClient = client;
             return <AddToCart id="abc123" />;
           }}
         </ApolloConsumer>
       </MockedProvider>
     );
-    await wait();
-    wrapper.update();
-    const { data: { me } } = await apolloClient.query({ query: CURRENT_USER_QUERY });
+    // check that the cart is empty to start
+    const {
+      data: { authenticatedItem: me },
+    } = await apolloClient.query({ query: CURRENT_USER_QUERY });
     expect(me.cart).toHaveLength(0);
-    // Add an item to the cart
-    wrapper.find('button').simulate('click');
-    await wait(55);
-    // Check if item is in cart
-    const { data: { me: me2 } } = await apolloClient.query({ query: CURRENT_USER_QUERY });
+    // Click the button
+    userEvent.click(screen.getByText(/Add To Cart/));
+    // it should be in loading state
+    expect(container).toHaveTextContent(/Adding to Cart/i);
+    // wait until we come back from loading state
+    await screen.findByText(/Add To Cart/i);
+    await waitFor(() => waait()); // wait for next tick, weird apollo event loop thing
+    // check if the item is in the cart
+    const {
+      data: { authenticatedItem: me2 },
+    } = await apolloClient.query({ query: CURRENT_USER_QUERY });
     expect(me2.cart).toHaveLength(1);
     expect(me2.cart[0].id).toBe('omg123');
     expect(me2.cart[0].quantity).toBe(3);
-  });
-
-  it('Changes from add to adding when clicked', async () => {
-    const wrapper = mount(
-      <MockedProvider mocks={mocks}>
-        <AddToCart id="abc123" />
-      </MockedProvider>
-    );
-    await wait();
-    wrapper.update();
-    expect(wrapper.text()).toContain('Add to Cart');
-    wrapper.find('button').simulate('click');
-    expect(wrapper.text()).toContain('Adding to Cart');
   });
 });

@@ -1,14 +1,18 @@
-import ComponentPadding from '../components/styles/ComponentPadding';
 import AlternateHeader from '../components/AlternateHeader';
+import { SearchStyles } from '../components/styles/DropDown';
+import Search from '../components/Search';
 import Backpacks from '../components/Backpacks';
+import Footer from '../components/Footer';
 
-const BackpacksPage = props => (
-  <div>
+const BackpacksPage = ({query}) => (
+  <>
     <AlternateHeader />
-    <ComponentPadding>
-      <Backpacks page={parseFloat(props.query.page) || 1} />
-    </ComponentPadding>
-  </div>
+    <SearchStyles>
+      <Search />
+    </SearchStyles>
+    <Backpacks page={parseFloat(query.page) || 1} />
+    <Footer />
+  </>
 );
 
 export default BackpacksPage;

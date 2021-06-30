@@ -1,69 +1,71 @@
-import React from 'react';
-import { Query, Mutation } from '@apollo/client/react/components';
-import gql from 'graphql-tag';
-import { adopt } from 'react-adopt';
-import User from './User';
-import CartStyle from './styles/CartStyle';
-import Supreme from './styles/Supreme';
+import styled from 'styled-components';
+import CartStyles from './styles/CartStyles';
 import CloseButton from './styles/CloseButton';
-import SickButton from './styles/SickButton';
-import CartItem from './CartItem';
-import calcTotalPrice from '../lib/calcTotalPrice';
+import Logo from '../components/Logo';
 import formatMoney from '../lib/formatMoney';
-import TakeMyMoney from './TakeMyMoney';
+import { useUser } from './User';
+import calcTotalPrice from '../lib/calcTotalPrice';
+import { useCart } from '../lib/cartState';
+import RemoveFromCart from './RemoveFromCart';
+import { Checkout } from './Checkout';
 
-const LOCAL_STATE_QUERY = gql`
-  query {
-    cartOpen @client
+const CartItemStyles = styled.li`
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--lightGrey);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  img {
+    margin-right: 1rem;
+  }
+  h3,
+  p {
+    margin: 0;
   }
 `;
 
-const TOGGLE_CART_MUTATION = gql`
-  mutation {
-    toggleCart @client
-  }
-`;
+function CartItem({ cartItem }) {
+  const { item } = cartItem;
+  if (!item) return null;
+  return (
+    <CartItemStyles>
+      <img
+        width="100"
+        src={cartItem.image}
+        alt={cartItem.title}
+      />
+      <div>
+        <h3>{cartItem.title}</h3>
+        <p>
+          {formatMoney(cartItem.price * cartItem.quantity)}-
+          <em>
+            {cartItem.quantity} &times; {formatMoney(cartItem.price)} each
+          </em>
+        </p>
+      </div>
+      <RemoveFromCart id={cartItem.id} />
+    </CartItemStyles>
+  );
+}
 
-const Composed = adopt({
-  user: ({ render }) => <User>{render}</User>,
-  toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
-  localState: ({render}) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
-});
-
-const Cart = () => (
-  <Composed>
-    {({user, toggleCart, localState}) => {
-      const me = user.data.me;
-      if(!me) return null;
-      return (
-    <Query query={LOCAL_STATE_QUERY}>{({ data }) => (
-      <CartStyle open={data.cartOpen}>
-        <header>
-          <CloseButton
-            title='close'
-            onClick={toggleCart}
-          >
-            &times;
-          </CloseButton>
-          <Supreme>{me.name}'s Cart</Supreme>
-          <p>You have {me.cart.length} item{me.cart.length === 1 ? '' : 's'} in your cart.</p>
-        </header>
-        <ul>
-          {me.cart.map(cartItem => <CartItem key={cartItem.id} cartItem={cartItem} />)}
-        </ul>
-        <footer>
-          <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-          {me.cart.length && (
-            <TakeMyMoney>
-              <SickButton>Checkout</SickButton>
-            </TakeMyMoney>
-          )}
-        </footer>
-      </CartStyle>
-    )}</Query>
-    )
-  }}</Composed>
-);
-
-export default Cart;
-export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION };
+export default function Cart() {
+  const user = useUser();
+  const { cartOpen, closeCart } = useCart();
+  if (!user) return null;
+  return (
+    <CartStyles open={cartOpen}>
+      <header>
+        <Logo>{user.firstName} {user.lastName}'s Cart</Logo>
+        <CloseButton onClick={closeCart}>&times;</CloseButton>
+      </header>
+      <ul>
+        {user.cart.map((cartItem) => (
+          <CartItem key={cartItem.id} cartItem={cartItem} />
+        ))}
+      </ul>
+      <footer>
+        <p>{formatMoney(calcTotalPrice(user.cart))}</p>
+        <Checkout />
+      </footer>
+    </CartStyles>
+  );
+}
