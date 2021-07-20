@@ -1,15 +1,34 @@
+import styled from 'styled-components';
 import AlternateHeader from '../components/AlternateHeader';
-import ComponentPadding from '../components/styles/ComponentPadding';
+import RequestReset from '../components/RequestReset';
 import Reset from '../components/Reset';
+import Footer from '../components/Footer';
 
-const resetPage = props => (
-  <>
-    <AlternateHeader />
-    <ComponentPadding>
-      <p>Reset your password {props.query.resetToken}</p>
-      <Reset resetToken={props.query.resetToken} />
-    </ComponentPadding>
-  </>
-);
+const StyledReset = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
+`;
 
-export default resetPage;
+export default function ResetPage({ query }) {
+  if (!query?.token) {
+    return (
+      <>
+        <AlternateHeader />
+        <StyledReset>
+          <RequestReset />
+        </StyledReset>
+        <Footer />
+      </>
+    );
+  }
+  return (
+    <>
+      <p>RESET YOUR PASSWORD</p>
+      <Reset token={query.token} />
+    </>
+  );
+}

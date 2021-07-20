@@ -1,7 +1,8 @@
+datamodel: datamodel.graphql
+# secret: ${env:PRISMA_SECRET}
+
 endpoint: ${env:PRISMA_ENDPOINT}
 # endpoint: https://range-front-prod-b62655b9fd.herokuapp.com/range-front-prod/prod
-datamodel: datamodel.prisma
-# secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:
@@ -9,4 +10,11 @@ hooks:
 
 generate:
   - generator: javascript-client
-    output: ./src/generated/prisma-client/
+    output: ./generated/prisma-client
+  - generator: graphql-schema
+    output: ./generated/prisma.graphql
+
+# Executes a Node.js script to seed the database with
+# initial data.
+seed:
+  run: ts-node data/seedDatabase.js

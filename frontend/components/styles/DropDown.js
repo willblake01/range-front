@@ -4,21 +4,20 @@ const DropDown = styled.div`
   position: absolute;
   width: 100%;
   z-index: 2;
-  border: 1px solid ${props => props.theme.lightGrey};
+  border: 1px solid var(--lightGrey);
 `;
 
 const DropDownItem = styled.div`
-  border-bottom: 1px solid ${props => props.theme.lightGrey};
-  background: ${props => (props.highlighted ? '#f7f7f7' : 'white')};
+  border-bottom: 1px solid var(--lightGrey);
+  background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
   transition: all 0.2s;
-  ${props => (props.highlighted ? 'padding-left: 2rem;' : null)};
+  ${(props) => (props.highlighted ? 'padding-left: 2rem;' : null)};
   display: flex;
   align-items: center;
-  border-left: 10px solid ${props => (props.highlighted ? props.theme.lightGrey : 'white')};
+  border-left: 10px solid
+    ${(props) => (props.highlighted ? props.theme.lightgrey : 'white')};
   img {
-    max-height: 32px;
-    object-fit: contain;
     margin-right: 10px;
   }
 `;
@@ -27,14 +26,16 @@ const glow = keyframes`
   from {
     box-shadow: 0 0 0px yellow;
   }
-
   to {
     box-shadow: 0 0 10px 1px yellow;
   }
 `;
 
 const SearchStyles = styled.div`
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 4px solid var(--green);
+  height: 100%;
   input {
     width: 100%;
     padding: 10px;

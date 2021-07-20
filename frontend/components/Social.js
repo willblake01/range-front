@@ -1,16 +1,21 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const SocialStyle = styled.div`
+const StyledSocial = styled.div`
   .social-icon {
     position: relative;
-    top: 50px;
-    height: 40px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 4px;
+    height: 42px;
+    width: 42px;
+    background-color: var(--offWhite);
   }
 `;
 
 const Social = () => (
-  <SocialStyle>
+  <StyledSocial>
     <Link href='https://www.facebook.com'>
       <a target='_blank'>
         <img
@@ -47,7 +52,7 @@ const Social = () => (
         />
       </a>
     </Link>
-  </SocialStyle>
+  </StyledSocial>
 )
 
 export default Social;

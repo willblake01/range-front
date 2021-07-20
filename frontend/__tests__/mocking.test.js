@@ -1,17 +1,17 @@
 function Person(name, foods) {
   this.name = name;
   this.foods = foods;
-};
+}
 
-Person.prototype.fetchFavFoods = () => {
+Person.prototype.fetchFavFoods = function() {
   return new Promise((resolve, reject) => {
     // Simulate an API
     setTimeout(() => resolve(this.foods), 2000);
   });
 };
 
-describe('Learning Mocking', () => {
-  it('Mocks a reg function', () => {
+describe('mocking learning', () => {
+  it('mocks a reg function', () => {
     const fetchDogs = jest.fn();
     fetchDogs('snickers');
     expect(fetchDogs).toHaveBeenCalled();
@@ -20,17 +20,16 @@ describe('Learning Mocking', () => {
     expect(fetchDogs).toHaveBeenCalledTimes(2);
   });
 
-  it('Can create a person.', () => {
-    const me = new Person('Will', ['pizza', 'tacos']);
-    expect(me.name).toBe('Will');
+  it('can create a person', () => {
+    const me = new Person('Wes', ['pizza', 'burgs']);
+    expect(me.name).toBe('Wes');
   });
 
-  it('Can fetch foods.', async () => {
-    const me = new Person('Will', ['pizza', 'tacos']);
-    // Mock the favFoods function
-    me.fetchFavFoods = jest.fn().mockResolvedValue(['pizza', 'tacos']);
+  it('can fetch foods', async () => {
+    const me = new Person('Wes', ['pizza', 'burgs']);
+    // mock the favFoods function
+    me.fetchFavFoods = jest.fn().mockResolvedValue(['sushi', 'ramen']);
     const favFoods = await me.fetchFavFoods();
-    console.log(favFoods);
-    expect(favFoods).toContain('pizza');
+    expect(favFoods).toContain('sushi');
   });
 });

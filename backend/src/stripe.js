@@ -1,4 +1,5 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
-stripe.setApiVersion("2018-11-08");
+const stripe = require('stripe')(process.env.STRIPE_SECRET, {
+  apiVersion: '2020-08-27'
+});
 
 module.exports = stripe;

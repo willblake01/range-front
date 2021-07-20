@@ -1,70 +1,82 @@
-import { mount } from 'enzyme';
-import wait from 'waait';
-import toJSON from 'enzyme-to-json';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MockedProvider } from '@apollo/react-testing';
+import waait from 'waait';
 import Nav from '../components/Nav';
 import { CURRENT_USER_QUERY } from '../components/User';
-import { MockedProvider } from '@apollo/client/testing';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';
+import { CartStateProvider } from '../components/LocalState';
 
 const notSignedInMocks = [
   {
     request: { query: CURRENT_USER_QUERY },
-    result: { data: { me: null } },
+    result: { data: { authenticatedItem: null } },
   },
 ];
 
 const signedInMocks = [
   {
     request: { query: CURRENT_USER_QUERY },
-    result: { data: { me: fakeUser() } },
+    result: { data: { authenticatedItem: fakeUser() } },
   },
 ];
 
 const signedInMocksWithCartItems = [
   {
     request: { query: CURRENT_USER_QUERY },
-    result: { data: { me: {
-      ...fakeUser(),
-      cart: [fakeCartItem(), fakeCartItem(), fakeCartItem()],
-    } } },
+    result: {
+      data: {
+        authenticatedItem: {
+          // This typename must be explicit because we use the `... on User` fragment
+          __typename: 'User',
+          ...fakeUser(),
+          cart: [fakeCartItem()],
+        },
+      },
+    },
   },
 ];
 
-describe('<Nav />', () => {
-  it('Renders a minimal Nav when signed out', async () => {
-    const wrapper = mount(
-      <MockedProvider mocks={notSignedInMocks}>
-        <Nav />
-      </MockedProvider>
+describe('<Nav/>', () => {
+  it('renders a minimal nav when signed out', async () => {
+    const { container } = render(
+      <CartStateProvider>
+        <MockedProvider mocks={notSignedInMocks}>
+          <Nav />
+        </MockedProvider>
+      </CartStateProvider>
     );
-    await wait();
-    wrapper.update();
-    const nav = wrapper.find('[data-test="nav"]');
-    expect(toJSON(nav)).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
-  it('Renders full Nav when signed in',async () => {
-    const wrapper = mount(
-      <MockedProvider mocks={signedInMocks}>
-        <Nav />
-      </MockedProvider>
+  it('renders full nav when signed in', async () => {
+    const { container } = render(
+      <CartStateProvider>
+        <MockedProvider
+          mocks={signedInMocks}
+          defaultOptions={{ watchQuery: { fetchPolicy: 'no-cache' } }}
+        >
+          <Nav />
+        </MockedProvider>
+      </CartStateProvider>
     );
-    await wait();
-    wrapper.update();
-    const nav = wrapper.find('ul[data-test="nav"]');
-    expect(nav.children().length).toBe(6);
-    expect(nav.text()).toContain('Sign Out');
+    await screen.findByText('Account');
+    expect(container).toMatchSnapshot();
+    expect(container).toHaveTextContent('Sign Out');
+    expect(container).toHaveTextContent('My Cart');
   });
-  it('Renders the amount of items in the cart', async () => {
-    const wrapper = mount(
-      <MockedProvider mocks={signedInMocksWithCartItems}>
-        <Nav />
-      </MockedProvider>
+
+  it('renders the amount of items in the cart', async () => {
+    render(
+      <CartStateProvider>
+        <MockedProvider
+          mocks={signedInMocksWithCartItems}
+          defaultOptions={{ watchQuery: { fetchPolicy: 'no-cache' } }}
+        >
+          <Nav />
+        </MockedProvider>
+      </CartStateProvider>
     );
-    await wait();
-    wrapper.update();
-    const nav = wrapper.find('ul[data-test="nav"]');
-    const count = nav.find('div.count');
-    expect(toJSON(count)).toMatchSnapshot();
+    await screen.findByText('Account');
+    expect(screen.getByText('3')).toBeInTheDocument();
   });
 });

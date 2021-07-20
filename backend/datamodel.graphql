@@ -1,25 +1,28 @@
 enum Permission {
   ADMIN
   USER
-  ITEMCREATE
-  ITEMUPDATE
-  ITEMDELETE
+  PRODUCTCREATE
+  PRODUCTUPDATE
+  PRODUCTDELETE
   PERMISSIONUPDATE
 }
 
 type User {
-  id: ID! @unique
-  name: String!
+  id: ID! @unique @id
+  firstName: String!
+  lastName: String!
   email: String! @unique
   password: String!
   resetToken: String
   resetTokenExpiry: String
-  permissions: [Permission]
-  cart: [CartItem!]!
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  cart: [CartItem!]! @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
-type Item {
-  id: ID! @unique
+type Product {
+  id: ID! @unique @id
   brand: String
   title: String!
   description: String!
@@ -27,35 +30,39 @@ type Item {
   image: String
   largeImage: String
   price: Int!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   user: User!
 }
 
 type CartItem {
-  id: ID! @unique
-  quantity: Int! @default(value: "1")
-  item: Item # Relationship to Item
+  id: ID! @unique @id
+  quantity: Int! @default(value: 1)
+  item: Product # Relationship to Product
   user: User! # Relationship to User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type OrderItem {
-  id: ID! @unique
+  id: ID! @unique @id
   title: String!
   description: String!
   image: String!
   largeImage: String!
   price: Int!
-  quantity: Int! @default(value: "1")
+  quantity: Int! @default(value: 1)
   user: User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Order {
-  id: ID! @unique
+  id: ID! @unique @id
   items: [OrderItem!]!
   total: Int!
   user: User!
   charge: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

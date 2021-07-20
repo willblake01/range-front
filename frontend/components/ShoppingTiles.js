@@ -1,98 +1,68 @@
-import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const TileStyle = styled.div`
-  a {
-    color: ${props => props.theme.white};
+const StyledTiles = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--black);
+
+  .tiles {
+    width: 33.33%;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+  }
+  
+  #tents-tile {
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509890/range-front/shop_tents.jpg') bottom center no-repeat;
+    background-size: cover;
+    opacity: 0.42;
+    :hover {
+      opacity: 0.2;
+    }
   }
 
-  .shopping-tiles {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: ${props => props.theme.black};
-  }
-  .shop {
-      width: 33.33%;
-      height: 480px;
-      min-width: 480px;
-      position: relative;
-      text-align: center;
-  }
-  #shop-tents:hover {
-      opacity: 0.45;
-  }
-  #tents-tile {
-      width: 480px;
-      height: 480px;
-      opacity: 0.34;
-  }
-  #shop-sleepingBags:hover {
-      opacity: 0.45;
-  }
   #bags-tile {
-      width: 480px;
-      height: 480px;
-      opacity: 0.36;
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg') bottom center no-repeat;
+    background-size: cover;
+    opacity: 0.42;
+    :hover {
+      opacity: 0.2;
+    }
   }
-  #shop-backpacks:hover {
-      opacity: 0.45;
-  }
+
   #packs-tile {
-      width: 480px;
-      height: 480px;
-      opacity: 0.56;
-  }
-  .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 16px;
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg') bottom center no-repeat;
+    background-size: cover;
+    opacity: 0.42;
+    :hover {
+      opacity: 0.2;
+    }
   }
 `;
 
 const ShoppingTiles = () => (
-  <TileStyle>
-    <div className='shopping-tiles'>
-      <div className='shop' id='shop-tents'>
-          <Link href='/tents'>
-            <a>
-              <img
-                src='https://res.cloudinary.com/willblake01/image/upload/v1538509890/range-front/shop_tents.jpg'
-                alt='Shop Tents'
-                id='tents-tile'
-              />
-              <div className="centered">Shop Tents</div>
-            </a>
-          </Link>
+  <StyledTiles>
+    <Link href='/tents'>
+      <div className='tiles' id='tents-tile'>
+        Shop Tents
       </div>
-      <div className='shop' id='shop-sleepingBags'>
-          <Link href='/sleepingBags'>
-            <a>
-              <img
-                src='https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg'
-                alt='Shop Sleeping Bags'
-                id='bags-tile'
-              />
-              <div className="centered">Shop Sleeping Bags</div>
-            </a>
-          </Link>
+    </Link>
+    <Link href='/backpacks'>
+      <div className='tiles' id='packs-tile'>
+        Shop Backpacks
       </div>
-      <div className='shop' id='shop-backpacks'>
-          <Link href='/backpacks'>
-            <a>
-              <img
-                src='https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg'
-                alt='Shop Backpacks'
-                id='packs-tile'
-              />
-              <div className="centered">Shop Backpacks</div>
-            </a>
-          </Link>
+    </Link>
+    <Link href='/sleeping-bags'>
+      <div className='tiles' id='bags-tile'>
+        Shop Sleeping Bags
       </div>
-    </div>
-  </TileStyle>
+    </Link>
+  </StyledTiles>
 )
 
 export default ShoppingTiles;
