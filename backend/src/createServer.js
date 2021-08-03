@@ -19,6 +19,7 @@ function createServer() {
     resolverValidationOptions: {
       requireResolversForResolveType: false
     },
+    playground: true,
     context: req => ({ ...req, db })
   });
 }
