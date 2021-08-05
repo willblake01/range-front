@@ -10,7 +10,7 @@ const StyledLogo = styled.div`
   position: absolute;
   top: 23px;
   left: 23px;
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin: 0;
   z-index: 2;
   transform: skew(-7deg);

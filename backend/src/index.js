@@ -7,19 +7,6 @@ const db = require('./db');
 
 const server = createServer();
 
-// Start it!
-server.start(
-  {
-    cors: {
-      credentials: true,
-      origin: process.env.FRONTEND_URL,
-    },
-  },
-  deets => {
-    console.log(`Server is now running on port http://localhost:${deets.port}`);
-  }
-);
-
 const app = express();
 app.use(cookieParser());
 
@@ -47,7 +34,14 @@ app.use(async (req, res, next) => {
 });
 
 // Mount Apollo middleware here.
-server.applyMiddleware({ app });
+server.applyMiddleware({
+  app,
+  path: '/',
+  cors: {
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+  }
+});
 
 new Promise(resolve => app.listen({ port: process.env.PORT }, resolve));
   console.log(`🚀 Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`);
