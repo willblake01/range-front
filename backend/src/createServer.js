@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer, gql, makeExecutableSchema } = require('apollo-server-express');
 const { importSchema } = require('graphql-import');
 const path = require('path');
 const Mutation = require('./resolvers/Mutation');
@@ -10,15 +10,18 @@ const typeDefs = gql(typeDefsFile);
 const resolvers = {
   Mutation,
   Query
-}
+};
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+  resolverValidationOptions: {
+    requireResolversForResolveType: false
+  }
+});
 
 function createServer() {
   return new ApolloServer({
-    typeDefs,
-    resolvers,
-    resolverValidationOptions: {
-      requireResolversForResolveType: false
-    },
+    schema,
     playground: true,
     context: req => ({ ...req, db })
   });

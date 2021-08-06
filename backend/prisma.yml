@@ -2,7 +2,7 @@ datamodel: datamodel.graphql
 secret: ${env:PRISMA_SECRET}
 
 # endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://range-front-backend-prod.herokuapp.com/graphql
+endpoint: https://range-front-backend-prod.herokuapp.com/
 
 hooks:
   post-deploy:
