@@ -10,12 +10,14 @@ const SEARCH_PRODUCTS_QUERY = gql`
     searchTerms: products(
       where: {
         OR: [
-          { name_contains_i: $searchTerm }
-          { description_contains_i: $searchTerm }
+          { brand_contains: $searchTerm }
+          { title_contains: $searchTerm }
+          { description_contains: $searchTerm }
         ]
       }
     ) {
       id
+      brand
       title
       image
     }

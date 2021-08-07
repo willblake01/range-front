@@ -7,9 +7,7 @@ import Footer from '../components/Footer';
 const TentsPage = ({ query }) => (
   <>
     <AlternateHeader />
-    <SearchStyles>
-      <Search />
-    </SearchStyles>
+    <Search />
     <Tents page={parseFloat(query.page) || 1} />
     <Footer />
   </>
