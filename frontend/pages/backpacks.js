@@ -7,9 +7,7 @@ import Footer from '../components/Footer';
 const BackpacksPage = ({query}) => (
   <>
     <AlternateHeader />
-    <SearchStyles>
-      <Search />
-    </SearchStyles>
+    <Search />
     <Backpacks page={parseFloat(query.page) || 1} />
     <Footer />
   </>

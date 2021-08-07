@@ -7,9 +7,7 @@ import Footer from '../components/Footer';
 const SleepingBagsPage = ({ query }) => (
   <>
     <AlternateHeader />
-    <SearchStyles>
-      <Search />
-    </SearchStyles>
+    <Search />
     <SleepingBags page={parseFloat(query.page) || 1} />
     <Footer />
   </>
