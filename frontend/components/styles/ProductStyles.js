@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ProductStyles = styled.div`
-  background: white;
+  background: var(--white);
   border: 1px solid var(--offWhite);
   box-shadow: var(--bs);
   position: relative;
@@ -11,6 +11,8 @@ const ProductStyles = styled.div`
     width: 100%;
     height: 400px;
     object-fit: contain;
+    background-color: var(--white);
+    padding: 20px;
   }
   p {
     line-height: 2;
@@ -19,16 +21,15 @@ const ProductStyles = styled.div`
     padding: 0 3rem;
     font-size: 1.5rem;
   }
+
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid var(--lightGrey);
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    background: var(--lightGrey);
     & > * {
-      background: white;
-      border: 0;
+      background: var(--white);
+      border: 1px solid var(--green);
       font-size: 1rem;
       padding: 1rem;
     }
