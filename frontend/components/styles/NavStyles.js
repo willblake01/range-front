@@ -8,7 +8,6 @@ const NavStyles = styled.ul`
   padding: 5px 20px 5px 20px;
   display: flex;
   align-items: center;
-  /* justify-self: end; */
   font-size: 1.6rem;
   a {
     margin-right: 5px;

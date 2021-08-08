@@ -7,7 +7,7 @@ const StyledLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   top: 23px;
   left: 23px;
   font-size: 3.5rem;
