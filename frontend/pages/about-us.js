@@ -24,7 +24,6 @@ const AboutUsStyle = styled.div`
   .container {
     margin-top: 100px;
     max-width: 1440px;
-    max-height: 1800px;
     padding: 20px 100px 100px 100px;
   }
 `;

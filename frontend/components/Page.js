@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.5rem;
     line-height:2;
     max-width: var(--maxWidth);
+    min-height: 100vh;
   }
   a {
     text-decoration: none;
@@ -50,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
 const InnerStyles = styled.div`
   margin: 0;
   padding: 0;
+  height: 100vh;
 `;
 
 export default function Page({ children, cool }) {

@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 const LearnMoreStyle = styled.div`
     .container {
         max-width: 1440px;
+        padding-top: 60px;
         padding-right: 200px;
         padding-bottom: 60px;
         padding-left: 200px;

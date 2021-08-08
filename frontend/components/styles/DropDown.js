@@ -35,7 +35,7 @@ const SearchStyles = styled.div`
   display: grid;
   grid-template-rows: 1fr auto;
   border: 6px solid var(--green);
-  height: 100%;
+  height: max-content;
   input {
     width: 100%;
     padding: 10px;

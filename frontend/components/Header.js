@@ -6,14 +6,13 @@ import Cart from './Cart';
 import Logo from '../components/Logo';
 
 const StyledHeader = styled.header`
-  height: 480px;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   justify-content: space-between;
-  align-items: stretch;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');
+  height: 480px;
+  width: 100%;
     #button {
     position: relative;
     left: 132px;
@@ -53,10 +52,9 @@ const StyledHeader = styled.header`
 `;
 
 const NavPosition = styled.div`
-  grid-column: 1/3;
-  position: relative;
+  position: absolute;
   top: 120px;
-  height: max-content;
+  width: 100%;
 `;
 
 const CopyStyles = styled.div`
@@ -64,8 +62,8 @@ const CopyStyles = styled.div`
   color: var(--darkOrange);
   opacity: .9;
   position: absolute;
-  z-index: 2;
   top: 180px;
+  z-index: 2;
 `;
 
 const Header = () => (
