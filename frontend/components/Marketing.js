@@ -8,6 +8,8 @@ const MarketingStyle = styled.div`
   height: 607px;
   width: 100%;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/marketing_img.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const ButtonPosition = styled.div`

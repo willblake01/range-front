@@ -11,6 +11,8 @@ const StyledHeader = styled.header`
   grid-template-rows: 1fr;
   justify-content: space-between;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 480px;
   width: 100%;
     #button {
@@ -52,9 +54,9 @@ const StyledHeader = styled.header`
 `;
 
 const NavPosition = styled.div`
+  width: var(--maxWidth);
   position: absolute;
   top: 120px;
-  width: 100%;
 `;
 
 const CopyStyles = styled.div`

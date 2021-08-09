@@ -8,7 +8,6 @@ const StyledFooter = styled.footer`
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  max-width: var(--maxWidth);
   height: 140px;
   background-color: var(--green);
 

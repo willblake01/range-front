@@ -3,26 +3,24 @@ import styled from 'styled-components';
 const AcceptedPaymentsStyle = styled.div`
   .accepted-payment {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
     height: 580px;
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .section {
     max-width: 720 px;
   }
   #credit-card {
     width: 400px;
-    position: relative;
-    top: 140px;
-    left: 150px;
     text-align: center;
   }
   #bitcoin {
     width: 280px;
-    position: relative;
-    top: 120px;
-    left: 580px;
     text-align: center;
   }
 `;

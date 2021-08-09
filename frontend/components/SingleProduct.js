@@ -7,11 +7,11 @@ import AddToCart from './AddToCart';
 import DisplayError from './ErrorMessage';
 
 const ProductStyles = styled.div`
-  max-width: var(--maxWidth);
   justify-content: center;
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   padding: 40px;
+  height: 100%;
   img {
     object-fit: contain;
   }
