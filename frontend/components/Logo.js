@@ -27,12 +27,10 @@ const StyledLogo = styled.div`
   }
 `;
 
-const Logo = () => (
+export const Logo = () => (
   <StyledLogo>
     <Link href='/'>
       <h3>RANGE FRONT</h3>
     </Link>
   </StyledLogo>
 )
-
-export default Logo;

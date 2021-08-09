@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import AlternateHeader from '../components/AlternateHeader';
-import SignIn from '../components/SignIn';
-import Footer from '../components/Footer';
+import { AlternateHeader } from '../components/AlternateHeader';
+import { SignIn } from '../components/SignIn';
+import { Footer } from '../components/Footer';
 
 const StyledSignIn = styled.div`
   display: flex;

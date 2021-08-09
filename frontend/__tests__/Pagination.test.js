@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
-import Pagination, { PAGINATION_QUERY } from '../components/Pagination';
+import { Pagination, PAGINATION_QUERY } from '../components/Pagination';
 import { makePaginationMocksFor } from '../lib/testUtils';
 
 describe('<Pagination/>', () => {

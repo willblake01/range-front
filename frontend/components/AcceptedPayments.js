@@ -25,7 +25,7 @@ const AcceptedPaymentsStyle = styled.div`
   }
 `;
 
-const AcceptedPayments = () => (
+export const AcceptedPayments = () => (
   <AcceptedPaymentsStyle>
     <div className='accepted-payment'>
       <div className='section'>
@@ -44,5 +44,3 @@ const AcceptedPayments = () => (
     </div>
   </AcceptedPaymentsStyle>
 )
-
-export default AcceptedPayments;

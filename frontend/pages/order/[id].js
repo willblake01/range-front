@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import ErrorMessage from '../../components/ErrorMessage';
-import OrderStyles from '../../components/styles/OrderStyles';
-import formatMoney from '../../lib/formatMoney';
+import { Error } from '../../components/ErrorMessage';
+import { OrderStyles } from '../../components/styles/OrderStyles';
+import { formatMoney } from '../../lib/formatMoney';
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -30,8 +30,9 @@ export default function SingleOrderPage({ query }) {
     variables: { id: query.id },
   });
   if (loading) return <p>Loading...</p>;
-  if (error) return <ErrorMessage error={error} />;
+  if (error) return <Error error={error} />;
   const { order } = data;
+  
   return (
     <OrderStyles>
       <Head>

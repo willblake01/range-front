@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import AlternateHeader from '../components/AlternateHeader';
-import RequestReset from '../components/RequestReset';
-import Reset from '../components/Reset';
-import Footer from '../components/Footer';
+import { AlternateHeader } from '../components/AlternateHeader';
+import { RequestReset } from '../components/RequestReset';
+import { Reset } from '../components/Reset';
+import { Footer } from '../components/Footer';
 
 const StyledReset = styled.div`
   display: flex;

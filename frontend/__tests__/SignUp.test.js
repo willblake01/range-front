@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
-import Signup, { SIGNUP_MUTATION } from '../components/Signup';
+import { Signup, SIGNUP_MUTATION } from '../components/Signup';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser } from '../lib/testUtils';
 

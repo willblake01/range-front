@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import Form from './styles/Form';
-import useForm from '../lib/useForm';
-import Error from './ErrorMessage';
-import LargeButton from './LargeButton';
+import { Form } from './styles/Form';
+import { useForm } from '../lib/useForm';
+import { Error } from './ErrorMessage';
+import { LargeButton } from './LargeButton';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
@@ -22,7 +22,7 @@ const RESET_MUTATION = gql`
   }
 `;
 
-export default function Reset({ token }) {
+export const Reset = ({ token }) => {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
@@ -44,6 +44,7 @@ export default function Reset({ token }) {
     resetForm();
     // Send the email and password to the graphqlAPI
   }
+  
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>

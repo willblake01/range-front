@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Nav from './Nav';
-import LargeButton from './LargeButton';
-import Cart from './Cart';
-import Logo from '../components/Logo';
+import { Nav } from './Nav';
+import { LargeButton } from './LargeButton';
+import { Cart } from './Cart';
+import { Logo } from '../components/Logo';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -68,7 +68,7 @@ const CopyStyles = styled.div`
   z-index: 2;
 `;
 
-const Header = () => (
+export const Header = () => (
   <StyledHeader>
     <Logo />
     <NavPosition>
@@ -92,5 +92,3 @@ const Header = () => (
     <Cart />
   </StyledHeader>
 )
-
-export default Header;

@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import ProductStyles from './styles/ProductStyles';
-import Title from './styles/Title';
-import PriceTag from './styles/PriceTag';
-import formatMoney from '../lib/formatMoney';
-import DeleteProduct from './DeleteProduct';
-import AddToCart from './AddToCart';
+import { ProductStyles } from './styles/ProductStyles';
+import { Title } from './styles/Title';
+import { PriceTag } from './styles/PriceTag';
+import { formatMoney } from '../lib/formatMoney';
+import { DeleteProduct } from './DeleteProduct';
+import { AddToCart } from './AddToCart';
 import { useUser } from './User';
 
-const Product = ({ product }) => {
+export const Product = ({ product }) => {
   const user = useUser();
   
   return (
@@ -49,5 +49,3 @@ const Product = ({ product }) => {
     </ProductStyles>
   );
 }
-
-export default Product;

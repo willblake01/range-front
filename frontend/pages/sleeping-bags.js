@@ -1,8 +1,7 @@
-import AlternateHeader from '../components/AlternateHeader';
-import { SearchStyles } from '../components/styles/DropDown';
-import Search from '../components/Search';
-import SleepingBags from '../components/SleepingBags';
-import Footer from '../components/Footer';
+import { AlternateHeader } from '../components/AlternateHeader';
+import { Search } from '../components/Search';
+import { SleepingBags } from '../components/SleepingBags';
+import { Footer } from '../components/Footer';
 
 const SleepingBagsPage = ({ query }) => (
   <>

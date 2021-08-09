@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NavStyles = styled.ul`
+export const NavStyles = styled.ul`
   height: 55px;
   width: 100%;
   background-color: var(--darkOrange);
@@ -19,5 +19,3 @@ const NavStyles = styled.ul`
     color: blue;
   }
 `;
-
-export default NavStyles;

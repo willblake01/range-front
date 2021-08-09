@@ -28,6 +28,7 @@ const DisplayError = ({ error }) => {
       </ErrorStyles>
     ));
   }
+  
   return (
     <ErrorStyles>
       <p data-test="graphql-error">
@@ -46,4 +47,4 @@ DisplayError.propTypes = {
   error: PropTypes.object,
 };
 
-export default DisplayError;
+export { DisplayError as Error };

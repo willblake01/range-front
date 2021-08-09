@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import useForm from '../lib/useForm';
-import DisplayError from './ErrorMessage';
-import Form from './styles/Form';
+import { useForm } from '../lib/useForm';
+import { DisplayError } from './ErrorMessage';
+import { Form } from './styles/Form';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
@@ -34,7 +34,7 @@ const UPDATE_PRODUCT_MUTATION = gql`
   }
 `;
 
-export default function UpdateProduct({ id }) {
+export const UpdateProduct = ({ id }) => {
   // 1. We need to get the existing product
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },

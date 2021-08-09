@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
-import SingleProduct, {
-  SINGLE_PRODUCT_QUERY,
+import {
+  SingleProduct, SINGLE_PRODUCT_QUERY,
 } from '../components/SingleProduct';
 import { fakeItem } from '../lib/testUtils';
 

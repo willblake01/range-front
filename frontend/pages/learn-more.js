@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import AlternateHeader from '../components/AlternateHeader';
-import Footer from '../components/Footer';
+import { AlternateHeader } from '../components/AlternateHeader';
+import { Footer } from '../components/Footer';
 
 const LearnMoreStyle = styled.div`
     .container {

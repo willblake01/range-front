@@ -24,7 +24,7 @@ const SEARCH_PRODUCTS_QUERY = gql`
   }
 `;
 
-export default function Search() {
+export const Search = () => {
   const router = useRouter();
   const [findItems, { loading, data, error }] = useLazyQuery(
     SEARCH_PRODUCTS_QUERY,

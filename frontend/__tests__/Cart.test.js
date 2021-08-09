@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import userEvent from '@testing-library/user-event';
 import wait from 'waait';
-import Cart from '../components/Cart';
+import { Cart } from '../components/Cart';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { REMOVE_FROM_CART_MUTATION } from '../components/RemoveFromCart';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';

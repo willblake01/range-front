@@ -14,7 +14,7 @@ const StyledSocial = styled.div`
   }
 `;
 
-const Social = () => (
+export const Social = () => (
   <StyledSocial>
     <Link href='https://www.facebook.com'>
       <a target='_blank'>
@@ -54,5 +54,3 @@ const Social = () => (
     </Link>
   </StyledSocial>
 )
-
-export default Social;

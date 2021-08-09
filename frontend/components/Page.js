@@ -55,7 +55,7 @@ const InnerStyles = styled.div`
   max-width: var(--maxWidth);
 `;
 
-export default function Page({ children, cool }) {
+export const Page = ({ children, cool }) => {
   return (
     <>
       <GlobalStyles />

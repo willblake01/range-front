@@ -3,8 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import waait from 'waait';
 import { MockedProvider } from '@apollo/react-testing';
-import RequestReset, {
-  REQUEST_RESET_MUTATION,
+import {
+  RequestReset, REQUEST_RESET_MUTATION,
 } from '../components/RequestReset';
 
 const mocks = [

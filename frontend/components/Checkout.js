@@ -11,7 +11,7 @@ import nProgress from 'nprogress';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Router, useRouter } from 'next/dist/client/router';
-import LargeButton from '../components/LargeButton';
+import { LargeButton } from '../components/LargeButton';
 import { useCart } from '../lib/cartState';
 import { CURRENT_USER_QUERY } from './User';
 

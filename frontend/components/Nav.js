@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useCart } from '../lib/cartState';
-import CartCount from './CartCount';
-import SignOut from './SignOut';
+import { CartCount } from './CartCount';
+import { SignOut } from './SignOut';
 import { useUser } from './User';
-import NavStyles from '../components/styles/NavStyles';
+import { NavStyles } from '../components/styles/NavStyles';
 
 const StyledButton = styled.button `
   background-color: var(--green);
@@ -13,7 +13,7 @@ const StyledButton = styled.button `
   width: 82px;
 `;
 
-const Nav = () => {
+export const Nav = () => {
   const user = useUser();
   const { openCart } = useCart();
 
@@ -55,5 +55,3 @@ const Nav = () => {
     </NavStyles>
   )
 };
-
-export default Nav;

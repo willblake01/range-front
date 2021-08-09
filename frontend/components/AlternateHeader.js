@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Nav from './Nav';
-import Cart from './Cart';
-import Logo from '../components/Logo';
+import { Nav } from './Nav';
+import { Cart } from './Cart';
+import { Logo } from '../components/Logo';
 
 const StyledAlternateHeader = styled.header`
   display: grid;
@@ -17,7 +17,7 @@ const NavPosition = styled.div`
   align-self: end;
 `;
 
-const AlternateHeader = () => (
+export const AlternateHeader = () => (
   <>
     <StyledAlternateHeader>
       <Logo />
@@ -28,5 +28,3 @@ const AlternateHeader = () => (
     <Cart />
   </>
 );
-
-export default AlternateHeader;

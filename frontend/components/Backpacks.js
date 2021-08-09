@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import Product from './Product';
-import ProductsListStyles from '../components/styles/ProductsListStyles';
+import { Product } from './Product';
+import { ProductsListStyles } from '../components/styles/ProductsListStyles';
 
 const BACKPACKS_QUERY = gql`
   query BACKPACKS_QUERY {
@@ -18,7 +18,7 @@ const BACKPACKS_QUERY = gql`
   }
 `;
 
-const Backpacks = () => {
+export const Backpacks = () => {
   const { data, error, loading } = useQuery(BACKPACKS_QUERY);
   if(loading) return <p>Loading...</p>;
   if(error) return <p>Error: {error.message}</p>;
@@ -32,5 +32,4 @@ const Backpacks = () => {
   )
 }
 
-export default Backpacks;
 export { BACKPACKS_QUERY };

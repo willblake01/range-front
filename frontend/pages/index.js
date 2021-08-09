@@ -1,11 +1,11 @@
 import Head from 'next/head';
-import Header from '../components/Header';
-import Search from '../components/Search';
-import ShoppingTiles from '../components/ShoppingTiles';
-import Marketing from '../components/Marketing';
-import AcceptedPayments from '../components/AcceptedPayments';
-import Parallax from '../components/Parallax';
-import Footer from '../components/Footer';
+import { Header } from '../components/Header';
+import { Search } from '../components/Search';
+import { ShoppingTiles } from '../components/ShoppingTiles';
+import { Marketing } from '../components/Marketing';
+import { AcceptedPayments } from '../components/AcceptedPayments';
+import { Parallax } from '../components/Parallax';
+import { Footer } from '../components/Footer';
 
 const Home = () => (
   <>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import LargeButton from './LargeButton';
+import { LargeButton } from './LargeButton';
 
 const MarketingStyle = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const ButtonPosition = styled.div`
   top: 520px;
 `
 
-const Marketing = () => (
+export const Marketing = () => (
   <MarketingStyle>
     <Link href='/clearance'>
       <ButtonPosition>
@@ -26,5 +26,3 @@ const Marketing = () => (
     </Link>
   </MarketingStyle>
 )
-
-export default Marketing;

@@ -1,8 +1,8 @@
-import AlternateHeader from '../components/AlternateHeader';
+import { AlternateHeader } from '../components/AlternateHeader';
 import { SearchStyles } from '../components/styles/DropDown';
-import Search from '../components/Search';
-import Backpacks from '../components/Backpacks';
-import Footer from '../components/Footer';
+import { Search } from '../components/Search';
+import { Backpacks } from '../components/Backpacks';
+import { Footer } from '../components/Footer';
 
 const BackpacksPage = ({query}) => (
   <>

@@ -1,7 +1,7 @@
 import { useUser } from './User';
-import SignIn from './SignIn';
+import { SignIn } from './SignIn';
 
-export default function ({ children }) {
+export const PleaseSignIn = ({ children }) => {
   const user = useUser();
   if (!user) return <SignIn />;
   return children;

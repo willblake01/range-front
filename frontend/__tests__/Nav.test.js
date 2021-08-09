@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import waait from 'waait';
-import Nav from '../components/Nav';
+import { Nav } from '../components/Nav';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser, fakeCartItem } from '../lib/testUtils';
 import { CartStateProvider } from '../components/LocalState';

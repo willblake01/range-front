@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import CartStyles from './styles/CartStyles';
-import CloseButton from './styles/CloseButton';
-import Logo from '../components/Logo';
-import formatMoney from '../lib/formatMoney';
+import { CartStyles } from './styles/CartStyles';
+import { CloseButton } from './styles/CloseButton';
+import { Logo } from '../components/Logo';
+import { formatMoney } from '../lib/formatMoney';
 import { useUser } from './User';
-import calcTotalPrice from '../lib/calcTotalPrice';
+import { calcTotalPrice } from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
-import RemoveFromCart from './RemoveFromCart';
+import { RemoveFromCart } from './RemoveFromCart';
 import { Checkout } from './Checkout';
 
 const CartItemStyles = styled.li`
@@ -23,9 +23,10 @@ const CartItemStyles = styled.li`
   }
 `;
 
-function CartItem({ cartItem }) {
+export const CartItem = ({ cartItem }) => {
   const { item } = cartItem;
   if (!item) return null;
+
   return (
     <CartItemStyles>
       <img
@@ -47,7 +48,7 @@ function CartItem({ cartItem }) {
   );
 }
 
-export default function Cart() {
+export const Cart = () => {
   const user = useUser();
   const { cartOpen, closeCart } = useCart();
   if (!user) return null;

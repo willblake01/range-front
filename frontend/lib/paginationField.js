@@ -1,6 +1,6 @@
 import { PAGINATION_QUERY } from '../components/Pagination';
 
-export default function paginationField() {
+export const paginationField = () => {
   return {
     keyArgs: false, // tells apollo we will take care of everything
     read(existing = [], { args, cache }) {

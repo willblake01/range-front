@@ -1,10 +1,10 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
-import useForm from '../lib/useForm';
-import DisplayError from './ErrorMessage';
+import { useForm } from '../lib/useForm';
+import { DisplayError } from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
-import Form from './styles/Form';
+import { Form } from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -31,7 +31,7 @@ const CREATE_PRODUCT_MUTATION = gql`
   }
 `;
 
-export default function CreateProduct() {
+export const CreateProduct = () => {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     image: '',
     name: 'Nice Shoes',
@@ -45,6 +45,7 @@ export default function CreateProduct() {
       refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
+  
   return (
     <Form
       onSubmit={async (e) => {

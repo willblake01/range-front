@@ -3,9 +3,9 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
-import ErrorMessage from '../components/ErrorMessage';
-import formatMoney from '../lib/formatMoney';
-import OrderItemStyles from '../components/styles/OrderItemStyles';
+import { Error } from '../components/ErrorMessage';
+import { formatMoney } from '../lib/formatMoney';
+import { OrderItemStyles } from '../components/styles/OrderItemStyles';
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -41,8 +41,9 @@ function countItemsInAnOrder(order) {
 export default function OrdersPage() {
   const { data, error, loading } = useQuery(USER_ORDERS_QUERY);
   if (loading) return <p>Loading...</p>;
-  if (error) return <ErrorMessage error={error} />;
+  if (error) return <Error error={error} />;
   const { allOrders } = data;
+
   return (
     <>
       <Head>

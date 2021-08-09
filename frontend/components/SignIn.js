@@ -2,11 +2,11 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
-import Form from './styles/Form';
-import useForm from '../lib/useForm';
+import { Form } from './styles/Form';
+import { useForm } from '../lib/useForm';
 import { CURRENT_USER_QUERY } from './User';
-import Error from './ErrorMessage';
-import LargeButton from './LargeButton';
+import { Error } from './ErrorMessage';
+import { LargeButton } from './LargeButton';
 
 const LinkPosition = styled.div`
   float: right;
@@ -30,7 +30,7 @@ const SIGNIN_MUTATION = gql`
   }
 `;
 
-export default function SignIn() {
+export const SignIn = () => {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',

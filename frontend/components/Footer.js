@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Social from './Social';
+import { Social } from './Social';
 
 const StyledFooter = styled.footer`
   position: relative;
@@ -29,7 +29,7 @@ const SocialPosition = styled.div`
   right: 10px;
 `;
 
-const Footer = () => (
+export const Footer = () => (
   <StyledFooter>
     <Link href='https://github.com/willblake01/range-front'>
       <a className='github-link' target='_blank' rel='noopener noreferrer'>
@@ -42,5 +42,3 @@ const Footer = () => (
     </SocialPosition>
   </StyledFooter>
 )
-
-export default Footer;

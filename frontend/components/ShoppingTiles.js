@@ -45,7 +45,7 @@ const StyledTiles = styled.div`
   }
 `;
 
-const ShoppingTiles = () => (
+export const ShoppingTiles = () => (
   <StyledTiles>
     <Link href='/tents'>
       <div className='tiles' id='tents-tile'>
@@ -64,5 +64,3 @@ const ShoppingTiles = () => (
     </Link>
   </StyledTiles>
 )
-
-export default ShoppingTiles;

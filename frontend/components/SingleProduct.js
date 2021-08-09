@@ -3,8 +3,9 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
-import AddToCart from './AddToCart';
-import DisplayError from './ErrorMessage';
+import { formatMoney } from '../lib/formatMoney';
+import { AddToCart } from './AddToCart';
+import { DisplayError } from './ErrorMessage';
 
 const ProductStyles = styled.div`
   justify-content: center;
@@ -70,7 +71,7 @@ const SINGLE_PRODUCT_QUERY = gql`
   }
 `;
 
-const SingleProduct = ({ id }) => {
+export const SingleProduct = ({ id }) => {
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: {
       id,
@@ -95,6 +96,7 @@ const SingleProduct = ({ id }) => {
         <div className="details">
           <h2>{product.title}</h2>
           <p>{product.description}</p>
+          <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className="buttonList">
           <Link
@@ -110,5 +112,3 @@ const SingleProduct = ({ id }) => {
     </ProductStyles>
   );
 }
-
-export default SingleProduct;

@@ -3,8 +3,8 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
-import PaginationStyles from './styles/PaginationStyles';
-import DisplayError from './ErrorMessage';
+import { PaginationStyles } from './styles/PaginationStyles';
+import { DisplayError } from './ErrorMessage';
 import { perPage } from '../config';
 
 export const PAGINATION_QUERY = gql`
@@ -15,7 +15,7 @@ export const PAGINATION_QUERY = gql`
   }
 `;
 
-export default function Pagination({ page }) {
+export const Pagination = ({ page }) => {
   const { error, loading, data } = useQuery(PAGINATION_QUERY);
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;

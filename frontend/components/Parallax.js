@@ -8,8 +8,6 @@ const ParallaxStyle = styled.div`
   height: 680px;
 `;
 
-const Parallax = () => (
+export const Parallax = () => (
   <ParallaxStyle />
 )
-
-export default Parallax;
