@@ -1,7 +1,9 @@
 import { AlternateHeader } from '../components/AlternateHeader';
 
-export const AccountPage = ({query}) => (
+const AccountPage = ({query}) => (
   <>
     <AlternateHeader />
   </>
 );
+
+export default AccountPage;
