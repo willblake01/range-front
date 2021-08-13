@@ -4,7 +4,28 @@ import { useCart } from '../lib/cartState';
 import { CartCount } from './CartCount';
 import { SignOut } from './SignOut';
 import { useUser } from './User';
-import { NavStyles } from '../components/styles/NavStyles';
+
+export const NavStyles = styled.ul`
+  grid-column: 2;
+  z-index: 2;
+  background-color: var(--darkOrange);
+  opacity: .9;
+  margin: 0;
+  padding: 5px 20px 5px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  height: 55px;
+  width: 100%;
+  a {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: var(--white);
+  }
+  a:hover {
+    color: blue;
+  }
+`;
 
 const StyledButton = styled.button `
   background-color: var(--green);

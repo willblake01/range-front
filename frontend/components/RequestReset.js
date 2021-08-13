@@ -7,7 +7,7 @@ import { LargeButton } from './LargeButton';
 
 const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
-    sendUserPasswordResetLink(email: $email) {
+    resetPassword(email: $email) {
       code
       message
     }

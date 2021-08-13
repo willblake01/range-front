@@ -54,18 +54,19 @@ const StyledHeader = styled.header`
 `;
 
 const NavPosition = styled.div`
-  width: var(--maxWidth);
-  position: absolute;
+  grid-column: 1/3;
   top: 120px;
 `;
 
 const CopyStyles = styled.div`
+  grid-column: 1;
   line-height: 0px;
   color: var(--darkOrange);
   opacity: .9;
-  position: absolute;
-  top: 180px;
+  position: relative;
   z-index: 2;
+  height: max-content;
+  width: max-content;
 `;
 
 export const Header = () => (

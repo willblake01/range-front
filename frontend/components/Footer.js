@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  height: 140px;
+  height: 240px;
   background-color: var(--green);
 
   .github-link {

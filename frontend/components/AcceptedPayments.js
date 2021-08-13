@@ -9,8 +9,6 @@ const AcceptedPaymentsStyle = styled.div`
     width: 100%;
     height: 580px;
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   .section {
     max-width: 720 px;
