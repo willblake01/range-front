@@ -15,10 +15,12 @@ const StyledFooter = styled.footer`
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 1.4rem;
     color: var(--offWhite);
+    text-decoration: none;
     height: max-content;
-    > * {
-        margin: 0 4px 0 4px; 
+    * {
+      margin: 0 4px 4px 4px; 
     }
 }
 `;
@@ -29,7 +31,7 @@ const SocialPosition = styled.div`
   right: 10px;
 `;
 
-export const Footer = () => (
+const Footer = () => (
   <StyledFooter>
     <Link href='https://github.com/willblake01/range-front'>
       <a className='github-link' target='_blank' rel='noopener noreferrer'>
@@ -42,3 +44,5 @@ export const Footer = () => (
     </SocialPosition>
   </StyledFooter>
 )
+
+export { Footer };

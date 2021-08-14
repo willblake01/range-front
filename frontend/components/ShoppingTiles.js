@@ -5,7 +5,6 @@ const StyledTiles = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: var(--black);
-
   .tiles {
     width: 33.33%;
     height: 480px;
@@ -14,9 +13,9 @@ const StyledTiles = styled.div`
     align-items: center;
     text-align: center;
     color: var(--white);
+    font-size: 1.4rem;
     text-decoration: none;
   }
-  
   #tents-tile {
     background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509890/range-front/shop_tents.jpg') bottom center no-repeat;
     background-size: cover;
@@ -25,7 +24,6 @@ const StyledTiles = styled.div`
       opacity: 0.2;
     }
   }
-
   #bags-tile {
     background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg') bottom center no-repeat;
     background-size: cover;
@@ -34,7 +32,6 @@ const StyledTiles = styled.div`
       opacity: 0.2;
     }
   }
-
   #packs-tile {
     background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg') bottom center no-repeat;
     background-size: cover;

@@ -7,16 +7,16 @@ import { formatMoney } from '../lib/formatMoney';
 import { AddToCart } from './AddToCart';
 import { DisplayError } from './ErrorMessage';
 
-const ProductStyles = styled.div`
+const SingleProductStyles = styled.div`
   justify-content: center;
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  font-size: 1.4rem;
   padding: 40px;
   height: 100%;
   img {
     object-fit: contain;
   }
-
   .product {
     display: grid;
     gap: 40px;
@@ -29,32 +29,31 @@ const ProductStyles = styled.div`
     box-shadow: var(--bs);
     padding: 20px;
   }
-
   .image {
     grid-column: 1/2;
     display: flex;
     justify-content: center;
   }
-
   .details {
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
     grid-row: 1;
   }
-
   .buttonList {
     grid-column: 2/3;
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    & > * {
+    * {
       background: var(--white);
-      border: 1px solid var(--green);
+      border: 2px solid var(--green);
       font-size: 1rem;
       padding: 1rem;
       text-align: center;
+      color: var(--lightGrey);
+      text-decoration: none;
     }
   }
 `;
@@ -71,7 +70,7 @@ const SINGLE_PRODUCT_QUERY = gql`
   }
 `;
 
-export const SingleProduct = ({ id }) => {
+const SingleProduct = ({ id }) => {
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: {
       id,
@@ -82,7 +81,7 @@ export const SingleProduct = ({ id }) => {
   const { product } = data;
   
   return (
-    <ProductStyles>
+    <SingleProductStyles>
       <Head>
         <title>Range Front | {product.title}</title>
       </Head>
@@ -109,6 +108,8 @@ export const SingleProduct = ({ id }) => {
           <AddToCart id={product.id} />
         </div>
       </div>
-    </ProductStyles>
+    </SingleProductStyles>
   );
 }
+
+export { SingleProduct };

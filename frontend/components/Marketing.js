@@ -17,7 +17,7 @@ const ButtonPosition = styled.div`
   top: 520px;
 `
 
-export const Marketing = () => (
+const Marketing = () => (
   <MarketingStyle>
     <Link href='/clearance'>
       <ButtonPosition>
@@ -26,3 +26,5 @@ export const Marketing = () => (
     </Link>
   </MarketingStyle>
 )
+
+export { Marketing };

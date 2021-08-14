@@ -24,7 +24,7 @@ function update(cache, payload) {
   cache.evict(cache.identify(payload.data.deleteCartItem));
 }
 
-export const RemoveFromCart = ({ id }) => {
+const RemoveFromCart = ({ id }) => {
   const [removeFromCart, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
     variables: { id },
     update,
@@ -47,3 +47,5 @@ export const RemoveFromCart = ({ id }) => {
     </BigButton>
   );
 }
+
+export { RemoveFromCart };

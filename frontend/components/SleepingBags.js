@@ -18,10 +18,10 @@ const SLEEPING_BAGS_QUERY = gql`
   }
 `;
 
-export const SleepingBags = () => {
+const SleepingBags = () => {
   const { data, error, loading } = useQuery(SLEEPING_BAGS_QUERY);
-  if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -32,4 +32,4 @@ export const SleepingBags = () => {
   )
 }
 
-export { SLEEPING_BAGS_QUERY };
+export { SLEEPING_BAGS_QUERY, SleepingBags };

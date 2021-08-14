@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-export const Table = styled.table`
+const Table = styled.table`
   border-spacing: 0;
   width: 100%;
   border: 1px solid var(--offWhite);
@@ -28,3 +28,5 @@ export const Table = styled.table`
     }
   }
 `;
+
+export { Table };

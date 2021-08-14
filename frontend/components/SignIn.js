@@ -5,11 +5,18 @@ import styled from 'styled-components';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
 import { CURRENT_USER_QUERY } from './User';
-import { Error } from './ErrorMessage';
+import { DisplayError } from './ErrorMessage';
 import { LargeButton } from './LargeButton';
 
 const LinkPosition = styled.div`
   float: right;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: blue;
+  }
 `;
 
 const SIGNIN_MUTATION = gql`
@@ -30,7 +37,7 @@ const SIGNIN_MUTATION = gql`
   }
 `;
 
-export const SignIn = () => {
+const SignIn = () => {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
@@ -57,7 +64,7 @@ export const SignIn = () => {
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Into Your Account</h2>
-      <Error error={error} />
+      <DisplayError error={error} />
       <fieldset>
         <label htmlFor="email">
           Email
@@ -89,3 +96,5 @@ export const SignIn = () => {
     </Form>
   );
 }
+
+export { SignIn };

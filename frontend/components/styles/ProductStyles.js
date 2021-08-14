@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductStyles = styled.div`
+const ProductStyles = styled.div`
   background: var(--white);
   border: 1px solid var(--offWhite);
   box-shadow: var(--bs);
@@ -15,11 +15,12 @@ export const ProductStyles = styled.div`
     padding: 20px;
   }
   p {
+    text-indent: 50px;
     line-height: 2;
-    font-weight: 300;
     flex-grow: 1;
-    padding: 0 3rem;
-    font-size: 1.5rem;
+    padding: 2rem 3rem;
+    text-align: left;
+    font-size: 1.4rem;
   }
 
   .buttonList {
@@ -27,11 +28,14 @@ export const ProductStyles = styled.div`
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    & > * {
+    * {
       background: var(--white);
-      border: 1px solid var(--green);
+      border: 2px solid var(--green);
       font-size: 1rem;
       padding: 1rem;
+      color: var(--darkGrey);
     }
   }
 `;
+
+export { ProductStyles };

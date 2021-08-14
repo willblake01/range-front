@@ -24,9 +24,9 @@ const CURRENT_USER_QUERY = gql`
   }
 `;
 
-export function useUser() {
+const useUser = () => {
   const { data } = useQuery(CURRENT_USER_QUERY);
   return data?.authenticatedItem;
 }
 
-export { CURRENT_USER_QUERY };
+export { CURRENT_USER_QUERY, useUser };

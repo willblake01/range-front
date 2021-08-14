@@ -40,7 +40,7 @@ const CREATE_ORDER_MUTATION = gql`
 
 const stripeLib = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
-function CheckoutForm() {
+const CheckoutForm = () => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
@@ -105,7 +105,7 @@ function CheckoutForm() {
   );
 }
 
-function Checkout() {
+const Checkout = () => {
   return (
     <Elements stripe={stripeLib}>
       <CheckoutForm />

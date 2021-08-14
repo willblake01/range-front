@@ -9,44 +9,12 @@ const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  justify-content: space-between;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   height: 480px;
   width: 100%;
-    #button {
-    position: relative;
-    left: 132px;
-    bottom: 60px;
-    }
-    .header-copy {
-      align-self: flex-start;
-      position: relative;
-      left: 132px;
-        #first-line {
-          font-family: AbrilFatface-Regular;
-          font-size: 40px;
-        }
-        #second-line {
-          position: relative;
-          bottom: 34px;
-          font-family: AbrilFatface-Regular;
-          font-size: 88px;
-        }
-        #third-line {
-          position: relative;
-          bottom: 74px;
-          font-family: Raleway-Medium;
-          font-size: 20px;
-        }
-        #fourth-line {
-          position: relative;
-          bottom: 70px;
-          font-family: Raleway-Medium;
-          font-size: 20px;
-        }
-    }
   @media (max-width: 1300px) {
     grid-template-columns: 1fr;
     justify-content: center;
@@ -54,42 +22,67 @@ const StyledHeader = styled.header`
 `;
 
 const NavPosition = styled.div`
-  grid-column: 1/3;
+  z-index: 2;
+  height: max-content;
+  position: absolute;
   top: 120px;
+  width: 100%;
+`;
+
+const Section = styled.section`
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 210px;
+  left: 132px;
+  height: max-content;
+  width: max-content;
+  button {
+    margin: 20px 0;
+  }
 `;
 
 const CopyStyles = styled.div`
-  grid-column: 1;
-  line-height: 0px;
   color: var(--darkOrange);
   opacity: .9;
-  position: relative;
-  z-index: 2;
-  height: max-content;
-  width: max-content;
+  display: flex;
+  flex-direction: column;
+  .medium-abril-fatface {
+    font-family: AbrilFatface-Regular;
+    font-size: 2.4rem;
+  }
+  .large-abril-fatface {
+    font-family: AbrilFatface-Regular;
+    font-size: 7rem;
+  }
+  .small-railway {
+    font-family: Raleway-Medium;
+    font-size: 1.8rem;
+  }
 `;
 
-export const Header = () => (
+const Header = () => (
   <StyledHeader>
     <Logo />
     <NavPosition>
       <Nav />
     </NavPosition>
-    <CopyStyles>
-      <div className='header-copy'>
-        <p id='first-line'>For the love of</p>
-        <p id='second-line'>OUTDOOR</p>
-        <p id='third-line'>Whether you're a weekend warrior or a</p>
-        <p id='fourth-line'>Navy SEAL, we've got you covered.</p>
-      </div>
-      <div id='button'>
-        <Link href='/learn-more'>
-          <a>
-            <LargeButton buttonText='Learn More' />
-          </a>
-        </Link>
-      </div>
-    </CopyStyles>
+    <Section>
+      <CopyStyles>
+        <span class='medium-abril-fatface'>For the love of</span>
+        <span class='large-abril-fatface'>OUTDOOR</span>
+        <span class='small-railway'>Whether you're a weekend warrior or a</span>
+        <span class='small-railway'>Navy SEAL, we've got you covered.</span>
+      </CopyStyles>
+      <Link href='/learn-more'>
+        <a>
+          <LargeButton buttonText='Learn More' />
+        </a>
+      </Link>
+    </Section>
     <Cart />
   </StyledHeader>
 )
+
+export { Header };

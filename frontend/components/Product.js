@@ -7,7 +7,7 @@ import { DeleteProduct } from './DeleteProduct';
 import { AddToCart } from './AddToCart';
 import { useUser } from './User';
 
-export const Product = ({ product }) => {
+const Product = ({ product }) => {
   const user = useUser();
   
   return (
@@ -49,3 +49,5 @@ export const Product = ({ product }) => {
     </ProductStyles>
   );
 }
+
+export { Product };

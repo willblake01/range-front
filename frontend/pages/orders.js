@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { Error } from '../components/ErrorMessage';
+import { DisplayError } from '../components/ErrorMessage';
 import { formatMoney } from '../lib/formatMoney';
 import { OrderItemStyles } from '../components/styles/OrderItemStyles';
 
@@ -38,10 +38,10 @@ function countItemsInAnOrder(order) {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 }
 
-export default function OrdersPage() {
+const OrdersPage = () => {
   const { data, error, loading } = useQuery(USER_ORDERS_QUERY);
   if (loading) return <p>Loading...</p>;
-  if (error) return <Error error={error} />;
+  if (error) return <DisplayError error={error} />;
   const { allOrders } = data;
 
   return (
@@ -80,3 +80,5 @@ export default function OrdersPage() {
     </>
   );
 }
+
+export default OrdersPage;

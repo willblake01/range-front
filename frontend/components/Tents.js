@@ -18,10 +18,10 @@ const TENTS_QUERY = gql`
   }
 `;
 
-export const Tents = () => {
+const Tents = () => {
   const { data, error, loading } = useQuery(TENTS_QUERY);
-    if(loading) return <p>Loading...</p>;
-    if(error) return <p>Error: {error.message}</p>;
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -32,4 +32,4 @@ export const Tents = () => {
   )
 }
 
-export { TENTS_QUERY };
+export { TENTS_QUERY, Tents };

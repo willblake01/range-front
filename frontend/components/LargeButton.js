@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledLargeButton = styled.button`
   background-color: var(--green);
-  color: var(--white);
+  color: var(--offWhite);
   width: 180px;
   height: 42px;
   padding: .5rem 1rem;
@@ -20,6 +20,8 @@ const StyledLargeButton = styled.button`
   }
 `;
 
-export const LargeButton = ({buttonColor, buttonText}) => (
+const LargeButton = ({buttonColor, buttonText}) => (
   <StyledLargeButton buttonColor={buttonColor} buttonText={buttonText}>{buttonText}</StyledLargeButton>
 )
+
+export { LargeButton };

@@ -34,7 +34,7 @@ const UPDATE_PRODUCT_MUTATION = gql`
   }
 `;
 
-export const UpdateProduct = ({ id }) => {
+const UpdateProduct = ({ id }) => {
   // 1. We need to get the existing product
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
@@ -118,3 +118,5 @@ export const UpdateProduct = ({ id }) => {
     </Form>
   );
 }
+
+export { UpdateProduct };

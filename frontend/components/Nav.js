@@ -5,9 +5,7 @@ import { CartCount } from './CartCount';
 import { SignOut } from './SignOut';
 import { useUser } from './User';
 
-export const NavStyles = styled.ul`
-  grid-column: 2;
-  z-index: 2;
+const NavStyles = styled.ul`
   background-color: var(--darkOrange);
   opacity: .9;
   margin: 0;
@@ -15,15 +13,18 @@ export const NavStyles = styled.ul`
   display: flex;
   align-items: center;
   font-size: 1.6rem;
+  font-weight: 600;
   height: 55px;
   width: 100%;
+  * {
+    margin: 6px;
+  }
   a {
-    margin-right: 5px;
-    margin-left: 5px;
-    color: var(--white);
+    color: var(--offWhite);
+    text-decoration: none;
   }
   a:hover {
-    color: blue;
+    color: #0000EE;
   }
 `;
 
@@ -34,7 +35,7 @@ const StyledButton = styled.button `
   width: 82px;
 `;
 
-export const Nav = () => {
+const Nav = () => {
   const user = useUser();
   const { openCart } = useCart();
 
@@ -76,3 +77,5 @@ export const Nav = () => {
     </NavStyles>
   )
 };
+
+export { Nav };

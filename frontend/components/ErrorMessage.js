@@ -47,4 +47,4 @@ DisplayError.propTypes = {
   error: PropTypes.object,
 };
 
-export { DisplayError as Error };
+export { DisplayError };

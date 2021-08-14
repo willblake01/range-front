@@ -18,10 +18,10 @@ const BACKPACKS_QUERY = gql`
   }
 `;
 
-export const Backpacks = () => {
+const Backpacks = () => {
   const { data, error, loading } = useQuery(BACKPACKS_QUERY);
-  if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -32,4 +32,4 @@ export const Backpacks = () => {
   )
 }
 
-export { BACKPACKS_QUERY };
+export { BACKPACKS_QUERY, Backpacks };

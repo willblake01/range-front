@@ -13,7 +13,7 @@ const StyledSignUp = styled.div`
   height: 100%;
 `;
 
-export default function SignInPage() {
+const SignInPage = () => {
   return (
     <>
       <AlternateHeader />
@@ -24,3 +24,5 @@ export default function SignInPage() {
     </>
   );
 }
+
+export default SignInPage;

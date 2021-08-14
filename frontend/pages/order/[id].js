@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import { Error } from '../../components/ErrorMessage';
+import { DisplayError } from '../../components/ErrorMessage';
 import { OrderStyles } from '../../components/styles/OrderStyles';
 import { formatMoney } from '../../lib/formatMoney';
 
@@ -30,7 +30,7 @@ export default function SingleOrderPage({ query }) {
     variables: { id: query.id },
   });
   if (loading) return <p>Loading...</p>;
-  if (error) return <Error error={error} />;
+  if (error) return <DisplayError error={error} />;
   const { order } = data;
   
   return (

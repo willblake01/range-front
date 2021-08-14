@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const OrderItemStyles = styled.li`
+const OrderItemStyles = styled.li`
   box-shadow: var(--bs);
   list-style: none;
   padding: 2rem;
@@ -39,3 +39,5 @@ export const OrderItemStyles = styled.li`
     }
   }
 `;
+
+export { OrderItemStyles };

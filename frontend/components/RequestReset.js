@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
-import { Error } from './ErrorMessage';
+import { DisplayError } from './ErrorMessage';
 import { LargeButton } from './LargeButton';
 
 const REQUEST_RESET_MUTATION = gql`
@@ -14,7 +14,7 @@ const REQUEST_RESET_MUTATION = gql`
   }
 `;
 
-export const RequestReset = () => {
+const RequestReset = () => {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
   });
@@ -39,7 +39,7 @@ export const RequestReset = () => {
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Request a Password Reset</h2>
-      <Error error={error} />
+      <DisplayError error={error} />
       <fieldset>
         {data?.sendUserPasswordResetLink === null && (
           <p>Success! Check your email for a link!</p>
@@ -61,3 +61,5 @@ export const RequestReset = () => {
     </Form>
   );
 }
+
+export { RequestReset };

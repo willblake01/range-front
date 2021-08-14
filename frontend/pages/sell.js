@@ -1,7 +1,7 @@
 import { CreateProduct } from '../components/CreateProduct';
 import { PleaseSignIn } from '../components/PleaseSignIn';
 
-export default function SellPage() {
+const SellPage = () => {
   return (
     <>
       <PleaseSignIn>
@@ -10,3 +10,5 @@ export default function SellPage() {
     </>
   );
 }
+
+export default SellPage;

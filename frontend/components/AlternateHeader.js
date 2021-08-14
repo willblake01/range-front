@@ -17,7 +17,7 @@ const NavPosition = styled.div`
   align-self: end;
 `;
 
-export const AlternateHeader = () => (
+const AlternateHeader = () => (
   <>
     <StyledAlternateHeader>
       <Logo />
@@ -28,3 +28,5 @@ export const AlternateHeader = () => (
     <Cart />
   </>
 );
+
+export { AlternateHeader };

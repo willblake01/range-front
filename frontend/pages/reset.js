@@ -14,7 +14,7 @@ const StyledReset = styled.div`
   height: 100%;
 `;
 
-export default function ResetPage({ query }) {
+const  ResetPage = ({ query }) => {
   if (!query?.token) {
     return (
       <>
@@ -33,3 +33,5 @@ export default function ResetPage({ query }) {
     </>
   );
 }
+
+export default ResetPage;

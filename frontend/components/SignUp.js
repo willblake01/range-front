@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
-import { Error } from './ErrorMessage';
+import { DisplayError } from './ErrorMessage';
 import { LargeButton } from './LargeButton';
 
 const SIGNUP_MUTATION = gql`
@@ -21,7 +21,7 @@ const SIGNUP_MUTATION = gql`
   }
 `;
 
-export const SignUp = () => {
+const SignUp = () => {
   const { inputs, handleChange, resetForm } = useForm({
     firstName: '',
     lastName: '',
@@ -46,7 +46,7 @@ export const SignUp = () => {
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Up For an Account</h2>
-      <Error error={error} />
+      <DisplayError error={error} />
       <fieldset>
         {data?.createUser && (
           <p>
@@ -102,3 +102,5 @@ export const SignUp = () => {
     </Form>
   );
 }
+
+export { SignUp };

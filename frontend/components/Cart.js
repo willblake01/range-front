@@ -23,7 +23,7 @@ const CartItemStyles = styled.li`
   }
 `;
 
-export const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem }) => {
   const { item } = cartItem;
   if (!item) return null;
 
@@ -48,7 +48,7 @@ export const CartItem = ({ cartItem }) => {
   );
 }
 
-export const Cart = () => {
+const Cart = () => {
   const user = useUser();
   const { cartOpen, closeCart } = useCart();
   if (!user) return null;
@@ -70,3 +70,5 @@ export const Cart = () => {
     </CartStyles>
   );
 }
+
+export { CartItem, Cart };

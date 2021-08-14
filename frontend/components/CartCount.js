@@ -37,7 +37,7 @@ const AnimationStyles = styled.span`
   }
 `;
 
-export const CartCount = ({ count }) => {
+const CartCount = ({ count }) => {
   return (
     <AnimationStyles>
       <TransitionGroup>
@@ -54,3 +54,5 @@ export const CartCount = ({ count }) => {
     </AnimationStyles>
   );
 }
+
+export { CartCount };

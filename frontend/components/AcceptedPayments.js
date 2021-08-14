@@ -23,7 +23,7 @@ const AcceptedPaymentsStyle = styled.div`
   }
 `;
 
-export const AcceptedPayments = () => (
+const AcceptedPayments = () => (
   <AcceptedPaymentsStyle>
     <div className='accepted-payment'>
       <div className='section'>
@@ -42,3 +42,5 @@ export const AcceptedPayments = () => (
     </div>
   </AcceptedPaymentsStyle>
 )
+
+export { AcceptedPayments };

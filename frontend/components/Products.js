@@ -15,7 +15,7 @@ export const ALL_PRODUCTS_QUERY = gql`
   }
 `;
 
-export const Products = ({ page }) => {
+const Products = ({ page }) => {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -29,3 +29,5 @@ export const Products = ({ page }) => {
     </>
   );
 }
+
+export { Products };

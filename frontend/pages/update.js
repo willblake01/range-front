@@ -1,9 +1,11 @@
 import { UpdateProduct } from '../components/UpdateProduct';
 
-export default function UpdatePage({ query }) {
+const UpdatePage = ({ query }) => {
   return (
     <>
       <UpdateProduct id={query.id} />
     </>
   );
 }
+
+export default UpdatePage;
