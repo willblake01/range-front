@@ -34,10 +34,14 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 210px;
-  left: 132px;
+  top: 194px;
+  left: 116px;
   height: max-content;
   width: max-content;
+  a {
+    height: max-content;
+    width: max-content;
+  }
   button {
     margin: 20px 0;
   }
@@ -50,15 +54,15 @@ const CopyStyles = styled.div`
   flex-direction: column;
   .medium-abril-fatface {
     font-family: AbrilFatface-Regular;
-    font-size: 2.4rem;
+    font-size: 3.2rem;
   }
   .large-abril-fatface {
     font-family: AbrilFatface-Regular;
-    font-size: 7rem;
+    font-size: 9rem;
   }
   .small-railway {
     font-family: Raleway-Medium;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 `;
 

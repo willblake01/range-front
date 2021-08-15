@@ -5,7 +5,6 @@ import { Footer } from '../components/Footer';
 const LearnMoreStyle = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
     max-width: var(--maxWidth);
     padding: 20px 140px 100px;
     font-size: 1.4rem;
