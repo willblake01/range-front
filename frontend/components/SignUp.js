@@ -2,17 +2,13 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
+import { CURRENT_USER_QUERY } from './User';
 import { DisplayError } from './ErrorMessage';
 import { LargeButton } from './LargeButton';
 
 const SIGNUP_MUTATION = gql`
-  mutation SIGNUP_MUTATION(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    createUser(data: { firstName: $firstName, lastName: $lastName, email: $email, password: $password }) {
+  mutation SIGNUP_MUTATION($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+    signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
       id
       firstName
       lastName
@@ -31,16 +27,16 @@ const SignUp = () => {
   const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
     // refectch the currently logged in user
-    // refetchQueries: [{ query: CURRENT_USER_QUERY }],
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   async function handleSubmit(e) {
     e.preventDefault(); // stop the form from submitting
     console.log(inputs);
+    // Send the email and password to the graphqlAPI
     const res = await signup().catch(console.error);
     console.log(res);
     console.log({ data, loading, error });
     resetForm();
-    // Send the email and password to the graphqlAPI
   }
 
   return (

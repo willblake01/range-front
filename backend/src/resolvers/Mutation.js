@@ -8,7 +8,7 @@ const stripe = require('../stripe');
 
 const Mutations = {
   async createProduct(parent, args, ctx, info) {
-    // TODO: Check if they are logged in
+    // Check if they are logged in
     if(!ctx.request.userId) {
       throw new Error('You must be logged in to do that!');
     }
@@ -78,7 +78,7 @@ const Mutations = {
     // Create the JWT token for them
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
     // Set the JWT as a cookie on the response
-    ctx.response.cookie('token', token, {
+    ctx.res.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year cookie
     });
@@ -99,7 +99,7 @@ const Mutations = {
     // 3. Generate the JWT token
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
     // 4. Set the cookie with the token
-    ctx.response.cookie('token', token, {
+    ctx.res.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
@@ -167,7 +167,7 @@ const Mutations = {
     // 6. Generate JWT
     const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
     // 7. Set the JWT cookie
-    ctx.response.cookie('token', token, {
+    ctx.res.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365
     });

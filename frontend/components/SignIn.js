@@ -21,18 +21,11 @@ const LinkPosition = styled.div`
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    authenticateUserWithPassword(email: $email, password: $password) {
-      ... on UserAuthenticationWithPasswordSuccess {
-        item {
-          id
-          email
-          name
-        }
-      }
-      ... on UserAuthenticationWithPasswordFailure {
-        code
-        message
-      }
+    signin(email: $email, password: $password) {
+      id
+      firstName
+      lastName
+      email
     }
   }
 `;
@@ -42,7 +35,7 @@ const SignIn = () => {
     email: '',
     password: '',
   });
-  const [signin, { data, loading }] = useMutation(SIGNIN_MUTATION, {
+  const [signin, { data, loading, error }] = useMutation(SIGNIN_MUTATION, {
     variables: inputs,
     // refetch the currently logged in user
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
@@ -50,16 +43,12 @@ const SignIn = () => {
   async function handleSubmit(e) {
     e.preventDefault(); // stop the form from submitting
     console.log(inputs);
-    const res = await signin();
-    console.log(res);
-    resetForm();
     // Send the email and password to the graphqlAPI
+    const res = await signin().catch(console.error);
+    console.log(res);
+    console.log({ data, loading, error });
+    resetForm();
   }
-  const error =
-    data?.authenticateUserWithPassword.__typename ===
-    'UserAuthenticationWithPasswordFailure'
-      ? data?.authenticateUserWithPassword
-      : undefined;
 
   return (
     <Form method="POST" onSubmit={handleSubmit}>
