@@ -26,12 +26,23 @@ const NavStyles = styled.ul`
   a:hover {
     color: #0000EE;
   }
+  button {
+    color: var(--offWhite);
+    font-size: 1.6rem;
+    background: none;
+    border: none;margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    height: max-content;
+    width: max-content;
+  }
 `;
 
 const StyledButton = styled.button `
-  background-color: var(--green);
-  font-size: 16px;
-  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 82px;
 `;
 
@@ -51,7 +62,10 @@ const Nav = () => {
         <>
           <Link href='/orders'>Orders</Link>
           <Link href='/account'>Account</Link>
-          <SignOut />
+          <Link href='/'>
+            <SignOut />
+            {/* Signout */}
+          </Link>
           <StyledButton type="button" onClick={openCart}>
             My Cart
             <CartCount

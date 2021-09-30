@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { AlternateHeader } from '../components/AlternateHeader';
 import { Search } from '../components/Search';
-import { UpdateProduct } from '../components/UpdateProduct';
+import { PleaseSignIn } from '../components/PleaseSignIn';
+import { CreateProduct } from '../components/CreateProduct';
 import { Footer } from '../components/Footer';
 
-const StyledUpdate = styled.div`
+const StyledCreate = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,17 +15,19 @@ const StyledUpdate = styled.div`
   height: 100%;
 `;
 
-const UpdateProductPage = ({ query }) => {
+const CreateProductPage = () => {
   return (
     <>
       <AlternateHeader />
       <Search />
-      <StyledUpdate>
-        <UpdateProduct id={query.id} />
-      </StyledUpdate>
+      <PleaseSignIn>
+        <StyledCreate>
+          <CreateProduct />
+        </StyledCreate>
+      </PleaseSignIn>
       <Footer />
     </>
   );
 }
 
-export default UpdateProductPage;
+export default CreateProductPage;

@@ -5,6 +5,7 @@ import { useForm } from '../lib/useForm';
 import { DisplayError } from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
 import { Form } from './styles/Form';
+import { LargeButton } from './LargeButton';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -34,9 +35,9 @@ const CREATE_PRODUCT_MUTATION = gql`
 const CreateProduct = () => {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     image: '',
-    name: 'Nice Shoes',
-    price: 34234,
-    description: 'These are the best shoes!',
+    name: '',
+    price: '',
+    description: '',
   });
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
@@ -61,24 +62,58 @@ const CreateProduct = () => {
     >
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
-        <label htmlFor="image">
-          Image
+        <label htmlFor="brand">
+          Brand
           <input
-            required
-            type="file"
-            id="image"
-            name="image"
+            type="text"
+            id="brand"
+            name="brand"
+            placeholder="Brand"
+            value={inputs.brand}
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="name">
-          Name
+        <label htmlFor="title">
+          Title
           <input
             type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-            value={inputs.name}
+            id="title"
+            name="title"
+            placeholder="Title"
+            value={inputs.title}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="description">
+          Description
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Description"
+            value={inputs.description}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="category">
+          Category
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Category"
+            value={inputs.category}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="image">
+          Image
+          <input
+            type="text"
+            id="image"
+            name="image"
+            placeholder="Image"
+            value={inputs.image}
             onChange={handleChange}
           />
         </label>
@@ -88,23 +123,13 @@ const CreateProduct = () => {
             type="number"
             id="price"
             name="price"
-            placeholder="price"
+            placeholder="Price"
             value={inputs.price}
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="description">
-          Description
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={inputs.description}
-            onChange={handleChange}
-          />
-        </label>
 
-        <button type="submit">+ Add Product</button>
+        <LargeButton type="submit" buttonText="Add Product" />
       </fieldset>
     </Form>
   );

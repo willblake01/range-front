@@ -3,13 +3,16 @@ import gql from 'graphql-tag';
 import { useForm } from '../lib/useForm';
 import { DisplayError } from './ErrorMessage';
 import { Form } from './styles/Form';
+import { LargeButton } from './LargeButton';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
-    Product(where: { id: $id }) {
+    product(where: { id: $id }) {
       id
       title
       description
+      category
+      image
       price
     }
   }
@@ -18,17 +21,23 @@ const SINGLE_PRODUCT_QUERY = gql`
 const UPDATE_PRODUCT_MUTATION = gql`
   mutation UPDATE_PRODUCT_MUTATION(
     $id: ID!
+    $brand: String
     $title: String
     $description: String
+    $category: String
+    $image: String
     $price: Int
   ) {
     updateProduct(
       id: $id
-      data: { title: $title, description: $description, price: $price }
+      data: { brand: $brand, title: $title, description: $description, category: $category, image: $image price: $price }
     ) {
       id
+      brand
       title
       description
+      category
+      image
       price
     }
   }
@@ -47,8 +56,11 @@ const UpdateProduct = ({ id }) => {
   // 2.5 Create some state for the form inputs:
   const { inputs, handleChange, clearForm, resetForm } = useForm(
     data?.Product || {
+      brand: '',
       title: '',
       description: '',
+      category: '',
+      image: '',
       price: '',
     }
   );
@@ -62,8 +74,11 @@ const UpdateProduct = ({ id }) => {
         const res = await updateProduct({
           variables: {
             id,
+            brand: inputs.brand,
             title: inputs.title,
             description: inputs.description,
+            category: inputs.category,
+            image: inputs.image,
             price: inputs.price,
           },
         }).catch(console.error);
@@ -80,14 +95,58 @@ const UpdateProduct = ({ id }) => {
     >
       <DisplayError error={error || updateError} />
       <fieldset disabled={updateLoading} aria-busy={updateLoading}>
+        <label htmlFor="brand">
+          Brand
+          <input
+            type="text"
+            id="brand"
+            name="brand"
+            placeholder="Brand"
+            value={inputs.brand}
+            onChange={handleChange}
+          />
+        </label>
         <label htmlFor="title">
           Title
           <input
             type="text"
             id="title"
-            title="title"
+            name="title"
             placeholder="Title"
             value={inputs.title}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="description">
+          Description
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Description"
+            value={inputs.description}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="category">
+          Category
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Category"
+            value={inputs.category}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="image">
+          Image
+          <input
+            type="text"
+            id="image"
+            name="image"
+            placeholder="Image"
+            value={inputs.image}
             onChange={handleChange}
           />
         </label>
@@ -97,23 +156,13 @@ const UpdateProduct = ({ id }) => {
             type="number"
             id="price"
             name="price"
-            placeholder="price"
+            placeholder="Price"
             value={inputs.price}
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="description">
-          Description
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={inputs.description}
-            onChange={handleChange}
-          />
-        </label>
 
-        <button type="submit">Update Product</button>
+        <LargeButton type="submit" buttonText="Update Product" />
       </fieldset>
     </Form>
   );

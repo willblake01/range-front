@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -48,6 +49,9 @@ const SignIn = () => {
     console.log(res);
     console.log({ data, loading, error });
     resetForm();
+    if (res) {
+      Router.push('/');
+    }
   }
 
   return (
