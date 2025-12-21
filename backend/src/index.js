@@ -13,13 +13,15 @@ app.use(cookieParser());
 // Decode the JWT so we can get the user ID on each request
 app.use((req, res, next) => {
   const { token } = req.cookies;
+  console.log('🍪 Cookie received:', token ? 'YES' : 'NO');
   if(token) {
     try {
       const {userId} = jwt.verify(token, process.env.APP_SECRET);
       // Put the userId onto the req for future requests to access
       req.userId = userId;
+      console.log('✅ JWT verified, userId:', userId);
     } catch (error) {
-      console.log('JWT verification failed:', error.message);
+      console.log('❌ JWT verification failed:', error.message);
     }
   }
   next();
