@@ -2,7 +2,27 @@ const { hasPermission } = require('../utils');
 
 const Query = {
   async products(parent, args, ctx, info) {
+    const where = args.where || {};
+    
+    // Handle Prisma 1 style OR filters for search
+    let prisma2Where = {};
+    if (where.OR) {
+      prisma2Where.OR = where.OR.map(condition => {
+        const converted = {};
+        Object.keys(condition).forEach(key => {
+          if (key.endsWith('_contains')) {
+            const field = key.replace('_contains', '');
+            converted[field] = { contains: condition[key], mode: 'insensitive' };
+          } else {
+            converted[key] = condition[key];
+          }
+        });
+        return converted;
+      });
+    }
+    
     return ctx.db.product.findMany({
+      where: prisma2Where,
       skip: args.skip,
       take: args.first,
       include: {

@@ -11,23 +11,45 @@ const seedDB = async () => {
   try {
     console.log('🌱 Starting database seed...');
     
-    // Create the admin user
+    // Create the admin user if it doesn't exist
     console.log('Creating admin user...');
-    const seedUser = await db.user.create({
-      data: users[0]
+    const existingUser = await db.user.findUnique({
+      where: { email: users[0].email }
     });
-    console.log(`✅ Created user: ${seedUser.email}`);
     
-    // Create all products
-    console.log(`Creating ${products.length} products...`);
-    for (const product of products) {
-      const createdProduct = await db.product.create({
-        data: product
+    let seedUser;
+    if (existingUser) {
+      console.log(`⏭️  User already exists: ${existingUser.email}`);
+      seedUser = existingUser;
+    } else {
+      seedUser = await db.user.create({
+        data: users[0]
       });
-      console.log(`✅ Created: ${createdProduct.title}`);
+      console.log(`✅ Created user: ${seedUser.email}`);
     }
     
-    console.log('🎉 Database seeding completed!');
+    // Create products if they don't exist
+    console.log(`Checking ${products.length} products...`);
+    let createdCount = 0;
+    let skippedCount = 0;
+    
+    for (const product of products) {
+      const existing = await db.product.findFirst({
+        where: { title: product.title }
+      });
+      
+      if (existing) {
+        skippedCount++;
+      } else {
+        await db.product.create({
+          data: product
+        });
+        createdCount++;
+        console.log(`✅ Created: ${product.title}`);
+      }
+    }
+    
+    console.log(`🎉 Database seeding completed! Created ${createdCount} products, skipped ${skippedCount} existing.`);
     process.exit(0);
   } catch (error) {
     console.error('❌ Seed failed:', error.message);

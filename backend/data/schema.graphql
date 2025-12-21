@@ -59,6 +59,8 @@ type AggregateProduct {
 
 input ProductWhereInput {
   AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  brand_contains: String
   title_contains: String
   description_contains: String
 }
