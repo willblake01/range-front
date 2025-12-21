@@ -25,12 +25,12 @@ app.use((req, res, next) => {
 app.use(async (req, res, next) => {
   // If they aren't logged in, skip this
   if(!req.userId) return next();
-  const user = await db.query.user(
-    { where: { id: req.userId } },
-    '{ id, permissions, email, firstName, lastName }'
-    ).catch(error => console.log(error));
-    req.user = user;
-    next();
+  const user = await db.user.findUnique({
+    where: { id: req.userId },
+    select: { id: true, permissions: true, email: true, firstName: true, lastName: true }
+  }).catch(error => console.log(error));
+  req.user = user;
+  next();
 });
 
 // Mount Apollo middleware here.
