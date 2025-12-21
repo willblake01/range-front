@@ -41,6 +41,9 @@
     "styled-components": "^5.3.0",
     "waait": "^1.0.2"
   },
+  "resolutions": {
+    "graphql-ws": "^5.14.0"
+  },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.4",
     "@babel/core": "^7.14.6",
