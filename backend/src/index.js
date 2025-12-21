@@ -14,9 +14,13 @@ app.use(cookieParser());
 app.use((req, res, next) => {
   const { token } = req.cookies;
   if(token) {
-    const {userId} = jwt.verify(token, process.env.APP_SECRET);
-    // Put the userId onto the req for future requests to access
-    req.userId = userId;
+    try {
+      const {userId} = jwt.verify(token, process.env.APP_SECRET);
+      // Put the userId onto the req for future requests to access
+      req.userId = userId;
+    } catch (error) {
+      console.log('JWT verification failed:', error.message);
+    }
   }
   next();
 });

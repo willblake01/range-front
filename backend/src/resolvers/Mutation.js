@@ -117,7 +117,11 @@ const Mutations = {
     return user;
   },
   signout(parent, args, ctx, info) {
-    ctx.res.clearCookie('token');
+    ctx.res.clearCookie('token', {
+      httpOnly: true,
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
+    });
     return { message: 'Goodbye!' };
   },
   async requestReset(parent, args, ctx, info) {
