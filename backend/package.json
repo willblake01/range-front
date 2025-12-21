@@ -7,8 +7,9 @@
     "dev": "nodemon -e js,graphql -x node --inspect src/index.js",
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "jest",
-    "deploy": "prisma1 deploy --env-file .env",
-    "deploy:prod": "prisma1 deploy",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:push": "prisma db push --schema=./prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
     "seed": "npm run ts-node data/seedDatabase.js"
   },
   "dependencies": {

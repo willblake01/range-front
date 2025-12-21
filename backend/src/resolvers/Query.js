@@ -1,21 +1,59 @@
-const { forwardTo } = require('prisma-binding');
 const { hasPermission } = require('../utils');
 
 const Query = {
-  products: forwardTo('db'),
-  product: forwardTo('db'),
-  productsConnection: forwardTo('db'),
-  user(parent, args, ctx, info) {
+  async products(parent, args, ctx, info) {
+    return ctx.db.product.findMany({
+      include: {
+        user: true,
+      },
+    });
+  },
+  async product(parent, args, ctx, info) {
+    return ctx.db.product.findUnique({
+      where: { id: args.where.id },
+      include: {
+        user: true,
+      },
+    });
+  },
+  async productsConnection(parent, args, ctx, info) {
+    const where = args.where || {};
+    const aggregate = await ctx.db.product.aggregate({
+      _count: true,
+      where: where.AND ? {
+        OR: where.AND.map(condition => {
+          if (condition.title_contains) {
+            return { title: { contains: condition.title_contains, mode: 'insensitive' } };
+          }
+          if (condition.description_contains) {
+            return { description: { contains: condition.description_contains, mode: 'insensitive' } };
+          }
+          return condition;
+        })
+      } : {},
+    });
+    
+    return {
+      aggregate: {
+        count: aggregate._count,
+      },
+    };
+  },
+  async user(parent, args, ctx, info) {
     // Check if there is a current user ID
     if(!ctx.req.userId) {
       return null;
     }
-    return ctx.db.query.user(
-      {
-        where: { id: ctx.req.userId }
+    return ctx.db.user.findUnique({
+      where: { id: ctx.req.userId },
+      include: {
+        cart: {
+          include: {
+            item: true,
+          },
+        },
       },
-      info
-    );
+    });
   },
   async users(parent, args, ctx, info) {
     // 1. Check if they're logged in
@@ -25,7 +63,7 @@ const Query = {
     // 2. Check if the user has permissions to query
     hasPermission(ctx.req.user, ['ADMIN', 'PERMISSIONUPDATE']);
     // 3. If they do, query all the users
-    return ctx.db.query.users({}, info);
+    return ctx.db.user.findMany();
   },
   async order(parent, args, ctx, info) {
     // 1. Make sure they are logged in
@@ -33,16 +71,22 @@ const Query = {
       throw new Error('You must be logged in!');
     }
     // 2. Query the current order
-    const order = await ctx.db.query.order(
-      {
-        where: { id: args.id },
+    const order = await ctx.db.order.findUnique({
+      where: { id: args.id },
+      include: {
+        user: true,
+        items: true,
       },
-      info
-    );
+    });
+    
+    if (!order) {
+      throw new Error('Order not found');
+    }
+    
     // 3. Check if they have permissions to see this order
     const ownsOrder = order.user.id === ctx.req.userId;
     const hasPermissionToSeeOrder = ctx.req.user.permissions.includes('ADMIN');
-    if(!ownsOrder || !hasPermission) {
+    if(!ownsOrder && !hasPermissionToSeeOrder) {
       throw new Error('You can\'t see this bud');
     }
     // 4. Return the order
@@ -53,38 +97,42 @@ const Query = {
     if(!userId) {
       throw new Error('You must be signed in!');
     }
-    return ctx.db.query.orders(
-      {
-        where: {
-          user: { id: userId },
-        },
+    return ctx.db.order.findMany({
+      where: {
+        userId: userId,
       },
-    info
-    );
+      include: {
+        items: true,
+        user: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
   },
   async tents(parent, args, ctx, info) {
-    return ctx.db.query.products(
-      {
-        where: { category: 'tents' },
+    return ctx.db.product.findMany({
+      where: { category: 'tents' },
+      include: {
+        user: true,
       },
-    info
-    );
+    });
   },
   async sleepingBags(parent, args, ctx, info) {
-    return ctx.db.query.products(
-      {
-        where: { category: 'sleeping-bags' },
+    return ctx.db.product.findMany({
+      where: { category: 'sleeping-bags' },
+      include: {
+        user: true,
       },
-      info
-    );
+    });
   },
   async backpacks(parent, args, ctx, info) {
-    return ctx.db.query.products(
-      {
-        where: { category: 'backpacks' },
+    return ctx.db.product.findMany({
+      where: { category: 'backpacks' },
+      include: {
+        user: true,
       },
-      info
-    );
+    });
   },
 };
 

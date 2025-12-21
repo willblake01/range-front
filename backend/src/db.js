@@ -1,11 +1,8 @@
-// This file connects to the remote prisma db and allows us to query it with JS.
-const { Prisma } = require('prisma-binding');
+// This file connects to the PostgreSQL database using Prisma Client
+const { PrismaClient } = require('../generated/prisma-client');
 
-const db = new Prisma({
-  typeDefs: 'generated/prisma.graphql',
-  endpoint: process.env.PRISMA_ENDPOINT,
-  secret: process.env.PRISMA_SECRET,
-  debug: false,
+const prisma = new PrismaClient({
+  log: ['query', 'info', 'warn', 'error'],
 });
 
-module.exports = db;
+module.exports = prisma;

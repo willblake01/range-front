@@ -1,0 +1,91 @@
+// Prisma 2 Schema - Direct PostgreSQL connection (no server needed)
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma-client"
+}
+
+enum Permission {
+  ADMIN
+  USER
+  PRODUCTCREATE
+  PRODUCTUPDATE
+  PRODUCTDELETE
+  PERMISSIONUPDATE
+}
+
+model User {
+  id                String       @id @default(cuid())
+  firstName         String
+  lastName          String
+  email             String       @unique
+  password          String
+  resetToken        String?
+  resetTokenExpiry  String?
+  permissions       Permission[]
+  cart              CartItem[]
+  products          Product[]
+  orders            Order[]
+  orderItems        OrderItem[]
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+}
+
+model Product {
+  id          String      @id @default(cuid())
+  brand       String?
+  title       String
+  description String
+  category    String?
+  image       String?
+  largeImage  String?
+  price       Int
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  cartItems   CartItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  quantity  Int      @default(1)
+  item      Product? @relation(fields: [itemId], references: [id])
+  itemId    String?
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  image       String
+  largeImage  String
+  price       Int
+  quantity    Int      @default(1)
+  user        User?    @relation(fields: [userId], references: [id])
+  userId      String?
+  order       Order?   @relation(fields: [orderId], references: [id])
+  orderId     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  items     OrderItem[]
+  total     Int
+  user      User        @relation(fields: [userId], references: [id])
+  userId    String
+  charge    String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}

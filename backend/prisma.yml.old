@@ -1,0 +1,20 @@
+datamodel: datamodel.graphql
+# secret: ${env:PRISMA_SECRET}
+
+endpoint: ${env:PRISMA_ENDPOINT}
+# Local development: http://localhost:4466
+
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client
+  - generator: graphql-schema
+    output: ./generated/prisma.graphql
+
+# Executes a Node.js script to seed the database with
+# initial data. (Commented out - run manually if needed)
+# seed:
+#   run: ts-node data/seedDatabase.js
