@@ -41,7 +41,7 @@
     "styled-components": "^5.3.0",
     "waait": "^1.0.2"
   },
-  "resolutions": {
+  "overrides": {
     "graphql-ws": "^5.14.0"
   },
   "devDependencies": {
