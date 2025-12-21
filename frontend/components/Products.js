@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { ProductsListStyles } from './styles/ProductsListStyles';
 import { Product } from '.';
 
-export const ALL_PRODUCTS_QUERY = gql`
+const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY {
     products {
       id
@@ -30,4 +30,4 @@ const Products = ({ page }) => {
   );
 }
 
-export { Products };
+export { ALL_PRODUCTS_QUERY, Products };

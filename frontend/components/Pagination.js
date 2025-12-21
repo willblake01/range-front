@@ -9,8 +9,10 @@ import { perPage } from '../config';
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
-    _allProductsMeta {
-      count
+    productsConnection {
+      aggregate {
+        count
+      }
     }
   }
 `;
@@ -19,7 +21,7 @@ const Pagination = ({ page }) => {
   const { error, loading, data } = useQuery(PAGINATION_QUERY);
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;
-  const { count } = data._allProductsMeta;
+  const { count } = data.productsConnection.aggregate;
   const pageCount = Math.ceil(count / perPage);
   return (
     <PaginationStyles>

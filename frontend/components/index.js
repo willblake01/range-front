@@ -21,7 +21,7 @@ export { Pagination, PAGINATION_QUERY } from './Pagination';
 export { Parallax } from './Parallax';
 export { PleaseLogin } from './PleaseLogin';
 export { Product } from './Product';
-export { Products } from './Products';
+export { ALL_PRODUCTS_QUERY, Products } from './Products';
 export { RemoveFromCart } from './RemoveFromCart';
 export { RequestReset } from './RequestReset';
 export { Reset } from './Reset';
