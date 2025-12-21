@@ -11,22 +11,16 @@ const seedDB = async () => {
   try {
     console.log('🌱 Starting database seed...');
     
-    // Create the admin user if it doesn't exist
-    console.log('Creating admin user...');
-    const existingUser = await db.user.findUnique({
-      where: { email: users[0].email }
+    // Create or update the admin user
+    console.log('Upserting admin user...');
+    const seedUser = await db.user.upsert({
+      where: { email: users[0].email },
+      update: {
+        permissions: users[0].permissions
+      },
+      create: users[0]
     });
-    
-    let seedUser;
-    if (existingUser) {
-      console.log(`⏭️  User already exists: ${existingUser.email}`);
-      seedUser = existingUser;
-    } else {
-      seedUser = await db.user.create({
-        data: users[0]
-      });
-      console.log(`✅ Created user: ${seedUser.email}`);
-    }
+    console.log(`✅ Upserted user: ${seedUser.email} with permissions: ${seedUser.permissions.join(', ')}`);
     
     // Create products if they don't exist
     console.log(`Checking ${products.length} products...`);
