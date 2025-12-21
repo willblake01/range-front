@@ -13,7 +13,7 @@ const seedDB = async () => {
     
     // Create the admin user
     console.log('Creating admin user...');
-    const seedUser = await db.mutation.createUser({
+    const seedUser = await db.user.create({
       data: users[0]
     });
     console.log(`✅ Created user: ${seedUser.email}`);
@@ -21,7 +21,7 @@ const seedDB = async () => {
     // Create all products
     console.log(`Creating ${products.length} products...`);
     for (const product of products) {
-      const createdProduct = await db.mutation.createProduct({
+      const createdProduct = await db.product.create({
         data: product
       });
       console.log(`✅ Created: ${createdProduct.title}`);
