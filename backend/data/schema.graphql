@@ -9,7 +9,7 @@ type Mutation {
   updateProduct(id: ID!, brand: String, category: String, title: String, description: String, price: Int): Product!
   deleteProduct(id: ID!): Product
   signup(email: String!, password: String!, firstName: String!, lastName: String!): User!
-  signin(email: String!, password: String!): User!
+  login(email: String!, password: String!): User!
   signout: SuccessMessage
   requestReset(email: String!): SuccessMessage
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!

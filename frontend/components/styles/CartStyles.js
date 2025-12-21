@@ -33,7 +33,7 @@ const CartStyles = styled.div`
     font-size: 3rem;
     font-weight: 900;
     p {
-      margin: 0;
+      margin: 0 0 1rem 0;
     }
   }
   ul {

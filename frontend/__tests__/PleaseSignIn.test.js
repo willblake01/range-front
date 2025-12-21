@@ -1,9 +1,7 @@
 
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
-import { PleaseSignIn } from '../components/PleaseSignIn';
-import { CURRENT_USER_QUERY } from '../components/User';
+import { CURRENT_USER_QUERY, PleaseLogin } from '../components';
 import { fakeUser } from '../lib/testUtils';
 
 const notSignedInMocks = [
@@ -20,24 +18,24 @@ const signedInMocks = [
   },
 ];
 
-describe('<PleaseSignIn/>', () => {
-  it('renders the sign in dialog to logged out users', async () => {
+describe('<PleaseLogin/>', () => {
+  it('renders the login dialog to logged out users', async () => {
     const { container } = render(
       <MockedProvider mocks={notSignedInMocks}>
-        <PleaseSignIn />
+        <PleaseLogin />
       </MockedProvider>
     );
 
-    expect(container).toHaveTextContent(/Sign into your/);
+    expect(container).toHaveTextContent(/Login to your/);
   });
 
   it('renders the child component when the user is signed in', async () => {
     const Hey = () => <p>Hey!</p>;
     const { container } = render(
       <MockedProvider mocks={signedInMocks}>
-        <PleaseSignIn>
+        <PleaseLogin>
           <Hey />
-        </PleaseSignIn>
+        </PleaseLogin>
       </MockedProvider>
     );
     await screen.findByText('Hey!');

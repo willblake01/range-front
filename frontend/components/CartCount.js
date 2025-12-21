@@ -1,7 +1,8 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
-const Dot = styled.div`
+const CartCount = ({ count }) => {
+  const Dot = styled.div`
   background: var(--red);
   color: white;
   border-radius: 50%;
@@ -37,7 +38,6 @@ const AnimationStyles = styled.span`
   }
 `;
 
-const CartCount = ({ count }) => {
   return (
     <AnimationStyles>
       <TransitionGroup>

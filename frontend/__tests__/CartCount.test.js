@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import waait from 'waait';
-import { CartCount } from '../components/CartCount';
+import { CartCount } from '../components';
 
 describe('<CartCount/>', () => {
   it('renders', () => {

@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import { CURRENT_USER_QUERY } from './User';
-import { DisplayError } from './ErrorMessage';
+import { CURRENT_USER_QUERY, DisplayError } from '.';
 
 const SIGN_OUT_MUTATION = gql`
   mutation {

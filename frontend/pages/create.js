@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { AlternateHeader } from '../components/AlternateHeader';
-import { Search } from '../components/Search';
-import { PleaseSignIn } from '../components/PleaseSignIn';
-import { CreateProduct } from '../components/CreateProduct';
-import { Footer } from '../components/Footer';
+import { CreateProduct, Footer, PleaseLogin } from '../components';
 
 const StyledCreate = styled.div`
   display: flex;
@@ -19,12 +16,11 @@ const CreateProductPage = () => {
   return (
     <>
       <AlternateHeader />
-      <Search />
-      <PleaseSignIn>
+      <PleaseLogin>
         <StyledCreate>
           <CreateProduct />
         </StyledCreate>
-      </PleaseSignIn>
+      </PleaseLogin>
       <Footer />
     </>
   );

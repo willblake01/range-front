@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CloseButton = styled.button`
+const StyledCloseButton = styled.button`
   background: black;
   color: white;
   font-size: 3rem;
@@ -9,5 +9,7 @@ const CloseButton = styled.button`
   z-index: 2;
   right: 0;
 `;
+
+const CloseButton = StyledCloseButton;
 
 export { CloseButton };

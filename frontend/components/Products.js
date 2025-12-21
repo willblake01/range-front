@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { ProductsListStyles } from './styles/ProductsListStyles';
-import { Product } from './Product';
+import { Product } from '.';
 
 export const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY {

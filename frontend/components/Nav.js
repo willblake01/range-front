@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useCart } from '../lib/cartState';
-import { CartCount } from './CartCount';
-import { SignOut } from './SignOut';
-import { useUser } from './User';
+import { CartCount, SignOut, useUser } from '.';
 
 const NavStyles = styled.ul`
   background-color: var(--darkOrange);
@@ -17,7 +16,7 @@ const NavStyles = styled.ul`
   height: 55px;
   width: 100%;
   * {
-    margin: 6px;
+    margin: 8.64px;
   }
   a {
     color: var(--offWhite);
@@ -37,56 +36,60 @@ const NavStyles = styled.ul`
     height: max-content;
     width: max-content;
   }
+  a.login-link {
+    margin-left: auto;
+    margin-right: 6px;
+  }
+  .user-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+  }
 `;
 
 const StyledButton = styled.button `
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 2px;
   width: 82px;
+  margin: 8.64px !important;
 `;
 
 const Nav = () => {
   const user = useUser();
   const { openCart } = useCart();
+  const router = useRouter();
 
   return (
     <NavStyles data-test='nav'>
-      <Link href='/about-us'>
-        <a>About</a>
-      </Link>
-      <Link href='/shop'>
-        <a>Shop</a>
-      </Link>
+      <Link href='/'>Home</Link>
+      <Link href='/products'>Shop</Link>
+      <Link href='/about'>About</Link>
       {user && (
-        <>
-          <Link href='/orders'>Orders</Link>
+        <div className="user-links">
           <Link href='/account'>Account</Link>
+          <Link href='/orders'>Orders</Link>
           <Link href='/'>
             <SignOut />
-            {/* Signout */}
           </Link>
           <StyledButton type="button" onClick={openCart}>
-            My Cart
-            <CartCount
+            Cart
+          </StyledButton>
+          <CartCount
               count={user.cart.reduce(
                 (tally, cartItem) =>
                   tally + (cartItem.item ? cartItem.quantity : 0),
                 0
               )}
             />
-          </StyledButton>
-        </>
+        </div>
       )}
-      {!user && (
-        <>
-          <Link href='/signin'>
-            <a>Sign In</a>
-          </Link>
-          <Link href='/signup'>
-            <a>Sign Up</a>
-          </Link>
-        </>
+      {!user && router.pathname !== '/login' && (
+        <div style={{ marginLeft: 'auto' }}>
+          <Link href='/login'>Login</Link>
+        </div>
       )}
     </NavStyles>
   )

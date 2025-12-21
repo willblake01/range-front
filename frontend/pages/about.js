@@ -1,25 +1,23 @@
 import styled from 'styled-components';
-import { Logo } from '../components/Logo';
-import { Footer } from '../components/Footer';
+import { AlternateHeader, Footer } from '../components';
 
-const AboutUsStyle = styled.div`
+const AboutStyle = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
   max-width: var(--maxWidth);
-  padding: 20px 140px 100px;
+  padding: 5rem;
   font-size: 1.4rem;
   img {
     width: 1040px;
-    margin-bottom: 8px;
+    margin: 0 auto 5rem;
+    display: block;
   }
 `;
 
-const AboutUs = () => (
+const About = () => (
   <>
-    <Logo />
-    <AboutUsStyle>
-      <h1>About Us</h1>
+    <AlternateHeader />
+    <AboutStyle>
       <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg' alt='about us' />
       <p>At RangeFront, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand
           behind all our products with a 100% satisfaction guarantee, and we design our own line of award-winning RangeFront
@@ -35,9 +33,9 @@ const AboutUs = () => (
           every year since the rankings began in 1998. We work hard to earn our reputation for quality and integrity every
           day.</p>
       <p>At RangeFront, we inspire, educate and outfit for a lifetime of outdoor adventure and stewardship.</p>
-    </AboutUsStyle>
+    </AboutStyle>
     <Footer />
   </>
 );
 
-export default AboutUs;
+export default About;

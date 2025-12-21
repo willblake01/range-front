@@ -1,29 +1,28 @@
-version: '3'
 services:
   prisma:
+    platform: linux/amd64
     image: prismagraphql/prisma:1.31
     restart: always
     ports:
-    - "4466:4466"
+      - "4466:4466"
     environment:
       PRISMA_CONFIG: |
         port: 4466
-        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
-        # managementApiSecret: my-secret
         databases:
           default:
-            connector: node
-            host: localhost
+            connector: mysql
+            host: mysql
             user: root
-            password: process.env.MYSQL_ROOT_PASSWORD
+            password: prisma
             rawAccess: true
             port: 3306
             migrations: true
   mysql:
+    platform: linux/x86_64
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD
+      MYSQL_ROOT_PASSWORD: prisma
     volumes:
       - mysql:/var/lib/mysql
 volumes:

@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET, {
-  apiVersion: '2020-08-27'
+  apiVersion: '2023-10-16'
 });
 
 module.exports = stripe;

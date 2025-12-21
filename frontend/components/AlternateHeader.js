@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Nav } from './Nav';
-import { Cart } from './Cart';
-import { Logo } from '../components/Logo';
+import { Cart, Logo, Nav, Search } from '../components';
 
 const StyledAlternateHeader = styled.header`
   display: grid;
@@ -17,6 +15,13 @@ const NavPosition = styled.div`
   align-self: end;
 `;
 
+const SearchPosition = styled.div`
+  position: absolute;
+  top: 360px;
+  right: 20px;
+  z-index: 2;
+`;
+
 const AlternateHeader = () => (
   <>
     <StyledAlternateHeader>
@@ -24,6 +29,9 @@ const AlternateHeader = () => (
       <NavPosition>
         <Nav />
       </NavPosition>
+      <SearchPosition>
+        <Search />
+      </SearchPosition>
     </StyledAlternateHeader>
     <Cart />
   </>

@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'radnika_next';
-    src: url('/public/static/radnikanext-regular-webfont.woff2') format('woff2');
+    src: url('/static/radnikanext-regular-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
@@ -49,14 +49,12 @@ const InnerStyles = styled.div`
   max-width: var(--maxWidth);
 `;
 
-const Page = ({ children, cool }) => {
-  return (
-    <>
-      <GlobalStyles />
-      <InnerStyles>{children}</InnerStyles>
-    </>
-  );
-}
+const Page = ({ children, cool }) => (
+  <>
+    <GlobalStyles />
+    <InnerStyles>{children}</InnerStyles>
+  </>
+);
 
 Page.propTypes = {
   cool: PropTypes.string,

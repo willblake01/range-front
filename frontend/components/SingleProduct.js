@@ -4,8 +4,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { formatMoney } from '../lib/formatMoney';
-import { AddToCart } from './AddToCart';
-import { DisplayError } from './ErrorMessage';
+import { AddToCart, DisplayError } from '.';
 
 const SingleProductStyles = styled.div`
   justify-content: center;
@@ -63,6 +62,7 @@ const SINGLE_PRODUCT_QUERY = gql`
     product(where: { id: $id }) {
       title
       price
+      brand
       description
       id
       image
@@ -93,18 +93,19 @@ const SingleProduct = ({ id }) => {
           />
         </div>
         <div className="details">
+          <h1>{product.brand}</h1>
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className="buttonList">
-          <Link
-            href={{
-              pathname: '/learn-more'
-            }}
+          <a
+            href='/learn-more'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Learn More ✏️
-          </Link>
+          </a>
           <AddToCart id={product.id} />
         </div>
       </div>

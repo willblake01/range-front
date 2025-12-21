@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { LargeButton } from './LargeButton';
+import { LargeButton } from '.';
 
-const MarketingStyle = styled.div`
+const StyledMarketing = styled.div`
   display: flex;
+  align-items: end;
   justify-content: center;
   height: 607px;
   width: 100%;
@@ -12,19 +13,18 @@ const MarketingStyle = styled.div`
   background-size: cover;
 `;
 
-const ButtonPosition = styled.div`
-  position: relative;
-  top: 520px;
+const PositionedButton = styled.div`
+  margin-bottom: 80px;
 `
 
 const Marketing = () => (
-  <MarketingStyle>
+  <StyledMarketing>
     <Link href='/clearance'>
-      <ButtonPosition>
-        <LargeButton buttonText='SHOP CLEARANCE' />
-      </ButtonPosition>
+      <PositionedButton>
+        <LargeButton buttonText='Shop Clearance' />
+      </PositionedButton>
     </Link>
-  </MarketingStyle>
+  </StyledMarketing>
 )
 
 export { Marketing };

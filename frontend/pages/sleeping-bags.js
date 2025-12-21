@@ -1,12 +1,9 @@
 import { AlternateHeader } from '../components/AlternateHeader';
-import { Search } from '../components/Search';
-import { SleepingBags } from '../components/SleepingBags';
-import { Footer } from '../components/Footer';
+import { Footer, SleepingBags } from '../components';
 
 const SleepingBagsPage = ({ query }) => (
   <>
     <AlternateHeader />
-    <Search />
     <SleepingBags page={parseFloat(query.page) || 1} />
     <Footer />
   </>

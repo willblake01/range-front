@@ -85,7 +85,7 @@ const Mutations = {
     // Return the user to the browser
     return user;
   },
-  async signin(parent, { email, password }, ctx, info) {
+  async login(parent, { email, password }, ctx, info) {
     // 1. Check if there is a user with that email
     const user = await ctx.db.query.user({ where: { email }});
     if(!user) {
@@ -264,12 +264,13 @@ const Mutations = {
     const user = await ctx.db.query.user({ where: { id: userId } }, `
     {
       id
-      name
+      firstName
+      lastName
       email
       cart {
         id
         quantity
-        product {
+        item {
           brand
           category
           title
@@ -286,12 +287,19 @@ const Mutations = {
     const amount = user.cart.reduce(
       (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity, 0
     );
-    // 3. Create the Stripe charge (turn token into $$$)
-      const charge = await stripe.charges.create({
-        amount,
-        currency: 'USD',
-        source: args.token,
-      });
+    console.log('Going to charge for a total of', amount);
+    // 3. Create the payment intent with stripe
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: 'usd',
+      payment_method: args.token,
+      confirm: true,
+      automatic_payment_methods: {
+        enabled: true,
+        allow_redirects: 'never'
+      },
+    });
+    console.log('Payment Intent created:', paymentIntent.id);
     // 4. Convert the cartItems to orderItems
     const orderItems = user.cart.map(cartItem => {
       const orderItem = {
@@ -305,8 +313,8 @@ const Mutations = {
     // 5. Create the order
     const order = await ctx.db.mutation.createOrder({
       data: {
-        total: charge.amount,
-        charge: charge.id,
+        total: paymentIntent.amount,
+        charge: paymentIntent.id,
         items: { create: orderItems },
         user: { connect: { id: userId } },
       },

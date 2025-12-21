@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { AlternateHeader } from '../components/AlternateHeader';
-import { Footer } from '../components/Footer';
+import { AlternateHeader, Footer } from '../components';
 
 const LearnMoreStyle = styled.div`
     display: flex;

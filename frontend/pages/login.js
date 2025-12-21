@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { AlternateHeader } from '../components/AlternateHeader';
-import { SignIn } from '../components/SignIn';
-import { Footer } from '../components/Footer';
+import { AlternateHeader, Footer, Login } from '../components';
 
-const StyledSignIn = styled.div`
+const StyledLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,16 +11,16 @@ const StyledSignIn = styled.div`
   height: 100%;
 `;
 
-const SignInPage = () => {
+const LoginPage = () => {
   return (
     <>
       <AlternateHeader />
-      <StyledSignIn>
-        <SignIn /> 
-      </StyledSignIn> 
+      <StyledLogin>
+        <Login /> 
+      </StyledLogin> 
       <Footer />
     </>
   );
 }
 
-export default SignInPage;
+export default LoginPage;

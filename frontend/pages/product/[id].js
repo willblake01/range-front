@@ -1,12 +1,8 @@
-import { AlternateHeader } from '../../components/AlternateHeader';
-import { Search } from '../../components/Search';
-import { SingleProduct } from '../../components/SingleProduct';
-import { Footer } from '../../components/Footer';
+import { AlternateHeader, Footer, SingleProduct } from '../../components';
 
 const SingleProductPage = ({ query }) => (
   <>
     <AlternateHeader />
-    <Search />
     <SingleProduct id={query.id} />
     <Footer />
   </>

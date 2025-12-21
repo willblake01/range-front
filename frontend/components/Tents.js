@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { Product } from './Product';
+import { Product } from '.';
 import { ProductsListStyles } from '../components/styles/ProductsListStyles';
 
 const TENTS_QUERY = gql`

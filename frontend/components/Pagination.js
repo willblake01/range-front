@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PaginationStyles } from './styles/PaginationStyles';
-import { DisplayError } from './ErrorMessage';
+import { DisplayError } from '.';
 import { perPage } from '../config';
 
 const PAGINATION_QUERY = gql`
@@ -28,15 +28,15 @@ const Pagination = ({ page }) => {
           Range Front - Page {page} of {pageCount}
         </title>
       </Head>
-      <Link href={`/products/${page - 1}`}>
-        <a aria-disabled={page <= 1}>← Prev</a>
+      <Link href={`/products/${page - 1}`} aria-disabled={page <= 1}>
+        ← Prev
       </Link>
       <p>
         Page {page} of {pageCount}
       </p>
       <p>{count} Items Total</p>
-      <Link href={`/products/${page + 1}`}>
-        <a aria-disabled={page >= pageCount}>Next →</a>
+      <Link href={`/products/${page + 1}`} aria-disabled={page >= pageCount}>
+        Next →
       </Link>
     </PaginationStyles>
   );

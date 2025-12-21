@@ -2,8 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
-import { DisplayError } from './ErrorMessage';
-import { LargeButton } from './LargeButton';
+import { DisplayError, LargeButton } from '.';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
@@ -51,20 +50,19 @@ const Reset = ({ token }) => {
       <DisplayError error={error || successfulError} />
       <fieldset>
         {data?.redeemUserPasswordResetToken === null && (
-          <p>Success! You can Now sign in</p>
+          <p>Success! You can Now login</p>
         )}
 
         <label htmlFor="email">
           Email
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            autoComplete="email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={inputs.email}
+          onChange={handleChange}
+        />
         <label htmlFor="password">
           Password
           <input

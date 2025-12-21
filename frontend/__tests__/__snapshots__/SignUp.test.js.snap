@@ -11,7 +11,7 @@ exports[`<SignUp /> Renders and matches Snapshot 1`] = `
     disabled={false}
   >
     <h2>
-      Sign Up for an Account
+      Account Signup
     </h2>
     <DisplayError
       error={Object {}}

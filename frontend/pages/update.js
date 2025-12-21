@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { AlternateHeader } from '../components/AlternateHeader';
-import { Search } from '../components/Search';
-import { UpdateProduct } from '../components/UpdateProduct';
-import { Footer } from '../components/Footer';
+import { AlternateHeader, Footer, Search, UpdateProduct } from '../components';
 
 const StyledUpdate = styled.div`
   display: flex;
@@ -18,7 +15,6 @@ const UpdateProductPage = ({ query }) => {
   return (
     <>
       <AlternateHeader />
-      <Search />
       <StyledUpdate>
         <UpdateProduct id={query.id} />
       </StyledUpdate>

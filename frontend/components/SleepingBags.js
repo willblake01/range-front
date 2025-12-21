@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { Product } from './Product';
+import { Product } from '.';
 import { ProductsListStyles } from '../components/styles/ProductsListStyles';
 
 const SLEEPING_BAGS_QUERY = gql`
@@ -20,6 +20,7 @@ const SLEEPING_BAGS_QUERY = gql`
 
 const SleepingBags = () => {
   const { data, error, loading } = useQuery(SLEEPING_BAGS_QUERY);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

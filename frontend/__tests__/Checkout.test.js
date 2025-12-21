@@ -7,6 +7,7 @@ import Router from 'next/router';
 import Checkout, { CREATE_ORDER_MUTATION } from '../components/Checkout';
 import { CartStateProvider } from '../components/LocalState';
 import { CURRENT_USER_QUERY } from '../components/User';
+
 // Mock the Router
 jest.mock('next/router', () => ({
   push: jest.fn(),

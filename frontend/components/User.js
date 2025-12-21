@@ -9,6 +9,14 @@ const CURRENT_USER_QUERY = gql`
       email
       cart {
         id
+        quantity
+        item {
+          id
+          price
+          image
+          title
+          description
+        }
       }
     }
   }

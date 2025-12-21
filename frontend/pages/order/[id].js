@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import { DisplayError } from '../../components/ErrorMessage';
+import { DisplayError } from '../../components';
 import { OrderStyles } from '../../components/styles/OrderStyles';
 import { formatMoney } from '../../lib/formatMoney';
 

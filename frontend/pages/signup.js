@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { AlternateHeader } from '../components/AlternateHeader';
-import { SignUp } from '../components/SignUp';
-import { Footer } from '../components/Footer';
+import { AlternateHeader, Footer, SignUp } from '../components';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -13,7 +11,7 @@ const StyledSignUp = styled.div`
   height: 100%;
 `;
 
-const SignInPage = () => {
+const SignUpPage = () => {
   return (
     <>
       <AlternateHeader />
@@ -25,4 +23,4 @@ const SignInPage = () => {
   );
 }
 
-export default SignInPage;
+export default SignUpPage;

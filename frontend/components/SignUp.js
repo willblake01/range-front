@@ -2,9 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
-import { CURRENT_USER_QUERY } from './User';
-import { DisplayError } from './ErrorMessage';
-import { LargeButton } from './LargeButton';
+import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
@@ -26,12 +24,14 @@ const SignUp = () => {
   });
   const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
+
     // refectch the currently logged in user
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   async function handleSubmit(e) {
-    e.preventDefault(); // stop the form from submitting
+    e.preventDefault();
     console.log(inputs);
+
     // Send the email and password to the graphqlAPI
     const res = await signup().catch(console.error);
     console.log(res);
@@ -41,12 +41,12 @@ const SignUp = () => {
 
   return (
     <Form method="POST" onSubmit={handleSubmit}>
-      <h2>Sign Up For an Account</h2>
+      <h2>Account Signup</h2>
       <DisplayError error={error} />
       <fieldset>
         {data?.createUser && (
           <p>
-            Signed up with {data.createUser.email} - Please Go Head and Sign in!
+            Signed up with {data.createUser.email} - Please Go Head and Login!
           </p>
         )}
         <label htmlFor="email">
@@ -54,7 +54,6 @@ const SignUp = () => {
           <input
             type="text"
             name="firstName"
-            placeholder="First Name"
             autoComplete="firstName"
             value={inputs.firstName}
             onChange={handleChange}
@@ -65,7 +64,6 @@ const SignUp = () => {
           <input
             type="text"
             name="lastName"
-            placeholder="Last Name"
             autoComplete="lastName"
             value={inputs.lastName}
             onChange={handleChange}
@@ -76,7 +74,6 @@ const SignUp = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
             autoComplete="email"
             value={inputs.email}
             onChange={handleChange}
@@ -87,7 +84,6 @@ const SignUp = () => {
           <input
             type="password"
             name="password"
-            placeholder="Password"
             autoComplete="password"
             value={inputs.password}
             onChange={handleChange}

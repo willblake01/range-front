@@ -1,9 +1,9 @@
+import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/client';
 import { resetIdCounter, useCombobox } from 'downshift';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
-import { useRouter } from 'next/dist/client/router';
-import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
+import { DropDown, DropDownItem, StyledSearch } from './styles/DropDown';
 
 const SEARCH_PRODUCTS_QUERY = gql`
   query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
@@ -45,7 +45,7 @@ const Search = () => {
     highlightedIndex,
   } = useCombobox({
     items,
-    onInputValueChange() {
+    onInputValueChange({ inputValue }) {
       findItemsButChill({
         variables: {
           searchTerm: inputValue,
@@ -59,21 +59,24 @@ const Search = () => {
     },
     itemToString: (item) => item?.name || '',
   });
-  
+
   return (
-    <SearchStyles>
-      <div {...getComboboxProps()}>
-        <input
-          {...getInputProps({
-            type: 'search',
-            placeholder: 'Search for an Item',
-            id: 'search',
-            className: loading ? 'loading' : null,
-          })}
-        />
-      </div>
-      <DropDown {...getMenuProps()}>
-        {isOpen &&
+    <>
+      <StyledSearch>
+        <div {...getComboboxProps()}>
+          <input
+            {...getInputProps({
+              type: 'search',
+              placeholder: 'Search',
+              id: 'search',
+              className: loading ? 'loading' : null,
+            })}
+          />
+        </div>
+      </StyledSearch>
+      <DropDown>
+        <div {...getMenuProps()}>
+          {isOpen &&
           items.map((item, index) => (
             <DropDownItem
               {...getItemProps({ item, index })}
@@ -91,9 +94,10 @@ const Search = () => {
         {isOpen && !items.length && !loading && (
           <DropDownItem>Sorry, No items found for {inputValue}</DropDownItem>
         )}
+        </div>
       </DropDown>
-    </SearchStyles>
+    </>
   );
 }
 
-export { Search };
+export { Search }

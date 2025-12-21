@@ -2,13 +2,11 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Form } from './styles/Form';
 import { useForm } from '../lib/useForm';
-import { DisplayError } from './ErrorMessage';
-import { LargeButton } from './LargeButton';
+import { DisplayError, LargeButton } from '.';
 
 const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
-    resetPassword(email: $email) {
-      code
+    requestReset(email: $email) {
       message
     }
   }
@@ -22,13 +20,15 @@ const RequestReset = () => {
     REQUEST_RESET_MUTATION,
     {
       variables: inputs,
+
       // refectch the currently logged in user
       // refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
   async function handleSubmit(e) {
-    e.preventDefault(); // stop the form from submitting
+    e.preventDefault();
     console.log(inputs);
+
     // Send the email and password to the graphqlAPI
     const res = await signup().catch(console.error);
     console.log(res);
@@ -47,15 +47,14 @@ const RequestReset = () => {
 
         <label htmlFor="email">
           Email
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            autoComplete="email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={inputs.email}
+          onChange={handleChange}
+        />
         <LargeButton type="submit" buttonText='Request Reset' />
       </fieldset>
     </Form>

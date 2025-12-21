@@ -3,45 +3,42 @@ import { ProductStyles } from './styles/ProductStyles';
 import { Title } from './styles/Title';
 import { PriceTag } from './styles/PriceTag';
 import { formatMoney } from '../lib/formatMoney';
-import { DeleteProduct } from './DeleteProduct';
-import { AddToCart } from './AddToCart';
-import { useUser } from './User';
+import { AddToCart, DeleteProduct, useUser } from '.';
 
 const Product = ({ product }) => {
   const user = useUser();
-  
+  console.log('product', product)
   return (
     <ProductStyles>
-      <img
-        src={product?.image}
-        alt={product.title}
-      />
+      <Link href={`/product/${product.id}`}>
+        <img
+          src={product?.image}
+          alt={product.title}
+        />
+      </Link>
       <Title>
         <Link href={`/product/${product.id}`}>{product.title}</Link>
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className="buttonList">
-        <Link
-          href={{
-            pathname: '/learn-more'
-          }}
+        <a
+          href='/learn-more'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Learn More ✏️
-        </Link>
+        </a>
         <AddToCart id={product.id} />
         {user && (
           <>
-            <Link
-              href={{
-                pathname: '/update',
-                query: {
-                  id: product.id,
-                },
-              }}
+            <a
+              href={`/update?id=${product.id}`}
+              target='_blank'
+              rel='noopener noreferrer'
             >
               Edit ✏️
-            </Link>
+            </a>
             <DeleteProduct id={product.id}>Delete</DeleteProduct>
           </>
         )}

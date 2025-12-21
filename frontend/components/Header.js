@@ -1,9 +1,5 @@
-import Link from 'next/link';
 import styled from 'styled-components';
-import { Nav } from './Nav';
-import { LargeButton } from './LargeButton';
-import { Cart } from './Cart';
-import { Logo } from '../components/Logo';
+import { Cart, LargeButton, Logo, Nav, Search } from '.';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -27,6 +23,13 @@ const NavPosition = styled.div`
   position: absolute;
   top: 120px;
   width: 100%;
+`;
+
+const SearchPosition = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: 60px;
+  right: 20px;
 `;
 
 const Section = styled.section`
@@ -72,18 +75,23 @@ const Header = () => (
     <NavPosition>
       <Nav />
     </NavPosition>
+    <SearchPosition>
+      <Search />
+    </SearchPosition>
     <Section>
       <CopyStyles>
-        <span class='medium-abril-fatface'>For the love of</span>
-        <span class='large-abril-fatface'>OUTDOOR</span>
-        <span class='small-railway'>Whether you're a weekend warrior or a</span>
-        <span class='small-railway'>Navy SEAL, we've got you covered.</span>
+        <span className='medium-abril-fatface'>For the love of the</span>
+        <span className='large-abril-fatface'>OUTDOORS</span>
+        <span className='small-railway'>Whether you're a weekend warrior or a</span>
+        <span className='small-railway'>Navy SEAL, we've got you covered.</span>
       </CopyStyles>
-      <Link href='/learn-more'>
-        <a>
+      <a
+        href='/learn-more'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
           <LargeButton buttonText='Learn More' />
-        </a>
-      </Link>
+      </a>
     </Section>
     <Cart />
   </StyledHeader>

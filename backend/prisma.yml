@@ -1,8 +1,8 @@
 datamodel: datamodel.graphql
-secret: ${env:PRISMA_SECRET}
+# secret: ${env:PRISMA_SECRET}
 
-# endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://range-front-backend-prod.herokuapp.com/
+endpoint: http://localhost:4466
+# endpoint: https://range-front-backend-prod.herokuapp.com/
 
 hooks:
   post-deploy:

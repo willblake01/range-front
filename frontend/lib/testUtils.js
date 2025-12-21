@@ -5,6 +5,7 @@ import { PAGINATION_QUERY } from '../components/Pagination';
 casual.seed(777);
 
 const fakeItem = () => ({
+  
   // __typename: 'Item',
   id: 'abc123',
   price: 5000,

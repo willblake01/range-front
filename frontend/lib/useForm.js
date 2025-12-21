@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
 export const useForm = (initial = {}) => {
+
   // create a state object for our inputs
   const [inputs, setInputs] = useState(initial);
   const initialValues = Object.values(initial).join('');
 
   useEffect(() => {
+
     // This function runs when the things we are watching change
     setInputs(initial);
   }, [initialValues]);
@@ -25,6 +27,7 @@ export const useForm = (initial = {}) => {
       [value] = e.target.files;
     }
     setInputs({
+      
       // copy the existing state
       ...inputs,
       [name]: value,

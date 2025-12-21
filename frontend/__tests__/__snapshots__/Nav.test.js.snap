@@ -30,13 +30,13 @@ Array [
         </a>
       </Link>
       <Link
-        href="/signin"
+        href="/login"
       >
         <a
-          href="/signin"
+          href="/login"
           onClick={[Function]}
         >
-          Sign In
+          Login
         </a>
       </Link>
       <Link
@@ -76,13 +76,13 @@ Array [
       </a>
     </Link>
     <Link
-      href="/signin"
+      href="/login"
     >
       <a
-        href="/signin"
+        href="/login"
         onClick={[Function]}
       >
-        Sign In
+        Login
       </a>
     </Link>
     <Link

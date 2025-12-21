@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { CartStyles } from './styles/CartStyles';
 import { CloseButton } from './styles/CloseButton';
-import { Logo } from '../components/Logo';
 import { formatMoney } from '../lib/formatMoney';
-import { useUser } from './User';
 import { calcTotalPrice } from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
-import { RemoveFromCart } from './RemoveFromCart';
-import { Checkout } from './Checkout';
+import { Checkout, RemoveFromCart, useUser } from '.';
 
-const CartItemStyles = styled.li`
+const CartItem = ({ cartItem }) => {
+  const CartItemStyles = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid var(--lightGrey);
   display: grid;
@@ -23,7 +21,6 @@ const CartItemStyles = styled.li`
   }
 `;
 
-const CartItem = ({ cartItem }) => {
   const { item } = cartItem;
   if (!item) return null;
 
@@ -31,15 +28,15 @@ const CartItem = ({ cartItem }) => {
     <CartItemStyles>
       <img
         width="100"
-        src={cartItem.image}
-        alt={cartItem.title}
+        src={item.image}
+        alt={item.title}
       />
       <div>
-        <h3>{cartItem.title}</h3>
+        <h3>{item.title}</h3>
         <p>
-          {formatMoney(cartItem.price * cartItem.quantity)}-
+          {formatMoney(item.price * cartItem.quantity)}-
           <em>
-            {cartItem.quantity} &times; {formatMoney(cartItem.price)} each
+            {cartItem.quantity} &times; {formatMoney(item.price)} each
           </em>
         </p>
       </div>
@@ -50,12 +47,19 @@ const CartItem = ({ cartItem }) => {
 
 const Cart = () => {
   const user = useUser();
-  const { cartOpen, closeCart } = useCart();
+
   if (!user) return null;
+
+  const { cartOpen, closeCart } = useCart();
+
+  const TotalPrice = styled.p`
+    margin-bottom: 1rem;
+  `;
+
   return (
     <CartStyles open={cartOpen}>
       <header>
-        <Logo>{user.firstName} {user.lastName}'s Cart</Logo>
+        <h1>{user.firstName} {user.lastName}'s cart</h1>
         <CloseButton onClick={closeCart}>&times;</CloseButton>
       </header>
       <ul>
@@ -64,7 +68,7 @@ const Cart = () => {
         ))}
       </ul>
       <footer>
-        <p>{formatMoney(calcTotalPrice(user.cart))}</p>
+        <TotalPrice>{formatMoney(calcTotalPrice(user.cart))}</TotalPrice>
         <Checkout />
       </footer>
     </CartStyles>

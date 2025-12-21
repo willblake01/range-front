@@ -1,40 +1,38 @@
+// Load environment variables
+require('dotenv').config({ path: '.env' });
+
 // The prisma server
 const db = require('../src/db');
 
 // The data to seed in the database
-const { users, products } = require('./seed');
+const { users, products } = require('./seed.ts');
 
-// users.forEach(async user => {
-//   await db.mutation.createUser({
-//     data: user
-//   })
-//   console.log(seedUser.data)
-//   .catch(e => {
-//     console.log(e);
-//     process.exit(1)
-//   })
-// });
-
-// products.forEach(async product => {
-//   await db.mutation.createProduct({
-//     data: product
-//   })
-//   .catch(e => {
-//     console.log(e);
-//     process.exit(1)
-//   })
-// });
-
-const seedDB = async (users, products) => {
-  const seedUser = await db.mutation.createUser({
-    data: users[0]
-  })
-  if (seedUser) {
-    products.forEach( async product => {
-      await db.mutation.createProduct({
+const seedDB = async () => {
+  try {
+    console.log('🌱 Starting database seed...');
+    
+    // Create the admin user
+    console.log('Creating admin user...');
+    const seedUser = await db.mutation.createUser({
+      data: users[0]
+    });
+    console.log(`✅ Created user: ${seedUser.email}`);
+    
+    // Create all products
+    console.log(`Creating ${products.length} products...`);
+    for (const product of products) {
+      const createdProduct = await db.mutation.createProduct({
         data: product
-      })
-    })
+      });
+      console.log(`✅ Created: ${createdProduct.title}`);
+    }
+    
+    console.log('🎉 Database seeding completed!');
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Seed failed:', error.message);
+    process.exit(1);
   }
-}
-seedDB(users, products);
+};
+
+seedDB();

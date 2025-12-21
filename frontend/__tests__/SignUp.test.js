@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
-import { Signup, SIGNUP_MUTATION } from '../components/Signup';
+import { Signup, SIGNUP_MUTATION } from '../components';
 import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser } from '../lib/testUtils';
 
@@ -28,6 +28,7 @@ const mocks = [
       },
     },
   },
+  
   // current user query mock
   {
     request: { query: CURRENT_USER_QUERY },
@@ -51,13 +52,15 @@ describe('<Signup/>', () => {
         <Signup />
       </MockedProvider>
     );
-    await userEvent.type(screen.getByPlaceholderText('name'), me.name);
-    await userEvent.type(screen.getByPlaceholderText('email'), me.email);
-    await userEvent.type(screen.getByPlaceholderText('password'), 'wes');
-    await userEvent.click(screen.getByText('Sign Up!'));
+
+    userEvent.type(screen.getByPlaceholderText('name'), me.name);
+    userEvent.type(screen.getByPlaceholderText('email'), me.email);
+    userEvent.type(screen.getByPlaceholderText('password'), 'wes');
+    userEvent.click(screen.getByText('Sign Up!'));
+
     // loading state
     expect(screen.getByTestId('loading')).toHaveAttribute('aria-busy', 'true');
     expect(screen.getByTestId('loading')).toHaveAttribute('disabled');
-    await screen.findByText(`Signed up with ${me.email} — Please Sign In now`);
+    await screen.findByText(`Signed up with ${me.email} — Please Login now`);
   });
 });
