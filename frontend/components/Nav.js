@@ -101,7 +101,7 @@ const Nav = () => {
       )}
       {!user && router.pathname !== '/login' && (
         <div style={{ marginLeft: 'auto' }}>
-          <Link href='/login'>Login</Link>
+          <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>Login</Link>
         </div>
       )}
     </NavStyles>

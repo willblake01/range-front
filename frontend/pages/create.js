@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { AlternateHeader } from '../components/AlternateHeader';
-import { CreateProduct, Footer, PleaseLogin } from '../components';
+import { CreateProduct, Footer, RequirePermission } from '../components';
 
 const StyledCreate = styled.div`
   display: flex;
@@ -16,11 +16,11 @@ const CreateProductPage = () => {
   return (
     <>
       <AlternateHeader />
-      <PleaseLogin>
+      <RequirePermission permission="PRODUCTCREATE">
         <StyledCreate>
           <CreateProduct />
         </StyledCreate>
-      </PleaseLogin>
+      </RequirePermission>
       <Footer />
     </>
   );

@@ -51,7 +51,7 @@ const SingleProductStyles = styled.div`
       font-size: 1rem;
       padding: 1rem;
       text-align: center;
-      color: var(--lightGrey);
+      color: var(--green);
       text-decoration: none;
     }
   }

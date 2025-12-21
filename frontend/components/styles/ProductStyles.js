@@ -33,7 +33,8 @@ const ProductStyles = styled.div`
       border: 2px solid var(--green);
       font-size: 1rem;
       padding: 1rem;
-      color: var(--darkGrey);
+      color: var(--green);
+      text-decoration: none;
     }
   }
 `;

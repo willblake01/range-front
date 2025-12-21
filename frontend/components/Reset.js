@@ -6,75 +6,71 @@ import { DisplayError, LargeButton } from '.';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
-    $email: String!
+    $resetToken: String!
     $password: String!
-    $token: String!
+    $confirmPassword: String!
   ) {
-    redeemUserPasswordResetToken(
-      email: $email
-      token: $token
+    resetPassword(
+      resetToken: $resetToken
       password: $password
+      confirmPassword: $confirmPassword
     ) {
-      code
-      message
+      id
+      email
+      firstName
+      lastName
     }
   }
 `;
 
 const Reset = ({ token }) => {
   const { inputs, handleChange, resetForm } = useForm({
-    email: '',
+    resetToken: token,
     password: '',
-    token,
+    confirmPassword: '',
   });
   const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
     variables: inputs,
   });
-  const successfulError = data?.redeemUserPasswordResetToken?.code
-    ? data?.redeemUserPasswordResetToken
-    : undefined;
-  console.log(error);
+  
   async function handleSubmit(e) {
-    e.preventDefault(); // stop the form from submitting
-    console.log(inputs);
-    const res = await reset().catch(console.error);
-    console.log(res);
-    console.log({ data, loading, error });
+    e.preventDefault();
+    await reset().catch(console.error);
     resetForm();
-    // Send the email and password to the graphqlAPI
   }
   
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>
-      <DisplayError error={error || successfulError} />
-      <fieldset>
-        {data?.redeemUserPasswordResetToken === null && (
-          <p>Success! You can Now login</p>
+      <DisplayError error={error} />
+      <fieldset disabled={loading}>
+        {data?.resetPassword && (
+          <p>Success! You can now <a href="/login">login</a> with your new password.</p>
         )}
 
-        <label htmlFor="email">
-          Email
-        </label>
-        <input
-          type="email"
-          name="email"
-          autoComplete="email"
-          value={inputs.email}
-          onChange={handleChange}
-        />
         <label htmlFor="password">
-          Password
+          New Password
           <input
             type="password"
             name="password"
-            placeholder="Password"
-            autoComplete="password"
+            placeholder="New Password"
+            autoComplete="new-password"
             value={inputs.password}
             onChange={handleChange}
           />
         </label>
-        <LargeButton type="submit" buttonText='Request Reset' />
+        <label htmlFor="confirmPassword">
+          Confirm Password
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            autoComplete="new-password"
+            value={inputs.confirmPassword}
+            onChange={handleChange}
+          />
+        </label>
+        <LargeButton type="submit" buttonText='Reset Password' />
       </fieldset>
     </Form>
   );

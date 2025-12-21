@@ -1,11 +1,11 @@
 const users = [
   {
-    firstName: 'system',
-    lastName: 'admin',
-    email: 'system.admin@example.com',
+    firstName: 'Will',
+    lastName: 'Blake',
+    email: 'willblakebooking@gmail.com',
     password: 'J@KMvT2WYW6x2WPwuNNtYP6i!vhB3.D!Bq!PdiLmvhADYZTpY8jq3UPwsxFkuKtVABEwdi@a@7!.zijX*fAfThbj@EUroNLXZhkX',
     permissions: {
-      set: ['PRODUCTCREATE']
+      set: ['ADMIN', 'USER', 'PRODUCTCREATE', 'PRODUCTUPDATE', 'PRODUCTDELETE', 'PERMISSIONUPDATE']
     }
   }
 ];

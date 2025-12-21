@@ -1,4 +1,5 @@
 import { useMutation } from '@apollo/client';
+import { useRouter } from 'next/router';
 import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY, DisplayError } from '.';
 
@@ -11,14 +12,21 @@ const SIGN_OUT_MUTATION = gql`
 `;
 
 const SignOut = () => {
+  const router = useRouter();
   const [signout, {data, error}] = useMutation(SIGN_OUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
-  if (error) return <DisplayError error={error} />;
+  
+  const handleSignOut = async () => {
+    await signout();
+    // Stay on current page after sign out
+    router.reload();
+  };
 
   return (
     <>
-      <button type="button" onClick={signout}>
+      {error && <DisplayError error={error} />}
+      <button type="button" onClick={handleSignOut}>
         Sign Out
       </button>
     </>

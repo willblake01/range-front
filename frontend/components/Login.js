@@ -1,4 +1,4 @@
-import Router from 'next/router'
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -30,6 +30,7 @@ const LOGIN_MUTATION = gql`
 `;
 
 const Login = () => {
+  const router = useRouter();
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
@@ -55,7 +56,17 @@ const Login = () => {
     resetForm();
 
     if (res) {
-      Router.push('/');
+      // Redirect to the redirect param, or reload current page
+      const redirectPath = router.query.redirect;
+      if (redirectPath) {
+        router.push(redirectPath);
+      } else if (router.pathname === '/login') {
+        // If on login page, go home
+        router.push('/');
+      } else {
+        // Otherwise reload current page to show logged-in state
+        router.reload();
+      }
     }
   }
 

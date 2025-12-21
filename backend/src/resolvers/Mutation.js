@@ -125,23 +125,29 @@ const Mutations = {
     // 2. Set a reset token and expiry on that user
     const randomBytesPromisified = promisify(randomBytes);
     const resetToken = (await randomBytesPromisified(20)).toString('hex');
-    const resetTokenExpiry = Date.now() + 3600000; // 1 hour from now
+    const resetTokenExpiry = String(Date.now() + 3600000); // 1 hour from now
     const res = await ctx.db.user.update({
       where: { email: args.email },
       data: { resetToken, resetTokenExpiry },
     });
     // 3. Email them that reset token
-    const mailRes = await transport.sendMail({
-      from: 'willblakebooking@gmail.com',
-      to: user.email,
-      subject: 'Your Password Reset Token',
-      html: makeANiceEmail(`Your Password Reset Token is Here!
-      \n\n
-      <a href='${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}'>Click here to reset</a>`
-      ),
-    });
+    // TEMP: Log reset token to console for development (disable email)
+    console.log('🔑 Password Reset Token:', resetToken);
+    console.log('🔗 Reset URL:', `${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}`);
+    
+    // TODO: Configure email in production
+    // const mailRes = await transport.sendMail({
+    //   from: 'willblakebooking@gmail.com',
+    //   to: user.email,
+    //   subject: 'Your Password Reset Token',
+    //   html: makeANiceEmail(`Your Password Reset Token is Here!
+    //   \n\n
+    //   <a href='${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}'>Click here to reset</a>`
+    //   ),
+    // });
+    
     // 4. Return the message
-    return { message: 'Thanks!' };
+    return { message: 'Check your terminal for the reset link!' };
   },
   async resetPassword(parent, args, ctx, info) {
     // 1. Check if the passwords match
@@ -154,7 +160,7 @@ const Mutations = {
       where: {
         resetToken: args.resetToken,
         resetTokenExpiry: {
-          gte: Date.now() - 3600000,
+          gte: String(Date.now()),
         },
       },
     });

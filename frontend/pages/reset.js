@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import { AlternateHeader, Footer, RequestReset, Reset } from '../components';
 
 const StyledReset = styled.div`
@@ -11,8 +12,11 @@ const StyledReset = styled.div`
   height: 100%;
 `;
 
-const  ResetPage = ({ query }) => {
-  if (!query?.token) {
+const ResetPage = () => {
+  const router = useRouter();
+  const { resetToken } = router.query;
+  
+  if (!resetToken) {
     return (
       <>
         <AlternateHeader />
@@ -25,8 +29,11 @@ const  ResetPage = ({ query }) => {
   }
   return (
     <>
-      <p>RESET YOUR PASSWORD</p>
-      <Reset token={query.token} />
+      <AlternateHeader />
+      <StyledReset>
+        <Reset token={resetToken} />
+      </StyledReset>
+      <Footer />
     </>
   );
 }
