@@ -49,8 +49,8 @@ const StyledDropDown = styled.div`
   position: relative;
   width: 100%;
   z-index: 2;
-  border: 1px solid var(--lightGrey);
   background: white;
+  border: ${(props) => (props.isOpen ? '1px solid var(--lightGrey)' : 'none')};
 `;
 
 const DropDown = StyledDropDown;

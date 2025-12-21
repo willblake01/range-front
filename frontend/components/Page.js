@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
     --white: #FFFFFF;
     --offWhite: #EDEDED;
     --grey: #3A3A3A;
-    --lightGrey:'#E1E1E';
+    --lightGrey: #E1E1E1;
     --green: #2E5564;
     --brown: #8E3F30;
     --darkOrange: #C65837;
@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
     box-sizing: border-box;
     font-size: 62.5%;
+    overflow-x: hidden;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -33,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
   }
   :link {
     color: #0000EE;
@@ -47,6 +49,7 @@ const InnerStyles = styled.div`
   padding: 0;
   height: 100vh;
   max-width: var(--maxWidth);
+  width: 100%;
 `;
 
 const Page = ({ children, cool }) => (

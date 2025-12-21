@@ -74,7 +74,7 @@ const Search = () => {
           />
         </div>
       </StyledSearch>
-      <DropDown>
+      <DropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
         <div {...getMenuProps()}>
           {isOpen &&
           items.map((item, index) => (

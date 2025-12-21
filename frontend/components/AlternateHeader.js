@@ -7,8 +7,13 @@ const StyledAlternateHeader = styled.header`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/mountain-range.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   height: 480px;
   width: 100%;
+  @media (max-width: 1300px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
 `;
 
 const NavPosition = styled.div`
