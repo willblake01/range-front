@@ -15,6 +15,6 @@ generate:
     output: ./generated/prisma.graphql
 
 # Executes a Node.js script to seed the database with
-# initial data.
-seed:
-  run: ts-node data/seedDatabase.js
+# initial data. (Commented out - run manually if needed)
+# seed:
+#   run: ts-node data/seedDatabase.js

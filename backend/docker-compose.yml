@@ -10,20 +10,22 @@ services:
         port: 4466
         databases:
           default:
-            connector: mysql
-            host: mysql
-            user: root
+            connector: postgres
+            host: postgres
+            user: prisma
             password: prisma
             rawAccess: true
-            port: 3306
+            port: 5432
             migrations: true
-  mysql:
-    platform: linux/x86_64
-    image: mysql:5.7
+  postgres:
+    platform: linux/amd64
+    image: postgres:13
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: prisma
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: prisma
     volumes:
-      - mysql:/var/lib/mysql
+      - postgres:/var/lib/postgresql/data
 volumes:
-  mysql:
+  postgres:

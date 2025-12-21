@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "the backend of range front",
   "scripts": {
-    "start": "nodemon -e js,graphql -x node src/index.js",
+    "start": "node src/index.js",
     "dev": "nodemon -e js,graphql -x node --inspect src/index.js",
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "jest",
-    "deploy": "prisma1 deploy --env-file .env"
+    "deploy": "prisma1 deploy --env-file .env",
+    "deploy:prod": "prisma1 deploy",
+    "seed": "npm run ts-node data/seedDatabase.js"
   },
   "dependencies": {
     "@prisma/client": "^2.26.0",
