@@ -30,16 +30,20 @@ const Pagination = ({ page }) => {
           Range Front - Page {page} of {pageCount}
         </title>
       </Head>
-      <Link href={`/products/${page - 1}`} aria-disabled={page <= 1}>
-        ← Prev
-      </Link>
+      {page > 1 && (
+        <Link href={`/products/${page - 1}`}>
+          ← Prev
+        </Link>
+      )}
       <p>
         Page {page} of {pageCount}
       </p>
       <p>{count} Items Total</p>
-      <Link href={`/products/${page + 1}`} aria-disabled={page >= pageCount}>
-        Next →
-      </Link>
+      {page < pageCount && (
+        <Link href={`/products/${page + 1}`}>
+          Next →
+        </Link>
+      )}
     </PaginationStyles>
   );
 }
