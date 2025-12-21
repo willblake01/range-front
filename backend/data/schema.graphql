@@ -96,7 +96,7 @@ type Mutation {
 }
 
 type Query {
-  products(where: ProductWhereInput): [Product]!
+  products(where: ProductWhereInput, skip: Int, first: Int): [Product]!
   product(where: ProductWhereUniqueInput!): Product
   productsConnection(where: ProductWhereInput): ProductConnection!
   user: User

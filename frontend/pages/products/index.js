@@ -8,7 +8,6 @@ const ProductsPage = () => {
   return (
     <>
       <AlternateHeader />
-      <Pagination page={page} />
       <Products page={page} />
       <Pagination page={page} />
       <Footer />

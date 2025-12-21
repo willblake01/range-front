@@ -3,6 +3,8 @@ const { hasPermission } = require('../utils');
 const Query = {
   async products(parent, args, ctx, info) {
     return ctx.db.product.findMany({
+      skip: args.skip,
+      take: args.first,
       include: {
         user: true,
       },
