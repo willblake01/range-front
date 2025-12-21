@@ -3,14 +3,15 @@ import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
   text-align: center;
-  display: inline-grid;
+  display: grid;
   grid-template-columns: repeat(4, auto);
   align-items: stretch;
   justify-content: center;
   align-content: center;
-  margin: 2rem 0;
+  margin: 2rem auto;
   border: 1px solid var(--lightGrey);
   border-radius: 10px;
+  width: fit-content;
   & > * {
     margin: 0;
     padding: 15px 30px;
