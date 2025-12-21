@@ -55,6 +55,25 @@ const SingleProductStyles = styled.div`
       text-decoration: none;
     }
   }
+  @media (max-width: 768px) {
+    padding: 20px;
+    .product {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .image {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .details {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .buttonList {
+      grid-column: 1;
+      grid-row: 3;
+    }
+  }
 `;
 
 const SINGLE_PRODUCT_QUERY = gql`
