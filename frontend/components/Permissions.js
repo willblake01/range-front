@@ -38,6 +38,7 @@ const possiblePermissions = [
 ];
 
 const PermissionsStyles = styled.div`
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
