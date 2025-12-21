@@ -46,6 +46,19 @@ const NavStyles = styled.ul`
     align-items: center;
     margin-right: 0;
   }
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 55px;
+    * {
+      margin: 4px;
+    }
+    button {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const StyledButton = styled.button `

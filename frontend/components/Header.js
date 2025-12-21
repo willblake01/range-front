@@ -48,6 +48,12 @@ const Section = styled.section`
   button {
     margin: 20px 0;
   }
+  @media (max-width: 768px) {
+    top: 120px;
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+  }
 `;
 
 const CopyStyles = styled.div`
@@ -66,6 +72,17 @@ const CopyStyles = styled.div`
   .small-railway {
     font-family: Raleway-Medium;
     font-size: 2rem;
+  }
+  @media (max-width: 768px) {
+    .medium-abril-fatface {
+      font-size: 2rem;
+    }
+    .large-abril-fatface {
+      font-size: 4rem;
+    }
+    .small-railway {
+      font-size: 1.4rem;
+    }
   }
 `;
 

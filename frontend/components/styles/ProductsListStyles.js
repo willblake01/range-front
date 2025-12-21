@@ -12,6 +12,11 @@ const ProductsListStyles = styled.div`
   a {
     text-decoration: none;
   }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    padding: 20px;
+  }
 `;
 
 export { ProductsListStyles };
