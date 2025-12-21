@@ -176,7 +176,16 @@ const config = {
       "fromEnvVar": null
     },
     "config": {},
-    "binaryTargets": [],
+    "binaryTargets": [
+      {
+        "fromEnvVar": null,
+        "value": "darwin-arm64"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-1.1.x"
+      }
+    ],
     "previewFeatures": [],
     "isCustomOutput": true
   },
@@ -217,6 +226,9 @@ Object.assign(exports, Prisma)
 **/
 path.join(__dirname, 'query-engine-darwin-arm64');
 path.join(process.cwd(), './generated/prisma-client/query-engine-darwin-arm64');
+
+path.join(__dirname, 'query-engine-debian-openssl-1.1.x');
+path.join(process.cwd(), './generated/prisma-client/query-engine-debian-openssl-1.1.x');
 
 /**
  * Annotation for `@vercel/nft`
