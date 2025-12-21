@@ -86,6 +86,8 @@ const Mutations = {
     ctx.res.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year cookie
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
     });
     // Return the user to the browser
     return user;
@@ -107,6 +109,8 @@ const Mutations = {
     ctx.res.cookie('token', token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
     });
   
     // 5. Return the user
@@ -184,7 +188,9 @@ const Mutations = {
     // 7. Set the JWT cookie
     ctx.res.cookie('token', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
     });
     // 8. Return the new user
     return updatedUser;
