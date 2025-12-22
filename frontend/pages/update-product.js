@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AlternateHeader, Footer, Search, UpdateProduct } from '../components';
+import { AlternateHeader, Footer, UpdateProduct } from '../components';
 
 const StyledUpdate = styled.div`
   display: flex;

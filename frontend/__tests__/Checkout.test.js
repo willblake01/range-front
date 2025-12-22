@@ -42,13 +42,13 @@ const mocks = [
   },
 ];
 
-describe('<Checkout />', () => {
+describe('<CheckoutPage />', () => {
   // Mock Stripe create Payment Method
   it('renders and matches snappy', async () => {
     const { container } = render(
       <CartStateProvider>
         <MockedProvider>
-          <Checkout />
+          <CheckoutPage />
         </MockedProvider>
       </CartStateProvider>
     );
@@ -61,7 +61,7 @@ describe('<Checkout />', () => {
     const { container } = render(
       <CartStateProvider>
         <MockedProvider mocks={mocks}>
-          <Checkout />
+          <CheckoutPage />
         </MockedProvider>
       </CartStateProvider>
     );

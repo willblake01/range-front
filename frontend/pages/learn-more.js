@@ -45,7 +45,7 @@ const SectionHeaderStyle = styled.div`
     }
 `;
 
-const LearnMore = () => (
+const LearnMorePage = () => (
     <>
         <AlternateHeader />
         <LearnMoreStyle>
@@ -229,4 +229,4 @@ const LearnMore = () => (
     </>
 )
 
-export default LearnMore;
+export default LearnMorePage;

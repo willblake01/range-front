@@ -4,7 +4,7 @@ import { CloseButton } from './styles/CloseButton';
 import { formatMoney } from '../lib/formatMoney';
 import { calcTotalPrice } from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
-import { Checkout, RemoveFromCart, useUser } from '.';
+import { LargeButton, RemoveFromCart, useUser } from '.';
 
 const CartItem = ({ cartItem }) => {
   const CartItemStyles = styled.li`
@@ -69,8 +69,8 @@ const Cart = () => {
       </ul>
       <footer>
         <TotalPrice>{formatMoney(calcTotalPrice(user.cart))}</TotalPrice>
-        <Checkout />
       </footer>
+      <LargeButton buttonText='Checkout' />
     </CartStyles>
   );
 }
