@@ -1,14 +1,11 @@
 import Link from 'next/link';
-import { ProductStyles } from './styles/ProductStyles';
-import { Title } from './styles/Title';
-import { PriceTag } from './styles/PriceTag';
-import { formatMoney, hasPermission } from '../lib';
-import { AddToCart, DeleteProduct, useUser } from '.';
+import { ProductStyles } from '../../styles/ProductStyles';
+import { Title } from '../../styles/Title';
+import { PriceTag } from '../../styles/PriceTag';
+import { formatMoney } from '../../../lib';
+import { AddToCart } from '../..';
 
-const Product = ({ product }) => {
-  const user = useUser();
-  
-  return (
+const Product = ({ product }) => (
     <ProductStyles>
       <Link href={`/product/${product.id}`}>
         <a>
@@ -39,17 +36,8 @@ const Product = ({ product }) => {
           Learn More ✏️
         </a>
         <AddToCart id={product.id} />
-        {hasPermission(user, 'ADMIN') && (
-          <>
-            <Link href={`/update?id=${product.id}`}>
-              <a>Edit ✏️</a>
-            </Link>
-            <DeleteProduct id={product.id}>Delete</DeleteProduct>
-          </>
-        )}
       </div>
     </ProductStyles>
   );
-}
 
 export { Product };

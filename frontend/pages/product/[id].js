@@ -1,11 +1,11 @@
-import { AlternateHeader, Footer, SingleProduct } from '../../components';
+import { AlternateHeader, Footer, ProductDescription } from '../../components';
 
-const SingleProductPage = ({ query }) => (
+const ProductDescriptionPage = ({ query }) => (
   <>
     <AlternateHeader />
-    <SingleProduct id={query.id} />
+    <ProductDescription id={query.id} />
     <Footer />
   </>
 )
 
-export default SingleProductPage;
+export default ProductDescriptionPage;

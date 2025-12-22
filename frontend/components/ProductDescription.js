@@ -1,12 +1,11 @@
-import Link from 'next/link';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
-import { formatMoney } from '../lib/formatMoney';
-import { AddToCart, DisplayError } from '.';
+import { formatMoney, hasPermission } from '../lib';
+import { AddToCart, DisplayError, DeleteProduct, useUser } from '.';
 
-const SingleProductStyles = styled.div`
+const ProductDescriptionStyles = styled.div`
   justify-content: center;
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
@@ -89,7 +88,9 @@ const SINGLE_PRODUCT_QUERY = gql`
   }
 `;
 
-const SingleProduct = ({ id }) => {
+const ProductDescription = ({ id }) => {
+  const user = useUser();
+
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: {
       id,
@@ -99,11 +100,11 @@ const SingleProduct = ({ id }) => {
   if (loading) return <p>Loading...</p>;
 
   if (error) return <DisplayError error={error} />;
-  
+
   const { product } = data;
   
   return (
-    <SingleProductStyles>
+    <ProductDescriptionStyles>
       <Head>
         <title>Range Front | {product.title}</title>
       </Head>
@@ -116,23 +117,33 @@ const SingleProduct = ({ id }) => {
         </div>
         <div className="details">
           <h1>{product.brand}</h1>
-          <h2>{product.title}</h2>
+          <h2><strong>{product.title}</strong></h2>
           <p>{product.description}</p>
           <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className="buttonList">
-          <a
-            href='/learn-more'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn More ✏️
-          </a>
-          <AddToCart id={product.id} />
+        {hasPermission(user, 'ADMIN') && (
+          <>
+            <a href={`/update?id=${product.id}`}>
+              Edit ✏️
+            </a>
+            <DeleteProduct id={product.id}>
+              Delete 🗑️
+            </DeleteProduct>
+          </>
+        )}
+        <a
+          href='/learn-more'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Learn More 📖
+        </a>
+        <AddToCart id={product.id} />
         </div>
       </div>
-    </SingleProductStyles>
+    </ProductDescriptionStyles>
   );
 }
 
-export { SingleProduct };
+export { ProductDescription };

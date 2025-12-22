@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { ProductsListStyles } from './styles/ProductsListStyles';
-import { Product } from '.';
-import { perPage } from '../config';
+import { ProductsListStyles } from '../styles/ProductsListStyles';
+import { Product } from './components';
+import { perPage } from '../../config';
 
 const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
