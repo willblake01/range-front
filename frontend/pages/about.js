@@ -4,6 +4,11 @@ import { AlternateHeader, Footer } from '../components';
 const AboutStyle = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
   max-width: var(--maxWidth);
   padding: 5rem;
   font-size: 1.4rem;

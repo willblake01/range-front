@@ -4,6 +4,11 @@ import { AlternateHeader, Footer } from '../components';
 const LearnMoreStyle = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
     max-width: var(--maxWidth);
     padding: 20px 140px 100px;
     font-size: 1.4rem;
@@ -41,13 +46,13 @@ const LearnMore = () => (
     <>
         <AlternateHeader />
         <LearnMoreStyle>
-            <h1>How to Choose Tents for Camping</h1>
+            <h1>How to Choose a Tent</h1>
             <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
             <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
                 or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your
                 home away from home.</p>
 
-            <h2>Tent Sleeping Capacity</h2>
+            <h2>Sleeping Capacity</h2>
             <p>When choosing your tent, first choose a model based on your group's size and whether or not you might need additional
                 space for extra friends, gear or dogs. Keep in mind, however, that no industry standard exists that defines per-person
                 tent dimensions.
@@ -61,8 +66,8 @@ const LearnMore = () => (
                 <li>are bringing a small child or a dog</li>
             </ul>
 
-            <h2>Tents Seasonality</h2>
-            <h4>3-Season Tents</h4>
+            <h2>Seasonality</h2>
+            <h4>3-Season</h4>
             <p>By far the most popular choice of tents, 3-season tents are lightweight shelters designed for the relatively temperate
                 conditions of spring, summer and fall. They are usually equipped with ample mesh panels to boost air flow. Mesh panels
                 keep out insects (but can still let in powdery blowing sand). Properly pitched with a taut rainfly, 3-season tents
@@ -75,7 +80,7 @@ const LearnMore = () => (
                 <li>Provide privacy.</li>
             </ul>
 
-            <h4>3- 4-Season Tents</h4>
+            <h4>3- 4-Season</h4>
             <p>Extended-season (3+ season) tents are engineered for prolonged 3-season usage, suitable for summer use but also trips
                 in early spring and late fall when moderate snow may be encountered. Their goal: offer a balance of ventilation,
                 strength and warmth-retention.
@@ -84,7 +89,7 @@ const LearnMore = () => (
                 to exposed, high-elevation destinations. While very sturdy, they are not as fully fortified for harsh winter weather
                 as 4-season tents.</p>
 
-            <h4>4-Season Tents</h4>
+            <h4>4-Season</h4>
             <p>Engineered to withstand fierce winds and substantial snow loads, mountaineering tents can be used in any season. Their
                 chief function, though, is to stand firm in the face of seriously inhospitable weather, principally in winter or
                 above treeline.
@@ -93,14 +98,14 @@ const LearnMore = () => (
                 and can make them feel warm and stuffy in mild weather. But when foul winds begin to howl, a 4-season tent provides
                 a reassuring place of refuge.</p>
 
-            <h1>How to Choose Sleeping Bags for Camping</h1>
+            <h1>How to Choose a Sleeping Bag</h1>
             <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_sleepingbag.jpg' alt='sleeping bags' />
             <p>While backpacking bags focus on minimizing weight, sleeping bags for car or family camping are all about comfort. What's
                 the best sleeping bag for you? This article discusses what features to look for when shopping for a sleeping bag
                 for car camping.
             </p>
 
-            <h2>Sleeping Bag Temperature Rating</h2>
+            <h2>Temperature Rating</h2>
             <p>A sleeping bag's temperature rating identifies the lowest temperature at which a bag is intended to keep the average
                 sleeper warm. When a bag is described as a '20-degree bag,' it means that most users should remain comfortable if
                 the air temperature drops no lower than 20°F. These ratings assume that the sleeper is wearing a layer of long underwear
@@ -131,7 +136,7 @@ const LearnMore = () => (
                 If you're headed for near-freezing temperatures, then choose a 20°F bag instead of a 35°F bag. If temperatures remain
                 higher than expected, you can easily vent the bag to provide more air circulation.</p>
 
-            <h2>Sleeping Bag Shape</h2>
+            <h2>Shape</h2>
             <p>Sleeping bags keep you warm by trapping and holding a layer of 'dead' (non-circulating) air next to your body. Your body
                 heat warms this dead air, and the bag forms a barrier between it and the colder ground or outside air. The less air
                 space there is to heat, the faster you warm up and stay warm. Camping bags are roomier than backpacking bags for
@@ -164,7 +169,7 @@ const LearnMore = () => (
             <p className='boldPara'>Backpack fit: </p>
             <p>Torso length, not your height, matters most.</p>
 
-            <h2>Types of Backpacks</h2>
+            <h2>Types</h2>
             <h4>Weekend (1-3 nights; 30-50 liters)</h4>
             <p>Efficient packers using newer, less-bulky gear can really keep things light on 1- to 3-night trips by using a pack in
                 this range. Be aware that packing light requires self-discipline and careful planning. If you can pull it off, though,
@@ -183,7 +188,7 @@ const LearnMore = () => (
                     enjoyable for their young ones.</li>
             </ul>
 
-            <h2>Backpack Fit</h2>
+            <h2>Fit</h2>
             <p>Once you've chosen the type of backpack you want, the next step is to work with an REI sales specialist to expertly fit
                 you to your pack.</p>
             <p>The right fit is one that offers:</p>
