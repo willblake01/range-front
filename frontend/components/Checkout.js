@@ -83,10 +83,8 @@ const OrderStyles = styled.div`
   height: 100%;
   width: 100%;
   min-width: 500px;
-  bottom: 0;
   transform: translateX(100%);
   transition: all 0.3s;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -100,7 +98,7 @@ const OrderStyles = styled.div`
     border-top: 10px double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
-    /* display: grid;
+    display: grid;
     grid-template-columns: auto auto; */
     align-items: center;
     font-size: 3rem;
@@ -132,11 +130,7 @@ const OrderStyles = styled.div`
   }
 `;
 
-const CardElementStyles = styled.div`
-`
-
-const CheckoutForm = () => {
-  const TestCardInfo = styled.div`
+const TestCardInfo = styled.div`
     font-size: 1.2rem;
     color: var(--grey);
     background: var(--offWhite);
@@ -148,6 +142,7 @@ const CheckoutForm = () => {
     }
   `;
 
+const CheckoutForm = () => {
   const user = useUser();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
@@ -238,9 +233,7 @@ const CheckoutForm = () => {
         <TestCardInfo>
           <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
         </TestCardInfo>
-        <CardElementStyles>
-          <CardElement />
-        </CardElementStyles>
+        <CardElement />
         <Link
           href='/order-confirmation'
         >
