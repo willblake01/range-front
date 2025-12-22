@@ -16,7 +16,7 @@ function update(cache, payload) {
 
 const RemoveFromCart = ({ id }) => {
   const LargeButton = styled.button`
-  font-size: 3rem;
+  font-size: 1.5rem;
   background: none;
   border: 0;
   &:hover {
@@ -43,7 +43,7 @@ const RemoveFromCart = ({ id }) => {
       type="button"
       title="Remove This Item from Cart"
     >
-      &times;
+      Remove
     </LargeButton>
   );
 }
