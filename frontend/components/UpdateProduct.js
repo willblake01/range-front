@@ -8,6 +8,7 @@ const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
     product(where: { id: $id }) {
       id
+      brand
       title
       description
       category
@@ -47,14 +48,16 @@ const UpdateProduct = ({ id }) => {
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
   });
+
   // 2. We need to get the mutation to update the product
   const [
     updateProduct,
     { data: updateData, error: updateError, loading: updateLoading },
   ] = useMutation(UPDATE_PRODUCT_MUTATION);
+
   // 2.5 Create some state for the form inputs:
   const { inputs, handleChange, clearForm, resetForm } = useForm(
-    data?.Product || {
+    data?.product || {
       brand: '',
       title: '',
       description: '',
@@ -63,8 +66,9 @@ const UpdateProduct = ({ id }) => {
       price: '',
     }
   );
-  console.log(inputs);
+
   if (loading) return <p>loading...</p>;
+
   // 3. We need the form to handle the updates
   return (
     <Form
@@ -81,7 +85,7 @@ const UpdateProduct = ({ id }) => {
             price: inputs.price,
           },
         }).catch(console.error);
-        console.log(res);
+
         // Submit the inputfields to the backend:
         // TODO: Handle Submit!!!
         // const res = await createProduct();
@@ -154,7 +158,7 @@ const UpdateProduct = ({ id }) => {
           value={inputs.price}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText="Update Product" />
+        <LargeButton type="submit" buttonText="Submit" />
       </fieldset>
     </Form>
   );

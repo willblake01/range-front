@@ -27,18 +27,16 @@ const RequestReset = () => {
   );
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(inputs);
 
     // Send the email and password to the graphqlAPI
-    const res = await signup().catch(console.error);
-    console.log(res);
-    console.log({ data, loading, error });
+    await signup().catch(console.error);
+
     resetForm();
   }
 
   return (
     <Form method="POST" onSubmit={handleSubmit}>
-      <h2>Request a Password Reset</h2>
+      <h2>Request Password Reset</h2>
       <DisplayError error={error} />
       <fieldset>
         {data?.sendUserPasswordResetLink === null && (
@@ -55,7 +53,7 @@ const RequestReset = () => {
           value={inputs.email}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText='Request Reset' />
+        <LargeButton type="submit" buttonText='Submit' />
       </fieldset>
     </Form>
   );

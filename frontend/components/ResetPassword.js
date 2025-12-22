@@ -23,7 +23,7 @@ const RESET_MUTATION = gql`
   }
 `;
 
-const Reset = ({ token }) => {
+const ResetPassword = ({ token }) => {
   const { inputs, handleChange, resetForm } = useForm({
     resetToken: token,
     password: '',
@@ -74,4 +74,4 @@ const Reset = ({ token }) => {
   );
 }
 
-export { Reset };
+export { ResetPassword };

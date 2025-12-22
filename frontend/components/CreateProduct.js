@@ -124,7 +124,7 @@ const CreateProduct = () => {
           value={inputs.price}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText="Add Product" />
+        <LargeButton type="submit" buttonText="Submit" />
       </fieldset>
     </Form>
   );

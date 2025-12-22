@@ -100,7 +100,7 @@ const Login = () => {
         />
         <LargeButton type="submit" buttonText='Login' />
         <LinkPosition>
-          <Link href='/reset'>Forgot Password?</Link>
+          <Link href='/reset-password'>Forgot Password?</Link>
         </LinkPosition>
       </fieldset>
     </Form>

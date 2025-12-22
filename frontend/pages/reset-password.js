@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { AlternateHeader, Footer, RequestReset, Reset } from '../components';
+import { AlternateHeader, Footer, RequestReset, ResetPassword } from '../components';
 
 const StyledReset = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const ResetPage = () => {
     <>
       <AlternateHeader />
       <StyledReset>
-        <Reset token={resetToken} />
+        <ResetPassword token={resetToken} />
       </StyledReset>
       <Footer />
     </>

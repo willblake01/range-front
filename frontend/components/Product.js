@@ -20,6 +20,11 @@ const Product = ({ product }) => {
       </Link>
       <Title>
         <Link href={`/product/${product.id}`}>
+          <a>{product.brand}</a>
+        </Link>
+      </Title>
+      <Title>
+        <Link href={`/product/${product.id}`}>
           <a>{product.title}</a>
         </Link>
       </Title>

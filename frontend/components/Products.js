@@ -8,6 +8,7 @@ const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
     products(skip: $skip, first: $first) {
       id
+      brand
       title
       price
       description

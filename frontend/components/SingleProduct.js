@@ -95,8 +95,11 @@ const SingleProduct = ({ id }) => {
       id,
     },
   });
+
   if (loading) return <p>Loading...</p>;
+
   if (error) return <DisplayError error={error} />;
+  
   const { product } = data;
   
   return (

@@ -26,7 +26,7 @@ export { ALL_PRODUCTS_QUERY, Products } from './Products';
 export { RemoveFromCart } from './RemoveFromCart';
 export { RequestReset } from './RequestReset';
 export { RequirePermission } from './RequirePermission';
-export { Reset } from './Reset';
+export { ResetPassword } from './ResetPassword';
 export { Search } from './Search';
 export { ShoppingTiles } from './ShoppingTiles';
 export { SignOut } from './SignOut';
