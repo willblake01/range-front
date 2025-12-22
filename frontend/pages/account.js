@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Account, AlternateHeader, Footer } from '../components';
 
-const StyledAccount = styled.div`
+const StyledAccountPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,14 +9,15 @@ const StyledAccount = styled.div`
   color: var(--green);
   padding: 40px;
   height: 100%;
+  width: 100%;
 `;
 
 const AccountPage = ({query}) => (
   <>
     <AlternateHeader />
-    <StyledAccount>
+    <StyledAccountPage>
       <Account />
-    </StyledAccount>
+    </StyledAccountPage>
     <Footer />
   </>
 );

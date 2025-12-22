@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { useUser } from '.';
 
-const AccountContainer = styled.div`
+const StyledAccount = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
@@ -53,7 +56,7 @@ const Account = () => {
   if (!user) return null;
 
   return (
-    <AccountContainer>
+    <StyledAccount>
       <AccountHeader>
         <h2>Account Information</h2>
       </AccountHeader>
@@ -76,7 +79,7 @@ const Account = () => {
           <span>••••••••</span>
         </InfoRow>
       </InfoSection>
-    </AccountContainer>
+    </StyledAccount>
   );
 }
 
