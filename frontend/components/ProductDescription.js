@@ -38,7 +38,7 @@ const ProductDescriptionStyles = styled.div`
     flex-direction: column;
     grid-row: 1;
   }
-  .buttonList {
+  .buttonGrid {
     grid-column: 2/3;
     display: grid;
     width: 100%;
@@ -68,7 +68,7 @@ const ProductDescriptionStyles = styled.div`
       grid-column: 1;
       grid-row: 2;
     }
-    .buttonList {
+    .buttonGrid {
       grid-column: 1;
       grid-row: 3;
     }
@@ -121,7 +121,7 @@ const ProductDescription = ({ id }) => {
           <p>{product.description}</p>
           <h2>{formatMoney(product.price)}</h2>
         </div>
-        <div className="buttonList">
+        <div className="buttonGrid">
         {hasPermission(user, 'ADMIN') && (
           <>
             <a href={`/update?id=${product.id}`}>

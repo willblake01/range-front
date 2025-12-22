@@ -43,7 +43,7 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
     This item is really cool!
   </p>
   <div
-    className="buttonList"
+    className="buttonGrid"
   >
     <Link
       href={

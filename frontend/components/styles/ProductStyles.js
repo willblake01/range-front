@@ -22,7 +22,7 @@ const ProductStyles = styled.div`
     font-size: 1.4rem;
   }
 
-  .buttonList {
+  .buttonGrid {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

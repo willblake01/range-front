@@ -12,6 +12,7 @@ export { DisplayError } from './ErrorMessage';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { LargeButton } from './LargeButton';
+export { LearnMore } from './LearnMore';
 export { Login } from './Login';
 export { Logo } from './Logo';
 export { Marketing } from './Marketing';

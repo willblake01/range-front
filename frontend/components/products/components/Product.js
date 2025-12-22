@@ -3,7 +3,7 @@ import { ProductStyles } from '../../styles/ProductStyles';
 import { Title } from '../../styles/Title';
 import { PriceTag } from '../../styles/PriceTag';
 import { formatMoney } from '../../../lib';
-import { AddToCart } from '../..';
+import { AddToCart, LearnMore } from '../..';
 
 const Product = ({ product }) => (
     <ProductStyles>
@@ -27,14 +27,8 @@ const Product = ({ product }) => (
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
-      <div className="buttonList">
-        <a
-          href='/learn-more'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn More ✏️
-        </a>
+      <div className="buttonGrid">
+        <LearnMore />
         <AddToCart id={product.id} />
       </div>
     </ProductStyles>
