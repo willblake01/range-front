@@ -51,44 +51,44 @@ const SignUp = () => {
         )}
         <label htmlFor="email">
           First Name
-          <input
-            type="text"
-            name="firstName"
-            autoComplete="firstName"
-            value={inputs.firstName}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          name="firstName"
+          autoComplete="firstName"
+          value={inputs.firstName}
+          onChange={handleChange}
+        />
         <label htmlFor="email">
           Last Name
-          <input
-            type="text"
-            name="lastName"
-            autoComplete="lastName"
-            value={inputs.lastName}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          name="lastName"
+          autoComplete="lastName"
+          value={inputs.lastName}
+          onChange={handleChange}
+        />
         <label htmlFor="email">
           Email
-          <input
-            type="email"
-            name="email"
-            autoComplete="email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={inputs.email}
+          onChange={handleChange}
+        />
         <label htmlFor="password">
           Password
-          <input
-            type="password"
-            name="password"
-            autoComplete="password"
-            value={inputs.password}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="password"
+          name="password"
+          autoComplete="password"
+          value={inputs.password}
+          onChange={handleChange}
+        />
         <LargeButton type="submit" buttonText='Sign Up' />
       </fieldset>
     </Form>

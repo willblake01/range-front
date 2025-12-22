@@ -50,26 +50,24 @@ const Reset = ({ token }) => {
 
         <label htmlFor="password">
           New Password
-          <input
-            type="password"
-            name="password"
-            placeholder="New Password"
-            autoComplete="new-password"
-            value={inputs.password}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="password"
+          name="password"
+          autoComplete="new-password"
+          value={inputs.password}
+          onChange={handleChange}
+        />
         <label htmlFor="confirmPassword">
           Confirm Password
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            autoComplete="new-password"
-            value={inputs.confirmPassword}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          autoComplete="new-password"
+          value={inputs.confirmPassword}
+          onChange={handleChange}
+        />
         <LargeButton type="submit" buttonText='Reset Password' />
       </fieldset>
     </Form>

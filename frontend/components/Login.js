@@ -80,24 +80,24 @@ const Login = () => {
       <fieldset>
         <label htmlFor="email">
           Email
-          <input
-            type="email"
-            name="email"
-            autoComplete="email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={inputs.email}
+          onChange={handleChange}
+        />
         <label htmlFor="password">
           Password
-          <input
-            type="password"
-            name="password"
-            autoComplete="password"
-            value={inputs.password}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="password"
+          name="password"
+          autoComplete="password"
+          value={inputs.password}
+          onChange={handleChange}
+        />
         <LargeButton type="submit" buttonText='Login' />
         <LinkPosition>
           <Link href='/reset'>Forgot Password?</Link>

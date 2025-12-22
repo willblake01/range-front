@@ -32,13 +32,13 @@ describe('<CreateProduct/>', () => {
       </MockedProvider>
     );
 
-    await userEvent.type(screen.getByPlaceholderText('Name'), item.name);
-    await userEvent.type(
+    userEvent.type(screen.getByPlaceholderText('Name'), item.name);
+    userEvent.type(
       screen.getByPlaceholderText('Price'),
       item.price.toString()
     );
 
-    await userEvent.type(
+    userEvent.type(
       screen.getByPlaceholderText('Description'),
       item.description
     );
@@ -70,6 +70,7 @@ describe('<CreateProduct/>', () => {
           },
         },
       },
+      
       // All Products
       {
         request: {
@@ -93,19 +94,20 @@ describe('<CreateProduct/>', () => {
         <CreateProduct />
       </MockedProvider>
     );
-    await userEvent.type(screen.getByPlaceholderText('Name'), item.name);
+    userEvent.type(screen.getByPlaceholderText('Name'), item.name);
 
-    await userEvent.clear(screen.getByPlaceholderText('Price'));
-    await userEvent.type(
+    userEvent.clear(screen.getByPlaceholderText('Price'));
+    userEvent.type(
       screen.getByPlaceholderText('Price'),
       item.price.toString()
     );
-    await userEvent.type(
+    userEvent.type(
       screen.getByPlaceholderText('Description'),
       item.description
     );
+
     // mock the router
-    await userEvent.click(screen.getByText('Submit'));
+    userEvent.click(screen.getByText('Submit'));
     await waitFor(() => waait(500));
     expect(Router.push).toHaveBeenCalled();
     expect(Router.push).toHaveBeenCalledWith({

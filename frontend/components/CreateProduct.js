@@ -62,74 +62,68 @@ const CreateProduct = () => {
       }}
     >
       <DisplayError error={error} />
+
       <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="brand">
           Brand
-          <input
-            type="text"
-            id="brand"
-            name="brand"
-            placeholder="Brand"
-            value={inputs.brand}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          id="brand"
+          name="brand"
+          value={inputs.brand}
+          onChange={handleChange}
+        />
         <label htmlFor="title">
           Title
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Title"
-            value={inputs.title}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={inputs.title}
+          onChange={handleChange}
+        />
         <label htmlFor="description">
           Description
-          <textarea
-            type="text"
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={inputs.description}
-            onChange={handleChange}
-          />
         </label>
+        <textarea
+          type="text"
+          id="description"
+          name="description"
+          value={inputs.description}
+          onChange={handleChange}
+        />
         <label htmlFor="category">
           Category
-          <input
-            type="text"
-            id="category"
-            name="category"
-            placeholder="Category"
-            value={inputs.category}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          value={inputs.category}
+          onChange={handleChange}
+        />
         <label htmlFor="image">
           Image
-          <input
-            type="text"
-            id="image"
-            name="image"
-            placeholder="Image"
-            value={inputs.image}
-            onChange={handleChange}
-          />
         </label>
+        <input
+          type="text"
+          id="image"
+          name="image"
+          value={inputs.image}
+          onChange={handleChange}
+        />
         <label htmlFor="price">
           Price
-          <input
-            type="number"
-            id="price"
-            name="price"
-            placeholder="Price"
-            value={inputs.price}
-            onChange={handleChange}
-          />
         </label>
-
+        <input
+          type="number"
+          id="price"
+          name="price"
+          value={inputs.price}
+          onChange={handleChange}
+        />
         <LargeButton type="submit" buttonText="Add Product" />
       </fieldset>
     </Form>
