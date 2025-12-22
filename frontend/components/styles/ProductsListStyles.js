@@ -12,6 +12,10 @@ const ProductsListStyles = styled.div`
   a {
     text-decoration: none;
   }
+
+  h3 {
+    margin: 0;
+  }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-gap: 30px;
