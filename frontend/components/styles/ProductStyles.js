@@ -15,7 +15,6 @@ const ProductStyles = styled.div`
     padding: 20px;
   }
   p {
-    text-indent: 50px;
     line-height: 2;
     flex-grow: 1;
     padding: 2rem 3rem;
