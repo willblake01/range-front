@@ -76,7 +76,6 @@ const CheckoutForm = () => {
     // 1. Stop the form from submitting and turn the loader one
     e.preventDefault();
     setLoading(true);
-    console.log('We gotta do some work..');
 
     // 2. Start the page transition
     nProgress.start();

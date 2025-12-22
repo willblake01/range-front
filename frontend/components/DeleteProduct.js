@@ -33,7 +33,7 @@ const DeleteProduct = ({ id, children }) => {
         if (confirm('Are you sure you want to delete this item?')) {
           
           // go ahead and delete it
-          console.log('DELTEe');
+          console.log('DELETE');
           deleteProduct().catch((err) => alert(err.message));
         }
       }}

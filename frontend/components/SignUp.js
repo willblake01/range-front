@@ -33,9 +33,8 @@ const SignUp = () => {
     console.log(inputs);
 
     // Send the email and password to the graphqlAPI
-    const res = await signup().catch(console.error);
-    console.log(res);
-    console.log({ data, loading, error });
+    await signup().catch(console.error);
+
     resetForm();
   }
 
