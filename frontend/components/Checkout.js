@@ -207,13 +207,11 @@ const CheckoutForm = () => {
     };
   };
 
-  const orderHeader = user ? `${user?.firstName} ${user?.lastName}'s order` : null;
-
   return (
     <>
-      <OrderStyles>
+      {user ? <OrderStyles>
         <header>
-          <h1>{orderHeader}</h1>
+          <h1>{user?.firstName} {user?.lastName}'s order</h1>
         </header>
         <ul>
           {user?.cart.map((cartItem) => (
@@ -223,7 +221,7 @@ const CheckoutForm = () => {
         <footer>
           <TotalPrice>{formatMoney(calcTotalPrice(user?.cart))}</TotalPrice>
         </footer>
-      </OrderStyles>
+      </OrderStyles> : null}
       <CheckoutFormStyles onSubmit={handleSubmit}>
         {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
         {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
