@@ -6,6 +6,6 @@ const ProductDescriptionPage = ({ query }) => (
     <ProductDescription id={query.id} />
     <Footer />
   </>
-)
+);
 
 export default ProductDescriptionPage;

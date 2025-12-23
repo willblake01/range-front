@@ -22,8 +22,8 @@ const SINGLE_ORDER_QUERY = gql`
         quantity
         image
       }
-    };
-  };
+    }
+  }
 `;
 const SingleOrderPage = ({ query }) => {
   const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
