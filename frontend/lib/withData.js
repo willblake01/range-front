@@ -39,7 +39,12 @@ const createClient = ({ headers, initialState }) => {
       typePolicies: {
         Query: {
           fields: {
-
+            items: {
+              keyArgs: false,
+              merge(existing = [], incoming) {
+                return [...existing, ...incoming];
+              }
+            }
             // TODO: We will add this together!
             // allProducts: paginationField(),
           },
