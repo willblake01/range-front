@@ -2,7 +2,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { CartCount, CURRENT_USER_QUERY, SignOut, useUser } from '.';
+import { useCart } from '../lib/cartState';
+import { CartCount, SignOut, useUser } from '.';
 
 const NavStyles = styled.ul`
   background-color: var(--darkOrange);
@@ -73,6 +74,7 @@ const StyledButton = styled.button `
 const Nav = () => {
   const router = useRouter();
   const user = useUser();
+  const { openCart } = useCart();
 
   return (
     <NavStyles data-test='nav'>
@@ -84,6 +86,9 @@ const Nav = () => {
           <Link href='/account'>Account</Link>
           <Link href='/orders'>Orders</Link>
           <SignOut />
+          <StyledButton type="button" onClick={openCart}>
+            Cart
+          </StyledButton>
           <CartCount
               count={user.cart.reduce(
                 (tally, cartItem) =>

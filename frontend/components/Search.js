@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/client';
-import { resetIdCounter, useCombobox } from 'downshift';
+import { useCombobox } from 'downshift';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, StyledSearch } from './styles/DropDown';
@@ -26,15 +26,13 @@ const SEARCH_PRODUCTS_QUERY = gql`
 
 const Search = () => {
   const router = useRouter();
-  const [findItems, { loading, data, error }] = useLazyQuery(
-    SEARCH_PRODUCTS_QUERY,
-    {
-      fetchPolicy: 'no-cache',
-    }
-  );
+  const [findItems, { loading, data }] = useLazyQuery(SEARCH_PRODUCTS_QUERY, {
+    fetchPolicy: 'no-cache',
+  });
+
   const items = data?.searchTerms || [];
   const findItemsButChill = debounce(findItems, 350);
-  resetIdCounter();
+
   const {
     isOpen,
     inputValue,
@@ -46,58 +44,60 @@ const Search = () => {
   } = useCombobox({
     items,
     onInputValueChange({ inputValue }) {
-      findItemsButChill({
-        variables: {
-          searchTerm: inputValue,
-        },
-      });
+      findItemsButChill({ variables: { searchTerm: inputValue } });
     },
     onSelectedItemChange({ selectedItem }) {
-      router.push({
-        pathname: `/product/${selectedItem.id}`,
-      });
+      if (!selectedItem) return;
+      router.push(`/product/${selectedItem.id}`);
     },
-    itemToString: (item) => item?.name || '',
+    itemToString: (item) => item?.title || '',
   });
 
   return (
     <>
       <StyledSearch>
         <div {...getComboboxProps()}>
+          <label
+            id="search-label"
+            htmlFor="search"
+            style={{ position: 'absolute', left: '-9999px' }}
+          >
+            Search Products
+          </label>
+
           <input
             {...getInputProps({
+              id: 'search',
               type: 'search',
               placeholder: 'Search',
-              id: 'search',
-              className: loading ? 'loading' : null,
+              className: loading ? 'loading' : undefined,
+              'aria-labelledby': 'search-label', // optional: force your own
             })}
           />
         </div>
       </StyledSearch>
+
       <DropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
         <div {...getMenuProps()}>
           {isOpen &&
-          items.map((item, index) => (
-            <DropDownItem
-              {...getItemProps({ item, index })}
-              key={item.id}
-              highlighted={index === highlightedIndex}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                width="50"
-              />
-              {item.title}
-            </DropDownItem>
-          ))}
-        {isOpen && !items.length && !loading && (
-          <DropDownItem>Sorry, No items found for {inputValue}</DropDownItem>
-        )}
+            items.map((item, index) => (
+              <DropDownItem
+                {...getItemProps({ item, index })}
+                key={item.id}
+                highlighted={index === highlightedIndex}
+              >
+                <img src={item.image} alt={item.title} width="50" />
+                {item.title}
+              </DropDownItem>
+            ))}
+
+          {isOpen && !items.length && !loading && (
+            <DropDownItem>Sorry, No items found for {inputValue}</DropDownItem>
+          )}
         </div>
       </DropDown>
     </>
   );
-}
+};
 
 export { Search }
