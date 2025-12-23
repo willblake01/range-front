@@ -74,4 +74,4 @@ const SingleOrderPage = ({ query }) => {
   );
 };
 
-export { SingleOrderPage };
+export default SingleOrderPage;
