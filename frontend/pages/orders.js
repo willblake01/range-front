@@ -7,6 +7,14 @@ import { AlternateHeader, DisplayError, Footer } from '../components';
 import { formatMoney } from '../lib/formatMoney';
 import { OrderItemStyles } from '../components/styles/OrderItemStyles';
 
+const StyledOrders = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 4rem;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  height: 100%;
+`;
+
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
     orders {
@@ -26,14 +34,6 @@ const USER_ORDERS_QUERY = gql`
       }
     }
   }
-`;
-
-const StyledOrders = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 4rem;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
-  height: 100%;
 `;
 
 function countItemsInAnOrder(order) {

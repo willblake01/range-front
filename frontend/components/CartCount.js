@@ -1,8 +1,7 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
-const CartCount = ({ count }) => {
-  const Dot = styled.div`
+const Dot = styled.div`
   background: var(--red);
   color: white;
   border-radius: 50%;
@@ -38,21 +37,20 @@ const AnimationStyles = styled.span`
   }
 `;
 
-  return (
-    <AnimationStyles>
-      <TransitionGroup>
-        <CSSTransition
-          unmountOnExit
-          className="count"
-          classs="count"
-          key={count}
-          timeout={{ enter: 400, exit: 400 }}
-        >
-          <Dot>{count}</Dot>
-        </CSSTransition>
-      </TransitionGroup>
-    </AnimationStyles>
-  );
-}
+const CartCount = ({ count }) => (
+  <AnimationStyles>
+    <TransitionGroup>
+      <CSSTransition
+        unmountOnExit
+        className="count"
+        classs="count"
+        key={count}
+        timeout={{ enter: 400, exit: 400 }}
+      >
+        <Dot>{count}</Dot>
+      </CSSTransition>
+    </TransitionGroup>
+  </AnimationStyles>
+);
 
 export { CartCount };

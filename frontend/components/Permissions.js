@@ -4,39 +4,6 @@ import styled from 'styled-components';
 import { DisplayError, useUser } from '.';
 import { hasPermission } from '../lib';
 
-const ALL_USERS_QUERY = gql`
-  query ALL_USERS_QUERY {
-    users {
-      id
-      firstName
-      lastName
-      email
-      permissions
-    }
-  }
-`;
-
-const UPDATE_PERMISSIONS_MUTATION = gql`
-  mutation UPDATE_PERMISSIONS_MUTATION($permissions: [Permission], $userId: ID!) {
-    updatePermissions(permissions: $permissions, userId: $userId) {
-      id
-      permissions
-      firstName
-      lastName
-      email
-    }
-  }
-`;
-
-const possiblePermissions = [
-  'ADMIN',
-  'USER',
-  'PRODUCTCREATE',
-  'PRODUCTUPDATE',
-  'PRODUCTDELETE',
-  'PERMISSIONUPDATE',
-];
-
 const PermissionsStyles = styled.div`
   display: flex;
   flex-direction: column;
@@ -92,6 +59,39 @@ const UserTable = styled.table`
     }
   }
 `;
+
+const ALL_USERS_QUERY = gql`
+  query ALL_USERS_QUERY {
+    users {
+      id
+      firstName
+      lastName
+      email
+      permissions
+    }
+  }
+`;
+
+const UPDATE_PERMISSIONS_MUTATION = gql`
+  mutation UPDATE_PERMISSIONS_MUTATION($permissions: [Permission], $userId: ID!) {
+    updatePermissions(permissions: $permissions, userId: $userId) {
+      id
+      permissions
+      firstName
+      lastName
+      email
+    }
+  }
+`;
+
+const possiblePermissions = [
+  'ADMIN',
+  'USER',
+  'PRODUCTCREATE',
+  'PRODUCTUPDATE',
+  'PRODUCTDELETE',
+  'PERMISSIONUPDATE',
+];
 
 const UserPermissions = ({ user }) => {
   const [updatePermissions, { loading, error }] = useMutation(

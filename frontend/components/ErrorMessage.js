@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const DisplayError = ({ error }) => {
-  const ErrorStyles = styled.div`
+const ErrorStyles = styled.div`
   padding: 2rem;
   background: white;
   margin: 2rem 0;
@@ -17,6 +16,7 @@ const DisplayError = ({ error }) => {
   }
 `;
 
+const DisplayError = ({ error }) => {
   if (!error || !error.message) return null;
   
   if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {

@@ -28,6 +28,14 @@ const StyledSearch = styled.div`
   }
 `;
 
+const StyledDropDown = styled.div`
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  background: white;
+  border: ${(props) => (props.isOpen ? '1px solid var(--lightGrey)' : 'none')};
+`;
+
 const StyledDropDownItem = styled.div`
   border-bottom: 1px solid var(--lightGrey);
   background: ${(props) => (props.highlighted ? '#f7f7f7' : props.theme.white)};
@@ -44,14 +52,6 @@ const StyledDropDownItem = styled.div`
 `;
 
 const DropDownItem = StyledDropDownItem;
-
-const StyledDropDown = styled.div`
-  position: relative;
-  width: 100%;
-  z-index: 2;
-  background: white;
-  border: ${(props) => (props.isOpen ? '1px solid var(--lightGrey)' : 'none')};
-`;
 
 const DropDown = StyledDropDown;
 

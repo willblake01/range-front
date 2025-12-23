@@ -6,8 +6,7 @@ import { calcTotalPrice } from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
 import { LargeButton, RemoveFromCart, useUser } from '.';
 
-const CartItem = ({ cartItem }) => {
-  const CartItemStyles = styled.li`
+const CartItemStyles = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid var(--lightGrey);
   display: grid;
@@ -21,6 +20,11 @@ const CartItem = ({ cartItem }) => {
   }
 `;
 
+const TotalPrice = styled.p`
+    margin-bottom: 1rem;
+  `;
+
+const CartItem = ({ cartItem }) => {
   const { item } = cartItem;
   if (!item) return null;
 
@@ -51,10 +55,6 @@ const Cart = () => {
   if (!user) return null;
 
   const { cartOpen, closeCart } = useCart();
-
-  const TotalPrice = styled.p`
-    margin-bottom: 1rem;
-  `;
 
   return (
     <CartStyles open={cartOpen}>
