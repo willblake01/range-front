@@ -66,11 +66,14 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^27.0.5",
+    "jest-transform-graphql": "^2.1.0",
     "prettier": "^2.3.2",
     "react-test-renderer": "^17.0.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/.next/",
       "<rootDir>/node_modules/"
