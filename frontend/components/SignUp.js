@@ -30,7 +30,6 @@ const SignUp = () => {
   });
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(inputs);
 
     // Send the email and password to the graphqlAPI
     await signup().catch(console.error);

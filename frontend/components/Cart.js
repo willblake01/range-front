@@ -51,10 +51,9 @@ const CartItem = ({ cartItem }) => {
 
 const Cart = () => {
   const user = useUser();
+  const { cartOpen, closeCart } = useCart();
 
   if (!user) return null;
-
-  const { cartOpen, closeCart } = useCart();
 
   return (
     <CartStyles open={cartOpen}>

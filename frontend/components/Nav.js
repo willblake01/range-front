@@ -1,8 +1,8 @@
+'use client'
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCart } from '../lib/cartState';
-import { CartCount, SignOut, useUser } from '.';
+import { CartCount, CURRENT_USER_QUERY, SignOut, useUser } from '.';
 
 const NavStyles = styled.ul`
   background-color: var(--darkOrange);
@@ -71,9 +71,8 @@ const StyledButton = styled.button `
 `;
 
 const Nav = () => {
-  const user = useUser();
-  const { openCart } = useCart();
   const router = useRouter();
+  const user = useUser();
 
   return (
     <NavStyles data-test='nav'>
@@ -84,12 +83,7 @@ const Nav = () => {
         <div className="user-links">
           <Link href='/account'>Account</Link>
           <Link href='/orders'>Orders</Link>
-          <Link href='/'>
-            <SignOut />
-          </Link>
-          <StyledButton type="button" onClick={openCart}>
-            Cart
-          </StyledButton>
+          <SignOut />
           <CartCount
               count={user.cart.reduce(
                 (tally, cartItem) =>
@@ -101,7 +95,9 @@ const Nav = () => {
       )}
       {!user && router.pathname !== '/login' && (
         <div style={{ marginLeft: 'auto' }}>
-          <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>Login</Link>
+          <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>
+            Login
+          </Link>
         </div>
       )}
     </NavStyles>
