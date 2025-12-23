@@ -150,8 +150,9 @@ npm install && npx prisma generate --schema=./prisma/schema.prisma && npx prisma
 npm start
 ```
 
-### Environment Variables (Render):
-```
+### Environment Variables (Render)
+
+```yaml
 DATABASE_URL=postgresql://rangefrontadmin:DIInvZQJx3aaSGXtzfVT4u5utZxJXHUN@dpg-d53ndakhg0os738vt3gg-a.oregon-postgres.render.com/rangefront
 FRONTEND_URL=https://your-app.vercel.app
 APP_SECRET=Shaboopy
