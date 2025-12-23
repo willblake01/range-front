@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import { Form } from './styles/Form';
-import { useForm } from '../lib/useForm';
+import { useForm } from '../lib';
+import { Form } from './styles';
 import { DisplayError, LargeButton } from '.';
 
 const REQUEST_RESET_MUTATION = gql`
@@ -25,7 +25,7 @@ const RequestReset = () => {
       // refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
@@ -35,7 +35,7 @@ const RequestReset = () => {
   }
 
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <Form method='POST' onSubmit={handleSubmit}>
       <h2>Request Password Reset</h2>
       <DisplayError error={error} />
       <fieldset>
@@ -43,17 +43,17 @@ const RequestReset = () => {
           <p>Success! Check your email for a link!</p>
         )}
 
-        <label htmlFor="email">
+        <label htmlFor='email'>
           Email
         </label>
         <input
-          type="email"
-          name="email"
-          autoComplete="email"
+          type='email'
+          name='email'
+          autoComplete='email'
           value={inputs.email}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText='Submit' />
+        <LargeButton type='submit' buttonText='Submit' />
       </fieldset>
     </Form>
   );

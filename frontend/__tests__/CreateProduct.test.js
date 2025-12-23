@@ -1,13 +1,12 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
 import Router from 'next/router';
 import waait from 'waait';
 import {
-  CreateProduct, CREATE_PRODUCT_MUTATION,
-} from '../components/CreateProduct';
-import { fakeItem, makePaginationMocksFor } from '../lib/testUtils';
-import { ALL_PRODUCTS_QUERY } from '../components/Products';
+  ALL_PRODUCTS_QUERY, CreateProduct, CREATE_PRODUCT_MUTATION,
+} from '../components';
+import { fakeItem, makePaginationMocksFor } from './testUtils';
 
 jest.mock('next/router', () => ({
   push: jest.fn(),

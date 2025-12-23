@@ -84,7 +84,7 @@ class LocalStorageMock {
   }
 }
 
-function makePaginationMocksFor(length) {
+const makePaginationMocksFor = (length) => {
   return [
     {
       request: { query: PAGINATION_QUERY },
@@ -106,7 +106,7 @@ function makePaginationMocksFor(length) {
       },
     },
   ];
-}
+};
 
 export {
   makePaginationMocksFor,

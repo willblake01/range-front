@@ -1,18 +1,19 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { MockedProvider } from '@apollo/react-testing';
 import {
   SingleProduct, SINGLE_PRODUCT_QUERY,
-} from '../components/SingleProduct';
-import { fakeItem } from '../lib/testUtils';
+} from '../components';
+import { fakeItem } from './testUtils';
 
 const item = fakeItem();
 describe('<SingleProduct/>', () => {
   it('renders with proper data', async () => {
     const mocks = [
       {
+
         // when someone makes a request with this query and variable combo
         request: { query: SINGLE_PRODUCT_QUERY, variables: { id: '123' } },
+        
         // return this fake data (mocked data)
         result: {
           data: {
@@ -23,7 +24,7 @@ describe('<SingleProduct/>', () => {
     ];
     const { container } = render(
       <MockedProvider mocks={mocks}>
-        <SingleProduct id="123" />
+        <SingleProduct id='123' />
       </MockedProvider>
     );
     await screen.findByTestId('singleProduct');
@@ -41,7 +42,7 @@ describe('<SingleProduct/>', () => {
     ];
     const { container } = render(
       <MockedProvider mocks={mocks}>
-        <SingleProduct id="123" />
+        <SingleProduct id='123' />
       </MockedProvider>
     );
 

@@ -1,12 +1,12 @@
-export { default as CartStyles } from './CartStyles'
-export { default as CloseButton } from './CloseButton'
-export { DropDown, DropDownItem, SearchInput } from './DropDown'
-export { Form } from './Form'
-export { OrderItemStyles } from './OrderItemStyles'
-export { OrderStyles } from './OrderStyles'
-export { PaginationStyles } from './PaginationStyles'
-export { PriceTag } from './PriceTag'
-export { ProductListStyles } from './ProductListStyles'
-export { ProductStyles } from './ProductStyles'
-export { Table } from './Table'
-export { Title } from './Title'
+export { CartStyles } from './CartStyles';
+export { CloseButton } from './CloseButton';
+export { DropDown, DropDownItem, StyledSearch } from './DropDown';
+export { Form } from './Form';
+export { OrderItemStyles } from './OrderItemStyles';
+export { OrderStyles } from './OrderStyles';
+export { PaginationStyles } from './PaginationStyles';
+export { PriceTag } from './PriceTag';
+export { ProductsListStyles } from './ProductsListStyles';
+export { ProductStyles } from './ProductStyles';
+export { Table } from './Table';
+export { Title } from './Title';

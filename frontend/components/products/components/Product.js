@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import { ProductStyles } from '../../styles/ProductStyles';
-import { Title } from '../../styles/Title';
-import { PriceTag } from '../../styles/PriceTag';
 import { formatMoney } from '../../../lib';
+import { PriceTag, ProductStyles, Title } from '../../styles';
 import { AddToCart, LearnMore } from '../..';
 
 const Product = ({ product }) => (
@@ -27,7 +25,7 @@ const Product = ({ product }) => (
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
-      <div className="buttonGrid">
+      <div className='buttonGrid'>
         <LearnMore />
         <AddToCart id={product.id} />
       </div>

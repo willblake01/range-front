@@ -3,7 +3,7 @@ import { useLazyQuery } from '@apollo/client';
 import { useCombobox } from 'downshift';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
-import { DropDown, DropDownItem, StyledSearch } from './styles/DropDown';
+import { DropDown, DropDownItem, StyledSearch } from './styles';
 
 const SEARCH_PRODUCTS_QUERY = gql`
   query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
@@ -58,8 +58,8 @@ const Search = () => {
       <StyledSearch>
         <div {...getComboboxProps()}>
           <label
-            id="search-label"
-            htmlFor="search"
+            id='search-label'
+            htmlFor='search'
             style={{ position: 'absolute', left: '-9999px' }}
           >
             Search Products
@@ -86,7 +86,7 @@ const Search = () => {
                 key={item.id}
                 highlighted={index === highlightedIndex}
               >
-                <img src={item.image} alt={item.title} width="50" />
+                <img src={item.image} alt={item.title} width='50' />
                 {item.title}
               </DropDownItem>
             ))}

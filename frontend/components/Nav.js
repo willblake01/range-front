@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCart } from '../lib/cartState';
+import { useCart } from '../lib';
 import { CartCount, SignOut, useUser } from '.';
 
 const NavStyles = styled.ul`
@@ -82,11 +82,11 @@ const Nav = () => {
       <Link href='/products'>Shop</Link>
       <Link href='/about'>About</Link>
       {user && (
-        <div className="user-links">
+        <div className='user-links'>
           <Link href='/account'>Account</Link>
           <Link href='/orders'>Orders</Link>
           <SignOut />
-          <StyledButton type="button" onClick={openCart}>
+          <StyledButton type='button' onClick={openCart}>
             Cart
           </StyledButton>
           <CartCount

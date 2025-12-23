@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import { ProductsListStyles } from '../components/styles';
 import { Product } from '.';
-import { ProductsListStyles } from '../components/styles/ProductsListStyles';
 
 const SLEEPING_BAGS_QUERY = gql`
   query SLEEPING_BAGS_QUERY {

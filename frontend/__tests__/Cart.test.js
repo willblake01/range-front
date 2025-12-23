@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import userEvent from '@testing-library/user-event';
 import wait from 'waait';
 import { Cart, CartStateProvider, CURRENT_USER_QUERY, REMOVE_FROM_CART_MUTATION } from '../components';
-import { fakeUser, fakeCartItem } from '../lib/testUtils';
+import { fakeUser, fakeCartItem } from './testUtils';
 
 const mocks = [
   // {

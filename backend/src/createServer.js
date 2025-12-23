@@ -6,11 +6,14 @@ const Query = require('./resolvers/Query');
 const db = require('./db');
 
 const typeDefsFile = importSchema(path.resolve(__dirname, '../data/schema.graphql'));
+
 const typeDefs = gql(typeDefsFile);
+
 const resolvers = {
   Mutation,
   Query
 };
+
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
@@ -19,12 +22,12 @@ const schema = makeExecutableSchema({
   }
 });
 
-function createServer() {
+const createServer = () => {
   return new ApolloServer({
     schema,
     playground: true,
     context: req => ({ ...req, db })
   });
-}
+};
 
 module.exports = createServer;

@@ -3,47 +3,47 @@
 exports[`<Nav /> Renders a minimal Nav when signed out 1`] = `
 Array [
   <Nav__NavStyle
-    data-test="nav"
+    data-test='nav'
   >
     <ul
-      className="Nav__NavStyle-sc-1i5dvnb-0 iKEzwr"
-      data-test="nav"
+      className='Nav__NavStyle-sc-1i5dvnb-0 iKEzwr'
+      data-test='nav'
     >
       <Link
-        href="/aboutUs"
+        href='/aboutUs'
       >
         <a
-          href="/aboutUs"
+          href='/aboutUs'
           onClick={[Function]}
         >
           About
         </a>
       </Link>
       <Link
-        href="/items"
+        href='/items'
       >
         <a
-          href="/items"
+          href='/items'
           onClick={[Function]}
         >
           Shop
         </a>
       </Link>
       <Link
-        href="/login"
+        href='/login'
       >
         <a
-          href="/login"
+          href='/login'
           onClick={[Function]}
         >
           Login
         </a>
       </Link>
       <Link
-        href="/signup"
+        href='/signup'
       >
         <a
-          href="/signup"
+          href='/signup'
           onClick={[Function]}
         >
           Sign Up
@@ -52,44 +52,44 @@ Array [
     </ul>
   </Nav__NavStyle>,
   <ul
-    className="Nav__NavStyle-sc-1i5dvnb-0 iKEzwr"
-    data-test="nav"
+    className='Nav__NavStyle-sc-1i5dvnb-0 iKEzwr'
+    data-test='nav'
   >
     <Link
-      href="/aboutUs"
+      href='/aboutUs'
     >
       <a
-        href="/aboutUs"
+        href='/aboutUs'
         onClick={[Function]}
       >
         About
       </a>
     </Link>
     <Link
-      href="/items"
+      href='/items'
     >
       <a
-        href="/items"
+        href='/items'
         onClick={[Function]}
       >
         Shop
       </a>
     </Link>
     <Link
-      href="/login"
+      href='/login'
     >
       <a
-        href="/login"
+        href='/login'
         onClick={[Function]}
       >
         Login
       </a>
     </Link>
     <Link
-      href="/signup"
+      href='/signup'
     >
       <a
-        href="/signup"
+        href='/signup'
         onClick={[Function]}
       >
         Sign Up
@@ -101,7 +101,7 @@ Array [
 
 exports[`<Nav /> Renders the amount of items in the cart 1`] = `
 <div
-  className="count CartCount__Dot-msbzn3-1 jlnrwr"
+  className='count CartCount__Dot-msbzn3-1 jlnrwr'
 >
   9
 </div>

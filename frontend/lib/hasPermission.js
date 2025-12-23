@@ -1,2 +1,4 @@
-export const hasPermission = (user, permissionNeeded) =>
+const hasPermission = (user, permissionNeeded) =>
   user?.permissions?.includes(permissionNeeded);
+
+export { hasPermission };

@@ -3,11 +3,11 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
-import { Form } from './styles/Form';
-import { useForm } from '../lib/useForm';
+import { Form } from './styles';
+import { useForm } from '../lib';
 import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
-const LinkPosition = styled.div`
+const StyledLink = styled.div`
   float: right;
   a {
     color: black;
@@ -31,6 +31,7 @@ const LOGIN_MUTATION = gql`
 
 const Login = () => {
   const router = useRouter();
+
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
@@ -42,8 +43,8 @@ const Login = () => {
     // refetch the currently logged in user
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
-  async function handleSubmit(e) {
 
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
@@ -67,37 +68,37 @@ const Login = () => {
   }
 
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <Form method='POST' onSubmit={handleSubmit}>
       <DisplayError error={error} />
-      <LinkPosition>
+      <StyledLink>
         <Link href='/signup'>Create account</Link>
-      </LinkPosition>
+      </StyledLink>
       <h2>Account login</h2>
       <fieldset>
-        <label htmlFor="email">
+        <label htmlFor='email'>
           Email
         </label>
         <input
-          type="email"
-          name="email"
-          autoComplete="email"
+          type='email'
+          name='email'
+          autoComplete='email'
           value={inputs.email}
           onChange={handleChange}
         />
-        <label htmlFor="password">
+        <label htmlFor='password'>
           Password
         </label>
         <input
-          type="password"
-          name="password"
-          autoComplete="password"
+          type='password'
+          name='password'
+          autoComplete='password'
           value={inputs.password}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText='Login' />
-        <LinkPosition>
+        <LargeButton type='submit' buttonText='Login' />
+        <StyledLink>
           <Link href='/reset-password'>Forgot Password?</Link>
-        </LinkPosition>
+        </StyledLink>
       </fieldset>
     </Form>
   );

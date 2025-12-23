@@ -42,8 +42,8 @@ const CartCount = ({ count }) => (
     <TransitionGroup>
       <CSSTransition
         unmountOnExit
-        className="count"
-        classs="count"
+        className='count'
+        classs='count'
         key={count}
         timeout={{ enter: 400, exit: 400 }}
       >

@@ -76,10 +76,10 @@ const UPDATE_PERMISSIONS_MUTATION = gql`
   mutation UPDATE_PERMISSIONS_MUTATION($permissions: [Permission], $userId: ID!) {
     updatePermissions(permissions: $permissions, userId: $userId) {
       id
-      permissions
       firstName
       lastName
       email
+      permissions
     }
   }
 `;
@@ -128,7 +128,7 @@ const UserPermissions = ({ user }) => {
           <label key={permission} htmlFor={`${user.id}-permission-${permission}`}>
             <input
               id={`${user.id}-permission-${permission}`}
-              type="checkbox"
+              type='checkbox'
               checked={user.permissions.includes(permission)}
               value={permission}
               onChange={handlePermissionChange}

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import { Form } from './styles/Form';
-import { useForm } from '../lib/useForm';
+import { useForm } from '../lib';
+import { Form } from './styles';
 import { DisplayError, LargeButton } from '.';
 
 const RESET_MUTATION = gql`
@@ -29,46 +29,47 @@ const ResetPassword = ({ token }) => {
     password: '',
     confirmPassword: '',
   });
+  
   const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
     variables: inputs,
   });
   
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     await reset().catch(console.error);
     resetForm();
   }
   
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <Form method='POST' onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>
       <DisplayError error={error} />
       <fieldset disabled={loading}>
         {data?.resetPassword && (
-          <p>Success! You can now <a href="/login">login</a> with your new password.</p>
+          <p>Success! You can now <a href='/login'>login</a> with your new password.</p>
         )}
 
-        <label htmlFor="password">
+        <label htmlFor='password'>
           New Password
         </label>
         <input
-          type="password"
-          name="password"
-          autoComplete="new-password"
+          type='password'
+          name='password'
+          autoComplete='new-password'
           value={inputs.password}
           onChange={handleChange}
         />
-        <label htmlFor="confirmPassword">
+        <label htmlFor='confirmPassword'>
           Confirm Password
         </label>
         <input
-          type="password"
-          name="confirmPassword"
-          autoComplete="new-password"
+          type='password'
+          name='confirmPassword'
+          autoComplete='new-password'
           value={inputs.confirmPassword}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText='Reset Password' />
+        <LargeButton type='submit' buttonText='Reset Password' />
       </fieldset>
     </Form>
   );

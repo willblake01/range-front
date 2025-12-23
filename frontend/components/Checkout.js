@@ -12,8 +12,7 @@ import nProgress from 'nprogress';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/dist/client/router';
-import { formatMoney } from '../lib/formatMoney';
-import { calcTotalPrice } from '../lib/calcTotalPrice';
+import { calcTotalPrice, formatMoney } from '../lib';
 import { LargeButton } from '../components';
 import { CURRENT_USER_QUERY, useUser } from '.';
 
@@ -124,7 +123,7 @@ const CartItem = ({ cartItem }) => {
   return (
     <CartItemStyles>
       <img
-        width="100"
+        width='100'
         src={item.image}
         alt={item.title}
       />
@@ -154,7 +153,7 @@ const CheckoutForm = () => {
       refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
 
     // 1. Stop the form from submitting and turn the loader on
     e.preventDefault();

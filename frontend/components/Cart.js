@@ -1,9 +1,6 @@
 import styled from 'styled-components';
-import { CartStyles } from './styles/CartStyles';
-import { CloseButton } from './styles/CloseButton';
-import { formatMoney } from '../lib/formatMoney';
-import { calcTotalPrice } from '../lib/calcTotalPrice';
-import { useCart } from '../lib/cartState';
+import { CartStyles, CloseButton } from './styles';
+import { calcTotalPrice, formatMoney, useCart } from '../lib';
 import { LargeButton, RemoveFromCart, useUser } from '.';
 
 const CartItemStyles = styled.li`
@@ -31,7 +28,7 @@ const CartItem = ({ cartItem }) => {
   return (
     <CartItemStyles>
       <img
-        width="100"
+        width='100'
         src={item.image}
         alt={item.title}
       />

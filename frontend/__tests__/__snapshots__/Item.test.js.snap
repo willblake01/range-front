@@ -5,17 +5,17 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
   <Link
     href={
       Object {
-        "pathname": "/item",
-        "query": Object {
-          "id": "ABC123",
+        'pathname': '/item',
+        'query': Object {
+          'id': 'ABC123',
         },
       }
     }
   >
     <a>
       <img
-        alt="A cool item"
-        src="dog.jpg"
+        alt='A cool item'
+        src='dog.jpg'
       />
     </a>
   </Link>
@@ -23,9 +23,9 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
     <Link
       href={
         Object {
-          "pathname": "/item",
-          "query": Object {
-            "id": "ABC123",
+          'pathname': '/item',
+          'query': Object {
+            'id': 'ABC123',
           },
         }
       }
@@ -43,14 +43,14 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
     This item is really cool!
   </p>
   <div
-    className="buttonGrid"
+    className='buttonGrid'
   >
     <Link
       href={
         Object {
-          "pathname": "update",
-          "query": Object {
-            "id": "ABC123",
+          'pathname': 'update',
+          'query': Object {
+            'id': 'ABC123',
           },
         }
       }
@@ -60,10 +60,10 @@ exports[`<Item/> Renders and matches the snapshot 1`] = `
       </a>
     </Link>
     <AddToCart
-      id="ABC123"
+      id='ABC123'
     />
     <DeleteItem
-      id="ABC123"
+      id='ABC123'
     >
       Delete This Item
     </DeleteItem>

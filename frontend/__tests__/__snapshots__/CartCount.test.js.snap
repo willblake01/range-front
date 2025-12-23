@@ -4,16 +4,16 @@ exports[`<CartCount /> Matches the snapshot 1`] = `
 <CartCount__AnimationStyles>
   <TransitionGroup
     childFactory={[Function]}
-    component="div"
+    component='div'
   >
     <CSSTransition
-      className="count"
-      classNames="count"
-      key="11"
+      className='count'
+      classNames='count'
+      key='11'
       timeout={
         Object {
-          "enter": 400,
-          "exit": 400,
+          'enter': 400,
+          'exit': 400,
         }
       }
       unmountOnExit={true}
@@ -30,16 +30,16 @@ exports[`<CartCount /> Updates via props 1`] = `
 <CartCount__AnimationStyles>
   <TransitionGroup
     childFactory={[Function]}
-    component="div"
+    component='div'
   >
     <CSSTransition
-      className="count"
-      classNames="count"
-      key="50"
+      className='count'
+      classNames='count'
+      key='50'
       timeout={
         Object {
-          "enter": 400,
-          "exit": 400,
+          'enter': 400,
+          'exit': 400,
         }
       }
       unmountOnExit={true}
@@ -56,16 +56,16 @@ exports[`<CartCount /> Updates via props 2`] = `
 <CartCount__AnimationStyles>
   <TransitionGroup
     childFactory={[Function]}
-    component="div"
+    component='div'
   >
     <CSSTransition
-      className="count"
-      classNames="count"
-      key="10"
+      className='count'
+      classNames='count'
+      key='10'
       timeout={
         Object {
-          "enter": 400,
-          "exit": 400,
+          'enter': 400,
+          'exit': 400,
         }
       }
       unmountOnExit={true}

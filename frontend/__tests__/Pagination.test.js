@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
-import { Pagination, PAGINATION_QUERY } from '../components/Pagination';
-import { makePaginationMocksFor } from '../lib/testUtils';
+import { Pagination } from '../components';
+import { makePaginationMocksFor } from './testUtils';
 
 describe('<Pagination/>', () => {
   it('displays a loading message', async () => {

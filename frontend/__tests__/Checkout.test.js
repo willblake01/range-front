@@ -4,9 +4,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import userEvent from '@testing-library/user-event';
 import { useStripe } from '@stripe/react-stripe-js';
 import Router from 'next/router';
-import Checkout, { CREATE_ORDER_MUTATION } from '../components/Checkout';
-import { CartStateProvider } from '../components/LocalState';
-import { CURRENT_USER_QUERY } from '../components/User';
+import { CartStateProvider, CURRENT_USER_QUERY, Checkout, CREATE_ORDER_MUTATION } from '../components';
 
 // Mock the Router
 jest.mock('next/router', () => ({
@@ -42,13 +40,13 @@ const mocks = [
   },
 ];
 
-describe('<CheckoutPage />', () => {
+describe('<Checkout />', () => {
   // Mock Stripe create Payment Method
   it('renders and matches snappy', async () => {
     const { container } = render(
       <CartStateProvider>
         <MockedProvider>
-          <CheckoutPage />
+          <Checkout />
         </MockedProvider>
       </CartStateProvider>
     );
@@ -61,7 +59,7 @@ describe('<CheckoutPage />', () => {
     const { container } = render(
       <CartStateProvider>
         <MockedProvider mocks={mocks}>
-          <CheckoutPage />
+          <Checkout />
         </MockedProvider>
       </CartStateProvider>
     );

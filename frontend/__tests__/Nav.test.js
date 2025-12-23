@@ -1,10 +1,7 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
-import waait from 'waait';
-import { Nav } from '../components/Nav';
-import { CURRENT_USER_QUERY } from '../components/User';
-import { fakeUser, fakeCartItem } from '../lib/testUtils';
-import { CartStateProvider } from '../components/LocalState';
+import { CartStateProvider, CURRENT_USER_QUERY, Nav } from '../components';
+import { fakeUser, fakeCartItem } from './testUtils';
 
 const notSignedInMocks = [
   {
@@ -26,6 +23,7 @@ const signedInMocksWithCartItems = [
     result: {
       data: {
         authenticatedItem: {
+          
           // This typename must be explicit because we use the `... on User` fragment
           __typename: 'User',
           ...fakeUser(),

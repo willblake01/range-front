@@ -1,6 +1,6 @@
 import { PAGINATION_QUERY } from '../components/Pagination';
 
-export const paginationField = () => {
+const paginationField = () => {
   return {
     keyArgs: false, // tells apollo we will take care of everything
     read(existing = [], { args, cache }) {
@@ -63,4 +63,6 @@ export const paginationField = () => {
       return merged;
     },
   };
-}
+};
+
+export { paginationField };

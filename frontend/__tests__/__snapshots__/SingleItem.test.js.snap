@@ -2,7 +2,7 @@
 
 exports[`<SingleItem /> Errors with a not found item 1`] = `
 <p
-  data-test="graphql-error"
+  data-test='graphql-error'
 >
   <strong>
     Shoot!
@@ -15,15 +15,15 @@ exports[`<SingleItem /> Renders with proper data 1`] = `
 <h2>
   Viewing 
   Top Dog
-   
+  
   dogs are best
 </h2>
 `;
 
 exports[`<SingleItem /> Renders with proper data 2`] = `
 <img
-  alt="dogs are best"
-  src="dog.jpg"
+  alt='dogs are best'
+  src='dog.jpg'
 />
 `;
 

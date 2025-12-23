@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import { OrderStyles } from '../../components/styles';
+import { formatMoney } from '../../lib';
 import { DisplayError } from '../../components';
-import { OrderStyles } from '../../components/styles/OrderStyles';
-import { formatMoney } from '../../lib/formatMoney';
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -22,15 +22,17 @@ const SINGLE_ORDER_QUERY = gql`
         quantity
         image
       }
-    }
-  }
+    };
+  };
 `;
-export default function SingleOrderPage({ query }) {
+const SingleOrderPage = ({ query }) => {
   const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
     variables: { id: query.id },
   });
+
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
+
   const { order } = data;
   
   return (
@@ -54,11 +56,11 @@ export default function SingleOrderPage({ query }) {
         <span>ItemCount:</span>
         <span>{order.items.length}</span>
       </p>
-      <div className="items">
+      <div className='Productitems'Product>
         {order.items.map((item) => (
-          <div className="order-item" key={item.id}>
+          <div className='Productorder-item'Product key={item.id}>
             <img src={item.image} alt={item.title} />
-            <div className="item-details">
+            <div className='Productitem-details'Product>
               <h2>{item.title}</h2>
               <p>Qty: {item.quantity}</p>
               <p>Each: {formatMoney(item.price)}</p>
@@ -70,4 +72,6 @@ export default function SingleOrderPage({ query }) {
       </div>
     </OrderStyles>
   );
-}
+};
+
+export { SingleOrderPage };

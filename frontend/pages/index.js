@@ -6,7 +6,7 @@ const Home = () => (
   <>
     <Head>
       <title>Range Front</title>
-      <link rel="icon" href="/static/favicon.png" />
+      <link rel='icon' href='/static/favicon.png' />
     </Head>
     <Header />
     <ShoppingTiles />

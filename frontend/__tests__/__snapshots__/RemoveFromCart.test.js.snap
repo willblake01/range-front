@@ -2,9 +2,9 @@
 
 exports[`<RemoveFromCart /> Renders and matches Snapshot 1`] = `
 <button
-  className="RemoveFromCart__BigButton-sc-13oi9uo-0 eHXNJA"
+  className='RemoveFromCart__BigButton-sc-13oi9uo-0 eHXNJA'
   onClick={[Function]}
-  title="Delete Item"
+  title='Delete Item'
 >
   ×
 </button>

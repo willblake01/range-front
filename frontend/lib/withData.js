@@ -5,7 +5,7 @@ import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint } from '../config';
 
-function createClient({ headers, initialState }) {
+const createClient = ({ headers, initialState }) => {
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -45,6 +45,6 @@ function createClient({ headers, initialState }) {
       },
     }).restore(initialState || {}),
   });
-}
+};
 
 export default withApollo(createClient, { getDataFromTree });

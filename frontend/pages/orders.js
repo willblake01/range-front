@@ -3,9 +3,9 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { formatMoney } from '../lib';
+import { OrderItemStyles } from '../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../components';
-import { formatMoney } from '../lib/formatMoney';
-import { OrderItemStyles } from '../components/styles/OrderItemStyles';
 
 const StyledOrders = styled.ul`
   display: grid;
@@ -36,9 +36,9 @@ const USER_ORDERS_QUERY = gql`
   }
 `;
 
-function countItemsInAnOrder(order) {
+const countItemsInAnOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
-}
+};
 
 const OrdersPage = () => {
   const { data, error, loading } = useQuery(USER_ORDERS_QUERY);
@@ -60,7 +60,7 @@ const OrdersPage = () => {
         {orders.map((order) => (
           <OrderItemStyles>
             <Link href={`/order/${order.id}`}>
-              <div className="order-meta">
+              <div className='order-meta'>
                 <p>{countItemsInAnOrder(order)} Items</p>
                 <p>
                   {order.items.length} Product
@@ -68,7 +68,7 @@ const OrdersPage = () => {
                 </p>
                 <p>{formatMoney(order.total)}</p>
               </div>
-              <div className="images">
+              <div className='images'>
                 {order.items.map((item) => (
                   <img
                     key={`image-${item.id}`}
@@ -84,6 +84,6 @@ const OrdersPage = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default OrdersPage;

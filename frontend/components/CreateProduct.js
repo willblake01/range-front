@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
-import { useForm } from '../lib/useForm';
-import { Form } from './styles/Form';
+import { useForm } from '../lib';
+import { Form } from './styles';
 import { ALL_PRODUCTS_QUERY, DisplayError, LargeButton } from '.';
 
 const CREATE_PRODUCT_MUTATION = gql`
@@ -64,67 +64,67 @@ const CreateProduct = () => {
       <DisplayError error={error} />
 
       <fieldset disabled={loading} aria-busy={loading}>
-        <label htmlFor="brand">
+        <label htmlFor='brand'>
           Brand
         </label>
         <input
-          type="text"
-          id="brand"
-          name="brand"
+          type='text'
+          id='brand'
+          name='brand'
           value={inputs.brand}
           onChange={handleChange}
         />
-        <label htmlFor="title">
+        <label htmlFor='title'>
           Title
         </label>
         <input
-          type="text"
-          id="title"
-          name="title"
+          type='text'
+          id='title'
+          name='title'
           value={inputs.title}
           onChange={handleChange}
         />
-        <label htmlFor="description">
+        <label htmlFor='description'>
           Description
         </label>
         <textarea
-          type="text"
-          id="description"
-          name="description"
+          type='text'
+          id='description'
+          name='description'
           value={inputs.description}
           onChange={handleChange}
         />
-        <label htmlFor="category">
+        <label htmlFor='category'>
           Category
         </label>
         <input
-          type="text"
-          id="category"
-          name="category"
+          type='text'
+          id='category'
+          name='category'
           value={inputs.category}
           onChange={handleChange}
         />
-        <label htmlFor="image">
+        <label htmlFor='image'>
           Image
         </label>
         <input
-          type="text"
-          id="image"
-          name="image"
+          type='text'
+          id='image'
+          name='image'
           value={inputs.image}
           onChange={handleChange}
         />
-        <label htmlFor="price">
+        <label htmlFor='price'>
           Price
         </label>
         <input
-          type="number"
-          id="price"
-          name="price"
+          type='number'
+          id='price'
+          name='price'
           value={inputs.price}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText="Submit" />
+        <LargeButton type='submit' buttonText='Submit' />
       </fieldset>
     </Form>
   );

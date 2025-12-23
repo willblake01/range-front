@@ -2,8 +2,8 @@
 
 exports[`<CreateIem /> Renders and matches Snapshot 1`] = `
 <form
-  className="Form-l8wx3k-0 cvSJdK"
-  data-test="form"
+  className='Form-l8wx3k-0 cvSJdK'
+  data-test='form'
   onSubmit={[Function]}
 >
   <DisplayError
@@ -14,84 +14,84 @@ exports[`<CreateIem /> Renders and matches Snapshot 1`] = `
     disabled={false}
   >
     <label
-      htmlFor="file"
+      htmlFor='file'
     >
       Image (optional)
       <input
-        id="file"
-        name="file"
+        id='file'
+        name='file'
         onChange={[Function]}
-        placeholder="Upload an image"
-        requiredvalue=""
-        type="file"
+        placeholder='Upload an image'
+        requiredvalue=''
+        type='file'
       />
     </label>
     <label
-      htmlFor="title"
+      htmlFor='title'
     >
       Brand (optional)
       <input
-        id="brand"
-        name="brand"
+        id='brand'
+        name='brand'
         onChange={[Function]}
-        placeholder="Brand"
-        requiredvalue=""
-        type="text"
+        placeholder='Brand'
+        requiredvalue=''
+        type='text'
       />
     </label>
     <label
-      htmlFor="title"
+      htmlFor='title'
     >
       Category (optional)
       <input
-        id="category"
-        name="category"
+        id='category'
+        name='category'
         onChange={[Function]}
-        placeholder="Category"
-        requiredvalue=""
-        type="text"
+        placeholder='Category'
+        requiredvalue=''
+        type='text'
       />
     </label>
     <label
-      htmlFor="title"
+      htmlFor='title'
     >
       Title
       <input
-        id="title"
-        name="title"
+        id='title'
+        name='title'
         onChange={[Function]}
-        placeholder="Title"
-        requiredvalue=""
-        type="text"
+        placeholder='Title'
+        requiredvalue=''
+        type='text'
       />
     </label>
     <label
-      htmlFor="price"
+      htmlFor='price'
     >
       Price
       <input
-        id="price"
-        name="price"
+        id='price'
+        name='price'
         onChange={[Function]}
-        placeholder="Price"
+        placeholder='Price'
         requiredvalue={0}
-        type="number"
+        type='number'
       />
     </label>
     <label
-      htmlFor="description"
+      htmlFor='description'
     >
       Description
       <textarea
-        id="description"
-        name="description"
+        id='description'
+        name='description'
         onChange={[Function]}
-        placeholder="Enter A Description"
-        requiredvalue=""
+        placeholder='Enter A Description'
+        requiredvalue=''
       />
     </label>
     <button
-      type="submit"
+      type='submit'
     >
       Submit
     </button>

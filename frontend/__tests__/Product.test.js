@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
-import ItemComponent from '../components/Product';
-import { fakeItem } from '../lib/testUtils';
+import { Product } from '../components/products/components';
+import { fakeItem } from './testUtils';
 
 const item = fakeItem();
 
@@ -11,7 +11,7 @@ describe('<Item/>', () => {
   it('renders and matches the snapshot', () => {
     const { container } = render(
       <MockedProvider>
-        <ItemComponent item={item} />
+        <Product item={item} />
       </MockedProvider>
     );
     expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('<Item/>', () => {
   it('renders the image properly', () => {
     render(
       <MockedProvider>
-        <ItemComponent item={item} />
+        <Product item={item} />
       </MockedProvider>
     );
     const img = screen.getByAltText(item.name);
@@ -30,7 +30,7 @@ describe('<Item/>', () => {
   it('renders the pricetag and title', () => {
     const { container } = render(
       <MockedProvider>
-        <ItemComponent item={item} />
+        <Product item={item} />
       </MockedProvider>
     );
     expect(screen.getByText('$50')).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe('<Item/>', () => {
   it('renders out the buttons properly', () => {
     const { container } = render(
       <MockedProvider>
-        <ItemComponent item={item} />
+        <Product item={item} />
       </MockedProvider>
     );
 

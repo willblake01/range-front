@@ -20,7 +20,7 @@ const REMOVE_FROM_CART_MUTATION = gql`
   }
 `;
 
-function update(cache, payload) {
+const update = (cache, payload) => {
   cache.evict(cache.identify(payload.data.removeFromCart));
 }
 
@@ -40,8 +40,8 @@ const RemoveFromCart = ({ id }) => {
     <LargeButton
       onClick={removeFromCart}
       disabled={loading}
-      type="button"
-      title="Remove This Item from Cart"
+      type='button'
+      title='Remove This Item from Cart'
     >
       Remove
     </LargeButton>

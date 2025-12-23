@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import { Form } from './styles/Form';
-import { useForm } from '../lib/useForm';
+import { useForm } from '../lib';
+import { Form } from './styles';
 import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
 const SIGNUP_MUTATION = gql`
@@ -22,23 +22,25 @@ const SignUp = () => {
     email: '',
     password: ''
   });
+
   const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
 
     // refectch the currently logged in user
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
-  async function handleSubmit(e) {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
     await signup().catch(console.error);
 
     resetForm();
-  }
+  };
 
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <Form method='POST' onSubmit={handleSubmit}>
       <h2>Account Signup</h2>
       <DisplayError error={error} />
       <fieldset>
@@ -47,47 +49,47 @@ const SignUp = () => {
             Signed up with {data.createUser.email} - Please Go Head and Login!
           </p>
         )}
-        <label htmlFor="email">
+        <label htmlFor='email'>
           First Name
         </label>
         <input
-          type="text"
-          name="firstName"
-          autoComplete="firstName"
+          type='text'
+          name='firstName'
+          autoComplete='firstName'
           value={inputs.firstName}
           onChange={handleChange}
         />
-        <label htmlFor="email">
+        <label htmlFor='email'>
           Last Name
         </label>
         <input
-          type="text"
-          name="lastName"
-          autoComplete="lastName"
+          type='text'
+          name='lastName'
+          autoComplete='lastName'
           value={inputs.lastName}
           onChange={handleChange}
         />
-        <label htmlFor="email">
+        <label htmlFor='email'>
           Email
         </label>
         <input
-          type="email"
-          name="email"
-          autoComplete="email"
+          type='email'
+          name='email'
+          autoComplete='email'
           value={inputs.email}
           onChange={handleChange}
         />
-        <label htmlFor="password">
+        <label htmlFor='password'>
           Password
         </label>
         <input
-          type="password"
-          name="password"
-          autoComplete="password"
+          type='password'
+          name='password'
+          autoComplete='password'
           value={inputs.password}
           onChange={handleChange}
         />
-        <LargeButton type="submit" buttonText='Sign Up' />
+        <LargeButton type='submit' buttonText='Sign Up' />
       </fieldset>
     </Form>
   );

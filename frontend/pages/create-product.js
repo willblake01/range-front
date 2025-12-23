@@ -16,7 +16,7 @@ const CreateProductPage = () => {
   return (
     <>
       <AlternateHeader />
-      <RequirePermission permission="PRODUCTCREATE">
+      <RequirePermission permission='PRODUCTCREATE'>
         <StyledCreate>
           <CreateProduct />
         </StyledCreate>

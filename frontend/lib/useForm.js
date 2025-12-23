@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useForm = (initial = {}) => {
+const useForm = (initial = {}) => {
 
   // create a state object for our inputs
   const [inputs, setInputs] = useState(initial);
@@ -12,13 +12,7 @@ export const useForm = (initial = {}) => {
     setInputs(initial);
   }, [initialValues]);
 
-  // {
-  //   name: 'wes',
-  //   description: 'nice shoes',
-  //   price: 1000
-  // }
-
-  function handleChange(e) {
+  const handleChange = (e) => {
     let { value, name, type } = e.target;
     if (type === 'number') {
       value = parseInt(value);
@@ -32,18 +26,18 @@ export const useForm = (initial = {}) => {
       ...inputs,
       [name]: value,
     });
-  }
+  };
 
-  function resetForm() {
+  const resetForm = () => {
     setInputs(initial);
-  }
+  };
 
-  function clearForm() {
+  const clearForm = () => {
     const blankState = Object.fromEntries(
       Object.entries(inputs).map(([key, value]) => [key, ''])
     );
     setInputs(blankState);
-  }
+  };
 
   // return the things we want to surface from this custom hook
   return {
@@ -52,4 +46,6 @@ export const useForm = (initial = {}) => {
     resetForm,
     clearForm,
   };
-}
+};
+
+export { useForm };

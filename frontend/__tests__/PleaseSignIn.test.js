@@ -2,7 +2,7 @@
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import { CURRENT_USER_QUERY, PleaseLogin } from '../components';
-import { fakeUser } from '../lib/testUtils';
+import { fakeUser } from './testUtils';
 
 const notSignedInMocks = [
   {

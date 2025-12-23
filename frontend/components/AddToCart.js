@@ -24,7 +24,7 @@ const AddToCart = ({ id }) => {
   });
   
   return (
-    <button disabled={loading} type="button" onClick={addToCart}>
+    <button disabled={loading} type='button' onClick={addToCart}>
       Add{loading && 'ing'} To Cart 🛒
     </button>
   );

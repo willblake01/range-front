@@ -20,7 +20,7 @@ const SignOut = () => {
   
   const handleSignOut = async () => {
     await signout();
-    
+
     // Stay on current page after sign out
     router.reload();
   };
@@ -29,7 +29,7 @@ const SignOut = () => {
     <>
       {error && <DisplayError error={error} />}
 
-      <button type="button" onClick={handleSignOut}>
+      <button type='button' onClick={handleSignOut}>
         Sign Out
       </button>
     </>

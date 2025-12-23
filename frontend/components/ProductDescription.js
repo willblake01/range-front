@@ -108,20 +108,20 @@ const ProductDescription = ({ id }) => {
       <Head>
         <title>Range Front | {product.title}</title>
       </Head>
-      <div className="product">
-        <div className="image">
+      <div className='product'>
+        <div className='image'>
           <img
             src={product.image}
             alt={product.image.title}
           />
         </div>
-        <div className="details">
+        <div className='details'>
           <h1>{product.brand}</h1>
           <h2><strong>{product.title}</strong></h2>
           <p>{product.description}</p>
           <h2>{formatMoney(product.price)}</h2>
         </div>
-        <div className="buttonGrid">
+        <div className='buttonGrid'>
         {hasPermission(user, 'ADMIN') && (
           <>
             <a href={`/update?id=${product.id}`}>

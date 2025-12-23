@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
-import Order, { SINGLE_ORDER_QUERY } from '../components/Order';
-import { fakeOrder } from '../lib/testUtils';
+import { Order, SINGLE_ORDER_QUERY } from '../components';
+import { fakeOrder } from './testUtils';
 
 const order = fakeOrder();
 const mocks = [
@@ -19,7 +19,7 @@ describe('<Order/>', () => {
         // Not sure why we need this, but it fixes it. https://github.com/apollographql/apollo-client/issues/7081
         defaultOptions={{ watchQuery: { fetchPolicy: 'no-cache' } }}
       >
-        <Order id="ord123" />
+        <Order id='ord123' />
       </MockedProvider>
     );
     await screen.findByTestId('order');

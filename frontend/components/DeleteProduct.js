@@ -10,7 +10,7 @@ const DELETE_PRODUCT_MUTATION = gql`
   }
 `;
 
-function update(cache, payload) {
+const update = (cache, payload) => {
   console.log(payload);
   console.log('running the update function after delete');
   cache.evict(cache.identify(payload.data.deleteProduct));
@@ -27,7 +27,7 @@ const DeleteProduct = ({ id, children }) => {
 
   return (
     <button
-      type="button"
+      type='button'
       disabled={loading}
       onClick={() => {
         if (confirm('Are you sure you want to delete this item?')) {

@@ -2,9 +2,9 @@
 
 exports[`<RequestReset /> Renders and matches Snapshot 1`] = `
 <form
-  className="Form-l8wx3k-0 cvSJdK"
-  data-test="form"
-  method="post"
+  className='Form-l8wx3k-0 cvSJdK'
+  data-test='form'
+  method='post'
   onSubmit={[Function]}
 >
   <fieldset
@@ -18,19 +18,19 @@ exports[`<RequestReset /> Renders and matches Snapshot 1`] = `
       error={Object {}}
     />
     <label
-      htmlFor="email"
+      htmlFor='email'
     >
       Email
       <input
-        name="email"
+        name='email'
         onChange={[Function]}
-        placeholder="email"
-        type="email"
-        value=""
+        placeholder='email'
+        type='email'
+        value=''
       />
     </label>
     <button
-      type="submit"
+      type='submit'
     >
       Request Reset
     </button>

@@ -52,7 +52,6 @@ const StyledDropDownItem = styled.div`
 `;
 
 const DropDownItem = StyledDropDownItem;
-
 const DropDown = StyledDropDown;
 
 export { DropDown, DropDownItem, StyledSearch }

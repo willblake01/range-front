@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { Product } from '.';
-import { ProductsListStyles } from '../components/styles/ProductsListStyles';
+import { ProductsListStyles } from '../components/styles';
 
 const BACKPACKS_QUERY = gql`
   query BACKPACKS_QUERY {
