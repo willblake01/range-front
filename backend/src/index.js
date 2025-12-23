@@ -23,6 +23,7 @@ app.use((req, res, next) => {
   if(token) {
     try {
       const {userId} = jwt.verify(token, process.env.APP_SECRET);
+
       // Put the userId onto the req for future requests to access
       req.userId = userId;
       console.log('✅ JWT verified, userId:', userId);
@@ -48,12 +49,23 @@ app.use(async (req, res, next) => {
   next();
 });
 
+const allowList = [
+  'http://localhost:7777',
+  'https://range-front.vercel.app'
+];
+
 // Mount Apollo middleware here.
 server.applyMiddleware({
   app,
   path: '/',
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin(origin, cb) {
+      if (!origin) return cb(null, true);
+
+      if (allowList.includes(origin)) return cb(null, true);
+      
+      return cb(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true
   }
 });

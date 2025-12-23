@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/graphql",
+      "destination": "https://range-front-backend.onrender.com/"
+    }
+  ]
+}

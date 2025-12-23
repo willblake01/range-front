@@ -23,8 +23,10 @@ const createClient = ({ headers, initialState }) => {
 
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: endpoint,
+        // uri: endpoint,
+        uri: '/api/graphql',
         credentials: 'include',
+        headers,
         fetchOptions: {
           credentials: 'include',
         },

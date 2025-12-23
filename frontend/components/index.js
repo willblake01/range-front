@@ -8,7 +8,7 @@ export { CartCount } from './CartCount';
 export { Checkout } from './Checkout';
 export { CreateProduct } from './CreateProduct';
 export { DeleteProduct } from './DeleteProduct';
-export { DisplayError } from './ErrorMessage';
+export { DisplayError } from './DisplayError';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { LargeButton } from './LargeButton';

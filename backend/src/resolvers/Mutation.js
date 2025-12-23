@@ -6,6 +6,18 @@ const { transport, makeANiceEmail } = require('../mail');
 const { hasPermission } = require('../utils');
 const stripe = require('../stripe');
 
+const isProd = process.env.NODE_ENV === 'production';
+
+const buildCookieOptions = ({ maxAge } = {}) => {
+  return {
+    httpOnly: true,
+    ...(maxAge ? { maxAge } : {}),
+    path: '/',
+    sameSite: isProd ? 'lax' : 'lax',
+    secure: isProd
+  };
+};
+
 const Mutations = {
   async createProduct(parent, args, ctx, info) {
 
@@ -32,6 +44,7 @@ const Mutations = {
 
     return product;
   },
+
   async updateProduct(parent, args, ctx, info) {
 
     // First take a copy of the updates
@@ -51,6 +64,7 @@ const Mutations = {
       },
     });
   },
+
   async deleteProduct(parent, args, ctx, info) {
     const where = { id: args.id };
 
@@ -74,6 +88,7 @@ const Mutations = {
     // 3. Delete it!
     return ctx.db.product.delete({ where });
   },
+
   async signup(parent, args, ctx, info) {
     args.email = args.email.toLowerCase();
 
@@ -92,69 +107,49 @@ const Mutations = {
     // Create the JWT token for them
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
 
-    const cookieOptions = {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60, // 1 hour cookie
-      path: '/'
-    };
-
-    if (process.env.NODE_ENV === 'production') {
-      cookieOptions.sameSite = 'none';
-      cookieOptions.secure = true;
-    } else {
-      cookieOptions.sameSite = 'lax';
-      cookieOptions.secure = false;
-    };
-
     // Set the JWT as a cookie on the response
-    ctx.res.cookie('token', token, cookieOptions);
+    ctx.res.cookie('token', token, buildCookieOptions({ maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
     // Return the user to the browser
     return user;
   },
+
   async login(parent, { email, password }, ctx, info) {
+    email = email.toLowerCase().trim();
     
     // 1. Check if there is a user with that email
     const user = await ctx.db.user.findUnique({ where: { email }});
-    if(!user) {
-      throw new Error(`No user found for email ${email}`);
-    }
+
+    if(!user) throw new Error(`No user found for email ${email}`);
 
     // 2. Check if their password is correct
     const valid = await bcrypt.compare(password, user.password);
-    if(!valid) {
-      throw new Error('Invalid Password');
-    }
+
+    if(!valid) throw new Error('Invalid Password');
 
     // 3. Generate the JWT token
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
 
     // 4. Set the cookie with the token
-    ctx.res.cookie('token', token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365,
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      secure: process.env.NODE_ENV === 'production',
-    });
+    ctx.res.cookie('token', token, buildCookieOptions({ maxAge: 1000 * 60 * 60 * 24 * 7 }));
   
     // 5. Return the user
     return user;
   },
+  
   signout(parent, args, ctx, info) {
-    ctx.res.clearCookie('token', {
-      httpOnly: true,
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      secure: process.env.NODE_ENV === 'production',
-    });
+    ctx.res.clearCookie('token', buildCookieOptions());
+
     return { message: 'Goodbye!' };
   },
+
   async requestReset(parent, args, ctx, info) {
+    args.email = args.email.toLowerCase().trim();
 
     // 1. Check if this is a real user
     const user = await ctx.db.user.findUnique({ where: { email: args.email} });
-    if(!user) {
-      throw new Error(`No user found for email ${args.email}`);
-    }
+
+    if(!user) throw new Error(`No user found for email ${args.email}`);
 
     // 2. Set a reset token and expiry on that user
     const randomBytesPromisified = promisify(randomBytes);
@@ -185,6 +180,7 @@ const Mutations = {
 
     return { message: 'Check your terminal for the reset link!' };
   },
+
   async resetPassword(parent, args, ctx, info) {
 
     // 1. Check if the passwords match
@@ -202,10 +198,10 @@ const Mutations = {
         },
       },
     });
+
     const user = users[0];
-    if(!user) {
-      throw new Error('This token is either invalid or expired!');
-    }
+
+    if(!user) throw new Error('This token is either invalid or expired!');
 
     // 4. Hash their new password
     const password = await bcrypt.hash(args.password, 10);
@@ -224,12 +220,7 @@ const Mutations = {
     const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
 
     // 7. Set the JWT cookie
-    ctx.res.cookie('token', token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365,
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      secure: process.env.NODE_ENV === 'production',
-    });
+    ctx.res.cookie('token', token, buildCookieOptions({ maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
     // 8. Return the new user
     return updatedUser;
@@ -262,6 +253,7 @@ const Mutations = {
       },
     });
   },
+
   async addToCart(parent, args, ctx, info) {
 
     // 1. Make sure they are signed in
@@ -306,6 +298,7 @@ const Mutations = {
       },
     });
   },
+  
   async removeFromCart(parent, args, ctx, info) {
 
     // 1. Find the cart item
