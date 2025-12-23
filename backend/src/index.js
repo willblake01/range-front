@@ -8,6 +8,12 @@ const db = require('./db');
 const server = createServer();
 
 const app = express();
+
+// Secure cookies if behind a reverse proxy (e.g., Render)
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+};
+
 app.use(cookieParser());
 
 // Decode the JWT so we can get the user ID on each request
@@ -29,12 +35,15 @@ app.use((req, res, next) => {
 
 // Create a middleware that populates the user on each request
 app.use(async (req, res, next) => {
+
   // If they aren't logged in, skip this
   if(!req.userId) return next();
+
   const user = await db.user.findUnique({
     where: { id: req.userId },
     select: { id: true, permissions: true, email: true, firstName: true, lastName: true }
   }).catch(error => console.log(error));
+
   req.user = user;
   next();
 });

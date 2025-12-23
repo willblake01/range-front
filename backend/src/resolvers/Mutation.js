@@ -92,14 +92,22 @@ const Mutations = {
     // Create the JWT token for them
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
 
-    // Set the JWT as a cookie on the response
-    ctx.res.cookie('token', token, {
+    const cookieOptions = {
       httpOnly: true,
       maxAge: 1000 * 60 * 60, // 1 hour cookie
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      secure: process.env.NODE_ENV === 'production',
       path: '/'
-    });
+    };
+
+    if (process.env.NODE_ENV === 'production') {
+      cookieOptions.sameSite = 'none';
+      cookieOptions.secure = true;
+    } else {
+      cookieOptions.sameSite = 'lax';
+      cookieOptions.secure = false;
+    };
+
+    // Set the JWT as a cookie on the response
+    ctx.res.cookie('token', token, cookieOptions);
 
     // Return the user to the browser
     return user;
