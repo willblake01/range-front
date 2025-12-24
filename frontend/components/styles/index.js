@@ -12,4 +12,3 @@ export { StyledProductsList } from './ProductsListStyles';
 export { StyledSignUp } from './SignUpStyles';
 export { StyledTable } from './TableStyles';
 export { StyledTitle } from './TitleStyles';
-export { StyledUpdateProduct } from './UpdateProductStyles'

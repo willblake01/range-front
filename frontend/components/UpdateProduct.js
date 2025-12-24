@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
@@ -43,6 +44,16 @@ const UPDATE_PRODUCT_MUTATION = gql`
   }
 `;
 
+const StyledUpdateProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: 40px;
+  height: 100%;
+`;
+
 const UpdateProduct = ({ id }) => {
 
   // 1. We need to get the existing product
@@ -74,97 +85,99 @@ const UpdateProduct = ({ id }) => {
 
   // 3. We need the form to handle the updates
   return (
-    <StyledForm
-      onSubmit={async (e) => {
-        e.preventDefault();
+    <StyledUpdateProduct>
+      <StyledForm
+        onSubmit={async (e) => {
+          e.preventDefault();
 
-        await updateProduct({
-          variables: {
-            id,
-            brand: inputs.brand,
-            title: inputs.title,
-            description: inputs.description,
-            category: inputs.category,
-            image: inputs.image,
-            price: inputs.price,
-          },
-        }).catch(console.error);
+          await updateProduct({
+            variables: {
+              id,
+              brand: inputs.brand,
+              title: inputs.title,
+              description: inputs.description,
+              category: inputs.category,
+              image: inputs.image,
+              price: inputs.price,
+            },
+          }).catch(console.error);
 
-        // Submit the inputfields to the backend:
-        // TODO: Handle Submit!!!
-        // const res = await createProduct();
-        // clearForm();
-        // // Go to that product's page!
-        // Router.push({
-        //   pathname: `/product/${res.data.createProduct.id}`,
-        // });
-      }}
-    >
-      <DisplayError error={error || updateError} />
-      <fieldset disabled={updateLoading} aria-busy={updateLoading}>
-        <label htmlFor='brand'>
-          Brand
-        </label>
-        <input
-          type='text'
-          id='brand'
-          name='brand'
-          value={inputs.brand}
-          onChange={handleChange}
-        />
-        <label htmlFor='title'>
-          Title
-        </label>
-        <input
-          type='text'
-          id='title'
-          name='title'
-          value={inputs.title}
-          onChange={handleChange}
-        />
-        <label htmlFor='description'>
-          Description
-        </label>
-        <textarea
-          type='text'
-          id='description'
-          name='description'
-          value={inputs.description}
-          onChange={handleChange}
-        />
-        <label htmlFor='category'>
-          Category
-        </label>
-        <input
-          type='text'
-          id='category'
-          name='category'
-          value={inputs.category}
-          onChange={handleChange}
-        />
-        <label htmlFor='image'>
-          Image
-        </label>
-        <input
-          type='text'
-          id='image'
-          name='image'
-          value={inputs.image}
-          onChange={handleChange}
-        />
-        <label htmlFor='price'>
-          Price
-        </label>
-        <input
-          type='number'
-          id='price'
-          name='price'
-          value={inputs.price}
-          onChange={handleChange}
-        />
-        <LargeButton type='submit' buttonText='Submit' />
-      </fieldset>
-    </StyledForm>
+          // Submit the inputfields to the backend:
+          // TODO: Handle Submit!!!
+          // const res = await createProduct();
+          // clearForm();
+          // // Go to that product's page!
+          // Router.push({
+          //   pathname: `/product/${res.data.createProduct.id}`,
+          // });
+        }}
+      >
+        <DisplayError error={error || updateError} />
+        <fieldset disabled={updateLoading} aria-busy={updateLoading}>
+          <label htmlFor='brand'>
+            Brand
+          </label>
+          <input
+            type='text'
+            id='brand'
+            name='brand'
+            value={inputs.brand}
+            onChange={handleChange}
+          />
+          <label htmlFor='title'>
+            Title
+          </label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            value={inputs.title}
+            onChange={handleChange}
+          />
+          <label htmlFor='description'>
+            Description
+          </label>
+          <textarea
+            type='text'
+            id='description'
+            name='description'
+            value={inputs.description}
+            onChange={handleChange}
+          />
+          <label htmlFor='category'>
+            Category
+          </label>
+          <input
+            type='text'
+            id='category'
+            name='category'
+            value={inputs.category}
+            onChange={handleChange}
+          />
+          <label htmlFor='image'>
+            Image
+          </label>
+          <input
+            type='text'
+            id='image'
+            name='image'
+            value={inputs.image}
+            onChange={handleChange}
+          />
+          <label htmlFor='price'>
+            Price
+          </label>
+          <input
+            type='number'
+            id='price'
+            name='price'
+            value={inputs.price}
+            onChange={handleChange}
+          />
+          <LargeButton type='submit' buttonText='Submit' />
+        </fieldset>
+      </StyledForm>
+    </StyledUpdateProduct>
   );
 }
 
