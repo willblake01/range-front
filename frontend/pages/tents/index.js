@@ -1,4 +1,4 @@
-import { AlternateHeader, Footer, Tents } from '../components';
+import { AlternateHeader, Footer, Tents } from '../../components';
 
 const TentsPage = ({ query }) => (
   <>

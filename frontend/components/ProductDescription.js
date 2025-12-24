@@ -88,7 +88,7 @@ const ProductDescription = ({ id }) => {
   if (error) return <DisplayError error={error} />;
 
   const { product } = data;
-  
+
   return (
     <ProductDescriptionStyles>
       <Head>
@@ -119,7 +119,7 @@ const ProductDescription = ({ id }) => {
           </DeleteProduct>
         )}
         <a
-          href='/learn-more'
+          href={`/${product.category}/learn-more`}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -135,12 +135,13 @@ const ProductDescription = ({ id }) => {
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
     product(where: { id: $id }) {
-      title
-      price
-      brand
-      description
       id
+      brand
+      title
+      description
+      category
       image
+      price
     }
   }
 `;

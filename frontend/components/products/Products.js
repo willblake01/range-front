@@ -4,7 +4,7 @@ import { perPage } from '../../config';
 import { DisplayError, ProductsList } from '..'
 import { Product } from './components';
 
-const Products = ({ products, page }) => {
+const Products = ({ page }) => {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
@@ -30,11 +30,12 @@ const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
     products(skip: $skip, first: $first) {
       id
+      category
       brand
       title
-      price
       description
       image
+      price
     }
   }
 `;

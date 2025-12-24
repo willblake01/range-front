@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
@@ -42,7 +43,10 @@ const StyledProduct = styled.div`
   }
 `;
 
-const Product = ({ product }) => (
+const Product = ({ product }) => {
+  const router = useRouter();
+
+  return (
     <StyledProduct>
       <Link href={`/product/${product.id}`}>
         <a>
@@ -65,10 +69,17 @@ const Product = ({ product }) => (
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className='buttonGrid'>
-        <LearnMore />
+        <a
+          href={`/${product.category}/learn-more`}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Learn More 📖
+        </a>
         <AddToCart id={product.id} />
       </div>
     </StyledProduct>
   );
+};
 
 export { Product };

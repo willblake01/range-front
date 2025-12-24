@@ -1,4 +1,4 @@
-import { AlternateHeader, Backpacks, Footer } from '../components';
+import { AlternateHeader, Backpacks, Footer } from '../../components';
 
 const BackpacksPage = ({query}) => (
   <>
