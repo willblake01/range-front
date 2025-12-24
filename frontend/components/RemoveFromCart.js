@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 
-const LargeButton = styled.button`
+const StyledLargeButton = styled.button`
   font-size: 1.5rem;
   background: none;
   border: 0;
@@ -29,13 +29,13 @@ const RemoveFromCart = ({ id }) => {
   });
   
   return (
-    <LargeButton
+    <StyledLargeButton
       onClick={removeFromCart}
       disabled={loading}
       title='Remove This Item from Cart'
     >
       Remove
-    </LargeButton>
+    </StyledLargeButton>
   );
 };
 

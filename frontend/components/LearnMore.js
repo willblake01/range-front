@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledSectionHeader } from './styles';
 
 const StyledLearnMore = styled.div`
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
@@ -34,22 +35,12 @@ const StyledLearnMore = styled.div`
     }
 `;
 
-const SectionHeaderStyle = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    img {
-        width: 1040px;
-        margin-bottom: 8px;
-    }
-`;
-
 const LearnMore = () => (
   <StyledLearnMore>
-    <SectionHeaderStyle>
+    <StyledSectionHeader>
       <h1>How to Choose a Tent</h1>
       <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
-    </SectionHeaderStyle>
+    </StyledSectionHeader>
     <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
     or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your
     home away from home.</p>
@@ -100,10 +91,10 @@ const LearnMore = () => (
     and can make them feel warm and stuffy in mild weather. But when foul winds begin to howl, a 4-season tent provides
     a reassuring place of refuge.</p>
 
-    <SectionHeaderStyle>
+    <StyledSectionHeader>
       <h1>How to Choose a Sleeping Bag</h1>
       <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_sleepingbag.jpg' alt='sleeping bags' />
-    </SectionHeaderStyle>
+    </StyledSectionHeader>
     <p>While backpacking bags focus on minimizing weight, sleeping bags for car or family camping are all about comfort. What's
     the best sleeping bag for you? This article discusses what features to look for when shopping for a sleeping bag
     for car camping.
@@ -163,10 +154,10 @@ const LearnMore = () => (
     <p>Designed to comfortably sleep 2 people, roomy double-wide bags can be combined with an air mattress (or foam sleeping
     pad) for a cozy night's sleep. Most models zip apart to create 2 individual bags.</p>
 
-    <SectionHeaderStyle>
+    <StyledSectionHeader>
       <h1>How to Choose a Backpack</h1>
       <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_backpack.jpg' alt='backpacks' />
-    </SectionHeaderStyle>
+    </StyledSectionHeader>
     <p>Planning to buy a new pack for the backcountry? There are three main areas where you'll need to make choices:</p>
     <p className='boldPara'>Backpack capacity: </p>
     <p>The size pack you'll need is tied to the length of your trip and how much weight and bulk you want to carry.</p>

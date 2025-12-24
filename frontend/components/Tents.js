@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { DisplayError, Product, ProductsList } from '.';
+import { DisplayError, Product, StyledProductsList } from '.';
 
 const Tents = () => {
   const { data, error, loading } = useQuery(TENTS_QUERY);
@@ -9,9 +9,9 @@ const Tents = () => {
   if (error) return <DisplayError error={error} />;
 
   return (
-    <ProductsList>
+    <StyledProductsList>
       {data.tents.map(product => <Product product={product} key={product.id} />)}
-    </ProductsList>
+    </StyledProductsList>
   );
 };
 

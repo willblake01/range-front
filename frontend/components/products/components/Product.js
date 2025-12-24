@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
-import { AddToCart, PriceTag, Title } from '../..';
+import { AddToCart, StyledPriceTag, StyledTitle } from '../..';
 import { LearnMore } from '.';
 
 const StyledProduct = styled.div`
@@ -56,17 +56,17 @@ const Product = ({ product }) => {
           />
         </a>
       </Link>
-      <Title>
+      <StyledTitle>
         <Link href={`/product/${product.id}`}>
           <a>{product.brand}</a>
         </Link>
-      </Title>
-      <Title>
+      </StyledTitle>
+      <StyledTitle>
         <Link href={`/product/${product.id}`}>
           <a>{product.title}</a>
         </Link>
-      </Title>
-      <PriceTag>{formatMoney(product.price)}</PriceTag>
+      </StyledTitle>
+      <StyledPriceTag>{formatMoney(product.price)}</StyledPriceTag>
       <p>{product.description}</p>
       <div className='buttonGrid'>
         <a

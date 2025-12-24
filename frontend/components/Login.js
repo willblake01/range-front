@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
 import { useForm } from '../lib';
-import { CURRENT_USER_QUERY, DisplayError, Form, LargeButton } from '.';
+import { CURRENT_USER_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
 const StyledLogin = styled.div`
   display: flex;
@@ -71,7 +71,7 @@ const Login = () => {
 
   return (
     <StyledLogin>
-      <Form method='POST' onSubmit={handleSubmit}>
+      <StyledForm method='POST' onSubmit={handleSubmit}>
         <DisplayError error={error} />
         <StyledLink>
           <Link href='/signup'>Create account</Link>
@@ -103,7 +103,7 @@ const Login = () => {
             <Link href='/reset-password'>Forgot Password?</Link>
           </StyledLink>
         </fieldset>
-      </Form>
+      </StyledForm>
     </StyledLogin>
   );
 };

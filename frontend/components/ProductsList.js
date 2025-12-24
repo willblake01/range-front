@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ProductsList = styled.div`
+const StyledProductsList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 60px;
@@ -23,4 +23,4 @@ const ProductsList = styled.div`
   }
 `;
 
-export { ProductsList };
+export { StyledProductsList };

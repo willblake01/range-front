@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledSectionHeader } from '../../components/styles';
 import { AlternateHeader, Footer } from '../../components';
 
 const StyledLearnMore = styled.div`
@@ -32,16 +33,6 @@ const StyledLearnMore = styled.div`
     }
     p.boldPara {
         font-weight: bold;
-    }
-`;
-
-const StyledSectionHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    img {
-        width: 1040px;
-        margin-bottom: 8px;
     }
 `;
 

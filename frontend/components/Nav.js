@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useCart } from '../lib';
 import { CartCount, SignOut, useUser } from '.';
 
-const NavStyles = styled.ul`
+const StyledNav = styled.ul`
   background-color: var(--darkOrange);
   opacity: .9;
   margin: 0;
@@ -79,7 +79,7 @@ const Nav = () => {
   const displayLogin = !user && router.pathname !== '/login' && router.pathname !== '/account';
 
   return (
-    <NavStyles data-test='nav'>
+    <StyledNav data-test='nav'>
       <Link href='/'>Home</Link>
       <Link href='/products'>Shop</Link>
       <Link href='/about'>About</Link>
@@ -108,7 +108,7 @@ const Nav = () => {
           </Link>
         </div>
       )}
-    </NavStyles>
+    </StyledNav>
   );
 };
 

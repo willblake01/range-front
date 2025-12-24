@@ -5,7 +5,7 @@ import { DisplayError, useUser } from '..';
 import { hasPermission } from '../../lib';
 import { UserPermissions } from './components';
 
-const PermissionsStyles = styled.div`
+const StyledPermissions = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ const PermissionsStyles = styled.div`
   }
 `;
 
-const UserTable = styled.table`
+const StyledUserTable = styled.table`
   width: 50%;
   border-collapse: collapse;
   background: white;
@@ -73,12 +73,12 @@ const Permissions = () => {
   if (error) return <DisplayError error={error} />;
 
   return (
-    <PermissionsStyles>
+    <StyledPermissions>
       <h2>Manage Permissions</h2>
       {loading && <p>Loading...</p>}
       {error && <DisplayError error={error} />}
       {data && (
-        <UserTable>
+        <StyledUserTable>
           <thead>
             <tr>
               <th>Name</th>
@@ -91,9 +91,9 @@ const Permissions = () => {
               <UserPermissions user={user} key={user.id} />
             ))}
           </tbody>
-        </UserTable>
+        </StyledUserTable>
       )}
-    </PermissionsStyles>
+    </StyledPermissions>
   );
 };
 

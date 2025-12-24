@@ -17,22 +17,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const NavPosition = styled.div`
-  z-index: 2;
-  height: max-content;
-  position: absolute;
-  top: 120px;
-  width: 100%;
-`;
-
-const SearchPosition = styled.div`
-  z-index: 2;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-`;
-
-const Section = styled.section`
+const StyledSection = styled.section`
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -56,7 +41,7 @@ const Section = styled.section`
   }
 `;
 
-const CopyStyles = styled.div`
+const StyledCopy = styled.div`
   color: var(--darkOrange);
   opacity: .9;
   display: flex;
@@ -86,6 +71,21 @@ const CopyStyles = styled.div`
   }
 `;
 
+const NavPosition = styled.div`
+  z-index: 2;
+  height: max-content;
+  position: absolute;
+  top: 120px;
+  width: 100%;
+`;
+
+const SearchPosition = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+`;
+
 const Header = () => (
   <StyledHeader>
     <Logo />
@@ -95,13 +95,13 @@ const Header = () => (
     <SearchPosition>
       <Search />
     </SearchPosition>
-    <Section>
-      <CopyStyles>
+    <StyledSection>
+      <StyledCopy>
         <span className='medium-abril-fatface'>For the love of the</span>
         <span className='large-abril-fatface'>OUTDOORS</span>
         <span className='small-railway'>Whether you're a weekend warrior or a</span>
         <span className='small-railway'>Navy SEAL, we've got you covered.</span>
-      </CopyStyles>
+      </StyledCopy>
       <a
         href='/learn-more'
         target='_blank'
@@ -109,7 +109,7 @@ const Header = () => (
       >
           <LargeButton>Learn More</LargeButton>
       </a>
-    </Section>
+    </StyledSection>
     <Cart />
   </StyledHeader>
 );

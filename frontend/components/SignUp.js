@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useForm } from '../lib';
-import { CURRENT_USER_QUERY, DisplayError, Form, LargeButton } from '.';
+import { CURRENT_USER_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const SignUp = () => {
 
   return (
     <StyledSignUp>
-      <Form method='POST' onSubmit={handleSubmit}>
+      <StyledForm method='POST' onSubmit={handleSubmit}>
         <h2>Account Signup</h2>
         <DisplayError error={error} />
         <fieldset>
@@ -91,7 +91,7 @@ const SignUp = () => {
           />
           <LargeButton type='submit'>Submit</LargeButton>
         </fieldset>
-      </Form>
+      </StyledForm>
     </StyledSignUp>
   );
 };

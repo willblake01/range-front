@@ -13,16 +13,16 @@ const StyledMarketing = styled.div`
   background-size: cover;
 `;
 
-const PositionedButton = styled.div`
+const ButtonPosition = styled.div`
   margin-bottom: 80px;
 `
 
 const Marketing = () => (
   <StyledMarketing>
     <Link href='/clearance'>
-      <PositionedButton>
+      <ButtonPosition>
         <LargeButton>Shop Clearance</LargeButton>
-      </PositionedButton>
+      </ButtonPosition>
     </Link>
   </StyledMarketing>
 );

@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import { useForm } from '../lib';
-import { ALL_PRODUCTS_QUERY, DisplayError, Form, LargeButton } from '.';
+import { ALL_PRODUCTS_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
 const StyledCreate = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const CreateProduct = () => {
   
   return (
     <StyledCreate>
-      <Form
+      <StyledForm
         onSubmit={async (e) => {
           e.preventDefault();
 
@@ -112,7 +112,7 @@ const CreateProduct = () => {
           />
           <LargeButton type='submit'>Submit</LargeButton>
         </fieldset>
-      </Form>
+      </StyledForm>
     </StyledCreate>
   );
 };

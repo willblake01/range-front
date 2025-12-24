@@ -62,7 +62,6 @@ const Orders = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
   
   if (loading) return <p>Loading...</p>;
-
   if (error) return <DisplayError error={error} />
 
   const { orders } = data;

@@ -1,58 +1,49 @@
 import styled from 'styled-components';
+import { StyledSectionHeader } from '../../components/styles';
 import { AlternateHeader, Footer } from '../../components';
 
 const StyledLearnMore = styled.div`
-    background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem;
-    max-width: var(--maxWidth);
-    padding: 20px 140px 100px;
-    font-size: 1.4rem;
-    h1 {
-        padding-top: 20px;
-        font-weight: bold;
-    }
-    h2, h4 {
-        font-weight: bold;
-    }
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-    td,
-    th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-    p.boldPara {
-        font-weight: bold;
-    }
-`;
-
-const SectionHeaderStyle = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    img {
-        width: 1040px;
-        margin-bottom: 8px;
-    }
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: var(--maxWidth);
+  padding: 20px 140px 100px;
+  font-size: 1.4rem;
+  h1 {
+      padding-top: 20px;
+      font-weight: bold;
+  }
+  h2, h4 {
+      font-weight: bold;
+  }
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+  td,
+  th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+  tr:nth-child(even) {
+      background-color: #dddddd;
+  }
+  p.boldPara {
+      font-weight: bold;
+  }
 `;
 
 const LearnMore = () => (
   <>
     <AlternateHeader />
     <StyledLearnMore>
-      <SectionHeaderStyle>
+      <StyledSectionHeader>
         <h1>How to Choose a Tent</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
-      </SectionHeaderStyle>
+      </StyledSectionHeader>
       <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
       or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your
       home away from home.</p>

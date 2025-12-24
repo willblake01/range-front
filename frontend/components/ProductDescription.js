@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { formatMoney, hasPermission } from '../lib';
 import { AddToCart, DisplayError, DeleteProduct, useUser } from '.';
 
-const ProductDescriptionStyles = styled.div`
+const StyledProductDescription = styled.div`
   justify-content: center;
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
@@ -90,7 +90,7 @@ const ProductDescription = ({ id }) => {
   const { product } = data;
 
   return (
-    <ProductDescriptionStyles>
+    <StyledProductDescription>
       <Head>
         <title>Range Front | {product.title}</title>
       </Head>
@@ -128,7 +128,7 @@ const ProductDescription = ({ id }) => {
         <AddToCart id={product.id} />
         </div>
       </div>
-    </ProductDescriptionStyles>
+    </StyledProductDescription>
   );
 };
 
