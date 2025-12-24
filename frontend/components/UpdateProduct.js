@@ -44,6 +44,7 @@ const UPDATE_PRODUCT_MUTATION = gql`
 `;
 
 const UpdateProduct = ({ id }) => {
+
   // 1. We need to get the existing product
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
@@ -58,6 +59,7 @@ const UpdateProduct = ({ id }) => {
   // 2.5 Create some state for the form inputs:
   const { inputs, handleChange, clearForm, resetForm } = useForm(
     data?.product || {
+      id: '',
       brand: '',
       title: '',
       description: '',

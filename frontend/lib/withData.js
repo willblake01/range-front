@@ -39,7 +39,7 @@ const createClient = ({ headers, initialState }) => {
       typePolicies: {
         Query: {
           fields: {
-            items: {
+            item: {
               keyArgs: false,
               merge(existing = [], incoming) {
                 return [...existing, ...incoming];
