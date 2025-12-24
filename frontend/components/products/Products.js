@@ -4,7 +4,7 @@ import { perPage } from '../../config';
 import { DisplayError, ProductsList } from '..'
 import { Product } from './components';
 
-const Products = ({ page }) => {
+const Products = ({ products, page }) => {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,

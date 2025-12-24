@@ -109,7 +109,7 @@ const ProductDescription = ({ id }) => {
         </div>
         <div className='buttonGrid'>
         {hasPermission(user, 'PRODUCTUPDATE') && (
-          <a href={`/product/${product.id}/update-product`}>
+          <a href={`/product/${product.id}/update`}>
             Edit ✏️
           </a>
         )}
