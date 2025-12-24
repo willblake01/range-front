@@ -41,6 +41,6 @@ const Footer = () => (
       <Social />
     </SocialPosition>
   </StyledFooter>
-)
+);
 
 export { Footer };

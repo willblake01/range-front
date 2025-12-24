@@ -54,6 +54,6 @@ const ShoppingTiles = () => (
       </div>
     </Link>
   </StyledTiles>
-)
+);
 
 export { ShoppingTiles }

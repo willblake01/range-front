@@ -109,7 +109,7 @@ const Nav = () => {
         </div>
       )}
     </NavStyles>
-  )
+  );
 };
 
 export { Nav };

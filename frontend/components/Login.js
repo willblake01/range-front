@@ -7,6 +7,16 @@ import { StyledForm } from './styles';
 import { useForm } from '../lib';
 import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
+const StyledLogin = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: 40px;
+  height: 100%;
+`;
+
 const StyledLink = styled.div`
   float: right;
   a {
@@ -15,17 +25,6 @@ const StyledLink = styled.div`
   }
   a:hover {
     color: blue;
-  }
-`;
-
-const LOGIN_MUTATION = gql`
-  mutation LOGIN_MUTATION($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      id
-      firstName
-      lastName
-      email
-    }
   }
 `;
 
@@ -72,40 +71,53 @@ const Login = () => {
   }
 
   return (
-    <StyledForm method='POST' onSubmit={handleSubmit}>
-      <DisplayError error={error} />
-      <StyledLink>
-        <Link href='/signup'>Create account</Link>
-      </StyledLink>
-      <h2>Account login</h2>
-      <fieldset>
-        <label htmlFor='email'>
-          Email
-        </label>
-        <input
-          type='email'
-          name='email'
-          autoComplete='email'
-          value={inputs.email}
-          onChange={handleChange}
-        />
-        <label htmlFor='password'>
-          Password
-        </label>
-        <input
-          type='password'
-          name='password'
-          autoComplete='password'
-          value={inputs.password}
-          onChange={handleChange}
-        />
-        <LargeButton type='submit' buttonText='Login' />
+    <StyledLogin>
+      <StyledForm method='POST' onSubmit={handleSubmit}>
+        <DisplayError error={error} />
         <StyledLink>
-          <Link href='/reset-password'>Forgot Password?</Link>
+          <Link href='/signup'>Create account</Link>
         </StyledLink>
-      </fieldset>
-    </StyledForm>
+        <h2>Account login</h2>
+        <fieldset>
+          <label htmlFor='email'>
+            Email
+          </label>
+          <input
+            type='email'
+            name='email'
+            autoComplete='email'
+            value={inputs.email}
+            onChange={handleChange}
+          />
+          <label htmlFor='password'>
+            Password
+          </label>
+          <input
+            type='password'
+            name='password'
+            autoComplete='password'
+            value={inputs.password}
+            onChange={handleChange}
+          />
+          <LargeButton type='submit' buttonText='Login' />
+          <StyledLink>
+            <Link href='/reset-password'>Forgot Password?</Link>
+          </StyledLink>
+        </fieldset>
+      </StyledForm>
+    </StyledLogin>
   );
-}
+};
+
+const LOGIN_MUTATION = gql`
+  mutation LOGIN_MUTATION($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      id
+      firstName
+      lastName
+      email
+    }
+  }
+`;
 
 export { Login };

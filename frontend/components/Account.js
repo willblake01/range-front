@@ -90,6 +90,6 @@ const Account = () => {
     </StyledAccount>
     </PleaseLogin>
   );
-}
+};
 
 export { Account };

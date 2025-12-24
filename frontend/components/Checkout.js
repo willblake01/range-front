@@ -86,20 +86,6 @@ const TestCardInfo = styled.div`
   }
 `;
 
-const CREATE_ORDER_MUTATION = gql`
-  mutation CREATE_ORDER_MUTATION($token: String!) {
-    createOrder(token: $token) {
-      id
-      charge
-      total
-      items {
-        id
-        title
-      }
-    }
-  }
-`;
-
 const stripeLib = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
 const CartItem = ({ cartItem }) => {
@@ -236,7 +222,7 @@ const CheckoutForm = () => {
       </CheckoutFormStyles>
     </>
   );
-}
+};
 
 const Checkout = () => {
   return (
@@ -244,6 +230,20 @@ const Checkout = () => {
       <CheckoutForm />
     </Elements>
   );
-}
+};
+
+const CREATE_ORDER_MUTATION = gql`
+  mutation CREATE_ORDER_MUTATION($token: String!) {
+    createOrder(token: $token) {
+      id
+      charge
+      total
+      items {
+        id
+        title
+      }
+    }
+  }
+`;
 
 export { Checkout };

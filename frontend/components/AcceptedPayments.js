@@ -41,6 +41,6 @@ const AcceptedPayments = () => (
       </div>
     </div>
   </AcceptedPaymentsStyle>
-)
+);
 
 export { AcceptedPayments };

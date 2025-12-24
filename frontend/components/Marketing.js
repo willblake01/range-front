@@ -25,6 +25,6 @@ const Marketing = () => (
       </PositionedButton>
     </Link>
   </StyledMarketing>
-)
+);
 
 export { Marketing };

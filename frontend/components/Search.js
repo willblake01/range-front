@@ -5,25 +5,6 @@ import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { StyledDropDown, StyledDropDownItem, StyledSearch } from './styles';
 
-const SEARCH_PRODUCTS_QUERY = gql`
-  query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
-    searchTerms: products(
-      where: {
-        OR: [
-          { brand_contains: $searchTerm }
-          { title_contains: $searchTerm }
-          { description_contains: $searchTerm }
-        ]
-      }
-    ) {
-      id
-      brand
-      title
-      image
-    }
-  }
-`;
-
 const Search = () => {
   const router = useRouter();
   const [findItems, { loading, data }] = useLazyQuery(SEARCH_PRODUCTS_QUERY, {
@@ -76,7 +57,6 @@ const Search = () => {
           />
         </div>
       </StyledSearch>
-
       <StyledDropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
         <div {...getMenuProps()}>
           {isOpen &&
@@ -99,5 +79,24 @@ const Search = () => {
     </>
   );
 };
+
+const SEARCH_PRODUCTS_QUERY = gql`
+  query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
+    searchTerms: products(
+      where: {
+        OR: [
+          { brand_contains: $searchTerm }
+          { title_contains: $searchTerm }
+          { description_contains: $searchTerm }
+        ]
+      }
+    ) {
+      id
+      brand
+      title
+      image
+    }
+  }
+`;
 
 export { Search }

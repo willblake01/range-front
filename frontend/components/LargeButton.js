@@ -22,6 +22,6 @@ const StyledLargeButton = styled.button`
 
 const LargeButton = ({buttonColor, buttonText}) => (
   <StyledLargeButton buttonColor={buttonColor} buttonText={buttonText}>{buttonText}</StyledLargeButton>
-)
+);
 
 export { LargeButton };

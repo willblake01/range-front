@@ -5,25 +5,6 @@ import { useForm } from '../lib';
 import { StyledForm } from './styles';
 import { DisplayError, LargeButton } from '.';
 
-const RESET_MUTATION = gql`
-  mutation RESET_MUTATION(
-    $resetToken: String!
-    $password: String!
-    $confirmPassword: String!
-  ) {
-    resetPassword(
-      resetToken: $resetToken
-      password: $password
-      confirmPassword: $confirmPassword
-    ) {
-      id
-      email
-      firstName
-      lastName
-    }
-  }
-`;
-
 const StyledResetPassword = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,6 +67,25 @@ const ResetPassword = ({ token }) => {
       </StyledForm>
     </StyledResetPassword>
   );
-}
+};
+
+const RESET_MUTATION = gql`
+  mutation RESET_MUTATION(
+    $resetToken: String!
+    $password: String!
+    $confirmPassword: String!
+  ) {
+    resetPassword(
+      resetToken: $resetToken
+      password: $password
+      confirmPassword: $confirmPassword
+    ) {
+      id
+      email
+      firstName
+      lastName
+    }
+  }
+`;
 
 export { ResetPassword };

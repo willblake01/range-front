@@ -3,14 +3,6 @@ import { useRouter } from 'next/router';
 import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from '.';
 
-const ADD_TO_CART_MUTATION = gql`
-  mutation ADD_TO_CART_MUTATION($id: ID!) {
-    addToCart(id: $id) {
-      id
-    }
-  }
-`;
-
 const AddToCart = ({ id }) => {
   const router = useRouter();
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
@@ -28,6 +20,14 @@ const AddToCart = ({ id }) => {
       Add{loading && 'ing'} To Cart 🛒
     </button>
   );
-}
+};
+
+const ADD_TO_CART_MUTATION = gql`
+  mutation ADD_TO_CART_MUTATION($id: ID!) {
+    addToCart(id: $id) {
+      id
+    }
+  }
+`;
 
 export { AddToCart };

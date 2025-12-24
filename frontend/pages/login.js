@@ -5,9 +5,7 @@ const LoginPage = () => {
   return (
     <>
       <AlternateHeader />
-      <StyledLogin>
-        <Login /> 
-      </StyledLogin> 
+      <Login /> 
       <Footer />
     </>
   );

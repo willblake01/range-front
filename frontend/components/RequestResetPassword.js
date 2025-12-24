@@ -5,14 +5,6 @@ import { useForm } from '../lib';
 import { StyledForm } from './styles';
 import { DisplayError, LargeButton } from '.';
 
-const REQUEST_RESET_MUTATION = gql`
-  mutation REQUEST_RESET_MUTATION($email: String!) {
-    RequestResetPassword(email: $email) {
-      message
-    }
-  }
-`;
-
 const StyledRequestResetPassword = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,6 +62,14 @@ const RequestResetPassword = () => {
       </StyledForm>
     </StyledRequestResetPassword>
   );
-}
+};
+
+const REQUEST_RESET_MUTATION = gql`
+  mutation REQUEST_RESET_MUTATION($email: String!) {
+    RequestResetPassword(email: $email) {
+      message
+    }
+  }
+`;
 
 export { RequestResetPassword };

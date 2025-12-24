@@ -7,16 +7,6 @@ import { StyledPagination } from './styles';
 import { DisplayError } from '.';
 import { perPage } from '../config';
 
-const PAGINATION_QUERY = gql`
-  query PAGINATION_QUERY {
-    productsConnection {
-      aggregate {
-        count
-      }
-    }
-  }
-`;
-
 const Pagination = ({ page }) => {
   const { error, loading, data } = useQuery(PAGINATION_QUERY);
 
@@ -49,6 +39,16 @@ const Pagination = ({ page }) => {
       )}
     </StyledPagination>
   );
-}
+};
+
+const PAGINATION_QUERY = gql`
+  query PAGINATION_QUERY {
+    productsConnection {
+      aggregate {
+        count
+      }
+    }
+  }
+`;
 
 export { PAGINATION_QUERY, Pagination };

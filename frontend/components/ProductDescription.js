@@ -75,19 +75,6 @@ const ProductDescriptionStyles = styled.div`
   }
 `;
 
-const SINGLE_PRODUCT_QUERY = gql`
-  query SINGLE_PRODUCT_QUERY($id: ID!) {
-    product(where: { id: $id }) {
-      title
-      price
-      brand
-      description
-      id
-      image
-    }
-  }
-`;
-
 const ProductDescription = ({ id }) => {
   const { user } = useUser();
 
@@ -143,6 +130,19 @@ const ProductDescription = ({ id }) => {
       </div>
     </ProductDescriptionStyles>
   );
-}
+};
+
+const SINGLE_PRODUCT_QUERY = gql`
+  query SINGLE_PRODUCT_QUERY($id: ID!) {
+    product(where: { id: $id }) {
+      title
+      price
+      brand
+      description
+      id
+      image
+    }
+  }
+`;
 
 export { ProductDescription };

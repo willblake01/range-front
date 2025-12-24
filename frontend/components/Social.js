@@ -49,6 +49,6 @@ const Social = () => (
       />
     </a>
   </StyledSocial>
-)
+);
 
 export { Social };

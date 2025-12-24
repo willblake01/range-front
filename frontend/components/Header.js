@@ -112,6 +112,6 @@ const Header = () => (
     </Section>
     <Cart />
   </StyledHeader>
-)
+);
 
 export { Header };

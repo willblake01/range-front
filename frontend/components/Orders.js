@@ -15,27 +15,6 @@ const StyledOrders = styled.ul`
   height: 100%;
 `;
 
-const USER_ORDERS_QUERY = gql`
-  query USER_ORDERS_QUERY {
-    orders {
-      id
-      charge
-      total
-      user {
-        id
-      }
-      items {
-        id
-        title
-        description
-        price
-        quantity
-        image
-      }
-    }
-  }
-`;
-
 const countItemsInAnOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
@@ -84,5 +63,26 @@ const Orders = () => {
     </>
   );
 };
+
+const USER_ORDERS_QUERY = gql`
+  query USER_ORDERS_QUERY {
+    orders {
+      id
+      charge
+      total
+      user {
+        id
+      }
+      items {
+        id
+        title
+        description
+        price
+        quantity
+        image
+      }
+    }
+  }
+`;
 
 export { Orders };

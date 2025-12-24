@@ -44,7 +44,7 @@ const CartItem = ({ cartItem }) => {
       <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
-}
+};
 
 const Cart = () => {
   const { user } = useUser();
@@ -69,6 +69,6 @@ const Cart = () => {
       <LargeButton buttonText='Checkout' />
     </StyledCart>
   );
-}
+};
 
 export { CartItem, Cart };

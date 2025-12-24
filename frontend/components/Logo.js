@@ -37,6 +37,6 @@ const Logo = () => (
       RANGE FRONT
     </Link>
   </StyledLogo>
-)
+);
 
 export { Logo };

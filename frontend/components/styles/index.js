@@ -6,7 +6,6 @@ export { StyledOrderItem } from './OrderItemStyles';
 export { StyledOrder } from './OrderStyles';
 export { StyledPagination } from './PaginationStyles';
 export { StyledPriceTag } from './PriceTag';
-export { StyledLogin } from './LoginStyles';
 export { StyledProduct } from './ProductStyles';
 export { StyledProductsList } from './ProductsListStyles';
 export { StyledSignUp } from './SignUpStyles';

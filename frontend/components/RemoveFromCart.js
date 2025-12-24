@@ -12,14 +12,6 @@ const LargeButton = styled.button`
   }
 `;
 
-const REMOVE_FROM_CART_MUTATION = gql`
-  mutation REMOVE_FROM_CART_MUTATION($id: ID!) {
-    removeFromCart(id: $id) {
-      id
-    }
-  }
-`;
-
 const update = (cache, payload) => {
   cache.evict(cache.identify(payload.data.removeFromCart));
 }
@@ -46,6 +38,14 @@ const RemoveFromCart = ({ id }) => {
       Remove
     </LargeButton>
   );
-}
+};
+
+const REMOVE_FROM_CART_MUTATION = gql`
+  mutation REMOVE_FROM_CART_MUTATION($id: ID!) {
+    removeFromCart(id: $id) {
+      id
+    }
+  }
+`;
 
 export { RemoveFromCart };

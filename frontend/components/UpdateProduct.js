@@ -5,45 +5,6 @@ import { useForm } from '../lib';
 import { StyledForm } from './styles';
 import { DisplayError, LargeButton } from '.';
 
-const SINGLE_PRODUCT_QUERY = gql`
-  query SINGLE_PRODUCT_QUERY($id: ID!) {
-    product(where: { id: $id }) {
-      id
-      brand
-      title
-      description
-      category
-      image
-      price
-    }
-  }
-`;
-
-const UPDATE_PRODUCT_MUTATION = gql`
-  mutation UPDATE_PRODUCT_MUTATION(
-    $id: ID!
-    $brand: String
-    $title: String
-    $description: String
-    $category: String
-    $image: String
-    $price: Int
-  ) {
-    updateProduct(
-      id: $id
-      data: { brand: $brand, title: $title, description: $description, category: $category, image: $image price: $price }
-    ) {
-      id
-      brand
-      title
-      description
-      category
-      image
-      price
-    }
-  }
-`;
-
 const StyledUpdateProduct = styled.div`
   display: flex;
   flex-direction: column;
@@ -179,6 +140,45 @@ const UpdateProduct = ({ id }) => {
       </StyledForm>
     </StyledUpdateProduct>
   );
-}
+};
+
+const SINGLE_PRODUCT_QUERY = gql`
+  query SINGLE_PRODUCT_QUERY($id: ID!) {
+    product(where: { id: $id }) {
+      id
+      brand
+      title
+      description
+      category
+      image
+      price
+    }
+  }
+`;
+
+const UPDATE_PRODUCT_MUTATION = gql`
+  mutation UPDATE_PRODUCT_MUTATION(
+    $id: ID!
+    $brand: String
+    $title: String
+    $description: String
+    $category: String
+    $image: String
+    $price: Int
+  ) {
+    updateProduct(
+      id: $id
+      data: { brand: $brand, title: $title, description: $description, category: $category, image: $image price: $price }
+    ) {
+      id
+      brand
+      title
+      description
+      category
+      image
+      price
+    }
+  }
+`;
 
 export { UpdateProduct };
