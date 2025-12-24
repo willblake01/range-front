@@ -78,6 +78,10 @@ const Account = () => {
           <label>Password</label>
           <span>••••••••</span>
         </InfoRow>
+        <InfoRow>
+          <label>Permissions</label>
+          {user.permissions.map(permission => <span>{permission}</span>)}
+        </InfoRow>
       </InfoSection>
     </StyledAccount>
   );
