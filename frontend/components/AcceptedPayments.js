@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AcceptedPaymentsStyle = styled.div`
+const StyledAcceptedPayments = styled.div`
   .accepted-payment {
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@ const AcceptedPaymentsStyle = styled.div`
 `;
 
 const AcceptedPayments = () => (
-  <AcceptedPaymentsStyle>
+  <StyledAcceptedPayments>
     <div className='accepted-payment'>
       <div className='section'>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/credit_card.png'
@@ -40,7 +40,7 @@ const AcceptedPayments = () => (
         />
       </div>
     </div>
-  </AcceptedPaymentsStyle>
+  </StyledAcceptedPayments>
 );
 
 export { AcceptedPayments };

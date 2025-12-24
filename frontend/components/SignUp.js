@@ -89,7 +89,7 @@ const SignUp = () => {
             value={inputs.password}
             onChange={handleChange}
           />
-          <LargeButton type='submit' buttonText='Sign Up' />
+          <LargeButton type='submit'>Submit</LargeButton>
         </fieldset>
       </Form>
     </StyledSignUp>

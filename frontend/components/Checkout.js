@@ -16,11 +16,7 @@ import { calcTotalPrice, formatMoney } from '../lib';
 import { LargeButton } from '../components';
 import { CURRENT_USER_QUERY, useUser } from '.';
 
-const TotalPrice = styled.p`
-  margin-bottom: 1rem;
-`;
-
-const OrderStyles = styled.div`
+const StyledOrder = styled.div`
   padding: 20px;
   position: relative;
   background: white;
@@ -59,22 +55,40 @@ const OrderStyles = styled.div`
   }
 `;
 
-  const CheckoutFormStyles = styled.form`
-    box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 5px;
-    padding: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-height: 168px;
-    
-    button {
-      margin-top: auto;
-    }
-  `;
+const StyledCartItem = styled.li`
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--lightGrey);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  img {
+    margin-right: 1rem;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+`;
 
-const TestCardInfo = styled.div`
+const StyledCheckoutForm = styled.form`
+  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 168px;
+  
+  button {
+    margin-top: auto;
+  }
+`;
+
+const StyledTotalPrice = styled.p`
+  margin-bottom: 1rem;
+`;
+
+const StyledTestCardInfo = styled.div`
   font-size: 1.2rem;
   color: var(--grey);
   background: var(--offWhite);
@@ -89,25 +103,11 @@ const TestCardInfo = styled.div`
 const stripeLib = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
 const CartItem = ({ cartItem }) => {
-  const CartItemStyles = styled.li`
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--lightGrey);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  img {
-    margin-right: 1rem;
-  }
-  h3,
-  p {
-    margin: 0;
-  }
-`;
-
   const { item } = cartItem;
   if (!item) return null;
 
   return (
-    <CartItemStyles>
+    <StyledCartItem>
       <img
         width='100'
         src={item.image}
@@ -122,7 +122,7 @@ const CartItem = ({ cartItem }) => {
           </em>
         </p>
       </div>
-    </CartItemStyles>
+    </StyledCartItem>
   );
 };
 
@@ -194,7 +194,7 @@ const CheckoutForm = () => {
 
   return (
     <>
-      {user ? <OrderStyles>
+      {user ? <StyledOrder>
         <header>
           <h1>{user?.firstName} {user?.lastName}'s order</h1>
         </header>
@@ -204,22 +204,22 @@ const CheckoutForm = () => {
           ))}
         </ul>
         <footer>
-          <TotalPrice>{formatMoney(calcTotalPrice(user?.cart))}</TotalPrice>
+          <StyledTotalPrice>{formatMoney(calcTotalPrice(user?.cart))}</StyledTotalPrice>
         </footer>
-      </OrderStyles> : null}
-      <CheckoutFormStyles onSubmit={handleSubmit}>
+      </StyledOrder> : null}
+      <StyledCheckoutForm onSubmit={handleSubmit}>
         {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
         {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-        <TestCardInfo>
+        <StyledTestCardInfo>
           <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
-        </TestCardInfo>
+        </StyledTestCardInfo>
         <CardElement />
         <Link
           href='/order-confirmation'
         >
-          <LargeButton type='submit' buttonText='Place Order' />
+          <LargeButton>Checkout</LargeButton>
         </Link>
-      </CheckoutFormStyles>
+      </StyledCheckoutForm>
     </>
   );
 };

@@ -56,7 +56,7 @@ const RequestResetPassword = () => {
             value={inputs.email}
             onChange={handleChange}
           />
-          <LargeButton type='submit' buttonText='Submit' />
+          <LargeButton type='submit'>Submit</LargeButton>
         </fieldset>
       </Form>
     </StyledRequestResetPassword>

@@ -107,7 +107,7 @@ const Header = () => (
         target='_blank'
         rel='noopener noreferrer'
       >
-          <LargeButton buttonText='Learn More' />
+          <LargeButton>Learn More</LargeButton>
       </a>
     </Section>
     <Cart />

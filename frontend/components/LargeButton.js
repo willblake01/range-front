@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledLargeButton = styled.button`
-  background-color: var(--green);
+  background-color: ${({ buttonColor }) => buttonColor ||  'var(--green)'};
   color: var(--offWhite);
   width: 180px;
   height: 42px;
@@ -15,13 +15,13 @@ const StyledLargeButton = styled.button`
   text-decoration: none;
   vertical-align: middle;
   border: 1px solid transparent;
-  :hover {
+  &:hover {
     color:  blue;
   }
 `;
 
-const LargeButton = ({buttonColor, buttonText}) => (
-  <StyledLargeButton buttonColor={buttonColor} buttonText={buttonText}>{buttonText}</StyledLargeButton>
+const LargeButton = ({ children, buttonColor, ...props }) => (
+  <StyledLargeButton type='button' buttonColor={buttonColor} {...props}>{children}</StyledLargeButton>
 );
 
 export { LargeButton };

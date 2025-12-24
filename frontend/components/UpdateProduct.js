@@ -136,7 +136,7 @@ const UpdateProduct = ({ id }) => {
             value={inputs.price}
             onChange={handleChange}
           />
-          <LargeButton type='submit' buttonText='Submit' />
+          <LargeButton type='submit'>Submit</LargeButton>
         </fieldset>
       </Form>
     </StyledUpdateProduct>

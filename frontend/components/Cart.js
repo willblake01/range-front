@@ -3,7 +3,7 @@ import { calcTotalPrice, formatMoney, useCart } from '../lib';
 import { CloseButton, LargeButton, RemoveFromCart, useUser } from '.';
 import { StyledCart } from './Cart.styles';
 
-const CartItemStyles = styled.li`
+const StyledCartItem = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid var(--lightGrey);
   display: grid;
@@ -17,16 +17,16 @@ const CartItemStyles = styled.li`
   }
 `;
 
-const TotalPrice = styled.p`
-    margin-bottom: 1rem;
-  `;
+const StyledTotalPrice = styled.p`
+  margin-bottom: 1rem;
+`;
 
 const CartItem = ({ cartItem }) => {
   const { item } = cartItem;
   if (!item) return null;
 
   return (
-    <CartItemStyles>
+    <StyledCartItem>
       <img
         width='100'
         src={item.image}
@@ -42,7 +42,7 @@ const CartItem = ({ cartItem }) => {
         </p>
       </div>
       <RemoveFromCart id={cartItem.id} />
-    </CartItemStyles>
+    </StyledCartItem>
   );
 };
 
@@ -64,9 +64,9 @@ const Cart = () => {
         ))}
       </ul>
       <footer>
-        <TotalPrice>{formatMoney(calcTotalPrice(user.cart))}</TotalPrice>
+        <StyledTotalPrice>{formatMoney(calcTotalPrice(user.cart))}</StyledTotalPrice>
       </footer>
-      <LargeButton buttonText='Checkout' />
+      <LargeButton>Checkout</LargeButton>
     </StyledCart>
   );
 };

@@ -98,7 +98,7 @@ const Login = () => {
             value={inputs.password}
             onChange={handleChange}
           />
-          <LargeButton type='submit' buttonText='Login' />
+          <LargeButton type='submit'>Submit</LargeButton>
           <StyledLink>
             <Link href='/reset-password'>Forgot Password?</Link>
           </StyledLink>

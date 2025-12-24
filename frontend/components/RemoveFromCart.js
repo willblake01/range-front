@@ -32,7 +32,6 @@ const RemoveFromCart = ({ id }) => {
     <LargeButton
       onClick={removeFromCart}
       disabled={loading}
-      type='button'
       title='Remove This Item from Cart'
     >
       Remove

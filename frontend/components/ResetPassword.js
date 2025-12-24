@@ -61,7 +61,7 @@ const ResetPassword = ({ token }) => {
             value={inputs.confirmPassword}
             onChange={handleChange}
           />
-          <LargeButton type='submit' buttonText='Reset Password' />
+          <LargeButton>Reset Password</LargeButton>
         </fieldset>
       </Form>
     </StyledResetPassword>

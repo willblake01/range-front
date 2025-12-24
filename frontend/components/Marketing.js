@@ -21,7 +21,7 @@ const Marketing = () => (
   <StyledMarketing>
     <Link href='/clearance'>
       <PositionedButton>
-        <LargeButton buttonText='Shop Clearance' />
+        <LargeButton>Shop Clearance</LargeButton>
       </PositionedButton>
     </Link>
   </StyledMarketing>

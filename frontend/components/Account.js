@@ -12,7 +12,7 @@ const StyledAccount = styled.div`
   width: 100%;
 `;
 
-const AccountHeader = styled.div`
+const StyledAccountHeader = styled.div`
   margin-bottom: 3rem;
   h2 {
     font-size: 3rem;
@@ -61,33 +61,33 @@ const Account = () => {
   return (
     <PleaseLogin>
       <StyledAccount>
-      <AccountHeader>
-        <h2>Account Information</h2>
-      </AccountHeader>
-      
-      <InfoSection>
-        <InfoRow>
-          <label>First Name</label>
-          <span>{user?.firstName}</span>
-        </InfoRow>
-        <InfoRow>
-          <label>Last Name</label>
-          <span>{user?.lastName}</span>
-        </InfoRow>
-        <InfoRow>
-          <label>Email</label>
-          <span>{user?.email}</span>
-        </InfoRow>
-        <InfoRow>
-          <label>Password</label>
-          <span>••••••••</span>
-        </InfoRow>
-        <InfoRow>
-          <label>Permissions</label>
-          {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
-        </InfoRow>
-      </InfoSection>
-    </StyledAccount>
+        <StyledAccountHeader>
+          <h2>Account Information</h2>
+        </StyledAccountHeader>
+        
+        <InfoSection>
+          <InfoRow>
+            <label>First Name</label>
+            <span>{user?.firstName}</span>
+          </InfoRow>
+          <InfoRow>
+            <label>Last Name</label>
+            <span>{user?.lastName}</span>
+          </InfoRow>
+          <InfoRow>
+            <label>Email</label>
+            <span>{user?.email}</span>
+          </InfoRow>
+          <InfoRow>
+            <label>Password</label>
+            <span>••••••••</span>
+          </InfoRow>
+          <InfoRow>
+            <label>Permissions</label>
+            {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
+          </InfoRow>
+        </InfoSection>
+      </StyledAccount>
     </PleaseLogin>
   );
 };
