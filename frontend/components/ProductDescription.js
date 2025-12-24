@@ -122,15 +122,15 @@ const ProductDescription = ({ id }) => {
           <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className='buttonGrid'>
-        {hasPermission(user, 'ADMIN') && (
-          <>
-            <a href={`/product/${product.id}/update`}>
-              Edit ✏️
-            </a>
-            <DeleteProduct id={product.id}>
-              Delete 🗑️
-            </DeleteProduct>
-          </>
+        {hasPermission(user, 'ADMIN') || hasPermission(user, 'PRODUCTUPDATE') && (
+          <a href={`/product/${product.id}/update`}>
+            Edit ✏️
+          </a>
+        )}
+        {hasPermission(user, 'ADMIN' || hasPermission(user, 'PRODUCTDELETE')) && (
+          <DeleteProduct id={product.id}>
+            Delete 🗑️
+          </DeleteProduct>
         )}
         <a
           href='/learn-more'
