@@ -41,7 +41,7 @@ const countItemsInAnOrder = (order) => {
 };
 
 const OrdersPage = () => {
-  const { data, error, loading } = useQuery(USER_ORDERS_QUERY);
+  const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
   
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
@@ -50,12 +50,12 @@ const OrdersPage = () => {
 
   return (
     <>
-    <AlternateHeader />
+      <AlternateHeader />
       <Head>
-        <title>Your Orders ({orders.length})</title>
+        <title>Your Orders ({orders?.length})</title>
       </Head>
       <StyledOrders>
-        <h2>You have {orders.length} orders!</h2>
+        <h2>You have {orders?.length} orders!</h2>
 
         {orders.map((order) => (
           <OrderItemStyles>

@@ -89,16 +89,15 @@ const SINGLE_PRODUCT_QUERY = gql`
 `;
 
 const ProductDescription = ({ id }) => {
-  const user = useUser();
-
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: {
       id,
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  const { user } = useUser();
 
+  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
   const { product } = data;
@@ -122,12 +121,12 @@ const ProductDescription = ({ id }) => {
           <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className='buttonGrid'>
-        {hasPermission(user, 'ADMIN') || hasPermission(user, 'PRODUCTUPDATE') && (
+        {hasPermission(user, 'PRODUCTUPDATE') && (
           <a href={`/product/${product.id}/update`}>
             Edit ✏️
           </a>
         )}
-        {hasPermission(user, 'ADMIN' || hasPermission(user, 'PRODUCTDELETE')) && (
+        {hasPermission(user, 'PRODUCTDELETE') && (
           <DeleteProduct id={product.id}>
             Delete 🗑️
           </DeleteProduct>

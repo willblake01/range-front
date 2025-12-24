@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { perPage } from '../../config';
 import { ProductsListStyles } from '../styles';
-import { Product } from './components';
+import { DisplayError, Product } from './components';
 
 const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
@@ -24,8 +24,10 @@ const Products = ({ page }) => {
       first: perPage,
     },
   });
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
+
   return (
     <>
       <ProductsListStyles>

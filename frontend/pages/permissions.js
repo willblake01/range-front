@@ -5,7 +5,7 @@ const PermissionsPage = () => {
   return (
     <>
       <AlternateHeader />
-      <RequirePermission permission='ADMIN'>
+      <RequirePermission permission='PERMISSIONUPDATE'>
         <Permissions />
       </RequirePermission>
       <Footer />

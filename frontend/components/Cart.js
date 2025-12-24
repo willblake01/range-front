@@ -47,7 +47,7 @@ const CartItem = ({ cartItem }) => {
 }
 
 const Cart = () => {
-  const user = useUser();
+  const { user } = useUser();
   const { cartOpen, closeCart } = useCart();
 
   if (!user) return null;
@@ -59,7 +59,7 @@ const Cart = () => {
         <CloseButton onClick={closeCart}>&times;</CloseButton>
       </header>
       <ul>
-        {user.cart.map((cartItem) => (
+        {user?.cart?.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </ul>

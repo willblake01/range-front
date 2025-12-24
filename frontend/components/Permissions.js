@@ -143,12 +143,15 @@ const UserPermissions = ({ user }) => {
 };
 
 const Permissions = () => {
-  const user = useUser();
+  const { user } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
   const { data, loading, error } = useQuery(ALL_USERS_QUERY, {
     skip: !hasAccess,
   });
+
+  if (loading) return 'Loading...';
+  if (error) return <DisplayError error={error} />;
 
   return (
     <PermissionsStyles>

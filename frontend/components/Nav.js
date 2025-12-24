@@ -73,8 +73,10 @@ const StyledButton = styled.button `
 
 const Nav = () => {
   const router = useRouter();
-  const user = useUser();
+  const { user } = useUser();
   const { openCart } = useCart();
+
+  const displayLogin = !user && router.pathname !== '/login' && router.pathname !== '/account';
 
   return (
     <NavStyles data-test='nav'>
@@ -91,7 +93,7 @@ const Nav = () => {
             Cart
           </StyledButton>
           <CartCount
-              count={user.cart.reduce(
+              count={user?.cart?.reduce(
                 (tally, cartItem) =>
                   tally + (cartItem.item ? cartItem.quantity : 0),
                 0
@@ -99,7 +101,7 @@ const Nav = () => {
             />
         </div>
       )}
-      {!user && router.pathname !== '/login' && (
+      {displayLogin && (
         <div style={{ marginLeft: 'auto' }}>
           <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>
             Login

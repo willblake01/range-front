@@ -50,6 +50,9 @@ const UpdateProduct = ({ id }) => {
     variables: { id },
   });
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <DisplayError error={error} />;
+
   // 2. We need to get the mutation to update the product
   const [
     updateProduct,

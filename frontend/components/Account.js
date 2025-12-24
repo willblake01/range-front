@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useUser } from '.';
+import { PleaseLogin, useUser } from '.';
 
 const StyledAccount = styled.div`
   display: flex;
@@ -52,11 +52,11 @@ const InfoRow = styled.div`
 `;
 
 const Account = () => {
-  const user = useUser();
-  if (!user) return null;
+  const { user } = useUser();
 
   return (
-    <StyledAccount>
+    <PleaseLogin>
+      <StyledAccount>
       <AccountHeader>
         <h2>Account Information</h2>
       </AccountHeader>
@@ -64,15 +64,15 @@ const Account = () => {
       <InfoSection>
         <InfoRow>
           <label>First Name</label>
-          <span>{user.firstName}</span>
+          <span>{user?.firstName}</span>
         </InfoRow>
         <InfoRow>
           <label>Last Name</label>
-          <span>{user.lastName}</span>
+          <span>{user?.lastName}</span>
         </InfoRow>
         <InfoRow>
           <label>Email</label>
-          <span>{user.email}</span>
+          <span>{user?.email}</span>
         </InfoRow>
         <InfoRow>
           <label>Password</label>
@@ -80,10 +80,11 @@ const Account = () => {
         </InfoRow>
         <InfoRow>
           <label>Permissions</label>
-          {user.permissions.map(permission => <span>{permission}</span>)}
+          {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
         </InfoRow>
       </InfoSection>
     </StyledAccount>
+    </PleaseLogin>
   );
 }
 

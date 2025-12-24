@@ -53,14 +53,18 @@ const Login = () => {
     resetForm();
 
     if (res) {
+
       // Redirect to the redirect param, or reload current page
       const redirectPath = router.query.redirect;
+      
       if (redirectPath) {
         router.push(redirectPath);
       } else if (router.pathname === '/login') {
+
         // If on login page, go home
         router.push('/');
       } else {
+
         // Otherwise reload current page to show logged-in state
         router.reload();
       }

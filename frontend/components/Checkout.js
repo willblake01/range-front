@@ -141,7 +141,7 @@ const CartItem = ({ cartItem }) => {
 };
 
 const CheckoutForm = () => {
-  const user = useUser();
+  const { user } = useUser();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();

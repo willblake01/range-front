@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { Product } from '.';
+import { DisplayError, Product } from '.';
 import { ProductsListStyles } from '../components/styles';
 
 const BACKPACKS_QUERY = gql`
@@ -20,8 +20,9 @@ const BACKPACKS_QUERY = gql`
 
 const Backpacks = () => {
   const { data, error, loading } = useQuery(BACKPACKS_QUERY);
+
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <DisplayError error={error} />;
 
   return (
     <>
