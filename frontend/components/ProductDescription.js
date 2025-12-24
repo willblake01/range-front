@@ -124,7 +124,7 @@ const ProductDescription = ({ id }) => {
         <div className='buttonGrid'>
         {hasPermission(user, 'ADMIN') && (
           <>
-            <a href={`/update/${product.id}`}>
+            <a href={`/product/${product.id}/update`}>
               Edit ✏️
             </a>
             <DeleteProduct id={product.id}>
