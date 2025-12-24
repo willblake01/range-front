@@ -1,13 +1,12 @@
-import { StyledSignUp } from '../components/styles';
 import { AlternateHeader, Footer, SignUp } from '../components';
 
 const SignUpPage = () => {
   return (
     <>
       <AlternateHeader />
-      <StyledSignUp>
+      <SignUp>
         <SignUp />
-      </StyledSignUp>
+      </SignUp>
       <Footer />
     </>
   );

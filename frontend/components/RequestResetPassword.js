@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useForm } from '../lib';
-import { StyledForm } from './styles';
-import { DisplayError, LargeButton } from '.';
+import { DisplayError, Form, LargeButton } from '.';
 
 const StyledRequestResetPassword = styled.div`
   display: flex;
@@ -39,7 +38,7 @@ const RequestResetPassword = () => {
 
   return (
     <StyledRequestResetPassword>
-      <StyledForm method='POST' onSubmit={handleSubmit}>
+      <Form method='POST' onSubmit={handleSubmit}>
         <h2>Request Password Reset</h2>
         <DisplayError error={error} />
         <fieldset>
@@ -59,7 +58,7 @@ const RequestResetPassword = () => {
           />
           <LargeButton type='submit' buttonText='Submit' />
         </fieldset>
-      </StyledForm>
+      </Form>
     </StyledRequestResetPassword>
   );
 };

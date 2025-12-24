@@ -1,7 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { DisplayError, Product } from '.';
-import { StyledProductsList } from '../components/styles';
+import { DisplayError, Product, ProductsList } from '.';
 
 const Backpacks = () => {
   const { data, error, loading } = useQuery(BACKPACKS_QUERY);
@@ -11,9 +10,9 @@ const Backpacks = () => {
 
   return (
     <>
-      <StyledProductsList>
+      <ProductsList>
         {data.backpacks.map(product => <Product product={product} key={product.id} />)}
-      </StyledProductsList>
+      </ProductsList>
     </>
   );
 };

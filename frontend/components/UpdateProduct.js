@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
-import { StyledForm } from './styles';
-import { DisplayError, LargeButton } from '.';
+import { DisplayError, Form, LargeButton } from '.';
 
 const StyledUpdateProduct = styled.div`
   display: flex;
@@ -47,7 +46,7 @@ const UpdateProduct = ({ id }) => {
   // 3. We need the form to handle the updates
   return (
     <StyledUpdateProduct>
-      <StyledForm
+      <Form
         onSubmit={async (e) => {
           e.preventDefault();
 
@@ -74,6 +73,8 @@ const UpdateProduct = ({ id }) => {
         }}
       >
         <DisplayError error={error || updateError} />
+
+        <h2>Update Product</h2>
         <fieldset disabled={updateLoading} aria-busy={updateLoading}>
           <label htmlFor='brand'>
             Brand
@@ -137,7 +138,7 @@ const UpdateProduct = ({ id }) => {
           />
           <LargeButton type='submit' buttonText='Submit' />
         </fieldset>
-      </StyledForm>
+      </Form>
     </StyledUpdateProduct>
   );
 };

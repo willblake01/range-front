@@ -1,31 +1,46 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import { StyledOrder } from '../../components/styles';
 import { formatMoney } from '../../lib';
 import { DisplayError } from '../../components';
 
-const SINGLE_ORDER_QUERY = gql`
-  query SINGLE_ORDER_QUERY($id: ID!) {
-    order: Order(where: { id: $id }) {
-      id
-      charge
-      total
-      user {
-        id
-      }
-      items {
-        id
-        title
-        description
-        price
-        quantity
-        image
+const StyledOrder = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid var(--offWhite);
+  box-shadow: var(--bs);
+  padding: 2rem;
+  border-top: 10px solid red;
+  & > p {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: 0;
+    border-bottom: 1px solid var(--offWhite);
+    span {
+      padding: 1rem;
+      &:first-child {
+        font-weight: 900;
+        text-align: right;
       }
     }
   }
+  .order-item {
+    border-bottom: 1px solid var(--offWhite);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+    grid-gap: 2rem;
+    margin: 2rem 0;
+    padding-bottom: 2rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 `;
-const SingleOrderPage = ({ query }) => {
+
+const Order = ({ query }) => {
   const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
     variables: { id: query.id },
   });
@@ -74,4 +89,25 @@ const SingleOrderPage = ({ query }) => {
   );
 };
 
-export default SingleOrderPage;
+const SINGLE_ORDER_QUERY = gql`
+  query SINGLE_ORDER_QUERY($id: ID!) {
+    order: Order(where: { id: $id }) {
+      id
+      charge
+      total
+      user {
+        id
+      }
+      items {
+        id
+        title
+        description
+        price
+        quantity
+        image
+      }
+    }
+  }
+`;
+
+export default Order;

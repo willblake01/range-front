@@ -1,4 +1,3 @@
-import { StyledLogin } from '../components/styles';
 import { AlternateHeader, Footer, Login } from '../components';
 
 const LoginPage = () => {

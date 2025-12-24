@@ -16,5 +16,3 @@ const ProductsPage = () => {
 };
 
 export default ProductsPage;
-
-export { ProductsPage };

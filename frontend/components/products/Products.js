@@ -1,21 +1,8 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { perPage } from '../../config';
-import { StyledProductsList } from '../styles';
-import { DisplayError, Product } from './components';
-
-const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
-    products(skip: $skip, first: $first) {
-      id
-      brand
-      title
-      price
-      description
-      image
-    }
-  }
-`;
+import { DisplayError, ProductsList } from '..'
+import { Product } from './components';
 
 const Products = ({ page }) => {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, {
@@ -30,13 +17,26 @@ const Products = ({ page }) => {
 
   return (
     <>
-      <StyledProductsList>
+      <ProductsList>
         {data.products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
-      </StyledProductsList>
+      </ProductsList>
     </>
   );
-}
+};
+
+const ALL_PRODUCTS_QUERY = gql`
+  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    products(skip: $skip, first: $first) {
+      id
+      brand
+      title
+      price
+      description
+      image
+    }
+  }
+`;
 
 export { ALL_PRODUCTS_QUERY, Products };

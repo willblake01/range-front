@@ -3,8 +3,7 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import { useForm } from '../lib';
-import { StyledForm } from './styles';
-import { ALL_PRODUCTS_QUERY, DisplayError, LargeButton } from '.';
+import { ALL_PRODUCTS_QUERY, DisplayError, Form, LargeButton } from '.';
 
 const StyledCreate = styled.div`
   display: flex;
@@ -33,7 +32,7 @@ const CreateProduct = () => {
   
   return (
     <StyledCreate>
-      <StyledForm
+      <Form
         onSubmit={async (e) => {
           e.preventDefault();
 
@@ -49,6 +48,7 @@ const CreateProduct = () => {
       >
         <DisplayError error={error} />
 
+        <h2>Create Product</h2>
         <fieldset disabled={loading} aria-busy={loading}>
           <label htmlFor='brand'>
             Brand
@@ -112,7 +112,7 @@ const CreateProduct = () => {
           />
           <LargeButton type='submit' buttonText='Submit' />
         </fieldset>
-      </StyledForm>
+      </Form>
     </StyledCreate>
   );
 };

@@ -3,9 +3,8 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
-import { StyledForm } from './styles';
 import { useForm } from '../lib';
-import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
+import { CURRENT_USER_QUERY, DisplayError, Form, LargeButton } from '.';
 
 const StyledLogin = styled.div`
   display: flex;
@@ -72,7 +71,7 @@ const Login = () => {
 
   return (
     <StyledLogin>
-      <StyledForm method='POST' onSubmit={handleSubmit}>
+      <Form method='POST' onSubmit={handleSubmit}>
         <DisplayError error={error} />
         <StyledLink>
           <Link href='/signup'>Create account</Link>
@@ -104,7 +103,7 @@ const Login = () => {
             <Link href='/reset-password'>Forgot Password?</Link>
           </StyledLink>
         </fieldset>
-      </StyledForm>
+      </Form>
     </StyledLogin>
   );
 };

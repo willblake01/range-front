@@ -5,6 +5,7 @@ import { ServerStyleSheet } from 'styled-components'
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     resetIdCounter();
+    
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 

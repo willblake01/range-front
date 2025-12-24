@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-const StyledTable = styled.table`
+const Table = styled.table`
   border-spacing: 0;
   width: 100%;
   border: 1px solid var(--offWhite);
@@ -29,4 +29,4 @@ const StyledTable = styled.table`
   }
 `;
 
-export { StyledTable };
+export { Table };
