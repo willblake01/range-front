@@ -3,7 +3,7 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
-import { Form } from './styles';
+import { StyledForm } from './styles';
 import { useForm } from '../lib';
 import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
@@ -56,7 +56,7 @@ const Login = () => {
 
       // Redirect to the redirect param, or reload current page
       const redirectPath = router.query.redirect;
-      
+
       if (redirectPath) {
         router.push(redirectPath);
       } else if (router.pathname === '/login') {
@@ -72,7 +72,7 @@ const Login = () => {
   }
 
   return (
-    <Form method='POST' onSubmit={handleSubmit}>
+    <StyledForm method='POST' onSubmit={handleSubmit}>
       <DisplayError error={error} />
       <StyledLink>
         <Link href='/signup'>Create account</Link>
@@ -104,7 +104,7 @@ const Login = () => {
           <Link href='/reset-password'>Forgot Password?</Link>
         </StyledLink>
       </fieldset>
-    </Form>
+    </StyledForm>
   );
 }
 

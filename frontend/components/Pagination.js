@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
-import { PaginationStyles } from './styles';
+import { StyledPagination } from './styles';
 import { DisplayError } from '.';
 import { perPage } from '../config';
 
@@ -27,7 +27,7 @@ const Pagination = ({ page }) => {
   const pageCount = Math.ceil(count / perPage);
   
   return (
-    <PaginationStyles>
+    <StyledPagination>
       <Head>
         <title>
           Range Front - Page {page} of {pageCount}
@@ -47,7 +47,7 @@ const Pagination = ({ page }) => {
           Next →
         </Link>
       )}
-    </PaginationStyles>
+    </StyledPagination>
   );
 }
 

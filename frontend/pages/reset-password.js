@@ -1,18 +1,7 @@
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { AlternateHeader, Footer, RequestReset, ResetPassword } from '../components';
+import { AlternateHeader, Footer, RequestResetPassword, ResetPassword } from '../components';
 
-const StyledReset = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
-  color: var(--green);
-  padding: 40px;
-  height: 100%;
-`;
-
-const ResetPage = () => {
+const ResetPasswordPage = () => {
   const router = useRouter();
   const { resetToken } = router.query;
   
@@ -20,9 +9,7 @@ const ResetPage = () => {
     return (
       <>
         <AlternateHeader />
-        <StyledReset>
-          <RequestReset />
-        </StyledReset>
+        <RequestResetPassword />
         <Footer />
       </>
     );
@@ -30,12 +17,10 @@ const ResetPage = () => {
   return (
     <>
       <AlternateHeader />
-      <StyledReset>
-        <ResetPassword token={resetToken} />
-      </StyledReset>
+      <ResetPassword token={resetToken} />
       <Footer />
     </>
   );
 }
 
-export default ResetPage;
+export default ResetPasswordPage;

@@ -3,7 +3,7 @@ import { useLazyQuery } from '@apollo/client';
 import { useCombobox } from 'downshift';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
-import { DropDown, DropDownItem, StyledSearch } from './styles';
+import { StyledDropDown, StyledDropDownItem, StyledSearch } from './styles';
 
 const SEARCH_PRODUCTS_QUERY = gql`
   query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
@@ -77,25 +77,25 @@ const Search = () => {
         </div>
       </StyledSearch>
 
-      <DropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
+      <StyledDropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
         <div {...getMenuProps()}>
           {isOpen &&
             items.map((item, index) => (
-              <DropDownItem
+              <StyledDropDownItem
                 {...getItemProps({ item, index })}
                 key={item.id}
                 highlighted={index === highlightedIndex}
               >
                 <img src={item.image} alt={item.title} width='50' />
                 {item.title}
-              </DropDownItem>
+              </StyledDropDownItem>
             ))}
 
           {isOpen && !items.length && !loading && (
-            <DropDownItem>Sorry, No items found for {inputValue}</DropDownItem>
+            <StyledDropDownItem>Sorry, No items found for {inputValue}</StyledDropDownItem>
           )}
         </div>
-      </DropDown>
+      </StyledDropDown>
     </>
   );
 };

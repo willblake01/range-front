@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CartStyles, CloseButton } from './styles';
+import { StyledCart, StyledCloseButton } from './styles';
 import { calcTotalPrice, formatMoney, useCart } from '../lib';
 import { LargeButton, RemoveFromCart, useUser } from '.';
 
@@ -53,10 +53,10 @@ const Cart = () => {
   if (!user) return null;
 
   return (
-    <CartStyles open={cartOpen}>
+    <StyledCart open={cartOpen}>
       <header>
         <h1>{user.firstName} {user.lastName}'s cart</h1>
-        <CloseButton onClick={closeCart}>&times;</CloseButton>
+        <StyledCloseButton onClick={closeCart}>&times;</StyledCloseButton>
       </header>
       <ul>
         {user?.cart?.map((cartItem) => (
@@ -67,7 +67,7 @@ const Cart = () => {
         <TotalPrice>{formatMoney(calcTotalPrice(user.cart))}</TotalPrice>
       </footer>
       <LargeButton buttonText='Checkout' />
-    </CartStyles>
+    </StyledCart>
   );
 }
 

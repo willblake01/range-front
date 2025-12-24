@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
-import { Form } from './styles';
+import { StyledForm } from './styles';
 import { DisplayError, LargeButton } from '.';
 
 const SINGLE_PRODUCT_QUERY = gql`
@@ -50,9 +50,6 @@ const UpdateProduct = ({ id }) => {
     variables: { id },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <DisplayError error={error} />;
-
   // 2. We need to get the mutation to update the product
   const [
     updateProduct,
@@ -72,14 +69,16 @@ const UpdateProduct = ({ id }) => {
     }
   );
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <DisplayError error={error} />;
 
   // 3. We need the form to handle the updates
   return (
-    <Form
+    <StyledForm
       onSubmit={async (e) => {
         e.preventDefault();
-        const res = await updateProduct({
+
+        await updateProduct({
           variables: {
             id,
             brand: inputs.brand,
@@ -165,7 +164,7 @@ const UpdateProduct = ({ id }) => {
         />
         <LargeButton type='submit' buttonText='Submit' />
       </fieldset>
-    </Form>
+    </StyledForm>
   );
 }
 

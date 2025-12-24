@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const OrderStyles = styled.div`
+const StyledOrder = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   border: 1px solid var(--offWhite);
@@ -36,4 +36,4 @@ const OrderStyles = styled.div`
   }
 `;
 
-export { OrderStyles };
+export { StyledOrder };

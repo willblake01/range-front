@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useForm } from '../lib';
-import { Form } from './styles';
+import { StyledForm } from './styles';
 import { CURRENT_USER_QUERY, DisplayError, LargeButton } from '.';
 
 const SIGNUP_MUTATION = gql`
@@ -40,7 +40,7 @@ const SignUp = () => {
   };
 
   return (
-    <Form method='POST' onSubmit={handleSubmit}>
+    <StyledForm method='POST' onSubmit={handleSubmit}>
       <h2>Account Signup</h2>
       <DisplayError error={error} />
       <fieldset>
@@ -91,7 +91,7 @@ const SignUp = () => {
         />
         <LargeButton type='submit' buttonText='Sign Up' />
       </fieldset>
-    </Form>
+    </StyledForm>
   );
 }
 

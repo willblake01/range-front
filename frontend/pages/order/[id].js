@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import { OrderStyles } from '../../components/styles';
+import { StyledOrder } from '../../components/styles';
 import { formatMoney } from '../../lib';
 import { DisplayError } from '../../components';
 
@@ -36,7 +36,7 @@ const SingleOrderPage = ({ query }) => {
   const { order } = data;
   
   return (
-    <OrderStyles>
+    <StyledOrder>
       <Head>
         <title>Range Front - {order.id}</title>
       </Head>
@@ -70,7 +70,7 @@ const SingleOrderPage = ({ query }) => {
           </div>
         ))}
       </div>
-    </OrderStyles>
+    </StyledOrder>
   );
 };
 

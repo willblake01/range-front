@@ -1,7 +1,8 @@
+import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useForm } from '../lib';
-import { Form } from './styles';
+import { StyledForm } from './styles';
 import { DisplayError, LargeButton } from '.';
 
 const RESET_MUTATION = gql`
@@ -23,6 +24,16 @@ const RESET_MUTATION = gql`
   }
 `;
 
+const StyledResetPassword = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: 40px;
+  height: 100%;
+`;
+
 const ResetPassword = ({ token }) => {
   const { inputs, handleChange, resetForm } = useForm({
     resetToken: token,
@@ -41,37 +52,39 @@ const ResetPassword = ({ token }) => {
   }
   
   return (
-    <Form method='POST' onSubmit={handleSubmit}>
-      <h2>Reset Your Password</h2>
-      <DisplayError error={error} />
-      <fieldset disabled={loading}>
-        {data?.resetPassword && (
-          <p>Success! You can now <a href='/login'>login</a> with your new password.</p>
-        )}
+    <StyledResetPassword>
+      <StyledForm method='POST' onSubmit={handleSubmit}>
+        <h2>Reset Your Password</h2>
+        <DisplayError error={error} />
+        <fieldset disabled={loading}>
+          {data?.resetPassword && (
+            <p>Success! You can now <a href='/login'>login</a> with your new password.</p>
+          )}
 
-        <label htmlFor='password'>
-          New Password
-        </label>
-        <input
-          type='password'
-          name='password'
-          autoComplete='new-password'
-          value={inputs.password}
-          onChange={handleChange}
-        />
-        <label htmlFor='confirmPassword'>
-          Confirm Password
-        </label>
-        <input
-          type='password'
-          name='confirmPassword'
-          autoComplete='new-password'
-          value={inputs.confirmPassword}
-          onChange={handleChange}
-        />
-        <LargeButton type='submit' buttonText='Reset Password' />
-      </fieldset>
-    </Form>
+          <label htmlFor='password'>
+            New Password
+          </label>
+          <input
+            type='password'
+            name='password'
+            autoComplete='new-password'
+            value={inputs.password}
+            onChange={handleChange}
+          />
+          <label htmlFor='confirmPassword'>
+            Confirm Password
+          </label>
+          <input
+            type='password'
+            name='confirmPassword'
+            autoComplete='new-password'
+            value={inputs.confirmPassword}
+            onChange={handleChange}
+          />
+          <LargeButton type='submit' buttonText='Reset Password' />
+        </fieldset>
+      </StyledForm>
+    </StyledResetPassword>
   );
 }
 

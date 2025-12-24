@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-const PaginationStyles = styled.div`
+const StyledPagination = styled.div`
   text-align: center;
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -26,4 +26,4 @@ const PaginationStyles = styled.div`
   }
 `;
 
-export { PaginationStyles };
+export { StyledPagination };

@@ -5,9 +5,11 @@ const StyledAccount = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: 40px;
+  height: 100%;
+  width: 100%;
 `;
 
 const AccountHeader = styled.div`
@@ -23,8 +25,10 @@ const AccountHeader = styled.div`
 `;
 
 const InfoSection = styled.section`
+  max-width: 600px;
   background: white;
-  padding: 3rem;
+  margin: 0 auto;
+  padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;

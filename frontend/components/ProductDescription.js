@@ -89,13 +89,13 @@ const SINGLE_PRODUCT_QUERY = gql`
 `;
 
 const ProductDescription = ({ id }) => {
+  const { user } = useUser();
+
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: {
       id,
     },
   });
-
-  const { user } = useUser();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
