@@ -1,9 +1,11 @@
-import { AlternateHeader, Checkout, Footer } from '../components';
+import { AlternateHeader, Checkout, Footer, PleaseLogin } from '../components';
 
 const CheckoutPage = ({query}) => (
   <>
     <AlternateHeader />
-    <Checkout page={parseFloat(query.page) || 1} />
+    <PleaseLogin>
+      <Checkout page={parseFloat(query.page) || 1} />
+    </PleaseLogin>
     <Footer />
   </>
 );

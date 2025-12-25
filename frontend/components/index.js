@@ -5,7 +5,7 @@ export { Account } from './Account';
 export { AddToCart } from './AddToCart';
 export { AlternateHeader } from './AlternateHeader';
 export { Backpacks, BACKPACKS_QUERY } from './Backpacks';
-export { Cart, CartItem } from './Cart';
+export { Cart } from './cart';
 export { CartCount } from './CartCount';
 export { Checkout } from './Checkout';
 export { StyledCloseButton } from './CloseButton';

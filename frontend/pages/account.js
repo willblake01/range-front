@@ -1,9 +1,11 @@
-import { Account, AlternateHeader, Footer } from '../components';
+import { Account, AlternateHeader, Footer, PleaseLogin } from '../components';
 
 const AccountPage = ({query}) => (
   <>
     <AlternateHeader />
-    <Account />
+    <PleaseLogin>
+      <Account />
+    </PleaseLogin>
     <Footer />
   </>
 );

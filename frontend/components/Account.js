@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PleaseLogin, useUser } from '.';
+import { useUser } from '.';
 
 const StyledAccount = styled.div`
   display: flex;
@@ -59,36 +59,34 @@ const Account = () => {
   const { user } = useUser();
 
   return (
-    <PleaseLogin>
-      <StyledAccount>
-        <StyledAccountHeader>
-          <h2>Account Information</h2>
-        </StyledAccountHeader>
-        
-        <StyledInfoSection>
-          <StyledInfoRow>
-            <label>First Name</label>
-            <span>{user?.firstName}</span>
-          </StyledInfoRow>
-          <StyledInfoRow>
-            <label>Last Name</label>
-            <span>{user?.lastName}</span>
-          </StyledInfoRow>
-          <StyledInfoRow>
-            <label>Email</label>
-            <span>{user?.email}</span>
-          </StyledInfoRow>
-          <StyledInfoRow>
-            <label>Password</label>
-            <span>••••••••</span>
-          </StyledInfoRow>
-          <StyledInfoRow>
-            <label>Permissions</label>
-            {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
-          </StyledInfoRow>
-        </StyledInfoSection>
-      </StyledAccount>
-    </PleaseLogin>
+    <StyledAccount>
+      <StyledAccountHeader>
+        <h2>Account Information</h2>
+      </StyledAccountHeader>
+      
+      <StyledInfoSection>
+        <StyledInfoRow>
+          <label>First Name</label>
+          <span>{user?.firstName}</span>
+        </StyledInfoRow>
+        <StyledInfoRow>
+          <label>Last Name</label>
+          <span>{user?.lastName}</span>
+        </StyledInfoRow>
+        <StyledInfoRow>
+          <label>Email</label>
+          <span>{user?.email}</span>
+        </StyledInfoRow>
+        <StyledInfoRow>
+          <label>Password</label>
+          <span>••••••••</span>
+        </StyledInfoRow>
+        <StyledInfoRow>
+          <label>Permissions</label>
+          {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
+        </StyledInfoRow>
+      </StyledInfoSection>
+    </StyledAccount>
   );
 };
 

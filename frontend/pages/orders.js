@@ -1,10 +1,12 @@
-import { AlternateHeader, Orders, Footer } from '../components';
+import { AlternateHeader, Orders, Footer, PleaseLogin } from '../components';
 
 const OrdersPage = () => {
   return (
     <>
       <AlternateHeader />
-      <Orders />
+      <PleaseLogin>
+        <Orders />
+      </PleaseLogin>
       <Footer />
     </>
   );
