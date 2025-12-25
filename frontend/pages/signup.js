@@ -4,9 +4,7 @@ const SignUpPage = () => {
   return (
     <>
       <AlternateHeader />
-      <SignUp>
-        <SignUp />
-      </SignUp>
+      <SignUp />
       <Footer />
     </>
   );

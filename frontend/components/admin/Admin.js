@@ -3,13 +3,15 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import { DisplayError, useUser } from '..';
 import { hasPermission } from '../../lib';
-import { UserPermissions } from './components';
+import { Permissions } from './components';
+import { SignUp } from '..'
 
-const StyledPermissions = styled.div`
+const StyledAdmin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  color: var(--green);
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
@@ -61,7 +63,7 @@ const StyledUserTable = styled.table`
   }
 `;
 
-const Permissions = () => {
+const Admin = () => {
   const { user } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
@@ -73,10 +75,11 @@ const Permissions = () => {
   if (error) return <DisplayError error={error} />;
 
   return (
-    <StyledPermissions>
-      <h2>Manage Permissions</h2>
+    <StyledAdmin>
       {loading && <p>Loading...</p>}
       {error && <DisplayError error={error} />}
+
+      <h2>Manage Permissions</h2>
       {data && (
         <StyledUserTable>
           <thead>
@@ -88,12 +91,15 @@ const Permissions = () => {
           </thead>
           <tbody>
             {data.users.map((user) => (
-              <UserPermissions user={user} key={user.id} />
+              <Permissions user={user} key={user.id} />
             ))}
           </tbody>
         </StyledUserTable>
       )}
-    </StyledPermissions>
+
+      <h2>Create User</h2>
+      <SignUp />
+    </StyledAdmin>
   );
 };
 
@@ -109,4 +115,4 @@ const ALL_USERS_QUERY = gql`
   }
 `;
 
-export { Permissions };
+export { Admin };

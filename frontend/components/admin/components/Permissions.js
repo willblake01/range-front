@@ -11,7 +11,7 @@ const possiblePermissions = [
   'PERMISSIONUPDATE',
 ];
 
-const UserPermissions = ({ user }) => {
+const Permissions = ({ user }) => {
   const [updatePermissions, { loading, error }] = useMutation(
     UPDATE_PERMISSIONS_MUTATION
   );
@@ -72,4 +72,4 @@ const UPDATE_PERMISSIONS_MUTATION = gql`
   }
 `;
 
-export { UserPermissions };
+export { Permissions };

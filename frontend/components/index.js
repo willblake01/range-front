@@ -1,4 +1,5 @@
 export { About } from './About';
+export { Admin } from './admin';
 export { AcceptedPayments } from './AcceptedPayments';
 export { Account } from './Account';
 export { AddToCart } from './AddToCart';
@@ -24,7 +25,6 @@ export { Orders } from './Orders';
 export { Page } from './Page';
 export { Pagination, PAGINATION_QUERY } from './Pagination';
 export { Parallax } from './Parallax';
-export { Permissions } from './permissions/Permissions';
 export { PleaseLogin } from './PleaseLogin';
 export { StyledPriceTag } from './PriceTag';
 export { Product } from './products/components';

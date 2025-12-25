@@ -10,8 +10,12 @@ const StyledSignUp = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
+  margin: 0;
   padding: 40px;
   height: 100%;
+  h2 {
+    margin: 0;
+  }
 `;
 
 const SignUp = () => {

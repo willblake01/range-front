@@ -83,7 +83,13 @@ const Nav = () => {
       <Link href='/'>Home</Link>
       <Link href='/products'>Shop</Link>
       <Link href='/about'>About</Link>
-      {user?.permissions?.includes('ADMIN') ? <Link href='/permissions'>Permissions</Link> : null}
+      {
+        user?.permissions?.includes('ADMIN')
+          ?
+        <Link href='/admin'>Admin</Link>
+          :
+        null
+      }
       {user && (
         <div className='user-links'>
           <Link href='/account'>Account</Link>
