@@ -62,8 +62,6 @@ const countItemsInAnOrder = (order) => {
 
 const Orders = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
-  
-  if (error) return <DisplayError error={error} />
 
   useEffect(() => {
     if (loading) NProgress.start();
@@ -72,7 +70,10 @@ const Orders = () => {
     return () => NProgress.done();
   }, [loading]);
 
-  const orders = data?.product;
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const orders = data?.orders;
   if (!orders) return <p>No orders found.</p>;
 
   return (

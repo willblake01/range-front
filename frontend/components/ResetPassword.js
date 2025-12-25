@@ -39,6 +39,8 @@ const ResetPassword = ({ token }) => {
 
     return () => NProgress.done();
   }, [loading]);
+
+  if (loading) return <p>Loading...</p>;
   
   return (
     <StyledResetPassword>

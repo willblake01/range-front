@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
+import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { ALL_PRODUCTS_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
@@ -22,13 +24,24 @@ const CreateProduct = () => {
     price: '',
     description: '',
   });
-  const [createProduct, { loading, error, data }] = useMutation(
+  
+  const [createProduct, { loading, error }] = useMutation(
     CREATE_PRODUCT_MUTATION,
     {
       variables: inputs,
       refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
   
   return (
     <StyledCreate>
@@ -46,8 +59,6 @@ const CreateProduct = () => {
           });
         }}
       >
-        <DisplayError error={error} />
-
         <h2>Create Product</h2>
         <fieldset disabled={loading} aria-busy={loading}>
           <label htmlFor='brand'>

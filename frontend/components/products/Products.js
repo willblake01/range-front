@@ -14,14 +14,15 @@ const Products = ({ page }) => {
     },
   });
 
-  if (error) return <DisplayError error={error} />;
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
 
     return () => NProgress.done();
   }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <>

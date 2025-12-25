@@ -6,7 +6,6 @@ import { DisplayError, Product, StyledProductsList } from '.';
 
 const Backpacks = () => {
   const { data, loading, error } = useQuery(BACKPACKS_QUERY);
-  if (error) return <DisplayError error={error} />;
 
   useEffect(() => {
     if (loading) NProgress.start();
@@ -15,10 +14,16 @@ const Backpacks = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const backpacks = data?.backpacks ?? [];
+  if (!backpacks) return <p>Backpacks not found.</p>;
+
   return (
     <>
       <StyledProductsList>
-        {data?.backpacks?.map(product => <Product product={product} key={product.id} />)}
+        {backpacks?.map(product => <Product product={product} key={product.id} />)}
       </StyledProductsList>
     </>
   );

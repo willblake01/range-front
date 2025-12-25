@@ -12,8 +12,12 @@ const useUser = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (loading) return <p>Loading...</p>;
+
+  const user = data?.user ?? null;
+
   return {
-    user: data?.user ?? null,
+    user,
     loading,
     error
   };

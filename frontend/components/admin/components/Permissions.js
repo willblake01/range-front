@@ -36,12 +36,14 @@ const Permissions = ({ user }) => {
     });
   };
 
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
   return (
     <tr>
       <td>{user.firstName} {user.lastName}</td>
       <td>{user.email}</td>
       <td>
-        {error && <DisplayError error={error} />}
         {possiblePermissions?.map((permission) => (
           <label key={permission} htmlFor={`${user.id}-permission-${permission}`}>
             <input

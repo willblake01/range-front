@@ -40,8 +40,8 @@ const UpdateProduct = ({ id }) => {
     }
   );
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
 
   // 3. We need the form to handle the updates
   return (

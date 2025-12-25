@@ -51,11 +51,13 @@ const SignUp = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (loading) return <p>Loading...</p>;
+
   return (
     <StyledSignUp>
       <StyledForm method='POST' onSubmit={handleSubmit}>
-        <h2>Account Signup</h2>
         <DisplayError error={error} />
+        <h2>Account Signup</h2>
         <fieldset>
           {data?.createUser && (
             <p>

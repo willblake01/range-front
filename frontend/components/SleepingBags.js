@@ -7,8 +7,6 @@ import { DisplayError, Product, StyledProductsList } from '.';
 const SleepingBags = () => {
   const { data, loading, error } = useQuery(SLEEPING_BAGS_QUERY);
 
-  if (error) return <DisplayError error={error} />;
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
@@ -16,9 +14,15 @@ const SleepingBags = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const sleepingBags = data?.sleepingBags ?? [];
+  if (!sleepingBags) return <p>Sleeping Bags not found.</p>;
+
   return (
     <StyledProductsList>
-      {data?.sleepingBags?.map(product => <Product product={product} key={product.id} />)}
+      {sleepingBags?.map(product => <Product product={product} key={product.id} />)}
     </StyledProductsList>
   );
 };

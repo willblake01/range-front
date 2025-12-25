@@ -10,8 +10,8 @@ const typeDefsFile = importSchema(path.resolve(__dirname, '../data/schema.graphq
 const typeDefs = gql(typeDefsFile);
 
 const resolvers = {
-  Mutation,
-  Query
+  Query,
+  Mutation
 };
 
 const schema = makeExecutableSchema({

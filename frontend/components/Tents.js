@@ -7,8 +7,6 @@ import { DisplayError, Product, StyledProductsList } from '.';
 const Tents = () => {
   const { data, loading, error } = useQuery(TENTS_QUERY);
 
-  if (error) return <DisplayError error={error} />;
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
@@ -16,9 +14,15 @@ const Tents = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const tents = data?.tents ?? [];
+  if (!tents) return <p>Tents not found.</p>;
+
   return (
     <StyledProductsList>
-      {data?.tents?.map(product => <Product product={product} key={product.id} />)}
+      {tents?.map(product => <Product product={product} key={product.id} />)}
     </StyledProductsList>
   );
 };

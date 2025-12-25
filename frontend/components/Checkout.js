@@ -8,7 +8,7 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 import { useState } from 'react';
-import nProgress from 'nprogress';
+import NProgress from 'nprogress';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/dist/client/router';
@@ -126,18 +126,21 @@ const CartItem = ({ cartItem }) => {
 };
 
 const CheckoutForm = () => {
+  const router = useRouter();
+
   const { user } = useUser();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
-  const [checkout, { error: graphQLError }] = useMutation(
+  
+  const [checkout, { loading: graphqlLoading, error: graphQLError }] = useMutation(
     CREATE_ORDER_MUTATION,
     {
       refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
+
   const handleSubmit = async (e) => {
 
     // 1. Stop the form from submitting and turn the loader on
@@ -145,7 +148,7 @@ const CheckoutForm = () => {
     setLoading(true);
 
     // 2. Start the page transition
-    nProgress.start();
+    if (loading) NProgress.start();
 
     // 3. Create the payment method via stripe (Token comes back here if successful)
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -157,7 +160,7 @@ const CheckoutForm = () => {
     // 4. Handle any errors from stripe
     if (error) {
       setError(error);
-      nProgress.done();
+      NProgress.done();
 
       return; // stops the checkout from happening
     }
@@ -182,12 +185,12 @@ const CheckoutForm = () => {
 
       // 8. turn the loader off
       setLoading(false);
-      nProgress.done();
+      NProgress.done();
     } catch (err) {
       console.error(err);
       setError(err);
       setLoading(false);
-      nProgress.done();
+      NProgress.done();
     };
   };
 

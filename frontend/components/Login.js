@@ -78,6 +78,8 @@ const Login = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (loading) return <p>Loading...</p>;
+
   return (
     <StyledLogin>
       <StyledForm method='POST' onSubmit={handleSubmit}>

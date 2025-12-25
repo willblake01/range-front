@@ -48,17 +48,18 @@ const Order = ({ query }) => {
     variables: { id: query.id },
   });
 
-  if (error) return <DisplayError error={error} />;
-
-  const order = data?.order;
-  if (!order) return <p>No order found.</p>;
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
 
     return () => NProgress.done();
   }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const order = data?.order;
+  if (!order) return <p>No order found.</p>;
   
   return (
     <StyledOrder>

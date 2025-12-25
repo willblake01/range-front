@@ -47,6 +47,8 @@ const RequestResetPassword = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (loading) return <p>Loading...</p>;
+
   return (
     <StyledRequestResetPassword>
       <StyledForm method='POST' onSubmit={handleSubmit}>

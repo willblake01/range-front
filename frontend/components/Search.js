@@ -58,6 +58,7 @@ const StyledDropDownItem = styled.div`
 
 const Search = () => {
   const router = useRouter();
+  
   const [findItems, { loading, data }] = useLazyQuery(SEARCH_PRODUCTS_QUERY, {
     fetchPolicy: 'no-cache',
   });

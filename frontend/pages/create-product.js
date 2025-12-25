@@ -1,13 +1,15 @@
 import { AlternateHeader } from '../components/AlternateHeader';
-import { CreateProduct, Footer, RequirePermission } from '../components';
+import { CreateProduct, Footer, PleaseLogin, RequirePermission } from '../components';
 
 const CreateProductPage = () => {
   return (
     <>
       <AlternateHeader />
-      <RequirePermission permission='PRODUCTCREATE'>
-        <CreateProduct />
-      </RequirePermission>
+      <PleaseLogin>
+        <RequirePermission permission='PRODUCTCREATE'>
+          <CreateProduct />
+        </RequirePermission>
+      </PleaseLogin>
       <Footer />
     </>
   );

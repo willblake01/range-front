@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+import NProgress from 'nprogress';
+import { DisplayError } from '.';
 
 const update = (cache, payload) => {
   console.log(payload);
@@ -15,6 +18,17 @@ const DeleteProduct = ({ id, children }) => {
       update,
     }
   );
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+  
 
   return (
     <button

@@ -73,8 +73,6 @@ const Admin = () => {
     skip: !hasAccess,
   });
 
-  if (error) return <DisplayError error={error} />;
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
@@ -82,13 +80,15 @@ const Admin = () => {
     return () => NProgress.done();
   }, [loading]);
 
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const users = data?.users ?? [];
+
   return (
     <StyledAdmin>
-      {loading && <p>Loading...</p>}
-      {error && <DisplayError error={error} />}
-
       <h2>Manage Permissions</h2>
-      {data && (
+      {users && (
         <StyledUserTable>
           <thead>
             <tr>
@@ -98,7 +98,7 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.users?.map((user) => (
+            {users?.map((user) => (
               <Permissions user={user} key={user.id} />
             ))}
           </tbody>

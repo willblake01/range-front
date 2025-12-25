@@ -36,17 +36,18 @@ const StyledPagination = styled.div`
 const Pagination = ({ page }) => {
   const { data, loading, error } = useQuery(PAGINATION_QUERY);
 
-  if (error) return <DisplayError error={error} />;
-
-  const count = data?.productsConnection?.aggregate?.count;
-  const pageCount = Math.ceil(count / perPage);
-
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
 
     return () => NProgress.done();
   }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const count = data?.productsConnection?.aggregate?.count;
+  const pageCount = Math.ceil(count / perPage);
   
   return (
     <StyledPagination>
