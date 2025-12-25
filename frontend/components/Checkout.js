@@ -25,7 +25,6 @@ const StyledOrder = styled.div`
   min-width: 500px;
   transform: translateX(100%);
   transition: all 0.3s;
-  z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
   transform: translateX(0);
@@ -217,7 +216,7 @@ const CheckoutForm = () => {
         <Link
           href='/order-confirmation'
         >
-          <LargeButton>Checkout</LargeButton>
+          <LargeButton buttonColor='var(--green)'>Checkout</LargeButton>
         </Link>
       </StyledCheckoutForm>
     </>
