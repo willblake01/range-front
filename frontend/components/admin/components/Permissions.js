@@ -42,7 +42,7 @@ const Permissions = ({ user }) => {
       <td>{user.email}</td>
       <td>
         {error && <DisplayError error={error} />}
-        {possiblePermissions.map((permission) => (
+        {possiblePermissions?.map((permission) => (
           <label key={permission} htmlFor={`${user.id}-permission-${permission}`}>
             <input
               id={`${user.id}-permission-${permission}`}

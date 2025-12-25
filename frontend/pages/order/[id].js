@@ -42,7 +42,7 @@ const StyledOrder = styled.div`
 `;
 
 const Order = ({ query }) => {
-  const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
+  const { data, loading, error } = useQuery(SINGLE_ORDER_QUERY, {
     variables: { id: query.id },
   });
 
@@ -73,7 +73,7 @@ const Order = ({ query }) => {
         <span>{order.items.length}</span>
       </p>
       <div className='Productitems'Product>
-        {order.items.map((item) => (
+        {order?.items?.map((item) => (
           <div className='Productorder-item'Product key={item.id}>
             <img src={item.image} alt={item.title} />
             <div className='Productitem-details'Product>

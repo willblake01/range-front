@@ -362,7 +362,7 @@ const Mutations = {
     console.log('Payment Intent created:', paymentIntent.id);
 
     // 4. Convert the cartItems to orderItems
-    const orderItems = user.cart.map(cartItem => {
+    const orderItems = user?.cart?.map(cartItem => {
       const orderItem = {
         ...cartItem.item,
         quantity: cartItem.quantity,
@@ -386,7 +386,7 @@ const Mutations = {
     });
 
     // 6. Clean up - clear the user's cart, delete cartItems
-    const cartItemIds = user.cart.map(cartItem => cartItem.id);
+    const cartItemIds = user?.cart?.map(cartItem => cartItem.id);
     await ctx.db.cartItem.deleteMany({
       where: {
         id: { in: cartItemIds },

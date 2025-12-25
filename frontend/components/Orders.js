@@ -74,7 +74,7 @@ const Orders = () => {
       <StyledOrders>
         <h2>You have {orders?.length} orders!</h2>
 
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <StyledOrderItem>
             <Link href={`/order/${order.id}`}>
               <div className='order-meta'>
@@ -86,7 +86,7 @@ const Orders = () => {
                 <p>{formatMoney(order.total)}</p>
               </div>
               <div className='images'>
-                {order.items.map((item) => (
+                {order?.items?.map((item) => (
                   <img
                     key={`image-${item.id}`}
                     src={item.image}

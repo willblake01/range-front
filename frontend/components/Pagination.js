@@ -32,9 +32,9 @@ const StyledPagination = styled.div`
 `;
 
 const Pagination = ({ page }) => {
-  const { error, loading, data } = useQuery(PAGINATION_QUERY);
+  const { data, loading, error } = useQuery(PAGINATION_QUERY);
 
-  if (loading) return 'Loading...';
+  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
   const { count } = data.productsConnection.aggregate;

@@ -111,7 +111,7 @@ const Search = () => {
       <StyledDropDown isOpen={isOpen && (items.length > 0 || (!loading && inputValue))}>
         <div {...getMenuProps()}>
           {isOpen &&
-            items.map((item, index) => (
+            items?.map((item, index) => (
               <StyledDropDownItem
                 {...getItemProps({ item, index })}
                 key={item.id}

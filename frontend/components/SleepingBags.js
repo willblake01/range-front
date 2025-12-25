@@ -3,14 +3,14 @@ import gql from 'graphql-tag';
 import { DisplayError, Product, StyledProductsList } from '.';
 
 const SleepingBags = () => {
-  const { data, error, loading } = useQuery(SLEEPING_BAGS_QUERY);
+  const { data, loading, error } = useQuery(SLEEPING_BAGS_QUERY);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
   return (
     <StyledProductsList>
-      {data.sleepingBags.map(product => <Product product={product} key={product.id} />)}
+      {data?.sleepingBags?.map(product => <Product product={product} key={product.id} />)}
     </StyledProductsList>
   );
 };

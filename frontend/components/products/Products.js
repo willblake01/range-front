@@ -5,7 +5,7 @@ import { DisplayError, StyledProductsList } from '..'
 import { Product } from './components';
 
 const Products = ({ page }) => {
-  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, {
+  const { data, loading, error } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,
@@ -18,7 +18,7 @@ const Products = ({ page }) => {
   return (
     <>
       <StyledProductsList>
-        {data.products.map((product) => (
+        {data?.products?.map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </StyledProductsList>

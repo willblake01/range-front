@@ -71,7 +71,7 @@ const Admin = () => {
     skip: !hasAccess,
   });
 
-  if (loading) return 'Loading...';
+  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
   return (
@@ -90,7 +90,7 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {data.users.map((user) => (
+            {data?.users?.map((user) => (
               <Permissions user={user} key={user.id} />
             ))}
           </tbody>
