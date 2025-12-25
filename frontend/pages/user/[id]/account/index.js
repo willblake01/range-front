@@ -1,4 +1,4 @@
-import { Account, AlternateHeader, Footer, PleaseLogin } from '../components';
+import { Account, AlternateHeader, Footer, PleaseLogin } from '../../../../components';
 
 const AccountPage = ({query}) => (
   <>

@@ -92,8 +92,8 @@ const Nav = () => {
       }
       {user && (
         <div className='user-links'>
-          <Link href='/account'>Account</Link>
-          <Link href='/orders'>Orders</Link>
+          <Link href={`/user/${user.id}/account`}>Account</Link>
+          <Link href={`/user/${user.id}/orders`}>Orders</Link>
           <SignOut />
           <StyledButton type='button' onClick={openCart}>
             Cart

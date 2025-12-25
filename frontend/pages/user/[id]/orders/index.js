@@ -1,4 +1,4 @@
-import { AlternateHeader, Orders, Footer, PleaseLogin } from '../components';
+import { AlternateHeader, Orders, Footer, PleaseLogin } from '../../../../components';
 
 const OrdersPage = () => {
   return (

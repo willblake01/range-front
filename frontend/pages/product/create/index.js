@@ -1,5 +1,5 @@
-import { AlternateHeader } from '../components/AlternateHeader';
-import { CreateProduct, Footer, PleaseLogin, RequirePermission } from '../components';
+import { AlternateHeader } from '../../../components/AlternateHeader';
+import { CreateProduct, Footer, PleaseLogin, RequirePermission } from '../../../components';
 
 const CreateProductPage = () => {
   return (
