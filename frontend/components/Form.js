@@ -45,7 +45,6 @@ const StyledForm = styled.form`
   button,
   input[type='submit'] {
     width: auto;
-    background: var(--darkOrange);
     color: white;
     border: 0;
     font-size: 2rem;
