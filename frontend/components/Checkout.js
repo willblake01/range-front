@@ -216,7 +216,7 @@ const CheckoutForm = () => {
         <Link
           href='/order-confirmation'
         >
-          <LargeButton buttonColor='var(--green)'>Checkout</LargeButton>
+          <LargeButton buttonColor='var(--darkOrange)'>Place Order</LargeButton>
         </Link>
       </StyledCheckoutForm>
     </>

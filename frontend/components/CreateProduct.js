@@ -110,7 +110,7 @@ const CreateProduct = () => {
             value={inputs.price}
             onChange={handleChange}
           />
-          <LargeButton type='submit'>Submit</LargeButton>
+          <LargeButton  type='submit'>Submit</LargeButton>
         </fieldset>
       </StyledForm>
     </StyledCreate>

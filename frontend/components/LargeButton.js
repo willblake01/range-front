@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledLargeButton = styled.button`
-  background-color: ${({ buttonColor }) => buttonColor ||  'var(--darkOrange)'};
+  background-color: ${({ buttonColor }) => buttonColor ||  'var(--green)'};
   color: var(--offWhite);
   width: 180px;
   height: 42px;
