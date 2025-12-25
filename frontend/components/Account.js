@@ -24,7 +24,7 @@ const StyledAccountHeader = styled.div`
   }
 `;
 
-const InfoSection = styled.section`
+const StyledInfoSection = styled.section`
   max-width: 600px;
   background: white;
   margin: 0 auto;
@@ -33,7 +33,7 @@ const InfoSection = styled.section`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
-const InfoRow = styled.div`
+const StyledInfoRow = styled.div`
   display: grid;
   grid-template-columns: 140px 1fr;
   padding: 1.5rem 0;
@@ -65,28 +65,28 @@ const Account = () => {
           <h2>Account Information</h2>
         </StyledAccountHeader>
         
-        <InfoSection>
-          <InfoRow>
+        <StyledInfoSection>
+          <StyledInfoRow>
             <label>First Name</label>
             <span>{user?.firstName}</span>
-          </InfoRow>
-          <InfoRow>
+          </StyledInfoRow>
+          <StyledInfoRow>
             <label>Last Name</label>
             <span>{user?.lastName}</span>
-          </InfoRow>
-          <InfoRow>
+          </StyledInfoRow>
+          <StyledInfoRow>
             <label>Email</label>
             <span>{user?.email}</span>
-          </InfoRow>
-          <InfoRow>
+          </StyledInfoRow>
+          <StyledInfoRow>
             <label>Password</label>
             <span>••••••••</span>
-          </InfoRow>
-          <InfoRow>
+          </StyledInfoRow>
+          <StyledInfoRow>
             <label>Permissions</label>
             {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
-          </InfoRow>
-        </InfoSection>
+          </StyledInfoRow>
+        </StyledInfoSection>
       </StyledAccount>
     </PleaseLogin>
   );
