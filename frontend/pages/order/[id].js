@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import NProgress from 'nprogress';
 import { formatMoney } from '../../lib';
 import { DisplayError } from '../../components';
 
@@ -46,10 +48,17 @@ const Order = ({ query }) => {
     variables: { id: query.id },
   });
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
-  const { order } = data;
+  const order = data?.order;
+  if (!order) return <p>No order found.</p>;
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
   
   return (
     <StyledOrder>

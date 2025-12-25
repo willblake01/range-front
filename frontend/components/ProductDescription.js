@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
+import NProgress from 'nprogress';
 import { formatMoney, hasPermission } from '../lib';
 import { AddToCart, DisplayError, DeleteProduct, useUser } from '.';
 
@@ -84,10 +86,18 @@ const ProductDescription = ({ id }) => {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <DisplayError error={error} />;
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
 
-  const { product } = data;
+    return () => NProgress.done();
+  }, [loading]);
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
+
+  const product = data?.product;
+  if (!product) return <p>Product not found.</p>;
 
   return (
     <StyledProductDescription>

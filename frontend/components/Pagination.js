@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
+import NProgress from 'nprogress';
 import { DisplayError } from '.';
 import { perPage } from '../config';
 
@@ -34,11 +36,17 @@ const StyledPagination = styled.div`
 const Pagination = ({ page }) => {
   const { data, loading, error } = useQuery(PAGINATION_QUERY);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
-  const { count } = data.productsConnection.aggregate;
+  const count = data?.productsConnection?.aggregate?.count;
   const pageCount = Math.ceil(count / perPage);
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
   
   return (
     <StyledPagination>

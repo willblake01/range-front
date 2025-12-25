@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
+import NProgress from 'nprogress';
 import { formatMoney } from '../lib';
 import { DisplayError } from '../components';
 
@@ -61,10 +63,17 @@ const countItemsInAnOrder = (order) => {
 const Orders = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
   
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />
 
-  const { orders } = data;
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
+
+  const orders = data?.product;
+  if (!orders) return <p>No orders found.</p>;
 
   return (
     <>

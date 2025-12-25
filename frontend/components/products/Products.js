@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import NProgress from 'nprogress';
 import { perPage } from '../../config';
 import { DisplayError, StyledProductsList } from '..'
 import { Product } from './components';
@@ -12,8 +14,14 @@ const Products = ({ page }) => {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <>

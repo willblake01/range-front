@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
+import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { CURRENT_USER_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
@@ -35,7 +37,7 @@ const Login = () => {
     password: '',
   });
   
-  const [login, { data, loading, error }] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading, error }] = useMutation(LOGIN_MUTATION, {
     variables: inputs,
 
     // refetch the currently logged in user
@@ -65,9 +67,16 @@ const Login = () => {
 
         // Otherwise reload current page to show logged-in state
         router.reload();
-      }
-    }
-  }
+      };
+    };
+  };
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <StyledLogin>

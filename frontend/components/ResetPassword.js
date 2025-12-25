@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, StyledForm, LargeButton } from '.';
 
@@ -29,7 +31,14 @@ const ResetPassword = ({ token }) => {
     e.preventDefault();
     await reset().catch(console.error);
     resetForm();
-  }
+  };
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
   
   return (
     <StyledResetPassword>

@@ -1,12 +1,20 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import NProgress from 'nprogress';
 import { DisplayError, Product, StyledProductsList } from '.';
 
 const SleepingBags = () => {
   const { data, loading, error } = useQuery(SLEEPING_BAGS_QUERY);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <StyledProductsList>

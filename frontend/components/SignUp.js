@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { CURRENT_USER_QUERY, DisplayError, StyledForm, LargeButton } from '.';
 
@@ -41,6 +43,13 @@ const SignUp = () => {
 
     resetForm();
   };
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <StyledSignUp>

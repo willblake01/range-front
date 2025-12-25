@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import NProgress from 'nprogress';
 import { DisplayError, useUser } from '..';
 import { hasPermission } from '../../lib';
 import { Permissions } from './components';
@@ -71,8 +73,14 @@ const Admin = () => {
     skip: !hasAccess,
   });
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <StyledAdmin>

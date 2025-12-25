@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, StyledForm, LargeButton } from '.';
 
@@ -18,6 +20,7 @@ const RequestResetPassword = () => {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
   });
+
   const [signup, { data, loading, error }] = useMutation(
     REQUEST_RESET_MUTATION,
     {
@@ -27,6 +30,7 @@ const RequestResetPassword = () => {
       // refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,7 +38,14 @@ const RequestResetPassword = () => {
     await signup().catch(console.error);
 
     resetForm();
-  }
+  };
+
+  useEffect(() => {
+    if (loading) NProgress.start();
+    else NProgress.done();
+
+    return () => NProgress.done();
+  }, [loading]);
 
   return (
     <StyledRequestResetPassword>
