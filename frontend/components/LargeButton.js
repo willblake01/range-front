@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const StyledLargeButton = styled.button`
@@ -20,8 +21,11 @@ const StyledLargeButton = styled.button`
   }
 `;
 
-const LargeButton = ({ children, buttonColor, ...props }) => (
-  <StyledLargeButton type='button' buttonColor={buttonColor} {...props}>{children}</StyledLargeButton>
+const LargeButton = forwardRef(({ children, type='button', buttonColor, ...props }, ref) => (
+  <StyledLargeButton ref={ref} type={type} buttonColor={buttonColor} {...props}> 
+    {children}
+  </StyledLargeButton>
+  )
 );
 
 export { LargeButton };
