@@ -3,10 +3,9 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
-import { DisplayError, useUser } from '..';
+import { CreateProduct, DisplayError, SignUp, useUser } from '..';
 import { hasPermission } from '../../lib';
 import { Permissions } from './components';
-import { SignUp } from '..'
 
 const StyledAdmin = styled.div`
   display: flex;
@@ -88,6 +87,7 @@ const Admin = () => {
   return (
     <StyledAdmin>
       <h2>Manage Permissions</h2>
+
       {users && (
         <StyledUserTable>
           <thead>
@@ -104,6 +104,9 @@ const Admin = () => {
           </tbody>
         </StyledUserTable>
       )}
+
+      <h2>Create Product</h2>
+      <CreateProduct />
 
       <h2>Create User</h2>
       <SignUp />
