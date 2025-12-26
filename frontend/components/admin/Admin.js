@@ -3,8 +3,9 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
-import { CreateProduct, DisplayError, SignUp, useUser } from '..';
 import { hasPermission } from '../../lib';
+import { useUser } from '../../hooks';
+import { CreateProduct, DisplayError, SignUp } from '..';
 import { Permissions } from './components';
 
 const StyledAdmin = styled.div`

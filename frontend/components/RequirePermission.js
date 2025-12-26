@@ -1,5 +1,6 @@
+import { useUser } from '../hooks';
 import { hasPermission } from '../lib';
-import { DisplayError, useUser } from '.';
+import { DisplayError } from '.';
 
 const RequirePermission = ({ children, permission }) => {
   const { user, loading, error } = useUser();

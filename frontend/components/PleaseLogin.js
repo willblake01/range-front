@@ -1,4 +1,5 @@
-import { DisplayError, Login, useUser } from '.';
+import { useUser } from '../hooks';
+import { DisplayError, Login } from '.';
 
 const PleaseLogin = ({ children }) => {
   const { user, loading, error } = useUser();

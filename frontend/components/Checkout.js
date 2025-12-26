@@ -11,8 +11,9 @@ import NProgress from 'nprogress';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/dist/client/router';
+import { CURRENT_USER_QUERY, useUser } from '../hooks';
 import { calcTotalPrice, formatMoney } from '../lib';
-import { CURRENT_USER_QUERY, DisplayError, LargeButton, useUser } from '.';
+import { DisplayError, LargeButton } from '.';
 
 const StyledOrder = styled.div`
   padding: 20px;
@@ -192,44 +193,41 @@ const CheckoutForm = () => {
   };
 
   if (userError) return <DisplayError error={userError} />;
-  if (graphQLLoading) return <DisplayError error={graphQLLoading} />;
+  if (graphQLError) return <DisplayError error={graphQLError} />;
 
   if (userLoading) return <p>Loading...</p>;
   if (!user) return <p>Please sign in to checkout.</p>;
 
   return (
     <>
-      {
-        user
-          ?
-        <StyledOrder>
-          <header>
-            <h1>{user?.firstName} {user?.lastName}'s order</h1>
-          </header>
-          <ul>
-            {user?.cart?.map((cartItem) => (
-              <StyledOrderItem key={cartItem.id}>
-                <OrderItem orderItem={cartItem} />
-              </StyledOrderItem>
-            ))}
-          </ul>
-          <footer>
-            <StyledTotalPrice>
-              {formatMoney(calcTotalPrice(user?.cart))}
-            </StyledTotalPrice>
-          </footer>
-        </StyledOrder> : null}
-        <StyledCheckoutForm onSubmit={handleSubmit}>
-          {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
-          {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-          <StyledTestCardInfo>
-          <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
-        </StyledTestCardInfo>
-          <CardElement />
-          <LargeButton type='submit' buttonColor='var(--darkOrange)' disabled={submitting || graphQLLoading}>
-            Place Order
-          </LargeButton>
-        </StyledCheckoutForm>
+      <StyledOrder>
+        <header>
+          <h1>{user?.firstName} {user?.lastName}'s order</h1>
+        </header>
+        <ul>
+          {user?.cart?.map((cartItem) => (
+            <StyledOrderItem key={cartItem.id}>
+              <OrderItem orderItem={cartItem} />
+            </StyledOrderItem>
+          ))}
+        </ul>
+        <footer>
+          <StyledTotalPrice>
+            {formatMoney(calcTotalPrice(user?.cart))}
+          </StyledTotalPrice>
+        </footer>
+      </StyledOrder>
+      <StyledCheckoutForm onSubmit={handleSubmit}>
+        {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
+        {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
+        <StyledTestCardInfo>
+        <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
+      </StyledTestCardInfo>
+        <CardElement />
+        <LargeButton type='submit' buttonColor='var(--darkOrange)' disabled={submitting || graphQLLoading}>
+          Place Order
+        </LargeButton>
+      </StyledCheckoutForm>
     </>
   );
 };

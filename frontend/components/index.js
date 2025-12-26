@@ -45,4 +45,3 @@ export { StyledTable } from './Table'
 export { Tents, TENTS_QUERY } from './products/components/Tents';
 export { StyledTitle } from './Title';
 export { UpdateProduct } from './UpdateProduct';
-export { CURRENT_USER_QUERY, useUser } from './User';

@@ -3,7 +3,8 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { formatMoney, hasPermission } from '../lib';
-import { AddToCart, DisplayError, DeleteProduct, useUser } from '.';
+import { useUser } from '../hooks';
+import { AddToCart, DisplayError, DeleteProduct } from '.';
 
 const StyledProductDescription = styled.div`
   justify-content: center;
