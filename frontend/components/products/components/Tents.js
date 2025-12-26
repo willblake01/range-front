@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { DisplayError, Product, StyledProductsList } from '.';
+import { DisplayError, Product, StyledProductsList } from '../..';
 
-const SleepingBags = () => {
-  const { data, loading, error } = useQuery(SLEEPING_BAGS_QUERY);
+const Tents = () => {
+  const { data, loading, error } = useQuery(TENTS_QUERY);
 
   useEffect(() => {
     if (loading) NProgress.start();
@@ -17,19 +17,19 @@ const SleepingBags = () => {
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
 
-  const sleepingBags = data?.sleepingBags ?? [];
-  if (!sleepingBags) return <p>Sleeping Bags not found.</p>;
+  const tents = data?.tents ?? [];
+  if (!tents) return <p>Tents not found.</p>;
 
   return (
     <StyledProductsList>
-      {sleepingBags?.map(product => <Product product={product} key={product.id} />)}
+      {tents?.map(product => <Product product={product} key={product.id} />)}
     </StyledProductsList>
   );
 };
 
-const SLEEPING_BAGS_QUERY = gql`
-  query SLEEPING_BAGS_QUERY {
-    sleepingBags {
+const TENTS_QUERY = gql`
+  query TENTS_QUERY {
+    tents {
       id
       brand
       category
@@ -42,4 +42,4 @@ const SLEEPING_BAGS_QUERY = gql`
   }
 `;
 
-export { SLEEPING_BAGS_QUERY, SleepingBags };
+export { TENTS_QUERY, Tents };

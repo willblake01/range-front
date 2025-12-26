@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import { loadStripe } from '@stripe/stripe-js';
 import {
@@ -13,8 +12,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/dist/client/router';
 import { calcTotalPrice, formatMoney } from '../lib';
-import { LargeButton } from '../components';
-import { CURRENT_USER_QUERY, useUser } from '.';
+import { CURRENT_USER_QUERY, DisplayError, LargeButton, useUser } from '.';
 
 const StyledOrder = styled.div`
   padding: 20px;
@@ -38,7 +36,7 @@ const StyledOrder = styled.div`
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;
-    grid-template-columns: auto auto; */
+    grid-template-columns: auto auto;
     align-items: center;
     font-size: 3rem;
     font-weight: 900;
@@ -54,7 +52,7 @@ const StyledOrder = styled.div`
   }
 `;
 
-const StyledCartItem = styled.li`
+const StyledOrderItem = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid var(--lightGrey);
   display: grid;
@@ -101,12 +99,12 @@ const StyledTestCardInfo = styled.div`
 
 const stripeLib = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
-const CartItem = ({ cartItem }) => {
-  const { item } = cartItem;
+const OrderItem = ({ orderItem }) => {
+  const { item, quantity } = orderItem;
   if (!item) return null;
 
   return (
-    <StyledCartItem>
+    <>
       <img
         width='100'
         src={item.image}
@@ -115,26 +113,27 @@ const CartItem = ({ cartItem }) => {
       <div>
         <h3>{item.title}</h3>
         <p>
-          {formatMoney(item.price * cartItem.quantity)}-
+          {formatMoney(item.price * quantity)}-
           <em>
-            {cartItem.quantity} &times; {formatMoney(item.price)} each
+            {quantity} &times; {formatMoney(item.price)} each
           </em>
         </p>
       </div>
-    </StyledCartItem>
+    </>
   );
 };
 
 const CheckoutForm = () => {
   const router = useRouter();
-
-  const { user } = useUser();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+
+  const [error, setError] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const { user, loading: userLoading, error: userError } = useUser();
   
-  const [checkout, { loading: graphqlLoading, error: graphQLError }] = useMutation(
+  const [checkout, { loading: graphQLLoading, error: graphQLError }] = useMutation(
     CREATE_ORDER_MUTATION,
     {
       refetchQueries: [{ query: CURRENT_USER_QUERY }],
@@ -145,83 +144,101 @@ const CheckoutForm = () => {
 
     // 1. Stop the form from submitting and turn the loader on
     e.preventDefault();
-    setLoading(true);
+    setError(null);
 
     // 2. Start the page transition
-    if (loading) NProgress.start();
+    NProgress.start();
+    setSubmitting(true);
 
-    // 3. Create the payment method via stripe (Token comes back here if successful)
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
-    });
-    console.log(paymentMethod);
-
-    // 4. Handle any errors from stripe
-    if (error) {
-      setError(error);
-      NProgress.done();
-
-      return; // stops the checkout from happening
-    }
-    // 5. Send the token from step 3 to our keystone server, via a custom mutation!
     try {
-      const order = await checkout({
-        variables: {
-          token: paymentMethod.id,
-        },
+      // 3. Create the payment method via stripe (Token comes back here if successful)
+      const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: elements.getElement(CardElement),
+      });
+      console.log(paymentMethod);
+
+      // 4. Handle any errors from stripe
+      if (stripeError) {
+        setError(stripeError);
+
+        NProgress.done();
+
+        return; // stops the checkout from happening
+      };
+
+      // 5. Send the token from step 3 to our keystone server, via a custom mutation!
+      const res = await checkout({
+        variables: { token: paymentMethod.id },
       });
 
-      console.log(`Finished with the order!!`);
-      console.log(order);
+      const orderId = res?.data?.createOrder?.id;
 
       // 6. Change the page to view the order
-      router.push({
-        pathname: `/order/[id]`,
-        query: {
-          id: order.data.createOrder.id,
-        },
-      });
+      router.push(`/order/${orderId}`);
 
-      // 8. turn the loader off
-      setLoading(false);
+      console.log(`Finished with the order!!`);
+      console.log(res);
+
       NProgress.done();
     } catch (err) {
-      console.error(err);
       setError(err);
-      setLoading(false);
+    } finally {
+      setSubmitting(false);
       NProgress.done();
     };
   };
 
+  if (userError) return <DisplayError error={userError} />;
+  if (graphQLLoading) return <DisplayError error={graphQLLoading} />;
+
+  if (userLoading) return <p>Loading...</p>;
+  if (!user) return <p>Please sign in to checkout.</p>;
+
   return (
     <>
-      {user ? <StyledOrder>
-        <header>
-          <h1>{user?.firstName} {user?.lastName}'s order</h1>
-        </header>
-        <ul>
-          {user?.cart.map((cartItem) => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
-          ))}
-        </ul>
-        <footer>
-          <StyledTotalPrice>{formatMoney(calcTotalPrice(user?.cart))}</StyledTotalPrice>
-        </footer>
-      </StyledOrder> : null}
-      <StyledCheckoutForm onSubmit={handleSubmit}>
-        {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
-        {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-        <StyledTestCardInfo>
-          <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
-        </StyledTestCardInfo>
-        <CardElement />
-        <Link
-          href='/order-confirmation'
-        >
-          <LargeButton buttonColor='var(--darkOrange)'>Place Order</LargeButton>
-        </Link>
-      </StyledCheckoutForm>
+      {
+        user
+          ?
+        <StyledOrder>
+          <header>
+            <h1>{user?.firstName} {user?.lastName}'s order</h1>
+          </header>
+          <ul>
+            {user?.cart?.map((cartItem) => (
+              <StyledOrderItem key={cartItem.id}>
+                <OrderItem orderItem={cartItem} />
+              </StyledOrderItem>
+            ))}
+          </ul>
+          <footer>
+            <StyledTotalPrice>
+              {formatMoney(calcTotalPrice(user?.cart))}
+            </StyledTotalPrice>
+          </footer>
+        </StyledOrder> : null}
+        <StyledCheckoutForm onSubmit={handleSubmit}>
+          {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
+          {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
+          <StyledTestCardInfo>
+            <strong>
+              Test Card:
+            </strong>
+              4242 4242 4242 4242 |
+            <strong>
+              Exp:
+            </strong>
+              Any future date |
+            <strong>
+              CVC:
+            </strong>
+              Any 3 digits
+          </StyledTestCardInfo>
+          <CardElement />
+          <LargeButton type='submit' buttonColor='var(--darkOrange)' disabled={submitting || graphQLLoading}>
+            Place Order
+          </LargeButton>
+        </StyledCheckoutForm>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { DisplayError, Product, StyledProductsList } from '.';
+import { DisplayError, Product, StyledProductsList } from '../..';
 
 const Backpacks = () => {
   const { data, loading, error } = useQuery(BACKPACKS_QUERY);

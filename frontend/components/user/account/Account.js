@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useUser } from '.';
+import { useUser } from './..';
 
 const StyledAccount = styled.div`
   display: flex;

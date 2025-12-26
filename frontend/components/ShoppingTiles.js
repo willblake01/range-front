@@ -38,17 +38,17 @@ const StyledTiles = styled.div`
 
 const ShoppingTiles = () => (
   <StyledTiles>
-    <Link href='/tents'>
+    <Link href='/products/tents'>
       <div className='tile' id='tents-tile'>
         Shop Tents
       </div>
     </Link>
-    <Link href='/backpacks'>
+    <Link href='/products/backpacks'>
       <div className='tile' id='packs-tile'>
         Shop Backpacks
       </div>
     </Link>
-    <Link href='/sleeping-bags'>
+    <Link href='/products/sleeping-bags'>
       <div className='tile' id='bags-tile'>
         Shop Sleeping Bags
       </div>
