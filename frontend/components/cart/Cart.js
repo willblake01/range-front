@@ -58,6 +58,7 @@ const Cart = () => {
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
+  if (!user) return null;
 
   return (
     <PleaseLogin>
