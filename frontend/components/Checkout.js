@@ -70,11 +70,13 @@ const StyledCheckoutForm = styled.form`
   box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 5px;
+  margin: 2rem;
   padding: 1.4rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   min-height: 168px;
+  width: 48rem;
   
   button {
     margin-top: auto;
@@ -221,19 +223,8 @@ const CheckoutForm = () => {
           {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
           {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
           <StyledTestCardInfo>
-            <strong>
-              Test Card:
-            </strong>
-              4242 4242 4242 4242 |
-            <strong>
-              Exp:
-            </strong>
-              Any future date |
-            <strong>
-              CVC:
-            </strong>
-              Any 3 digits
-          </StyledTestCardInfo>
+          <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
+        </StyledTestCardInfo>
           <CardElement />
           <LargeButton type='submit' buttonColor='var(--darkOrange)' disabled={submitting || graphQLLoading}>
             Place Order
