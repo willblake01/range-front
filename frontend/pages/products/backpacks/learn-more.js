@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { StyledSectionHeader } from '../../components/styles';
-import { AlternateHeader, Footer } from '../../components';
+import { StyledSectionHeader } from '../../../components/styles';
+import { AlternateHeader, Footer } from '../../../components';
 
 const StyledLearnMore = styled.div`
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
