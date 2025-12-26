@@ -1,13 +1,15 @@
 import { AlternateHeader } from '../components/AlternateHeader';
-import { Admin, Footer, RequirePermission } from '../components';
+import { Admin, Footer, PleaseLogin, RequirePermission } from '../components';
 
 const PermissionsPage = () => {
   return (
     <>
       <AlternateHeader />
-      <RequirePermission permission='PERMISSIONUPDATE'>
-        <Admin />
-      </RequirePermission>
+      <PleaseLogin>
+        <RequirePermission permission='PERMISSIONUPDATE'>
+          <Admin />
+        </RequirePermission>
+      </PleaseLogin>
       <Footer />
     </>
   );
