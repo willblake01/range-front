@@ -23,7 +23,7 @@ const StyledAdmin = styled.div`
   }
 `;
 
-const StyledUserTable = styled.table`
+const StyledUsersPermissionsTable = styled.table`
   width: 50%;
   border-collapse: collapse;
   background: white;
@@ -65,22 +65,26 @@ const StyledUserTable = styled.table`
 `;
 
 const Admin = () => {
-  const { user } = useUser();
+  const { user, loading: userLoading, error: userError } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
-  const { data, loading, error } = useQuery(ALL_USERS_QUERY, {
+  const { data, loading: usersLoading, error: usersError } = useQuery(ALL_USERS_QUERY, {
     skip: !hasAccess,
   });
 
   useEffect(() => {
-    if (loading) NProgress.start();
+    if (usersLoading) NProgress.start();
     else NProgress.done();
 
     return () => NProgress.done();
-  }, [loading]);
+  }, [usersLoading]);
 
-  if (error) return <DisplayError error={error} />;
-  if (loading) return <p>Loading...</p>;
+  if (userError) return <DisplayError error={userError} />;
+  if (usersError) return <DisplayError error={usersError} />;
+  if (userLoading || usersLoading) return <p>Loading...</p>;
+  
+  if (!user) return <p>You must be logged in.</p>;
+  if (!hasAccess) return <p>You don’t have permission to view this page.</p>;
 
   const users = data?.users ?? [];
 
@@ -89,7 +93,7 @@ const Admin = () => {
       <h2>Manage Permissions</h2>
 
       {users && (
-        <StyledUserTable>
+        <StyledUsersPermissionsTable>
           <thead>
             <tr>
               <th>Name</th>
@@ -102,7 +106,7 @@ const Admin = () => {
               <Permissions user={user} key={user.id} />
             ))}
           </tbody>
-        </StyledUserTable>
+        </StyledUsersPermissionsTable>
       )}
 
       <SignUp />

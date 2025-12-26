@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useUser } from './..';
+import { DisplayError, useUser } from './..';
 
 const StyledAccount = styled.div`
   display: flex;
@@ -55,8 +55,17 @@ const StyledInfoRow = styled.div`
   }
 `;
 
+const PermissionsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+`;
+
 const Account = () => {
-  const { user } = useUser();
+  const { user, loading, error } = useUser();
+
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <StyledAccount>
@@ -83,7 +92,9 @@ const Account = () => {
         </StyledInfoRow>
         <StyledInfoRow>
           <label>Permissions</label>
-          {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
+          <PermissionsList>
+            {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
+          </PermissionsList>
         </StyledInfoRow>
       </StyledInfoSection>
     </StyledAccount>

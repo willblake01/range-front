@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
-import NProgress from 'nprogress';
 import { formatMoney, hasPermission } from '../lib';
 import { AddToCart, DisplayError, DeleteProduct, useUser } from '.';
 
@@ -86,13 +84,6 @@ const ProductDescription = ({ id }) => {
     },
   });
 
-  useEffect(() => {
-    if (loading) NProgress.start();
-    else NProgress.done();
-
-    return () => NProgress.done();
-  }, [loading]);
-
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
 
@@ -108,7 +99,7 @@ const ProductDescription = ({ id }) => {
         <div className='image'>
           <img
             src={product.image}
-            alt={product.image.title}
+            alt={product.title}
           />
         </div>
         <div className='details'>
@@ -118,12 +109,12 @@ const ProductDescription = ({ id }) => {
           <h2>{formatMoney(product.price)}</h2>
         </div>
         <div className='buttonGrid'>
-        {hasPermission(user, 'PRODUCTUPDATE') && (
+        {user && hasPermission(user, 'PRODUCTUPDATE') && (
           <a href={`/product/${product.id}/update`}>
             Edit ✏️
           </a>
         )}
-        {hasPermission(user, 'PRODUCTDELETE') && (
+        {user && hasPermission(user, 'PRODUCTDELETE') && (
           <DeleteProduct id={product.id}>
             Delete 🗑️
           </DeleteProduct>

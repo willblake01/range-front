@@ -1,9 +1,8 @@
-'use client'
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCart } from '../lib';
-import { CartCount, SignOut, useUser } from '.';
+import { CartCount, DisplayError, SignOut, useUser } from '.';
 
 const StyledNav = styled.ul`
   background-color: var(--darkOrange);
@@ -73,24 +72,20 @@ const StyledButton = styled.button `
 
 const Nav = () => {
   const router = useRouter();
-  const { user } = useUser();
+  const { user, loading, error } = useUser();
   const { openCart } = useCart();
 
-  const displayLogin = !user && router.pathname !== '/login' && router.pathname !== '/account';
+  if (error) return <DisplayError error={error} />;
+
+  const showLogin = !loading && !user && router.pathname !== '/login' && router.pathname !== '/account';
 
   return (
     <StyledNav data-test='nav'>
       <Link href='/'>Home</Link>
       <Link href='/products'>Shop</Link>
       <Link href='/about'>About</Link>
-      {
-        user?.permissions?.includes('ADMIN')
-          ?
-        <Link href='/admin'>Admin</Link>
-          :
-        null
-      }
-      {user && (
+      {user?.permissions?.includes('ADMIN') ? <Link href='/admin'>Admin</Link> : null}
+      {user ? (
         <div className='user-links'>
           <Link href={`/user/${user.id}/account`}>Account</Link>
           <Link href={`/user/${user.id}/orders`}>Orders</Link>
@@ -106,8 +101,9 @@ const Nav = () => {
               )}
             />
         </div>
-      )}
-      {displayLogin && (
+      ) : null}
+      
+      {showLogin && (
         <div style={{ marginLeft: 'auto' }}>
           <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>
             Login

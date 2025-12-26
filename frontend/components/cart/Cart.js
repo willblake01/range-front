@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { calcTotalPrice, formatMoney, useCart } from '../../lib';
-import { StyledCloseButton, LargeButton, PleaseLogin, useUser } from '..';
+import { LargeButton, PleaseLogin, StyledCloseButton, useUser } from '..';
 import { CartItem } from './components';
 
 const StyledCart = styled.div`
@@ -52,10 +52,12 @@ const StyledTotalPrice = styled.p`
 `;
 
 const Cart = () => {
-  const { user, loading } = useUser();
+  const router = useRouter();
+  const { user, loading, error } = useUser();
   const { cartOpen, closeCart } = useCart();
 
-  if (loading || !user) return null;
+  if (error) return <DisplayError error={error} />;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <PleaseLogin>
@@ -72,9 +74,14 @@ const Cart = () => {
         <footer>
           <StyledTotalPrice>{formatMoney(calcTotalPrice(user.cart ?? []))}</StyledTotalPrice>
         </footer>
-        <Link href='/checkout'>
-          <LargeButton onClick={closeCart}>Checkout</LargeButton>
-        </Link>
+          <LargeButton
+            onClick={() => {
+              closeCart();
+              router.push('/checkout');
+            }}
+          >
+              Checkout
+          </LargeButton>
       </StyledCart>
     </PleaseLogin>
   );

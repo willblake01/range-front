@@ -1,17 +1,7 @@
-import { useEffect } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import NProgress from 'nprogress';
 
 const useUser = () => {
   const { data, loading, error } = useQuery(CURRENT_USER_QUERY);
-
-  useEffect(() => {
-    if (loading) NProgress.start();
-    else NProgress.done();
-
-    return () => NProgress.done();
-  }, [loading]);
-
   const user = data?.user ?? null;
 
   return {
