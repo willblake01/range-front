@@ -105,11 +105,8 @@ const Admin = () => {
         </StyledUserTable>
       )}
 
-      <h2>Create Product</h2>
-      <CreateProduct />
-
-      <h2>Create User</h2>
       <SignUp />
+      <CreateProduct />
     </StyledAdmin>
   );
 };

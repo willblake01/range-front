@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -21,6 +22,9 @@ const StyledSignUp = styled.div`
 `;
 
 const SignUp = () => {
+  const router = useRouter();
+  const currentPathname = router.pathname;
+
   const { inputs, handleChange, resetForm } = useForm({
     firstName: '',
     lastName: '',
@@ -57,7 +61,7 @@ const SignUp = () => {
     <StyledSignUp>
       <StyledForm method='POST' onSubmit={handleSubmit}>
         <DisplayError error={error} />
-        <h2>Account Signup</h2>
+        {currentPathname === '/admin' ? <h2>Create User</h2> : <h2>Account Signup</h2>}
         <fieldset>
           {data?.createUser && (
             <p>
