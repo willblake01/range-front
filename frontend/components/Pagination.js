@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
 import NProgress from 'nprogress';
-import { DisplayError } from '.';
+import { DisplayError } from './shared';
 import { perPage } from '../config';
 
 const StyledPagination = styled.div`

@@ -1,7 +1,8 @@
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 import gql from 'graphql-tag';
-import { CURRENT_USER_QUERY, DisplayError } from '.';
+import { DisplayError } from '.';
+import { CURRENT_USER_QUERY } from '.';
 
 const SignOut = () => {
   const router = useRouter();

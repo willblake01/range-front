@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCart } from '../lib';
-import { useUser } from '../hooks';
-import { CartCount, DisplayError, SignOut } from '.';
+import { useCart } from '../../lib';
+import { useUser } from '../../hooks';
+import { DisplayError } from '../shared';
+import { CartCount, SignOut } from '..';
 
 const StyledNav = styled.ul`
   background-color: var(--darkOrange);

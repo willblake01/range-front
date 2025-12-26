@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { calcTotalPrice, formatMoney, useCart } from '../../lib';
 import { useUser } from '../../hooks';
-import { LargeButton, PleaseLogin, StyledCloseButton } from '..';
-import { CartItem } from './components';
+import { DisplayError, LargeButton, PleaseLogin } from '../shared';
+import { CartItem, StyledCloseButton } from './components';
 
 const StyledCart = styled.div`
   padding: 20px;

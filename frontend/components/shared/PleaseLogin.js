@@ -1,5 +1,6 @@
-import { useUser } from '../hooks';
-import { DisplayError, Login } from '.';
+import { useUser } from '../../hooks';
+import { Login } from '.';
+import { DisplayError } from '../shared';
 
 const PleaseLogin = ({ children }) => {
   const { user, loading, error } = useUser();

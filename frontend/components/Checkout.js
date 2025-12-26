@@ -13,7 +13,7 @@ import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/dist/client/router';
 import { CURRENT_USER_QUERY, useUser } from '../hooks';
 import { calcTotalPrice, formatMoney } from '../lib';
-import { DisplayError, LargeButton } from '.';
+import { DisplayError, LargeButton } from './shared';
 
 const StyledOrder = styled.div`
   padding: 20px;

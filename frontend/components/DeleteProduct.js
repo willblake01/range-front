@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { DisplayError } from '.';
+import { DisplayError } from './shared';
 
 const update = (cache, payload) => {
   console.log(payload);

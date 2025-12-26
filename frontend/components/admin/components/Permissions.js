@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import { DisplayError } from '../..';
+import { DisplayError } from '../../shared';
 
 const possiblePermissions = [
   'ADMIN',

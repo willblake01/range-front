@@ -5,7 +5,8 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
-import { ALL_PRODUCTS_QUERY, DisplayError, StyledForm, LargeButton } from '.';
+import { DisplayError, LargeButton, StyledForm } from './shared';
+import { ALL_PRODUCTS_QUERY } from '.';
 
 const StyledCreate = styled.div`
   display: flex;

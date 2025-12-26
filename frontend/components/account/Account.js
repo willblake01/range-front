@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useUser } from '../../../hooks';
-import { DisplayError } from '../../DisplayError';
+import { useUser } from '../../hooks';
+import { DisplayError } from '../shared';
 
 const StyledAccount = styled.div`
   display: flex;

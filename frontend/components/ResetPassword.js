@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
-import { DisplayError, StyledForm, LargeButton } from '.';
+import { DisplayError, LargeButton, StyledForm } from './shared';
 
 const StyledResetPassword = styled.div`
   display: flex;

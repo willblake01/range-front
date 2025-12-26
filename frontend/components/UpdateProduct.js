@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
-import { DisplayError, StyledForm, LargeButton } from '.';
+import { DisplayError, LargeButton, StyledForm } from './shared';
 
 const StyledUpdateProduct = styled.div`
   display: flex;

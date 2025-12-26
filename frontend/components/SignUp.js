@@ -5,7 +5,8 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
-import { CURRENT_USER_QUERY, DisplayError, StyledForm, LargeButton } from '.';
+import { DisplayError, LargeButton, StyledForm } from './shared';
+import { CURRENT_USER_QUERY } from '.';
 
 const StyledSignUp = styled.div`
   display: flex;

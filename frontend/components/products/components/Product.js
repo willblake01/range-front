@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
-import { AddToCart, StyledPriceTag, StyledTitle } from '../..';
-import { LearnMore } from '.';
+import { AddToCart } from '../../shared';
+import { StyledTitle } from '../..';
+import { StyledPriceTag } from '.';
 
 const StyledProduct = styled.div`
   background: var(--white);
@@ -44,8 +44,6 @@ const StyledProduct = styled.div`
 `;
 
 const Product = ({ product }) => {
-  const router = useRouter();
-
   return (
     <StyledProduct>
       <Link href={`/product/${product.id}`}>
@@ -70,7 +68,7 @@ const Product = ({ product }) => {
       <p>{product.description}</p>
       <div className='buttonGrid'>
         <a
-          href={`/${product.category}/learn-more`}
+          href={`/products/${product.category}/learn-more`}
           target='_blank'
           rel='noopener noreferrer'
         >

@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 import { formatMoney } from '../../lib';
-import { DisplayError } from '../../components';
+import { DisplayError } from '../../components/shared';
 
 const StyledOrder = styled.div`
   max-width: 1000px;

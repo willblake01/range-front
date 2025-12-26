@@ -1,5 +1,6 @@
 import { AlternateHeader } from '../components/AlternateHeader';
-import { Admin, Footer, PleaseLogin, RequirePermission } from '../components';
+import { PleaseLogin } from '../components/shared';
+import { Admin, Footer, RequirePermission } from '../components';
 
 const PermissionsPage = () => {
   return (

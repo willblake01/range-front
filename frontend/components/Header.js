@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Cart, LargeButton, Logo, Nav, Search } from '.';
+import { LargeButton, Logo, Nav, Search } from './shared';
+import { Cart } from '.';
 
 const StyledHeader = styled.header`
   display: grid;

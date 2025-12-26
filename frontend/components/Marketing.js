@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { LargeButton } from '.';
+import { LargeButton } from './shared';
 
 const StyledMarketing = styled.div`
   display: flex;

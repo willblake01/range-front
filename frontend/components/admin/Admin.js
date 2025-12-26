@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { hasPermission } from '../../lib';
 import { useUser } from '../../hooks';
-import { CreateProduct, DisplayError, SignUp } from '..';
+import { DisplayError } from '../shared';
+import { CreateProduct, SignUp } from '..';
 import { Permissions } from './components';
 
 const StyledAdmin = styled.div`

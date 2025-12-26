@@ -4,7 +4,9 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { formatMoney, hasPermission } from '../lib';
 import { useUser } from '../hooks';
-import { AddToCart, DisplayError, DeleteProduct } from '.';
+import { AddToCart } from './shared';
+import { DisplayError } from './shared';
+import { DeleteProduct } from '.';
 
 const StyledProductDescription = styled.div`
   justify-content: center;
@@ -121,7 +123,7 @@ const ProductDescription = ({ id }) => {
           </DeleteProduct>
         )}
         <a
-          href={`/${product.category}/learn-more`}
+          href={`/products/${product.category}/learn-more`}
           target='_blank'
           rel='noopener noreferrer'
         >

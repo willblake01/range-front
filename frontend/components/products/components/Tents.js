@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { DisplayError, Product, StyledProductsList } from '../..';
+import { DisplayError } from '../../shared';
+import { Product, StyledProductsList } from '../..';
 
 const Tents = () => {
   const { data, loading, error } = useQuery(TENTS_QUERY);

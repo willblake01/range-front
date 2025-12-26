@@ -3,7 +3,8 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { perPage } from '../../config';
-import { DisplayError, StyledProductsList } from '..'
+import { DisplayError } from '../shared'
+import { StyledProductsList } from '..'
 import { Product } from './components';
 
 const Products = ({ page }) => {

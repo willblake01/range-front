@@ -5,8 +5,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NProgress from 'nprogress';
-import { formatMoney } from '../../../lib';
-import { DisplayError } from '../..';
+import { formatMoney } from '../../lib';
+import { DisplayError } from '../shared';
 
 const StyledOrders = styled.ul`
   display: grid;

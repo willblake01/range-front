@@ -3,7 +3,8 @@ import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { CURRENT_USER_QUERY } from '.';
+import { CURRENT_USER_QUERY } from '../../hooks';
+import { DisplayError } from '.';
 
 const AddToCart = ({ id }) => {
   const router = useRouter();
