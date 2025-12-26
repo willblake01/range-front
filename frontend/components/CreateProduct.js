@@ -16,6 +16,15 @@ const StyledCreate = styled.div`
   color: var(--green);
   padding: 40px;
   height: 100%;
+  width: 100%;
+`;
+
+const StyledFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
 `;
 
 const CreateProduct = () => {
@@ -46,85 +55,87 @@ const CreateProduct = () => {
   
   return (
     <StyledCreate>
-      <StyledForm
-        onSubmit={async (e) => {
-          e.preventDefault();
+      <StyledFormContainer>
+        <StyledForm
+          onSubmit={async (e) => {
+            e.preventDefault();
 
-          // Submit the inputfields to the backend:
-          const res = await createProduct();
-          clearForm();
-          
-          // Go to that product's page!
-          Router.push({
-            pathname: `/product/${res.data.createProduct.id}`,
-          });
-        }}
-      >
-        <h2>Create Product</h2>
-        <fieldset disabled={loading} aria-busy={loading}>
-          <label htmlFor='brand'>
-            Brand
-          </label>
-          <input
-            type='text'
-            id='brand'
-            name='brand'
-            value={inputs.brand}
-            onChange={handleChange}
-          />
-          <label htmlFor='title'>
-            Title
-          </label>
-          <input
-            type='text'
-            id='title'
-            name='title'
-            value={inputs.title}
-            onChange={handleChange}
-          />
-          <label htmlFor='description'>
-            Description
-          </label>
-          <textarea
-            type='text'
-            id='description'
-            name='description'
-            value={inputs.description}
-            onChange={handleChange}
-          />
-          <label htmlFor='category'>
-            Category
-          </label>
-          <input
-            type='text'
-            id='category'
-            name='category'
-            value={inputs.category}
-            onChange={handleChange}
-          />
-          <label htmlFor='image'>
-            Image
-          </label>
-          <input
-            type='text'
-            id='image'
-            name='image'
-            value={inputs.image}
-            onChange={handleChange}
-          />
-          <label htmlFor='price'>
-            Price
-          </label>
-          <input
-            type='number'
-            id='price'
-            name='price'
-            value={inputs.price}
-            onChange={handleChange}
-          />
-          <LargeButton  type='submit'>Submit</LargeButton>
-        </fieldset>
-      </StyledForm>
+            // Submit the inputfields to the backend:
+            const res = await createProduct();
+            clearForm();
+            
+            // Go to that product's page!
+            Router.push({
+              pathname: `/product/${res.data.createProduct.id}`,
+            });
+          }}
+        >
+          <h2>Create Product</h2>
+          <fieldset disabled={loading} aria-busy={loading}>
+            <label htmlFor='brand'>
+              Brand
+            </label>
+            <input
+              type='text'
+              id='brand'
+              name='brand'
+              value={inputs.brand}
+              onChange={handleChange}
+            />
+            <label htmlFor='title'>
+              Title
+            </label>
+            <input
+              type='text'
+              id='title'
+              name='title'
+              value={inputs.title}
+              onChange={handleChange}
+            />
+            <label htmlFor='description'>
+              Description
+            </label>
+            <textarea
+              type='text'
+              id='description'
+              name='description'
+              value={inputs.description}
+              onChange={handleChange}
+            />
+            <label htmlFor='category'>
+              Category
+            </label>
+            <input
+              type='text'
+              id='category'
+              name='category'
+              value={inputs.category}
+              onChange={handleChange}
+            />
+            <label htmlFor='image'>
+              Image
+            </label>
+            <input
+              type='text'
+              id='image'
+              name='image'
+              value={inputs.image}
+              onChange={handleChange}
+            />
+            <label htmlFor='price'>
+              Price
+            </label>
+            <input
+              type='number'
+              id='price'
+              name='price'
+              value={inputs.price}
+              onChange={handleChange}
+            />
+            <LargeButton  type='submit'>Submit</LargeButton>
+          </fieldset>
+        </StyledForm>
+      </StyledFormContainer>
     </StyledCreate>
   );
 };

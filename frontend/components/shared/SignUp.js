@@ -17,6 +17,7 @@ const StyledSignUp = styled.div`
   margin: 0;
   padding: 40px;
   height: 100%;
+  width: 80rem;
   h2 {
     margin: 0;
   }

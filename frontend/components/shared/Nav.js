@@ -20,7 +20,7 @@ const StyledNav = styled.ul`
   * {
     margin: 8.64px;
   }
-  a {
+  a, p {
     color: var(--offWhite);
     text-decoration: none;
   }
@@ -81,12 +81,17 @@ const Nav = () => {
 
   const showLogin = !loading && !user && router.pathname !== '/login' && router.pathname !== '/account';
 
+  const hasAdminPermission = user?.permissions?.includes('ADMIN');
+  const hasProductCreatePermission = user?.permissions?.includes('PRODUCTCREATE');
+
   return (
     <StyledNav data-test='nav'>
       <Link href='/'>Home</Link>
       <Link href='/products'>Shop</Link>
       <Link href='/about'>About</Link>
-      {user?.permissions?.includes('ADMIN') ? <Link href='/admin'>Admin</Link> : null}
+      {hasAdminPermission || hasProductCreatePermission ? <p>|</p> : null}
+      {hasAdminPermission ? <Link href='/admin'>Admin</Link> : null}
+      {hasAdminPermission || hasProductCreatePermission ? <Link href='/product/create'>Create Product</Link> : null}
       {user ? (
         <div className='user-links'>
           <Link href={`/user/${user.id}/account`}>Account</Link>

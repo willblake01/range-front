@@ -19,7 +19,7 @@ const StyledForm = styled.form`
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
-  width: 800px;
+  width: 100%;
   background-color: var(--white);
   label {
     display: block;

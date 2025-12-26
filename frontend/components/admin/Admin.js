@@ -6,13 +6,12 @@ import NProgress from 'nprogress';
 import { hasPermission } from '../../lib';
 import { useUser } from '../../hooks';
 import { DisplayError, SignUp } from '../shared';
-import { CreateProduct } from '..';
 import { Permissions } from './components';
 
 const StyledAdmin = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
   width: 100%;
@@ -25,8 +24,8 @@ const StyledAdmin = styled.div`
   }
 `;
 
-const StyledUsersPermissionsTable = styled.table`
-  width: 50%;
+const StyledPermissionsTable = styled.table`
+  width: 100%;
   border-collapse: collapse;
   background: white;
   box-shadow: var(--bs);
@@ -66,6 +65,22 @@ const StyledUsersPermissionsTable = styled.table`
   }
 `;
 
+const StyledPermissionsTableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
+`;
+
+const StyledSignUpContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
+`;
+
 const Admin = () => {
   const { user, loading: userLoading, error: userError } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
@@ -92,27 +107,28 @@ const Admin = () => {
 
   return (
     <StyledAdmin>
-      <h2>Manage Permissions</h2>
-
-      {users && (
-        <StyledUsersPermissionsTable>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Permissions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users?.map((user) => (
-              <Permissions user={user} key={user.id} />
-            ))}
-          </tbody>
-        </StyledUsersPermissionsTable>
-      )}
-
-      <SignUp />
-      <CreateProduct />
+      <StyledPermissionsTableContainer>
+        <h2>Manage Permissions</h2>
+        {users && (
+          <StyledPermissionsTable>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Permissions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users?.map((user) => (
+                <Permissions user={user} key={user.id} />
+              ))}
+            </tbody>
+          </StyledPermissionsTable>
+        )}
+      </StyledPermissionsTableContainer>
+      <StyledSignUpContainer>
+        <SignUp />
+      </StyledSignUpContainer>
     </StyledAdmin>
   );
 };
