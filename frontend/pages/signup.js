@@ -1,4 +1,5 @@
-import { AlternateHeader, Footer, SignUp } from '../components';
+import { SignUp } from '../components/shared';
+import { AlternateHeader, Footer } from '../components';
 
 const SignUpPage = () => {
   return (

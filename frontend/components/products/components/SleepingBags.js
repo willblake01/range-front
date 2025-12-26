@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
-import { DisplayError } from '../../shared';
-import { Product, StyledProductsList } from '../..';
+import { DisplayError, StyledProductsList } from '../../shared';
+import { Product } from '../..';
 
 const SleepingBags = () => {
   const { data, loading, error } = useQuery(SLEEPING_BAGS_QUERY);

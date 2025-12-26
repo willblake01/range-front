@@ -6,4 +6,6 @@ export { LargeButton } from './LargeButton';
 export { Login } from './Login';
 export { Nav } from './Nav';
 export { PleaseLogin } from './PleaseLogin';
+export { StyledProductsList } from './ProductsList';
 export { Search } from './Search';
+export { SignUp } from './SignUp';

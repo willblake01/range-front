@@ -20,14 +20,12 @@ export { Parallax } from './Parallax';
 export { Product } from './products/components/Product';
 export { ProductDescription } from './ProductDescription';
 export { ALL_PRODUCTS_QUERY, Products } from './products/Products';
-export { StyledProductsList } from './ProductsList';
 export { RemoveFromCart } from './RemoveFromCart';
 export { RequestResetPassword } from './RequestResetPassword';
 export { RequirePermission } from './RequirePermission';
 export { ResetPassword } from './ResetPassword';
 export { ShoppingTiles } from './ShoppingTiles';
 export { SignOut } from './SignOut';
-export { SignUp } from './SignUp';
 export { SleepingBags, SLEEPING_BAGS_QUERY } from './products/components/SleepingBags';
 export { Social } from './Social';
 export { StyledTable } from './Table'
