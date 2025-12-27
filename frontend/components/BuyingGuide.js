@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { StyledSectionHeader } from './styles';
 
-const StyledLearnMore = styled.div`
+const StyledBuyingGuide = styled.div`
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
     width: 100%;
     margin: 0 auto;
@@ -35,8 +35,8 @@ const StyledLearnMore = styled.div`
     }
 `;
 
-const LearnMore = () => (
-  <StyledLearnMore>
+const BuyingGuide = () => (
+  <StyledBuyingGuide>
     <StyledSectionHeader>
       <h1>How to Choose a Tent</h1>
       <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
@@ -212,7 +212,7 @@ const LearnMore = () => (
     <p>These typically offer smaller capacities and include an adjustable suspension to accommodate a child's growth. Women's
     backpacks, with their smaller frame sizes, often work well for young backpackers of either gender. So do small versions
     of some men's packs.</p>
-  </StyledLearnMore>
+  </StyledBuyingGuide>
 );
 
-export { LearnMore };
+export { BuyingGuide };

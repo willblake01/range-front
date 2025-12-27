@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledSectionHeader } from '../../../components/styles';
 import { AlternateHeader, Footer } from '../../../components';
 
-const StyledLearnMore = styled.div`
+const StyledBuyingGuide = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   width: 100%;
   margin: 0 auto;
@@ -36,10 +36,10 @@ const StyledLearnMore = styled.div`
   }
 `;
 
-const LearnMore = () => (
+const BuyingGuide = () => (
   <>
     <AlternateHeader />
-    <StyledLearnMore>
+    <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Tent</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
@@ -93,9 +93,9 @@ const LearnMore = () => (
       where snow can collect. They offer few mesh panels and rainflies that extend close to the ground. This hinders ventilation
       and can make them feel warm and stuffy in mild weather. But when foul winds begin to howl, a 4-season tent provides
       a reassuring place of refuge.</p>
-    </StyledLearnMore>
+    </StyledBuyingGuide>
     <Footer />
   </>
 );
 
-export default LearnMore;
+export default BuyingGuide;

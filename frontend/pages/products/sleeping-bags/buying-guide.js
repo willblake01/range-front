@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledSectionHeader } from '../../../components/styles';
 import { AlternateHeader, Footer } from '../../../components';
 
-const StyledLearnMore = styled.div`
+const StyledBuyingGuide = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   width: 100%;
   margin: 0 auto;
@@ -36,10 +36,10 @@ const StyledLearnMore = styled.div`
   }
 `;
 
-const LearnMore = () => (
+const BuyingGuide = () => (
   <>
     <AlternateHeader />
-    <StyledLearnMore>
+    <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Sleeping Bag</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_sleepingbag.jpg' alt='sleeping bags' />
@@ -102,9 +102,9 @@ const LearnMore = () => (
       <h4>Double-wide</h4>
       <p>Designed to comfortably sleep 2 people, roomy double-wide bags can be combined with an air mattress (or foam sleeping
       pad) for a cozy night's sleep. Most models zip apart to create 2 individual bags.</p>
-  </StyledLearnMore>
+  </StyledBuyingGuide>
     <Footer />
   </>
 );
 
-export default LearnMore;
+export default BuyingGuide;

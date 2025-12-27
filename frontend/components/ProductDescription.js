@@ -126,7 +126,7 @@ const ProductDescription = ({ id }) => {
           </DeleteProduct>
         )}
         <a
-          href={`/products/${product.category}/learn-more`}
+          href={`/products/${product.category}/buying-guide`}
           target='_blank'
           rel='noopener noreferrer'
         >

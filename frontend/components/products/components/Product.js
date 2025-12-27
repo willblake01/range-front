@@ -71,7 +71,7 @@ const Product = ({ product }) => {
       <p>{product.description}</p>
       <div className='buttonGrid'>
         <a
-          href={`/products/${product.category}/learn-more`}
+          href={`/products/${product.category}/buying-guide`}
           target='_blank'
           rel='noopener noreferrer'
         >

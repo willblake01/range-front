@@ -104,11 +104,11 @@ const Header = () => (
         <span className='small-railway'>Navy SEAL, we've got you covered.</span>
       </StyledCopy>
       <a
-        href='/learn-more'
+        href='/buying-guide'
         target='_blank'
         rel='noopener noreferrer'
       >
-          <LargeButton>Learn More</LargeButton>
+          <LargeButton>Buying Guide</LargeButton>
       </a>
     </StyledSection>
     <Cart />
