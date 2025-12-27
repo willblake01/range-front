@@ -58,7 +58,7 @@ const StyledOrderItems = styled.div`
   border: 0.1rem solid var(--offWhite);
   box-shadow: var(--bs);
   padding: 2rem;
-  border-top: 1rem solid red;
+  border-top: 1rem solid var(--green);
 
   & > p {
     display: grid;

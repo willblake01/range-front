@@ -8,25 +8,42 @@ import NProgress from 'nprogress';
 import { formatMoney } from '../../lib';
 import { DisplayError } from '../shared';
 
-const StyledOrders = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-  grid-gap: 4rem;
+const StyledOrders = styled.div`
+  display: flex;
+  flex-direction: column;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: clamp(2rem, 5vw, 4rem);
   height: max-content;
+  width: 100%;
 `;
 
-const StyledOrderItem = styled.li`
+const StyledOrdersContainer = styled.div`
+  margin: 0;
+  width: 100%;
+  max-width: 90rem;
+
+  h2 {
+    margin: 0 0 2rem 0;
+  }
+`;
+
+const StyledOrdersColumn = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const StyledOrder = styled.li`
   box-shadow: var(--bs);
   list-style: none;
   padding: 2rem;
   border: 0.1rem solid var(--offWhite);
-  h2 {
-    border-bottom: 0.2rem solid red;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-  }
+  background: var(--white);
+
   .images {
     display: grid;
     grid-gap: 1rem;
@@ -38,6 +55,7 @@ const StyledOrderItem = styled.li`
       width: 100%;
     }
   }
+
   .order-meta {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
@@ -82,34 +100,33 @@ const Orders = () => {
         <title>Your Orders ({orders?.length})</title>
       </Head>
       <StyledOrders>
-        <h2>You have {orders?.length} orders!</h2>
+        <StyledOrdersContainer>
+          <h2>You have {orders?.length} orders!</h2>
 
-        {orders?.map((order) => (
-          <StyledOrderItem key={order.id}>
-            <Link href={`/order/${order.id}`}>
-              <a style={{ display: 'block' }}>
-                <div className='order-meta'>
-                  <p>{countItemsInOrder(order)} Items</p>
-                  <p>
-                    {order.items.length} Product
-                    {order.items.length === 1 ? '' : 's'}
-                  </p>
-                  <p>{formatMoney(order.total)}</p>
-                </div>
-
-                <div className='images'>
-                  {order?.items?.map((item) => (
-                    <img
-                      key={`image-${item.id}`}
-                      src={item.image}
-                      alt={item.title}
-                    />
-                  ))}
-                </div>
-              </a>
-            </Link>
-          </StyledOrderItem>
-        ))}
+          <StyledOrdersColumn>
+            {orders?.map((order) => (
+              <StyledOrder key={order.id}>
+                <Link href={`/order/${order.id}`}>
+                  <a style={{ display: 'block' }}>
+                    <div className='order-meta'>
+                      <p>{countItemsInOrder(order)} Items</p>
+                      <p>{formatMoney(order.total)}</p>
+                    </div>
+                    <div className='images'>
+                      {order?.items?.map((item) => (
+                        <img
+                          key={`image-${item.id}`}
+                          src={item.image}
+                          alt={item.title}
+                        />
+                      ))}
+                    </div>
+                  </a>
+                </Link>
+              </StyledOrder>
+            ))}
+          </StyledOrdersColumn>
+        </StyledOrdersContainer>
       </StyledOrders>
     </>
   );

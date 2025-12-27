@@ -9,12 +9,13 @@ import { DisplayError } from './shared';
 import { perPage } from '../config';
 
 const StyledPagination = styled.div`
-  text-align: center;
   display: grid;
   grid-template-columns: repeat(4, auto);
   align-items: stretch;
   justify-content: center;
   align-content: center;
+  text-align: center;
+  background-color: var(--white);
   margin: 2rem auto;
   border: 0.1rem solid var(--lightGrey);
   border-radius: 1rem;

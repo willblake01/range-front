@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { perPage } from '../../config';
 import { DisplayError, StyledProductsList } from '../shared';
+import { Pagination } from '..';
 import { Product } from './components';
 
 const Products = ({ page }) => {
@@ -30,6 +31,7 @@ const Products = ({ page }) => {
         {data?.products?.map((product) => (
           <Product key={product.id} product={product} />
         ))}
+        <Pagination page={page} />
       </StyledProductsList>
     </>
   );

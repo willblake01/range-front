@@ -14,12 +14,14 @@ const StyledProduct = styled.div`
   box-shadow: var(--bs);
   position: relative;
   padding-top: 2rem;
+
   img {
     width: 100%;
     height: 40rem;
     object-fit: contain;
     background-color: var(--white);
   }
+
   p {
     line-height: 2;
     flex-grow: 1;
@@ -30,9 +32,9 @@ const StyledProduct = styled.div`
 
   .buttonGrid {
     display: grid;
-    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 0.1rem;
+    width: 100%;
     * {
       background: var(--white);
       border: 0.2rem solid var(--green);
