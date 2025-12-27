@@ -9,7 +9,7 @@ const StyledTiles = styled.div`
   .tile {
     flex: 1;
     min-width: calc(100% / 3);
-    height: 480px;
+    height: 48rem;
     display: flex;
     justify-content: center;
     align-items: center;

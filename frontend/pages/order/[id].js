@@ -8,17 +8,17 @@ import { formatMoney } from '../../lib';
 import { DisplayError } from '../../components/shared';
 
 const StyledOrder = styled.div`
-  max-width: 1000px;
+  max-width: 100rem;
   margin: 0 auto;
-  border: 1px solid var(--offWhite);
+  border: 0.1rem solid var(--offWhite);
   box-shadow: var(--bs);
   padding: 2rem;
-  border-top: 10px solid red;
+  border-top: 1rem solid red;
   & > p {
     display: grid;
     grid-template-columns: 1fr 5fr;
     margin: 0;
-    border-bottom: 1px solid var(--offWhite);
+    border-bottom: 0.1rem solid var(--offWhite);
     span {
       padding: 1rem;
       &:first-child {
@@ -28,9 +28,9 @@ const StyledOrder = styled.div`
     }
   }
   .order-item {
-    border-bottom: 1px solid var(--offWhite);
+    border-bottom: 0.1rem solid var(--offWhite);
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 30rem 1fr;
     align-items: center;
     grid-gap: 2rem;
     margin: 2rem 0;

@@ -3,19 +3,19 @@ import styled from 'styled-components';
 const StyledTable = styled.table`
   border-spacing: 0;
   width: 100%;
-  border: 1px solid var(--offWhite);
+  border: 0.1rem solid var(--offWhite);
   thead {
-    font-size: 10px;
+    font-size: 1rem;
   }
   td,
   th {
-    border-bottom: 1px solid var(--offWhite);
-    border-right: 1px solid var(--offWhite);
-    padding: 10px 5px;
+    border-bottom: 0.1rem solid var(--offWhite);
+    border-right: 0.1rem solid var(--offWhite);
+    padding: 1rem 0.5rem;
     position: relative;
     &:last-child {
       border-right: none;
-      width: 150px;
+      width: 15rem;
       button {
         width: 100%;
       }

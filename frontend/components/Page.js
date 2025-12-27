@@ -19,8 +19,8 @@ const GlobalStyles = createGlobalStyle`
     --brown: #8E3F30;
     --darkOrange: #C65837;
     --lightOrange: #DF997D;
-    --maxWidth: 1980px;
-    --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
+    --maxWidth: 198rem;
+    --bs: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.09);
     box-sizing: border-box;
     font-size: 62.5%;
     overflow-x: hidden;

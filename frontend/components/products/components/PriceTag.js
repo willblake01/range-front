@@ -5,13 +5,13 @@ const StyledPriceTag = styled.span`
   transform: rotate(3deg);
   color: white;
   font-weight: 600;
-  padding: 5px;
+  padding: 0.5rem;
   line-height: 1;
   font-size: 3rem;
   display: inline-block;
   position: absolute;
-  top: -3px;
-  right: -3px;
+  top: -0.3rem;
+  right: -0.3rem;
 `;
 
 export { StyledPriceTag };

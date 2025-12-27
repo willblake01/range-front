@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  height: 240px;
+  height: 24rem;
   background-color: var(--green);
   color: var(--offWhite);
 
@@ -20,7 +20,7 @@ const StyledFooter = styled.footer`
     text-decoration: none;
     height: max-content;
     * {
-      margin: 0 4px 4px 4px; 
+      margin: 0 0.4rem 0.4rem 0.4rem; 
     }
   }
 `;
@@ -28,8 +28,8 @@ const StyledFooter = styled.footer`
 const SocialPosition = styled.div`
   z-index: 2;
   position: absolute;
-  left: 10px;
-  bottom: 10px;
+  left: 1rem;
+  bottom: 1rem;
 `;
 
 const Footer = () => (

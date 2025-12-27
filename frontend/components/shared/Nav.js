@@ -10,15 +10,15 @@ const StyledNav = styled.ul`
   background-color: var(--darkOrange);
   opacity: .9;
   margin: 0;
-  padding: 5px 20px 5px 20px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   display: flex;
   align-items: center;
   font-size: 1.6rem;
   font-weight: 600;
-  height: 55px;
+  height: 5.5rem;
   width: 100%;
   * {
-    margin: 8.64px;
+    margin: 0.864rem;
   }
   a, p {
     color: var(--offWhite);
@@ -40,7 +40,7 @@ const StyledNav = styled.ul`
   }
   a.login-link {
     margin-left: auto;
-    margin-right: 6px;
+    margin-right: 0.6rem;
   }
   .user-links {
     margin-left: auto;
@@ -48,14 +48,14 @@ const StyledNav = styled.ul`
     align-items: center;
     margin-right: 0;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 76.8rem) {
     font-size: 1.2rem;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
     flex-wrap: wrap;
     height: auto;
-    min-height: 55px;
+    min-height: 5.5rem;
     * {
-      margin: 4px;
+      margin: 0.4rem;
     }
     button {
       font-size: 1.2rem;
@@ -67,9 +67,9 @@ const StyledButton = styled.button `
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2px;
-  width: 82px;
-  margin: 8.64px !important;
+  gap: 0.2rem;
+  width: 8.2rem;
+  margin: 0.864rem !important;
 `;
 
 const Nav = () => {

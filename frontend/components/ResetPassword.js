@@ -12,8 +12,16 @@ const StyledResetPassword = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
-  padding: 40px;
-  height: 100%;
+  padding: 8rem;
+  height: max-content;
+`;
+
+const StyledFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60rem;
 `;
 
 const ResetPassword = ({ token }) => {
@@ -44,37 +52,39 @@ const ResetPassword = ({ token }) => {
   
   return (
     <StyledResetPassword>
-      <StyledForm method='POST' onSubmit={handleSubmit}>
-        <h2>Reset Your Password</h2>
-        <DisplayError error={error} />
-        <fieldset disabled={loading}>
-          {data?.resetPassword && (
-            <p>Success! You can now <a href='/login'>login</a> with your new password.</p>
-          )}
+      <StyledFormContainer>
+        <StyledForm method='POST' onSubmit={handleSubmit}>
+          <h2>Reset Your Password</h2>
+          <DisplayError error={error} />
+          <fieldset disabled={loading}>
+            {data?.resetPassword && (
+              <p>Success! You can now <a href='/login'>login</a> with your new password.</p>
+            )}
 
-          <label htmlFor='password'>
-            New Password
-          </label>
-          <input
-            type='password'
-            name='password'
-            autoComplete='new-password'
-            value={inputs.password}
-            onChange={handleChange}
-          />
-          <label htmlFor='confirmPassword'>
-            Confirm Password
-          </label>
-          <input
-            type='password'
-            name='confirmPassword'
-            autoComplete='new-password'
-            value={inputs.confirmPassword}
-            onChange={handleChange}
-          />
-          <LargeButton>Reset Password</LargeButton>
-        </fieldset>
-      </StyledForm>
+            <label htmlFor='password'>
+              New Password
+            </label>
+            <input
+              type='password'
+              name='password'
+              autoComplete='new-password'
+              value={inputs.password}
+              onChange={handleChange}
+            />
+            <label htmlFor='confirmPassword'>
+              Confirm Password
+            </label>
+            <input
+              type='password'
+              name='confirmPassword'
+              autoComplete='new-password'
+              value={inputs.confirmPassword}
+              onChange={handleChange}
+            />
+            <LargeButton>Reset Password</LargeButton>
+          </fieldset>
+        </StyledForm>
+      </StyledFormContainer>
     </StyledResetPassword>
   );
 };

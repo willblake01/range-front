@@ -58,7 +58,7 @@ const StyledPermissionsTable = styled.table`
   
   td {
     padding: 1rem;
-    border-bottom: 1px solid var(--offWhite);
+    border-bottom: 0.1rem solid var(--offWhite);
     font-size: 1.2rem;
   }
   

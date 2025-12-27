@@ -7,25 +7,25 @@ import debounce from 'lodash.debounce';
 
 const glow = keyframes`
   from {
-    box-shadow: 0 0 0px yellow;
+    box-shadow: 0 0 0.2rem 0 rgba(255, 255, 0, 0.2);
   }
   to {
-    box-shadow: 0 0 10px 1px yellow;
+    box-shadow: 0 0 1rem 0.2rem rgba(255, 255, 0, 0.8);
   }
 `;
 
 const StyledSearch = styled.div`
   display: grid;
   grid-template-rows: 1fr auto;
-  border: 2px solid var(--green);
-  border-radius: 50px;
+  border: 0.2rem solid var(--green);
+  border-radius: 5rem;
   height: max-content;
-  max-width: 328px;
+  width: 26rem;
   input {
     width: 100%;
-    padding: 8px 16px;
+    padding: 0.8rem 1.6rem;
     border: 0;
-    border-radius: 50px;
+    border-radius: 5rem;
     font-size: 1.6rem;
     &.loading {
       animation: ${glow} 0.5s ease-in-out infinite alternate;
@@ -38,21 +38,21 @@ const StyledDropDown = styled.div`
   width: 100%;
   z-index: 2;
   background: white;
-  border: ${(props) => (props.isOpen ? '1px solid var(--lightGrey)' : 'none')};
+  border: ${(props) => (props.isOpen ? '0.1rem solid var(--lightGrey)' : 'none')};
 `;
 
 const StyledDropDownItem = styled.div`
-  border-bottom: 1px solid var(--lightGrey);
+  border-bottom: 0.1rem solid var(--lightGrey);
   background: ${(props) => (props.highlighted ? '#f7f7f7' : props.theme.white)};
   padding: 1rem;
   transition: all 0.2s;
   ${(props) => (props.highlighted ? 'padding-left: 2rem;' : null)};
   display: flex;
   align-items: center;
-  border-left: 10px solid
+  border-left: 1rem solid
   ${(props) => (props.highlighted ? props.theme.lightgrey : props.theme.white)};
   img {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `;
 
@@ -93,11 +93,10 @@ const Search = () => {
           <label
             id='search-label'
             htmlFor='search'
-            style={{ position: 'absolute', left: '-9999px' }}
+            style={{ position: 'absolute', left: '-999.9rem' }}
           >
             Search Products
           </label>
-
           <input
             {...getInputProps({
               id: 'search',

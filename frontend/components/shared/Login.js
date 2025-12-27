@@ -25,7 +25,7 @@ const StyledFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80rem;
+  width: 60rem;
 `;
 
 const StyledLink = styled.div`

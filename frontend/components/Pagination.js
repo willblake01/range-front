@@ -16,13 +16,13 @@ const StyledPagination = styled.div`
   justify-content: center;
   align-content: center;
   margin: 2rem auto;
-  border: 1px solid var(--lightGrey);
-  border-radius: 10px;
+  border: 0.1rem solid var(--lightGrey);
+  border-radius: 1rem;
   width: fit-content;
   & > * {
     margin: 0;
-    padding: 15px 30px;
-    border-right: 1px solid var(--lightGrey);
+    padding: 1.5rem 3rem;
+    border-right: 0.1rem solid var(--lightGrey);
     &:last-child {
       border-right: 0;
     }

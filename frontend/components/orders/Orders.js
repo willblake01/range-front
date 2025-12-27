@@ -10,7 +10,7 @@ import { DisplayError } from '../shared';
 
 const StyledOrders = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   grid-gap: 4rem;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   height: max-content;
@@ -20,27 +20,27 @@ const StyledOrderItem = styled.li`
   box-shadow: var(--bs);
   list-style: none;
   padding: 2rem;
-  border: 1px solid var(--offWhite);
+  border: 0.1rem solid var(--offWhite);
   h2 {
-    border-bottom: 2px solid red;
+    border-bottom: 0.2rem solid red;
     margin-top: 0;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   .images {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     margin-top: 1rem;
     img {
-      height: 200px;
+      height: 20rem;
       object-fit: cover;
       width: 100%;
     }
   }
   .order-meta {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
     display: grid;
     grid-gap: 1rem;
     text-align: center;

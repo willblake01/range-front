@@ -7,17 +7,17 @@ import { StyledPriceTag } from '.';
 
 const StyledProduct = styled.div`
   background: var(--white);
-  border: 1px solid var(--offWhite);
+  border: 0.1rem solid var(--offWhite);
   box-shadow: var(--bs);
   position: relative;
   display: flex;
   flex-direction: column;
   img {
     width: 100%;
-    height: 400px;
+    height: 40rem;
     object-fit: contain;
     background-color: var(--white);
-    padding: 20px;
+    padding: 2rem;
   }
   p {
     line-height: 2;
@@ -30,11 +30,11 @@ const StyledProduct = styled.div`
   .buttonGrid {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 0.1rem;
     * {
       background: var(--white);
-      border: 2px solid var(--green);
+      border: 0.2rem solid var(--green);
       font-size: 1rem;
       padding: 1rem;
       color: var(--green);

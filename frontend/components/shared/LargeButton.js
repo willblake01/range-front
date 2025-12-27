@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const StyledLargeButton = styled.button`
   background-color: ${({ buttonColor }) => buttonColor ||  'var(--green)'};
   color: var(--offWhite);
-  width: 180px;
-  height: 42px;
+  width: 18rem;
+  height: 4.2rem;
   padding: .5rem 1rem;
   font-size: 1.25rem;
   border-radius: 1.3rem;
@@ -15,7 +15,7 @@ const StyledLargeButton = styled.button`
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  border: 1px solid transparent;
+  border: 0.1rem solid transparent;
   &:hover {
     color:  blue;
   }

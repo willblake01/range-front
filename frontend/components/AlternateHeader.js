@@ -9,9 +9,9 @@ const StyledAlternateHeader = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 480px;
+  height: 48rem;
   width: 100%;
-  @media (max-width: 1300px) {
+  @media (max-width: 130rem) {
     grid-template-columns: 1fr;
     justify-content: center;
   }
@@ -23,8 +23,8 @@ const NavPosition = styled.div`
 
 const SearchPosition = styled.div`
   position: absolute;
-  top: 360px;
-  right: 20px;
+  top: 36rem;
+  right: 4rem;
   z-index: 2;
 `;
 

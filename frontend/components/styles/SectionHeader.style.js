@@ -5,8 +5,8 @@ const StyledSectionHeader = styled.div`
   flex-direction: column;
   align-items: center;
   img {
-      width: 1040px;
-      margin-bottom: 8px;
+      width: 104rem;
+      margin-bottom: 0.8rem;
   }
 `;
 

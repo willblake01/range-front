@@ -4,7 +4,7 @@ import { RemoveFromCart } from '../..';
 
 const StyledCartItem = styled.li`
   padding: 1rem 0;
-  border-bottom: 1px solid var(--lightGrey);
+  border-bottom: 0.1rem solid var(--lightGrey);
   display: grid;
   grid-template-columns: auto 1fr auto;
   img {

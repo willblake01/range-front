@@ -8,10 +8,10 @@ const StyledLearnMore = styled.div`
   margin: 0 auto;
   padding: 2rem;
   max-width: var(--maxWidth);
-  padding: 20px 140px 100px;
+  padding: 2rem 14rem 10rem;
   font-size: 1.4rem;
   h1 {
-      padding-top: 20px;
+      padding-top: 2rem;
       font-weight: bold;
   }
   h2, h4 {
@@ -24,9 +24,9 @@ const StyledLearnMore = styled.div`
   }
   td,
   th {
-      border: 1px solid #dddddd;
+      border: 0.1rem solid #dddddd;
       text-align: left;
-      padding: 8px;
+      padding: 0.8rem;
   }
   tr:nth-child(even) {
       background-color: #dddddd;

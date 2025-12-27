@@ -17,24 +17,24 @@ import { DisplayError, LargeButton } from './shared';
 
 const StyledOrder = styled.div`
   display: flex;
-  padding: 20px;
+  padding: 2rem;
   position: relative;
   background: white;
   height: max-content%;
   width: 100%;
-  min-width: 500px;
+  min-width: 50rem;
   transform: translateX(100%);
   transition: all 0.3s;
   display: grid;
   grid-template-rows: auto 1fr auto;
   transform: translateX(0);
   header {
-    border-bottom: 5px solid var(--black);
+    border-bottom: 0.5rem solid var(--black);
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   footer {
-    border-top: 10px double var(--black);
+    border-top: 1rem double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;
@@ -56,7 +56,7 @@ const StyledOrder = styled.div`
 
 const StyledOrderItem = styled.li`
   padding: 1rem 0;
-  border-bottom: 1px solid var(--lightGrey);
+  border-bottom: 0.1rem solid var(--lightGrey);
   display: grid;
   grid-template-columns: auto 1fr auto;
   img {
@@ -69,15 +69,15 @@ const StyledOrderItem = styled.li`
 `;
 
 const StyledCheckoutForm = styled.form`
-  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 5px;
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.04);
+  border: 0.1rem solid rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
   margin: 2rem;
   padding: 1.4rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-height: 168px;
+  min-height: 16.8rem;
   width: 48rem;
   
   button {
@@ -94,7 +94,7 @@ const StyledTestCardInfo = styled.div`
   color: var(--grey);
   background: var(--offWhite);
   padding: 0.8rem;
-  border-radius: 3px;
+  border-radius: 0.3rem;
   
   strong {
     color: var(--black);

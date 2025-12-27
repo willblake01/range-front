@@ -6,15 +6,15 @@ const StyledLogo = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 24px;
-  left: 24px;
+  top: 2.4rem;
+  left: 2.4rem;
   font-size: 4rem;
   font-weight: 800;
   z-index: 2;
   transform: skew(-7deg);
   background: var(--green);
   margin: 0;
-  padding: 8px 22px;
+  padding: 0.8rem 2.2rem;
   height: max-content;
   width: max-content;
   a {
@@ -25,7 +25,7 @@ const StyledLogo = styled.div`
     color: var(--offWhite);
     text-decoration: none;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 130rem) {
     margin: 0;
     text-align: center;
   }

@@ -5,7 +5,7 @@ const StyledTitle = styled.h3`
   text-align: center;
   transform: skew(-5deg) rotate(-1deg);
   margin-top: -3rem;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
   a {
     background: var(--green);
     display: inline;

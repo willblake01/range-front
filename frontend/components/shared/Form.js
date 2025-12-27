@@ -12,10 +12,10 @@ const loading = keyframes`
 `;
 
 const StyledForm = styled.form`
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0.5rem 0.3rem rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
-  border: 5px solid white;
-  padding: 20px;
+  border: 0.5rem solid white;
+  padding: 2rem;
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
@@ -32,8 +32,8 @@ const StyledForm = styled.form`
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: .3rem;
-    border: 1px solid transparent;
-    margin: 0 0 10px 0;
+    border: 0.1rem solid transparent;
+    margin: 0 0 1rem 0;
     background-color: var(--offWhite);
     height: 3.8rem;
     width: 100%;
@@ -59,7 +59,7 @@ const StyledForm = styled.form`
       opacity: 0.5;
     }
     &::before {
-      height: 10px;
+      height: 1rem;
       content: '';
       display: block;
       background-image: linear-gradient(

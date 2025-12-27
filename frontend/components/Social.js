@@ -4,11 +4,11 @@ const StyledSocial = styled.div`
   .social-icon {
     position: relative;
     text-align: center;
-    border-radius: 15px;
-    padding: 5px;
-    margin: 8px;
-    height: 42px;
-    width: 42px;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    margin: 0.8rem;
+    height: 4.2rem;
+    width: 4.2rem;
     background-color: var(--offWhite);
   }
 `;

@@ -12,8 +12,17 @@ const StyledRequestResetPassword = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
-  padding: 40px;
+  padding: 8rem;
   height: 100%;
+  height: max-content;
+`;
+
+const StyledFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60rem;
 `;
 
 const RequestResetPassword = () => {
@@ -51,27 +60,29 @@ const RequestResetPassword = () => {
 
   return (
     <StyledRequestResetPassword>
-      <StyledForm method='POST' onSubmit={handleSubmit}>
-        <h2>Request Password Reset</h2>
-        <DisplayError error={error} />
-        <fieldset>
-          {data?.sendUserPasswordResetLink === null && (
-            <p>Success! Check your email for a link!</p>
-          )}
+      <StyledFormContainer>
+        <StyledForm method='POST' onSubmit={handleSubmit}>
+          <h2>Request Password Reset</h2>
+          <DisplayError error={error} />
+          <fieldset>
+            {data?.sendUserPasswordResetLink === null && (
+              <p>Success! Check your email for a link!</p>
+            )}
 
-          <label htmlFor='email'>
-            Email
-          </label>
-          <input
-            type='email'
-            name='email'
-            autoComplete='email'
-            value={inputs.email}
-            onChange={handleChange}
-          />
-          <LargeButton type='submit'>Submit</LargeButton>
-        </fieldset>
-      </StyledForm>
+            <label htmlFor='email'>
+              Email
+            </label>
+            <input
+              type='email'
+              name='email'
+              autoComplete='email'
+              value={inputs.email}
+              onChange={handleChange}
+            />
+            <LargeButton type='submit'>Submit</LargeButton>
+          </fieldset>
+        </StyledForm>
+      </StyledFormContainer>
     </StyledRequestResetPassword>
   );
 };

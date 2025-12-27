@@ -13,22 +13,22 @@ const StyledProductDescription = styled.div`
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   font-size: 1.4rem;
-  padding: 40px;
+  padding: 4rem;
   height: 100%;
   img {
     object-fit: contain;
   }
   .product {
     display: grid;
-    gap: 40px;
+    gap: 4rem;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-flow: row;
     grid-column: 1/3;
     background-color: var(--white);
     grid-row: 1;
-    border: 1px solid var(--offWhite);
+    border: 0.1rem solid var(--offWhite);
     box-shadow: var(--bs);
-    padding: 20px;
+    padding: 2rem;
   }
   .image {
     grid-column: 1/2;
@@ -45,11 +45,11 @@ const StyledProductDescription = styled.div`
     grid-column: 2/3;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 0.1rem;
     * {
       background: var(--white);
-      border: 2px solid var(--green);
+      border: 0.2rem solid var(--green);
       font-size: 1rem;
       padding: 1rem;
       text-align: center;
@@ -57,11 +57,11 @@ const StyledProductDescription = styled.div`
       text-decoration: none;
     }
   }
-  @media (max-width: 768px) {
-    padding: 20px;
+  @media (max-width: 76.8rem) {
+    padding: 2rem;
     .product {
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 2rem;
     }
     .image {
       grid-column: 1;

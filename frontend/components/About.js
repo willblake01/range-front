@@ -9,7 +9,7 @@ const StyledAbout = styled.div`
   padding: 5rem;
   font-size: 1.4rem;
   img {
-    width: 1040px;
+    width: 104rem;
     margin: 0 auto 5rem;
     display: block;
   }

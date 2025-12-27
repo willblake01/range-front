@@ -18,7 +18,7 @@ const StyledFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80rem;
+  width: 60rem;
 `;
 
 const StyledAccountHeader = styled.div`
@@ -34,19 +34,18 @@ const StyledAccountHeader = styled.div`
 `;
 
 const StyledInfoSection = styled.section`
-  max-width: 600px;
   background: white;
   margin: 0 auto;
   padding: 2rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 `;
 
 const StyledInfoRow = styled.div`
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 14rem 1fr;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--offWhite);
+  border-bottom: 0.1rem solid var(--offWhite);
   
   &:last-child {
     border-bottom: none;

@@ -10,9 +10,9 @@ const StyledHeader = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 480px;
+  height: 48rem;
   width: 100%;
-  @media (max-width: 1300px) {
+  @media (max-width: 130rem) {
     grid-template-columns: 1fr;
     justify-content: center;
   }
@@ -23,8 +23,8 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 194px;
-  left: 116px;
+  top: 19.4rem;
+  left: 11.6rem;
   height: max-content;
   width: max-content;
   a {
@@ -32,13 +32,13 @@ const StyledSection = styled.section`
     width: max-content;
   }
   button {
-    margin: 20px 0;
+    margin: 2rem 0;
   }
-  @media (max-width: 768px) {
-    top: 120px;
-    left: 20px;
-    right: 20px;
-    width: calc(100% - 40px);
+  @media (max-width: 76.8rem) {
+    top: 12rem;
+    left: 2rem;
+    right: 2rem;
+    width: calc(100% - 4rem);
   }
 `;
 
@@ -59,7 +59,7 @@ const StyledCopy = styled.div`
     font-family: Raleway-Medium;
     font-size: 2rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 76.8rem) {
     .medium-abril-fatface {
       font-size: 2rem;
     }
@@ -76,15 +76,15 @@ const NavPosition = styled.div`
   z-index: 2;
   height: max-content;
   position: absolute;
-  top: 120px;
+  top: 12rem;
   width: 100%;
 `;
 
 const SearchPosition = styled.div`
   z-index: 2;
   position: absolute;
-  top: 60px;
-  right: 20px;
+  top: 6rem;
+  right: 2rem;
 `;
 
 const Header = () => (

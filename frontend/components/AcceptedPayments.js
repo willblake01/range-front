@@ -7,18 +7,18 @@ const StyledAcceptedPayments = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    height: 580px;
+    height: 58rem;
     background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   }
   .section {
-    max-width: 720 px;
+    max-width: 72rem;
   }
   #credit-card {
-    width: 400px;
+    width: 40rem;
     text-align: center;
   }
   #bitcoin {
-    width: 280px;
+    width: 28rem;
     text-align: center;
   }
 `;
