@@ -15,12 +15,17 @@ const StyledSignUp = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
   margin: 0;
-  padding: 40px;
-  height: 100%;
-  width: 80rem;
+  padding: 8rem;
+  height: max-content;
+  width: 100%;
   h2 {
     margin: 0;
   }
+`;
+
+const StyledFormContainer = styled.div`
+  display: flex;
+  width: 60rem;
 `;
 
 const SignUp = () => {
@@ -61,58 +66,60 @@ const SignUp = () => {
 
   return (
     <StyledSignUp>
-      <StyledForm method='POST' onSubmit={handleSubmit}>
-        <DisplayError error={error} />
-        {currentPathname === '/admin' ? <h2>Create User</h2> : <h2>Account Signup</h2>}
-        <fieldset>
-          {data?.createUser && (
-            <p>
-              Signed up with {data.createUser.email} - Please Go Head and Login!
-            </p>
-          )}
-          <label htmlFor='email'>
-            First Name
-          </label>
-          <input
-            type='text'
-            name='firstName'
-            autoComplete='firstName'
-            value={inputs.firstName}
-            onChange={handleChange}
-          />
-          <label htmlFor='email'>
-            Last Name
-          </label>
-          <input
-            type='text'
-            name='lastName'
-            autoComplete='lastName'
-            value={inputs.lastName}
-            onChange={handleChange}
-          />
-          <label htmlFor='email'>
-            Email
-          </label>
-          <input
-            type='email'
-            name='email'
-            autoComplete='email'
-            value={inputs.email}
-            onChange={handleChange}
-          />
-          <label htmlFor='password'>
-            Password
-          </label>
-          <input
-            type='password'
-            name='password'
-            autoComplete='password'
-            value={inputs.password}
-            onChange={handleChange}
-          />
-          <LargeButton type='submit'>Submit</LargeButton>
-        </fieldset>
-      </StyledForm>
+      <StyledFormContainer>
+        <StyledForm method='POST' onSubmit={handleSubmit}>
+          <DisplayError error={error} />
+          {currentPathname === '/admin' ? <h2>Create User</h2> : <h2>Account Signup</h2>}
+          <fieldset>
+            {data?.createUser && (
+              <p>
+                Signed up with {data.createUser.email} - Please Go Head and Login!
+              </p>
+            )}
+            <label htmlFor='email'>
+              First Name
+            </label>
+            <input
+              type='text'
+              name='firstName'
+              autoComplete='firstName'
+              value={inputs.firstName}
+              onChange={handleChange}
+            />
+            <label htmlFor='email'>
+              Last Name
+            </label>
+            <input
+              type='text'
+              name='lastName'
+              autoComplete='lastName'
+              value={inputs.lastName}
+              onChange={handleChange}
+            />
+            <label htmlFor='email'>
+              Email
+            </label>
+            <input
+              type='email'
+              name='email'
+              autoComplete='email'
+              value={inputs.email}
+              onChange={handleChange}
+            />
+            <label htmlFor='password'>
+              Password
+            </label>
+            <input
+              type='password'
+              name='password'
+              autoComplete='password'
+              value={inputs.password}
+              onChange={handleChange}
+            />
+            <LargeButton type='submit'>Submit</LargeButton>
+          </fieldset>
+        </StyledForm>
+      </StyledFormContainer>
     </StyledSignUp>
   );
 };

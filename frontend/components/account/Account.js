@@ -8,9 +8,17 @@ const StyledAccount = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
-  padding: 40px;
-  height: 100%;
+  padding: 8rem;
+  height: max-content;
   width: 100%;
+`;
+
+const StyledFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
 `;
 
 const StyledAccountHeader = styled.div`
@@ -70,34 +78,36 @@ const Account = () => {
 
   return (
     <StyledAccount>
-      <StyledAccountHeader>
-        <h2>Account Information</h2>
-      </StyledAccountHeader>
-      
-      <StyledInfoSection>
-        <StyledInfoRow>
-          <label>First Name</label>
-          <span>{user?.firstName}</span>
-        </StyledInfoRow>
-        <StyledInfoRow>
-          <label>Last Name</label>
-          <span>{user?.lastName}</span>
-        </StyledInfoRow>
-        <StyledInfoRow>
-          <label>Email</label>
-          <span>{user?.email}</span>
-        </StyledInfoRow>
-        <StyledInfoRow>
-          <label>Password</label>
-          <span>••••••••</span>
-        </StyledInfoRow>
-        <StyledInfoRow>
-          <label>Permissions</label>
-          <PermissionsList>
-            {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
-          </PermissionsList>
-        </StyledInfoRow>
-      </StyledInfoSection>
+      <StyledFormContainer>
+        <StyledAccountHeader>
+          <h2>Account Information</h2>
+        </StyledAccountHeader>
+        
+        <StyledInfoSection>
+          <StyledInfoRow>
+            <label>First Name</label>
+            <span>{user?.firstName}</span>
+          </StyledInfoRow>
+          <StyledInfoRow>
+            <label>Last Name</label>
+            <span>{user?.lastName}</span>
+          </StyledInfoRow>
+          <StyledInfoRow>
+            <label>Email</label>
+            <span>{user?.email}</span>
+          </StyledInfoRow>
+          <StyledInfoRow>
+            <label>Password</label>
+            <span>••••••••</span>
+          </StyledInfoRow>
+          <StyledInfoRow>
+            <label>Permissions</label>
+            <PermissionsList>
+              {user?.permissions?.map(permission => <span key={permission}>{permission}</span>)}
+            </PermissionsList>
+          </StyledInfoRow>
+        </StyledInfoSection>
+      </StyledFormContainer>
     </StyledAccount>
   );
 };

@@ -13,7 +13,7 @@ const StyledOrders = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 4rem;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
-  height: 100%;
+  height: max-content;
 `;
 
 const StyledOrderItem = styled.li`

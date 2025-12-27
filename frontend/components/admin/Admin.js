@@ -10,18 +10,33 @@ import { Permissions } from './components';
 
 const StyledAdmin = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  
+  padding: 8rem 0;
+`;
+
+const StyledPermissionsTableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
+
   h2 {
     font-size: 3rem;
     margin-bottom: 2rem;
   }
+`;
+
+const StyledSignUpContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60rem;
 `;
 
 const StyledPermissionsTable = styled.table`
@@ -63,22 +78,6 @@ const StyledPermissionsTable = styled.table`
       cursor: pointer;
     }
   }
-`;
-
-const StyledPermissionsTableContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80rem;
-`;
-
-const StyledSignUpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80rem;
 `;
 
 const Admin = () => {

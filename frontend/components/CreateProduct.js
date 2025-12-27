@@ -8,14 +8,14 @@ import { useForm } from '../lib';
 import { DisplayError, LargeButton, StyledForm } from './shared';
 import { ALL_PRODUCTS_QUERY } from '.';
 
-const StyledCreate = styled.div`
+const StyledCreateProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
   color: var(--green);
-  padding: 40px;
-  height: 100%;
+  padding: 8rem;
+  height: max-content;
   width: 100%;
 `;
 
@@ -54,7 +54,7 @@ const CreateProduct = () => {
   if (loading) return <p>Loading...</p>;
   
   return (
-    <StyledCreate>
+    <StyledCreateProduct>
       <StyledFormContainer>
         <StyledForm
           onSubmit={async (e) => {
@@ -136,7 +136,7 @@ const CreateProduct = () => {
           </fieldset>
         </StyledForm>
       </StyledFormContainer>
-    </StyledCreate>
+    </StyledCreateProduct>
   );
 };
 

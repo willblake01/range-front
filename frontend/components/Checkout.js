@@ -16,10 +16,11 @@ import { calcTotalPrice, formatMoney } from '../lib';
 import { DisplayError, LargeButton } from './shared';
 
 const StyledOrder = styled.div`
+  display: flex;
   padding: 20px;
   position: relative;
   background: white;
-  height: 100%;
+  height: max-content%;
   width: 100%;
   min-width: 500px;
   transform: translateX(100%);
