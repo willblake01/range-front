@@ -13,6 +13,7 @@ const StyledProduct = styled.div`
   border: 0.1rem solid var(--offWhite);
   box-shadow: var(--bs);
   position: relative;
+  padding-top: 2rem;
   img {
     width: 100%;
     height: 40rem;

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled from 'styled-components';
 
 const StyledAbout = styled.div`
@@ -9,7 +10,6 @@ const StyledAbout = styled.div`
   padding: 5rem;
   font-size: 1.4rem;
   img {
-    width: 104rem;
     margin: 0 auto 5rem;
     display: block;
   }
@@ -17,7 +17,12 @@ const StyledAbout = styled.div`
 
 const About = () => (
   <StyledAbout>
-    <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg' alt='about us' />
+    <Image
+      src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg'
+      alt='about us'
+      height='800'
+      width='2000'
+    />
     <p>At RangeFront, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand
     behind all our products with a 100% satisfaction guarantee, and we design our own line of award-winning RangeFront
     brand gear and clothing. Whether you're new to outdoor adventure or a seasoned pro, we gladly share our enthusiasm

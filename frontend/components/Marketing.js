@@ -6,7 +6,7 @@ const StyledMarketing = styled.div`
   display: flex;
   align-items: end;
   justify-content: center;
-  height: 60.7rem;
+  height: 60rem;
   width: 100%;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509884/range-front/marketing_img.png');
   background-repeat: no-repeat;
@@ -14,7 +14,7 @@ const StyledMarketing = styled.div`
 `;
 
 const ButtonPosition = styled.div`
-  margin-bottom: 8rem;
+  margin-bottom: 7rem;
 `
 
 const Marketing = () => (
