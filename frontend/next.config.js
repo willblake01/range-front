@@ -2,6 +2,10 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  reactStrictMode: true,
+  images: {
+    domains: ['res.cloudinary.com']
+  },
 
   async rewrites() {
     const isProd = process.env.NODE_ENV === 'production';

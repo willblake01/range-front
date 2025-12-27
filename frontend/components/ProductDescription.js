@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
@@ -13,8 +14,8 @@ const StyledProductDescription = styled.div`
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   font-size: 1.4rem;
-  padding: 4rem;
-  height: 100%;
+  padding: 8rem;
+  height: max-content;
   img {
     object-fit: contain;
   }
@@ -100,9 +101,11 @@ const ProductDescription = ({ id }) => {
       </Head>
       <div className='product'>
         <div className='image'>
-          <img
+          <Image
             src={product.image}
             alt={product.title}
+            height='400'
+            width='600'
           />
         </div>
         <div className='details'>

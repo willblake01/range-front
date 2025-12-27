@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
@@ -6,18 +7,17 @@ import { StyledTitle } from '../..';
 import { StyledPriceTag } from '.';
 
 const StyledProduct = styled.div`
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   border: 0.1rem solid var(--offWhite);
   box-shadow: var(--bs);
   position: relative;
-  display: flex;
-  flex-direction: column;
   img {
     width: 100%;
     height: 40rem;
     object-fit: contain;
     background-color: var(--white);
-    padding: 2rem;
   }
   p {
     line-height: 2;
@@ -48,9 +48,11 @@ const Product = ({ product }) => {
     <StyledProduct>
       <Link href={`/product/${product.id}`}>
         <a>
-          <img
+          <Image
             src={product?.image}
             alt={product.title}
+            height='400'
+            width='600'
           />
         </a>
       </Link>
