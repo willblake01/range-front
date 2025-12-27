@@ -11,7 +11,7 @@ import { DeleteProduct } from '.';
 const StyledProductDescription = styled.div`
   justify-content: center;
   align-items: top;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   font-size: 1.4rem;
   padding: 4rem;
   height: 100%;

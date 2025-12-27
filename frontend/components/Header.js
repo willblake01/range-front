@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509884/range-front/main_img.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509884/range-front/main_img.png');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;

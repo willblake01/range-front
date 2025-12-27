@@ -3,7 +3,7 @@ import { StyledSectionHeader } from '../../../components/styles';
 import { AlternateHeader, Footer } from '../../../components';
 
 const StyledLearnMore = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   width: 100%;
   margin: 0 auto;
   padding: 2rem;

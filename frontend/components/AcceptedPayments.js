@@ -8,7 +8,7 @@ const StyledAcceptedPayments = styled.div`
     justify-content: space-evenly;
     width: 100%;
     height: 58rem;
-    background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+    background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   }
   .section {
     max-width: 72rem;
