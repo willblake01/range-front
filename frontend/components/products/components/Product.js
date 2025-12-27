@@ -52,8 +52,8 @@ const Product = ({ product }) => {
           <Image
             src={product?.image}
             alt={product.title}
-            height='400'
-            width='600'
+            height={400}
+            width={600}
           />
         </a>
       </Link>

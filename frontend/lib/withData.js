@@ -35,22 +35,7 @@ const createClient = ({ headers, initialState }) => {
         headers,
       }),
     ]),
-    cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            item: {
-              keyArgs: false,
-              merge(existing = [], incoming) {
-                return [...existing, ...incoming];
-              }
-            }
-            // TODO: We will add this together!
-            // allProducts: paginationField(),
-          },
-        },
-      },
-    }).restore(initialState || {}),
+    cache: new InMemoryCache().restore(initialState || {}),
   });
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Logo, Nav, Search } from './shared';
-import { Cart } from '.';
+import { Logo, Nav, Search } from '.';
+import { Cart } from '..';
 
 const StyledAlternateHeader = styled.header`
   display: grid;

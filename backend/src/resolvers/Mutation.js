@@ -364,9 +364,15 @@ const Mutations = {
     // 4. Convert the cartItems to orderItems
     const orderItems = user?.cart?.map(cartItem => {
       const orderItem = {
-        ...cartItem.item,
+        category: cartItem.category,
+        brand: cartItem.brand,
+        title: cartItem.item.title,
+        description: cartItem.item.description,
+        image: cartItem.item.image,
+        largeImage: cartItem.item.largeImage,
+        price: cartItem.item.price,
         quantity: cartItem.quantity,
-        user: { connect: { id: userId } },
+        user: { connect: { id: userId } }
       };
       delete orderItem.id;
       return orderItem;

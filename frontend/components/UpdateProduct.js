@@ -3,6 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, StyledForm } from './shared';
+import { SINGLE_PRODUCT_QUERY } from './ProductDescription';
 
 const StyledUpdateProduct = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const StyledUpdateProduct = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
-  padding: 8rem;
+  padding: clamp(2rem, 5vw, 8rem);
   height: max-content%;
 `;
 
@@ -23,10 +24,12 @@ const StyledFormContainer = styled.div`
 `;
 
 const UpdateProduct = ({ id }) => {
+  const safeId = Array.isArray(id) ? id[0] : id;
 
   // 1. We need to get the existing product
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
-    variables: { id },
+    variables: { id: safeId },
+    skip: !id
   });
 
   // 2. We need to get the mutation to update the product
@@ -152,20 +155,6 @@ const UpdateProduct = ({ id }) => {
     </StyledUpdateProduct>
   );
 };
-
-const SINGLE_PRODUCT_QUERY = gql`
-  query SINGLE_PRODUCT_QUERY($id: ID!) {
-    product(where: { id: $id }) {
-      id
-      brand
-      title
-      description
-      category
-      image
-      price
-    }
-  }
-`;
 
 const UPDATE_PRODUCT_MUTATION = gql`
   mutation UPDATE_PRODUCT_MUTATION(

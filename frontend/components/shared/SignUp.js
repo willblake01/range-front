@@ -15,7 +15,7 @@ const StyledSignUp = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
   margin: 0;
-  padding: 8rem;
+  padding: clamp(2rem, 5vw, 8rem);
   height: max-content;
   width: 100%;
   h2 {

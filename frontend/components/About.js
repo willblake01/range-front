@@ -5,9 +5,8 @@ const StyledAbout = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   max-width: var(--maxWidth);
-  padding: 5rem;
+  padding: clamp(2rem, 5vw, 8rem);
   font-size: 1.4rem;
   img {
     margin: 0 auto 5rem;
@@ -20,8 +19,8 @@ const About = () => (
     <Image
       src='https://res.cloudinary.com/willblake01/image/upload/v1538509880/range-front/about_us.jpg'
       alt='about us'
-      height='800'
-      width='2000'
+      height={800}
+      width={2000}
     />
     <p>At RangeFront, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand
     behind all our products with a 100% satisfaction guarantee, and we design our own line of award-winning RangeFront

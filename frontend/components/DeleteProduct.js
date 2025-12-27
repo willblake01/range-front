@@ -11,10 +11,12 @@ const update = (cache, payload) => {
 }
 
 const DeleteProduct = ({ id, children }) => {
+  const safeId = Array.isArray(id) ? id[0] : id;
+
   const [deleteProduct, { loading, error }] = useMutation(
     DELETE_PRODUCT_MUTATION,
     {
-      variables: { id },
+      variables: { id: safeId },
       update,
     }
   );

@@ -18,14 +18,14 @@ const AcceptedPayments = () => (
       <Image
         src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/credit_card.png'
         alt='Credit Card'
-        height='251.85'
-        width='400'
+        height={251.85}
+        width={400}
       />
       <Image
         src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/bitcoin.png'
         alt='Credit Card'
-        height='280'
-        width='280'
+        height={280}
+        width={280}
       />
     </div>
   </StyledAcceptedPayments>

@@ -75,6 +75,7 @@ const Search = () => {
     getItemProps,
     highlightedIndex,
   } = useCombobox({
+    id: 'product-search',
     items,
     onInputValueChange({ inputValue }) {
       findItemsButChill({ variables: { searchTerm: inputValue } });

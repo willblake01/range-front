@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Social } from '.';
+import { Social } from '../Social';
 
 const StyledFooter = styled.footer`
   position: relative;

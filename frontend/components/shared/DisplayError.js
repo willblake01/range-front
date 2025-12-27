@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledError = styled.div`
-  padding: 2rem;
   background: white;
+  padding: 2rem;
   margin: 2rem 0;
   border: 0.1rem solid rgba(0, 0, 0, 0.05);
   border-left: 0.5rem solid red;

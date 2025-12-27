@@ -1,36 +1,41 @@
 import styled from 'styled-components';
 import { StyledSectionHeader } from '../../../components/styles';
-import { AlternateHeader, Footer } from '../../../components';
+import { AlternateHeader, Footer } from '../../../components/shared';
 
 const StyledBuyingGuide = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  max-width: var(--maxWidth);
-  padding: 2rem 14rem 10rem;
   font-size: 1.4rem;
+  margin: 0 auto;
+  padding: 2rem 14rem 10rem;
+  width: 100%;
+  max-width: var(--maxWidth);
+
   h1 {
       padding-top: 2rem;
       font-weight: bold;
   }
+      
   h2, h4 {
       font-weight: bold;
   }
+
   table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
   }
+
   td,
   th {
       border: 0.1rem solid #dddddd;
       text-align: left;
       padding: 0.8rem;
   }
+
   tr:nth-child(even) {
       background-color: #dddddd;
   }
+      
   p.boldPara {
       font-weight: bold;
   }

@@ -1,4 +1,5 @@
-import { About, AlternateHeader, Footer } from '../components';
+import { AlternateHeader, Footer } from '../components/shared';
+import { About } from '../components';
 
 const AboutPage = () => (
   <>

@@ -17,8 +17,10 @@ const update = (cache, payload) => {
 }
 
 const RemoveFromCart = ({ id }) => {
+  const safeId = Array.isArray(id) ? id[0] : id;
+
   const [removeFromCart, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
-    variables: { id },
+    variables: { id: safeId },
     update,
     optimisticResponse: {
       removeFromCart: {

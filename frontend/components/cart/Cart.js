@@ -6,21 +6,21 @@ import { DisplayError, LargeButton, PleaseLogin } from '../shared';
 import { CartItem, StyledCloseButton } from './components';
 
 const StyledCart = styled.div`
-  padding: 2rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background: white;
   position: fixed;
-  height: 100%;
   top: 0;
   right: 0;
-  width: 40%;
+  padding: 2rem;
+  height: 100%;
   min-width: 50rem;
+  width: 40%;
   bottom: 0;
   transform: translateX(100%);
   transition: all 0.3s;
   box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.2);
   z-index: 5;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   ${(props) => props.open && `transform: translateX(0);`};
   header {
     border-bottom: 0.5rem solid var(--black);

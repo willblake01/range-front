@@ -1,5 +1,5 @@
-import { PleaseLogin } from '../components/shared';
-import { AlternateHeader, Checkout, Footer } from '../components';
+import { AlternateHeader, Footer, PleaseLogin } from '../components/shared';
+import { Checkout } from '../components';
 
 const CheckoutPage = ({query}) => (
   <>

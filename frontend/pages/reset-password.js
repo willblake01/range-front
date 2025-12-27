@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { AlternateHeader, Footer, RequestResetPassword, ResetPassword } from '../components';
+import { AlternateHeader, Footer } from '../components/shared';
+import { RequestResetPassword, ResetPassword } from '../components';
 
 const ResetPasswordPage = () => {
   const router = useRouter();

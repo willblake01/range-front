@@ -1,10 +1,15 @@
-import { AlternateHeader, Footer, UpdateProduct } from '../../../../components';
+import { useRouter } from 'next/router';
+import { AlternateHeader, Footer } from '../../../../components/shared';
+import { UpdateProduct } from '../../../../components';
 
-const UpdateProductPage = ({ query }) => {
+const UpdateProductPage = () => {
+  const { query } = useRouter();
+  const { id } = query;
+
   return (
     <>
       <AlternateHeader />
-      <UpdateProduct id={query.id} />
+      <UpdateProduct id={id} />
       <Footer />
     </>
   );

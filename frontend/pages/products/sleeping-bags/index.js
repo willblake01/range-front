@@ -1,4 +1,5 @@
-import { AlternateHeader, Footer, SleepingBags } from '../../../components';
+import { AlternateHeader, Footer } from '../../../components/shared';
+import { SleepingBags } from '../../../components';
 
 const SleepingBagsPage = ({ query }) => (
   <>

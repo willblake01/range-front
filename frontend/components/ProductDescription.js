@@ -14,11 +14,13 @@ const StyledProductDescription = styled.div`
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   font-size: 1.4rem;
-  padding: 8rem;
+  padding: clamp(2rem, 5vw, 8rem);
   height: max-content;
+
   img {
     object-fit: contain;
   }
+
   .product {
     display: grid;
     gap: 4rem;
@@ -31,17 +33,20 @@ const StyledProductDescription = styled.div`
     box-shadow: var(--bs);
     padding: 2rem;
   }
+
   .image {
     grid-column: 1/2;
     display: flex;
     justify-content: center;
   }
+
   .details {
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
     grid-row: 1;
   }
+
   .buttonGrid {
     grid-column: 2/3;
     display: grid;
@@ -58,6 +63,7 @@ const StyledProductDescription = styled.div`
       text-decoration: none;
     }
   }
+    
   @media (max-width: 76.8rem) {
     padding: 2rem;
     .product {
@@ -82,12 +88,14 @@ const StyledProductDescription = styled.div`
 const ProductDescription = ({ id }) => {
   const { user } = useUser();
 
+  const safeId = Array.isArray(id) ? id[0] : id;
+
   const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
-    variables: {
-      id,
-    },
+    variables: { id: safeId },
+    skip: !id
   });
 
+  if (!id) return null
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
 
@@ -104,8 +112,8 @@ const ProductDescription = ({ id }) => {
           <Image
             src={product.image}
             alt={product.title}
-            height='400'
-            width='600'
+            height={400}
+            width={600}
           />
         </div>
         <div className='details'>
@@ -139,7 +147,7 @@ const ProductDescription = ({ id }) => {
   );
 };
 
-const SINGLE_PRODUCT_QUERY = gql`
+export const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
     product(where: { id: $id }) {
       id

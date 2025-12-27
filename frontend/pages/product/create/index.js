@@ -1,5 +1,5 @@
-import { PleaseLogin } from '../../../components/shared';
-import { AlternateHeader, Footer, RequirePermission, CreateProduct } from '../../../components';
+import { AlternateHeader, Footer, PleaseLogin } from '../../../components/shared';
+import { RequirePermission, CreateProduct } from '../../../components';
 
 const PermissionsPage = () => {
   return (

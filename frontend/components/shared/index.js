@@ -1,5 +1,7 @@
 export { AddToCart } from './AddToCart';
+export { AlternateHeader } from './AlternateHeader';
 export { DisplayError } from './DisplayError';
+export { Footer } from './Footer';
 export { Logo } from './Logo';
 export { StyledForm } from './Form';
 export { LargeButton } from './LargeButton';

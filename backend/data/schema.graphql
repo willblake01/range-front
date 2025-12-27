@@ -32,6 +32,8 @@ type CartItem {
 
 type OrderItem {
   id: ID!
+  category: String!
+  brand: String!
   title: String!
   description: String!
   image: String!
@@ -116,6 +118,6 @@ type User {
   lastName: String!
   email: String!
   permissions: [Permission!]!
-  orders: [OrderItem]
+  orders: [Order]
   cart: [CartItem!]!
 }

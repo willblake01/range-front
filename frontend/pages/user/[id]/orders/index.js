@@ -1,5 +1,5 @@
-import { PleaseLogin } from '../../../../components/shared';
-import { AlternateHeader, Orders, Footer } from '../../../../components';
+import { AlternateHeader, Footer, PleaseLogin } from '../../../../components/shared';
+import { Orders } from '../../../../components';
 
 const OrdersPage = () => {
   return (

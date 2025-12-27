@@ -1,5 +1,4 @@
-import { Login } from '../components/shared';
-import { AlternateHeader, Footer } from '../components';
+import { AlternateHeader, Footer, Login } from '../components/shared';
 
 const LoginPage = () => {
   return (

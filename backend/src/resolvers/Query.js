@@ -32,7 +32,7 @@ const Query = {
   },
   async product(parent, args, ctx, info) {
     return ctx.db.product.findUnique({
-      where: { id: args.where.id },
+      where: args.where,
       include: {
         user: true,
       },

@@ -1,4 +1,5 @@
-import { AlternateHeader, BuyingGuide, Footer } from '../components';
+import { AlternateHeader, Footer } from '../components/shared';
+import { BuyingGuide } from '../components';
 
 const BuyingGuidePage = () => (
     <>

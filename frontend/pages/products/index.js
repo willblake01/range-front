@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { AlternateHeader, Footer, Pagination, Products } from '../../components';
+import { AlternateHeader, Footer } from '../../components/shared';
+import { Pagination, Products } from '../../components';
 
 const ProductsPage = () => {
   const { query } = useRouter();

@@ -56,7 +56,7 @@ const StyledOrderItem = styled.li`
   }
 `;
 
-const countItemsInAnOrder = (order) => {
+const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
 
@@ -85,25 +85,28 @@ const Orders = () => {
         <h2>You have {orders?.length} orders!</h2>
 
         {orders?.map((order) => (
-          <StyledOrderItem>
+          <StyledOrderItem key={order.id}>
             <Link href={`/order/${order.id}`}>
-              <div className='order-meta'>
-                <p>{countItemsInAnOrder(order)} Items</p>
-                <p>
-                  {order.items.length} Product
-                  {order.items.length === 1 ? '' : 's'}
-                </p>
-                <p>{formatMoney(order.total)}</p>
-              </div>
-              <div className='images'>
-                {order?.items?.map((item) => (
-                  <img
-                    key={`image-${item.id}`}
-                    src={item.image}
-                    alt={item.title}
-                  />
-                ))}
-              </div>
+              <a style={{ display: 'block' }}>
+                <div className='order-meta'>
+                  <p>{countItemsInOrder(order)} Items</p>
+                  <p>
+                    {order.items.length} Product
+                    {order.items.length === 1 ? '' : 's'}
+                  </p>
+                  <p>{formatMoney(order.total)}</p>
+                </div>
+
+                <div className='images'>
+                  {order?.items?.map((item) => (
+                    <img
+                      key={`image-${item.id}`}
+                      src={item.image}
+                      alt={item.title}
+                    />
+                  ))}
+                </div>
+              </a>
             </Link>
           </StyledOrderItem>
         ))}

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Header } from '../components/Header';
-import { AcceptedPayments, Footer, Marketing, Parallax, ShoppingTiles } from '../components';
+import { Footer } from '../components/shared';
+import { AcceptedPayments, Marketing, Parallax, ShoppingTiles } from '../components';
 
 const Home = () => (
   <>

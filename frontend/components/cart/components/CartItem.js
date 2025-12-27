@@ -3,10 +3,10 @@ import { formatMoney } from '../../../lib';
 import { RemoveFromCart } from '../..';
 
 const StyledCartItem = styled.li`
-  padding: 1rem 0;
-  border-bottom: 0.1rem solid var(--lightGrey);
   display: grid;
   grid-template-columns: auto 1fr auto;
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid var(--lightGrey);
   img {
     margin-right: 1rem;
   }

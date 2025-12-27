@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { CURRENT_USER_QUERY } from '../../hooks';

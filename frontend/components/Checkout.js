@@ -15,7 +15,7 @@ import { CURRENT_USER_QUERY, useUser } from '../hooks';
 import { calcTotalPrice, formatMoney } from '../lib';
 import { DisplayError, LargeButton } from './shared';
 
-const StyledOrder = styled.div`
+const StyledCheckout = styled.div`
   display: flex;
   padding: 2rem;
   position: relative;
@@ -201,7 +201,7 @@ const CheckoutForm = () => {
 
   return (
     <>
-      <StyledOrder>
+      <StyledCheckout>
         <header>
           <h1>{user?.firstName} {user?.lastName}'s order</h1>
         </header>
@@ -217,13 +217,13 @@ const CheckoutForm = () => {
             {formatMoney(calcTotalPrice(user?.cart))}
           </StyledTotalPrice>
         </footer>
-      </StyledOrder>
+      </StyledCheckout>
       <StyledCheckoutForm onSubmit={handleSubmit}>
         {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
         {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
         <StyledTestCardInfo>
-        <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
-      </StyledTestCardInfo>
+          <strong>Test Card:</strong> 4242 4242 4242 4242 | <strong>Exp:</strong> Any future date | <strong>CVC:</strong> Any 3 digits
+        </StyledTestCardInfo>
         <CardElement />
         <LargeButton type='submit' buttonColor='var(--darkOrange)' disabled={submitting || graphQLLoading}>
           Place Order
