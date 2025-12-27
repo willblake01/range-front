@@ -8,7 +8,7 @@ const StyledProductsList = styled.div`
   margin: 0 auto;
   text-align: center;
   padding: 4rem;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   a {
     text-decoration: none;
   }
