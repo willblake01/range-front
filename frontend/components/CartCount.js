@@ -1,18 +1,6 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
-const StyledDot = styled.div`
-  background: var(--green);
-  color: white;
-  border-radius: 50%;
-  padding: 0.5rem;
-  line-height: 2rem;
-  min-width: 3rem;
-  margin-left: 0;
-  font-feature-settings: 'tnum';
-  font-variant-numeric: tabular-nums;
-`;
-
 const StyledAnimation = styled.span`
   position: relative;
 
@@ -32,23 +20,43 @@ const StyledAnimation = styled.span`
   }
 
   .count-exit {
-    top: 0;
     position: absolute;
+    top: 0;
+    left: 0;
     transform: rotateX(0);
   }
 
   .count-exit-active {
-    transform: scale(4) rotateX(0.5turn);
+    transform: scale(2) rotateX(0);
   }
 `;
 
+const StyledDot = styled.div`
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 3rem;
+  height: 3rem;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+`;
+
+
 const CartCount = ({ count }) => (
   <StyledAnimation>
-    <TransitionGroup>
+    <TransitionGroup component={null}>
       <CSSTransition
         unmountOnExit
-        className='count'
-        classs='count'
+        classNames='count'
         key={count}
         timeout={{ enter: 400, exit: 400 }}
       >
