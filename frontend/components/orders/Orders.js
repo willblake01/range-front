@@ -86,7 +86,6 @@ const Orders = ({ orders, loading, error }) => {
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
-  if (!orders?.length) return <p>No orders found.</p>;
 
   return (
     <>
@@ -95,7 +94,7 @@ const Orders = ({ orders, loading, error }) => {
       </Head>
       <StyledOrders>
         <StyledOrdersContainer>
-          <h2>You have {orders?.length} orders!</h2>
+          {!orders.length ? <h2>No orders found.</h2> : <h2>You have {orders?.length} orders!</h2>}
 
           <StyledOrdersColumn>
             {orders?.map((order) => (
