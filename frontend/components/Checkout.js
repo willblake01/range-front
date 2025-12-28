@@ -17,10 +17,11 @@ import { DisplayError, LargeButton } from './shared';
 
 const StyledCheckout = styled.div`
   display: flex;
+  flex: 1;
   padding: 2rem;
   position: relative;
   background: white;
-  height: max-content%;
+  height: 100%;
   width: 100%;
   min-width: 50rem;
   transform: translateX(100%);
@@ -28,11 +29,13 @@ const StyledCheckout = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   transform: translateX(0);
+
   header {
     border-bottom: 0.5rem solid var(--black);
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
+
   footer {
     border-top: 1rem double var(--black);
     margin-top: 2rem;
@@ -46,6 +49,7 @@ const StyledCheckout = styled.div`
       margin: 0 0 1rem 0;
     }
   }
+
   ul {
     margin: 0;
     padding: 0;

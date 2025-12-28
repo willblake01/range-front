@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { PageMain } from '../../../../components/styles';
 import { AlternateHeader, Footer } from '../../../../components/shared';
 import { UpdateProduct } from '../../../../components';
 
@@ -9,7 +10,9 @@ const UpdateProductPage = () => {
   return (
     <>
       <AlternateHeader />
-      <UpdateProduct id={id} />
+      <PageMain>
+        <UpdateProduct id={id} />
+      </PageMain>
       <Footer />
     </>
   );

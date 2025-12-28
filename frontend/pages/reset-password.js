@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { PageMain } from '../components/styles';
 import { AlternateHeader, Footer } from '../components/shared';
 import { RequestResetPassword, ResetPassword } from '../components';
 
@@ -10,7 +11,9 @@ const ResetPasswordPage = () => {
     return (
       <>
         <AlternateHeader />
-        <RequestResetPassword />
+        <PageMain>
+          <RequestResetPassword />
+        </PageMain>
         <Footer />
       </>
     );
@@ -18,7 +21,9 @@ const ResetPasswordPage = () => {
   return (
     <>
       <AlternateHeader />
-      <ResetPassword token={resetToken} />
+      <PageMain>
+        <ResetPassword token={resetToken} />
+      </PageMain>
       <Footer />
     </>
   );

@@ -1,10 +1,13 @@
+import { PageMain } from '../components/styles';
 import { AlternateHeader, Footer, Login } from '../components/shared';
 
 const LoginPage = () => {
   return (
     <>
       <AlternateHeader />
-      <Login /> 
+      <PageMain>
+        <Login />
+      </PageMain>
       <Footer />
     </>
   );

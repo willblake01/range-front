@@ -10,12 +10,13 @@ import { ALL_PRODUCTS_QUERY } from '.';
 
 const StyledCreateProduct = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
   padding: clamp(2rem, 5vw, 8rem);
-  height: max-content;
+  height: 100%;
   width: 100%;
 `;
 

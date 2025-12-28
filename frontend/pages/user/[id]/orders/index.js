@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import { PageMain } from '../../../../components/styles';
 import { AlternateHeader, Footer, PleaseLogin } from '../../../../components/shared';
 import { Orders } from '../../../../components';
 
@@ -9,13 +10,11 @@ const OrdersPage = () => {
   return (
     <>
       <AlternateHeader />
-      <PleaseLogin>
-        <Orders
-          orders={data?.orders}
-          loading={loading}
-          error={error}
-        />
-      </PleaseLogin>
+      <PageMain>
+        <PleaseLogin>
+          <Orders orders={data?.orders ?? []} loading={loading} error={error} />
+        </PleaseLogin>
+      </PageMain>
       <Footer />
     </>
   );

@@ -10,12 +10,13 @@ import { DisplayError } from './shared';
 import { DeleteProduct } from '.';
 
 const StyledProductDescription = styled.div`
+  flex: 1;
   justify-content: center;
   align-items: top;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   font-size: 1.4rem;
   padding: clamp(2rem, 5vw, 8rem);
-  height: max-content;
+  height: 100%;
 
   img {
     object-fit: contain;

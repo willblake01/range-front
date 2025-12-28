@@ -30,33 +30,36 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'radnika_next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
     overflow-x: hidden;
-  }
-  :link {
-    color: #0000EE;
-  }
-  :visited {
-    color: #551A8B;
   }
 `;
 
+const PageShell = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 const InnerStyles = styled.div`
-  margin: 0;
-  padding: 0;
-  height: 100vh;
   max-width: var(--maxWidth);
   width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Page = ({ children, cool }) => (
   <>
     <GlobalStyles />
-    <InnerStyles>{children}</InnerStyles>
+    <PageShell>
+      <InnerStyles>{children}</InnerStyles>
+    </PageShell>
   </>
 );
 
