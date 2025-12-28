@@ -1,3 +1,4 @@
+import { useEffect, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/client';
@@ -64,7 +65,10 @@ const Search = () => {
   });
 
   const items = data?.searchTerms || [];
-  const findItemsButChill = debounce(findItems, 350);
+  const findItemsButChill = useMemo(
+    () => debounce(findItems, 350),
+    [findItems]
+  );
 
   const {
     isOpen,
@@ -88,6 +92,10 @@ const Search = () => {
     },
     itemToString: (item) => item?.title || '',
   });
+
+  useEffect(() => {
+    return () => findItemsButChill.cancel();
+  }, [findItemsButChill]);
 
   return (
     <>
