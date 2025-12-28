@@ -57,10 +57,8 @@ const NavItem = styled.li`
   }
 `;
 
-const Spacer = styled.li`
+const PushRight = styled.li`
   margin-left: auto;
-  display: flex;
-  align-items: center;
 `;
 
 const Nav = () => {
@@ -87,7 +85,7 @@ const Nav = () => {
         <NavItem><Link href="/about">About</Link></NavItem>
 
         {(hasAdminPermission || hasProductCreatePermission) && (
-          <NavItem><span>|</span></NavItem>
+          <NavItem><span aria-hidden="true">|</span></NavItem>
         )}
 
         {hasAdminPermission && (
@@ -98,42 +96,33 @@ const Nav = () => {
           <NavItem><Link href="/product/create">Create Product</Link></NavItem>
         )}
 
-        {user && (
-          <Spacer>
+        <PushRight />
+
+        {user ? (
+          <>
+            <NavItem><Link href={`/user/${user.id}/account`}>Account</Link></NavItem>
+            <NavItem><Link href={`/user/${user.id}/orders`}>Orders</Link></NavItem>
+            <NavItem><SignOut /></NavItem>
             <NavItem>
-              <Link href={`/user/${user.id}/account`}>Account</Link>
-            </NavItem>
-            <NavItem>
-              <Link href={`/user/${user.id}/orders`}>Orders</Link>
-            </NavItem>
-            <NavItem>
-              <SignOut />
-            </NavItem>
-            <NavItem>
-              <button type="button" onClick={openCart}>
-                Cart
-              </button>
+              <button type="button" onClick={openCart}>Cart</button>
             </NavItem>
             <NavItem>
               <CartCount
                 count={user.cart.reduce(
-                  (tally, cartItem) =>
-                    tally + (cartItem.item ? cartItem.quantity : 0),
+                  (tally, cartItem) => tally + (cartItem.item ? cartItem.quantity : 0),
                   0
                 )}
               />
             </NavItem>
-          </Spacer>
-        )}
-
-        {showLogin && (
-          <Spacer>
+          </>
+        ) : (
+          showLogin && (
             <NavItem>
               <Link href={`/login?redirect=${encodeURIComponent(router.asPath)}`}>
                 Login
               </Link>
             </NavItem>
-          </Spacer>
+          )
         )}
       </StyledNavList>
     </NavWrapper>
