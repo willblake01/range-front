@@ -40,6 +40,8 @@ const StyledDropDown = styled.div`
   z-index: 2;
   background: white;
   border: ${(props) => (props.isOpen ? '0.1rem solid var(--lightGrey)' : 'none')};
+  max-height: calc(8 * (5.2rem + 2rem)); /* thumb + padding-ish */
+  overflow-y: auto;
 `;
 
 const StyledDropDownItem = styled.div`
@@ -51,9 +53,17 @@ const StyledDropDownItem = styled.div`
   display: flex;
   align-items: center;
   border-left: 1rem solid
-  ${(props) => (props.highlighted ? props.theme.lightgrey : props.theme.white)};
+    ${(props) => (props.highlighted ? props.theme.lightgrey : props.theme.white)};
+
   img {
+    width: 5.2rem;
+    height: 5.2rem;
+    object-fit: contain;
+    background: var(--White);
+    border-radius: 0.6rem;
+    flex: 0 0 5.2rem;
     margin-right: 1rem;
+    padding: 0.4rem;
   }
 `;
 
@@ -128,7 +138,9 @@ const Search = () => {
                 key={item.id}
                 highlighted={index === highlightedIndex}
               >
-                <img src={item.image} alt={item.title} width='50' />
+                <div className='thumb'>
+                  <img src={item.image} alt={item.title} width='50' />
+                </div>
                 {item.title}
               </StyledDropDownItem>
             ))}
