@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -78,9 +76,7 @@ const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
 
-const Orders = () => {
-  const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
-
+const Orders = ({ orders, loading, error }) => {
   useEffect(() => {
     if (loading) NProgress.start();
     else NProgress.done();
@@ -90,9 +86,7 @@ const Orders = () => {
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
-
-  const orders = data?.orders;
-  if (!orders) return <p>No orders found.</p>;
+  if (!orders?.length) return <p>No orders found.</p>;
 
   return (
     <>
@@ -131,26 +125,5 @@ const Orders = () => {
     </>
   );
 };
-
-const USER_ORDERS_QUERY = gql`
-  query USER_ORDERS_QUERY {
-    orders {
-      id
-      charge
-      total
-      user {
-        id
-      }
-      items {
-        id
-        title
-        description
-        price
-        quantity
-        image
-      }
-    }
-  }
-`;
 
 export { Orders };
