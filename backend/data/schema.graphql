@@ -65,6 +65,8 @@ input ProductWhereInput {
   brand_contains: String
   title_contains: String
   description_contains: String
+  category: String
+  category_contains: String
 }
 
 input ProductWhereUniqueInput {

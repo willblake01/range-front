@@ -78,7 +78,9 @@ const Search = () => {
     id: 'product-search',
     items,
     onInputValueChange({ inputValue }) {
-      findItemsButChill({ variables: { searchTerm: inputValue } });
+      const term = (inputValue || '').trim();
+      const dashed = term.replace(/\s+/g, '-'); // "sleeping bags" -> "sleeping-bags"
+      findItemsButChill({ variables: { searchTerm: term, dashedTerm: dashed } });
     },
     onSelectedItemChange({ selectedItem }) {
       if (!selectedItem) return;
@@ -133,13 +135,14 @@ const Search = () => {
 };
 
 const SEARCH_PRODUCTS_QUERY = gql`
-  query SEARCH_PRODUCTS_QUERY($searchTerm: String!) {
+  query SEARCH_PRODUCTS_QUERY($searchTerm: String!, $dashedTerm: String!) {
     searchTerms: products(
       where: {
         OR: [
           { brand_contains: $searchTerm }
           { title_contains: $searchTerm }
-          { description_contains: $searchTerm }
+          { category_contains: $searchTerm }
+          { category_contains: $dashedTerm }
         ]
       }
     ) {
