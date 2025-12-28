@@ -22,6 +22,10 @@ const StyledNavList = styled.ul`
   font-size: 1.6rem;
   font-weight: 600;
 
+  span {
+    color: var(--green);
+  }
+
   @media (max-width: 76.8rem) {
     flex-wrap: wrap;
     height: auto;
