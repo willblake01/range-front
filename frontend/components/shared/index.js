@@ -3,7 +3,7 @@ export { AlternateHeader } from './AlternateHeader';
 export { DisplayError } from './DisplayError';
 export { Footer } from './Footer';
 export { Logo } from './Logo';
-export { StyledForm } from './Form';
+export { Form } from './Form';
 export { LargeButton } from './LargeButton';
 export { Login } from './Login';
 export { Nav } from './Nav';

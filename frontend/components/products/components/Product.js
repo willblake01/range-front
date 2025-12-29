@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { formatMoney } from '../../../lib';
 import { AddToCart } from '../../shared';
 import { StyledTitle } from '../..';
-import { StyledPriceTag } from '.';
+import { PriceTag } from '.';
 
 const StyledProduct = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ const Product = ({ product }) => {
           <a>{product.title}</a>
         </Link>
       </StyledTitle>
-      <StyledPriceTag>{formatMoney(product.price)}</StyledPriceTag>
+      <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className='buttonGrid'>
         <a

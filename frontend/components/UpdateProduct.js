@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { useForm } from '../lib';
-import { DisplayError, LargeButton, StyledForm } from './shared';
+import { DisplayError, LargeButton, Form } from './shared';
 import { SINGLE_PRODUCT_QUERY } from './ProductDescription';
 
 const StyledUpdateProduct = styled.div`
@@ -60,7 +60,7 @@ const UpdateProduct = ({ id }) => {
   return (
     <StyledUpdateProduct>
       <StyledFormContainer>
-        <StyledForm
+        <Form
           onSubmit={async (e) => {
             e.preventDefault();
 
@@ -152,7 +152,7 @@ const UpdateProduct = ({ id }) => {
             />
             <LargeButton type='submit'>Submit</LargeButton>
           </fieldset>
-        </StyledForm>
+        </Form>
       </StyledFormContainer>
     </StyledUpdateProduct>
   );

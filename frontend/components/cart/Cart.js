@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { calcTotalPrice, formatMoney, useCart } from '../../lib';
 import { useUser } from '../../hooks';
 import { DisplayError, LargeButton, PleaseLogin } from '../shared';
-import { CartItem, StyledCloseButton } from './components';
+import { CartItem, CloseButton } from './components';
 
 const StyledCart = styled.div`
   display: grid;
@@ -66,7 +66,7 @@ const Cart = () => {
       <StyledCart open={cartOpen}>
         <header>
           <h1>{user.firstName} {user.lastName}'s cart</h1>
-          <StyledCloseButton onClick={closeCart}>&times;</StyledCloseButton>
+          <CloseButton onClick={closeCart}>&times;</CloseButton>
         </header>
         <ul>
           {user?.cart?.map((cartItem) => (

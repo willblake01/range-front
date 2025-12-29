@@ -1,2 +1,2 @@
 export { CartItem } from './CartItem';
-export { StyledCloseButton } from './CloseButton';
+export { CloseButton } from './CloseButton';

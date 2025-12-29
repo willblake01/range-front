@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledPriceTag = styled.span`
+const PriceTag = styled.span`
   background: var(--green);
   transform: rotate(3deg);
   color: white;
@@ -14,4 +14,4 @@ const StyledPriceTag = styled.span`
   right: -0.3rem;
 `;
 
-export { StyledPriceTag };
+export { PriceTag };

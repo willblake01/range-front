@@ -6,9 +6,9 @@ import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { useForm } from '../../lib';
-import { LargeButton, StyledForm } from '.';
+import { LargeButton, Form } from '.';
 import { DisplayError } from '../shared';
-import { CURRENT_USER_QUERY } from '..';
+import { CURRENT_USER_QUERY } from '../../hooks';
 
 const StyledLogin = styled.div`
   display: flex;
@@ -95,7 +95,7 @@ const Login = () => {
   return (
     <StyledLogin>
       <StyledFormContainer>
-        <StyledForm method='POST' onSubmit={handleSubmit}>
+        <Form method='POST' onSubmit={handleSubmit}>
           <DisplayError error={error} />
           <StyledLink>
             <Link href='/signup'>Create account</Link>
@@ -127,7 +127,7 @@ const Login = () => {
               <Link href='/reset-password'>Forgot Password?</Link>
             </StyledLink>
           </fieldset>
-        </StyledForm>
+        </Form>
       </StyledFormContainer>
     </StyledLogin>
   );

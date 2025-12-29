@@ -5,8 +5,8 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../../lib';
-import { DisplayError, LargeButton, StyledForm } from '.';
-import { CURRENT_USER_QUERY } from '..';
+import { DisplayError, LargeButton, Form } from '.';
+import { CURRENT_USER_QUERY } from '../../hooks';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ const SignUp = () => {
   return (
     <StyledSignUp>
       <StyledFormContainer>
-        <StyledForm method='POST' onSubmit={handleSubmit}>
+        <Form method='POST' onSubmit={handleSubmit}>
           <DisplayError error={error} />
           {currentPathname === '/admin' ? <h2>Create User</h2> : <h2>Account Signup</h2>}
           <fieldset>
@@ -119,7 +119,7 @@ const SignUp = () => {
             />
             <LargeButton type='submit'>Submit</LargeButton>
           </fieldset>
-        </StyledForm>
+        </Form>
       </StyledFormContainer>
     </StyledSignUp>
   );

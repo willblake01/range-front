@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
-import { DisplayError, LargeButton, StyledForm } from './shared';
+import { DisplayError, LargeButton, Form } from './shared';
 import { ALL_PRODUCTS_QUERY } from '.';
 
 const StyledCreateProduct = styled.div`
@@ -57,7 +57,7 @@ const CreateProduct = () => {
   return (
     <StyledCreateProduct>
       <StyledFormContainer>
-        <StyledForm
+        <Form
           onSubmit={async (e) => {
             e.preventDefault();
 
@@ -135,7 +135,7 @@ const CreateProduct = () => {
             />
             <LargeButton  type='submit'>Submit</LargeButton>
           </fieldset>
-        </StyledForm>
+        </Form>
       </StyledFormContainer>
     </StyledCreateProduct>
   );

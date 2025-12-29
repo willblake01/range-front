@@ -11,7 +11,7 @@ const loading = keyframes`
   }
 `;
 
-const StyledForm = styled.form`
+const Form = styled.form`
   box-shadow: 0 0 0.5rem 0.3rem rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
   border: 0.5rem solid white;
@@ -76,4 +76,4 @@ const StyledForm = styled.form`
   }
 `;
 
-export { StyledForm };
+export { Form };
