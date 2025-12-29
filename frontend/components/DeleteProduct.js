@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import Router from 'next/router';
+import toast from 'react-hot-toast';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import NProgress from 'nprogress';
@@ -37,9 +39,15 @@ const DeleteProduct = ({ id, children }) => {
     <button
       type="button"
       disabled={loading}
-      onClick={() => {
+      onClick={async () => {
         if (confirm('Are you sure you want to delete this item?')) {
-          deleteProduct().catch((err) => alert(err.message));
+          const res = await deleteProduct().catch(err => toast.error(err.message));
+
+          toast.success(`Deleted product "${res.data.deleteProduct.brand} ${res.data.deleteProduct.title}"`);
+            
+          Router.push({
+            pathname: `/products`,
+          });
         }
       }}
     >
@@ -52,6 +60,8 @@ const DELETE_PRODUCT_MUTATION = gql`
   mutation DELETE_PRODUCT_MUTATION($id: ID!) {
     deleteProduct(id: $id) {
       id
+      brand
+      title
     }
   }
 `;

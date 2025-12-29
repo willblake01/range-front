@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -57,6 +58,21 @@ const InnerStyles = styled.div`
 const Page = ({ children, cool }) => (
   <>
     <GlobalStyles />
+    <Toaster
+      position="top-right"
+      toastOptions={{
+        duration: 4000,
+        style: {
+          fontSize: '1.4rem',
+        },
+        success: {
+          style: { background: '#2E5564', color: '#fff' },
+        },
+        error: {
+          style: { background: '#8E3F30', color: '#fff' },
+        },
+      }}
+    />
     <PageShell>
       <InnerStyles>{children}</InnerStyles>
     </PageShell>

@@ -48,6 +48,7 @@ const StyledOrder = styled.li`
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     margin-top: 1rem;
+
     img {
       height: 20rem;
       object-fit: cover;
@@ -61,11 +62,13 @@ const StyledOrder = styled.li`
     display: grid;
     grid-gap: 1rem;
     text-align: center;
+
     & > * {
       margin: 0;
       background: rgba(0, 0, 0, 0.03);
       padding: 1rem 0;
     }
+      
     strong {
       display: block;
       margin-bottom: 1rem;

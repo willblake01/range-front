@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
+import Router from 'next/router';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import Router from 'next/router';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
@@ -66,11 +67,14 @@ const CreateProduct = () => {
           onSubmit={async (e) => {
             e.preventDefault();
 
-            // Submit the inputfields to the backend:
-            const res = await createProduct();
+            const res = await createProduct().catch(err => {
+              toast.error(err.message);
+            });
+
+            toast.success(`Created product "${res.data.createProduct.brand} ${res.data.createProduct.title}"`);
+
             clearForm();
             
-            // Go to that product's page!
             Router.push({
               pathname: `/product/${res.data.createProduct.id}`,
             });
@@ -164,6 +168,7 @@ const CREATE_PRODUCT_MUTATION = gql`
       price: $price
     ) {
       id
+      brand
       title
       price
       description

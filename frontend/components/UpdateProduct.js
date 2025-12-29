@@ -1,3 +1,5 @@
+import Router from 'next/router';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
@@ -64,7 +66,7 @@ const UpdateProduct = ({ id }) => {
           onSubmit={async (e) => {
             e.preventDefault();
 
-            await updateProduct({
+            const res = await updateProduct({
               variables: {
                 id,
                 brand: inputs.brand,
@@ -74,16 +76,15 @@ const UpdateProduct = ({ id }) => {
                 image: inputs.image,
                 price: inputs.price,
               },
-            }).catch(console.error);
+            }).catch(err => toast.error(err.message));
 
-            // Submit the inputfields to the backend:
-            // TODO: Handle Submit!!!
-            // const res = await createProduct();
-            // clearForm();
-            // // Go to that product's page!
-            // Router.push({
-            //   pathname: `/product/${res.data.createProduct.id}`,
-            // });
+            toast.success(`Updated product "${res.data.updateProduct.brand} ${res.data.updateProduct.title}"`);
+
+            clearForm();
+            
+            Router.push({
+              pathname: `/product/${res.data.updateProduct.id}`,
+            });
           }}
         >
           <DisplayError error={error || updateError} />
