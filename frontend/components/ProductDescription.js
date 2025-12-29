@@ -102,7 +102,7 @@ const ProductDescription = ({ id }) => {
 
   const product = data?.product;
   if (!product) return <p>Product not found.</p>;
-
+console.log('product', product)
   return (
     <StyledProductDescription>
       <Head>

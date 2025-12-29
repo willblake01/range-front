@@ -30,16 +30,21 @@ const StyledFormContainer = styled.div`
 
 const CreateProduct = () => {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
-    image: '',
-    name: '',
-    price: '',
+    brand: '',
+    title: '',
     description: '',
+    category: '',
+    image: '',
+    price: '',
   });
   
   const [createProduct, { loading, error }] = useMutation(
     CREATE_PRODUCT_MUTATION,
     {
-      variables: inputs,
+      variables: {
+        ...inputs,
+        price: parseInt(inputs.price, 10)
+      },
       refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
@@ -143,26 +148,26 @@ const CreateProduct = () => {
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
-
-    # Which variables are getting passed in? And What types are they
-    $name: String!
+    $brand: String
+    $title: String!
     $description: String!
+    $category: String
+    $image: String
     $price: Int!
-    $image: Upload
   ) {
     createProduct(
-      data: {
-        name: $name
-        description: $description
-        price: $price
-        status: "AVAILABLE"
-        photo: { create: { image: $image, altText: $name } }
-      }
+      brand: $brand
+      title: $title
+      description: $description
+      category: $category
+      image: $image
+      price: $price
     ) {
       id
+      title
       price
       description
-      name
+      image
     }
   }
 `;

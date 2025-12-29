@@ -170,7 +170,12 @@ const UPDATE_PRODUCT_MUTATION = gql`
   ) {
     updateProduct(
       id: $id
-      data: { brand: $brand, title: $title, description: $description, category: $category, image: $image price: $price }
+      brand: $brand
+      title: $title
+      description: $description
+      category: $category
+      image: $image
+      price: $price
     ) {
       id
       brand
