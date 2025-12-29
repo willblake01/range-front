@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   CardElement,
@@ -6,11 +9,8 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { useState } from 'react';
+import styled from 'styled-components';
 import NProgress from 'nprogress';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/client';
-import { useRouter } from 'next/dist/client/router';
 import { CURRENT_USER_QUERY, useUser } from '../hooks';
 import { calcTotalPrice, formatMoney } from '../lib';
 import { DisplayError, LargeButton } from './shared';

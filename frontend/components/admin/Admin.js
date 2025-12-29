@@ -10,12 +10,14 @@ import { Permissions } from './components';
 
 const StyledAdmin = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
+  padding: clamp(2rem, 5vw, 8rem);
+  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  padding: 8rem 0;
 `;
 
 const StyledPermissionsTableContainer = styled.div`
@@ -100,7 +102,6 @@ const Admin = () => {
   if (userLoading || usersLoading) return <p>Loading...</p>;
   
   if (!user) return <p>You must be logged in.</p>;
-  if (!hasAccess) return <p>You don’t have permission to view this page.</p>;
 
   const users = data?.users ?? [];
 
