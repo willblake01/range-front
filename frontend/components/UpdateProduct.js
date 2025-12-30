@@ -76,7 +76,10 @@ const UpdateProduct = ({ id }) => {
                 image: inputs.image,
                 price: inputs.price,
               },
-            }).catch(err => toast.error(err.message));
+            }).catch((err) => {
+              toast.error(err.message);
+              return null;
+            });
 
             toast.success(`Updated product "${res.data.updateProduct.brand} ${res.data.updateProduct.title}"`);
 

@@ -67,8 +67,9 @@ const CreateProduct = () => {
           onSubmit={async (e) => {
             e.preventDefault();
 
-            const res = await createProduct().catch(err => {
+            const res = await createProduct().catch((err) => {
               toast.error(err.message);
+              return null;
             });
 
             toast.success(`Created product "${res.data.createProduct.brand} ${res.data.createProduct.title}"`);

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -51,9 +52,16 @@ const SignUp = () => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
-    await signup().catch(console.error);
+    await signup().catch((err) => {
+      toast.error(err.message);
+      return null;
+    });
+
+    toast.success('Account created!');
 
     resetForm();
+
+    router.push('/');
   };
 
   useEffect(() => {

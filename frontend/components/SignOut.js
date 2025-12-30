@@ -1,5 +1,6 @@
-import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import { DisplayError } from './shared';
 import { CURRENT_USER_QUERY } from '../hooks';
@@ -12,10 +13,15 @@ const SignOut = () => {
   });
   
   const handleSignOut = async () => {
-    await signout();
+    await signout().catch((err) => {
+      toast.error(err.message);
+      return null;
+    });
+
+    toast('Signed out 👋');
 
     // Stay on current page after sign out
-    router.reload();
+    router.replace(router.asPath);
   };
 
   return (

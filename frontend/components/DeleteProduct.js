@@ -41,7 +41,10 @@ const DeleteProduct = ({ id, children }) => {
       disabled={loading}
       onClick={async () => {
         if (confirm('Are you sure you want to delete this item?')) {
-          const res = await deleteProduct().catch(err => toast.error(err.message));
+          const res = await deleteProduct().catch((err) => {
+            toast.error(err.message);
+            return null;
+          });
 
           toast.success(`Deleted product "${res.data.deleteProduct.brand} ${res.data.deleteProduct.title}"`);
             
