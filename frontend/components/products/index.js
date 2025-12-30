@@ -1,1 +1,1 @@
-export { ALL_PRODUCTS_QUERY, Products } from './Products';
+export { PRODUCTS_QUERY, Products } from './Products';

@@ -17,7 +17,7 @@ const ClearancePage = styled.div`
 `;
 
 const Clearance = ({ page }) => {
-  const { data, loading, error } = useQuery(ALL_PRODUCTS_QUERY, {
+  const { data, loading, error } = useQuery(PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,
@@ -51,8 +51,8 @@ const Clearance = ({ page }) => {
   );
 };
 
-const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+const PRODUCTS_QUERY = gql`
+  query PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
     products(skip: $skip, first: $first) {
       id
       category
@@ -65,4 +65,4 @@ const ALL_PRODUCTS_QUERY = gql`
   }
 `;
 
-export { ALL_PRODUCTS_QUERY, Clearance };
+export { PRODUCTS_QUERY, Clearance };

@@ -16,11 +16,12 @@ const ProductsPage = styled.div`
   padding: clamp(2rem, 5vw, 4rem);
 `;
 
-const Products = ({ page }) => {
-  const { data, loading, error } = useQuery(ALL_PRODUCTS_QUERY, {
+const Products = ({ page, where }) => {
+  const { data, loading, error } = useQuery(PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,
+      where,
     },
   });
 
@@ -42,18 +43,17 @@ const Products = ({ page }) => {
             <Product key={product.id} product={product} />
           ))}
         </ProductsList>
-
         <PaginationRow>
-          <Pagination page={page} />
+          <Pagination page={page} where={where} />
         </PaginationRow>
       </ProductsContainer>
     </ProductsPage>
   );
 };
 
-const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
-    products(skip: $skip, first: $first) {
+const PRODUCTS_QUERY = gql`
+  query PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}, $where: ProductWhereInput) {
+    products(skip: $skip, first: $first, where: $where) {
       id
       category
       brand
@@ -65,4 +65,4 @@ const ALL_PRODUCTS_QUERY = gql`
   }
 `;
 
-export { ALL_PRODUCTS_QUERY, Products };
+export { PRODUCTS_QUERY, Products };

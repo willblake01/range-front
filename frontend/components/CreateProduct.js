@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
-import { ALL_PRODUCTS_QUERY } from '.';
+import { PRODUCTS_QUERY } from '.';
 
 const StyledCreateProduct = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ const CreateProduct = () => {
         ...inputs,
         price: parseInt(inputs.price, 10)
       },
-      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+      refetchQueries: [{ query: PRODUCTS_QUERY }],
     }
   );
 

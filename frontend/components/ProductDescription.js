@@ -102,7 +102,7 @@ const ProductDescription = ({ id }) => {
 
   const product = data?.product;
   if (!product) return <p>Product not found.</p>;
-console.log('product', product)
+
   return (
     <StyledProductDescription>
       <Head>
@@ -135,7 +135,7 @@ console.log('product', product)
           </DeleteProduct>
         )}
         <a
-          href={`/products/${product.category}/buying-guide`}
+          href={`/products/${product.category}-buying-guide`}
           target='_blank'
           rel='noopener noreferrer'
         >

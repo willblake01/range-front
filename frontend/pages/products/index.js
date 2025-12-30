@@ -3,13 +3,17 @@ import { AlternateHeader, Footer } from '../../components/shared';
 import { Products } from '../../components';
 
 const ProductsPage = () => {
-  const { query } = useRouter();
-  const page = parseInt(query.page) || 1;
-  
+  const router = useRouter();
+
+  const page = Number(router.query.page || 1);
+  const category = router.query.category;
+
+  const where = category ? { category_contains: category } : undefined;
+
   return (
     <>
       <AlternateHeader />
-      <Products page={page} />
+      <Products page={page} where={where} />
       <Footer />
     </>
   );

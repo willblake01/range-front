@@ -63,20 +63,18 @@ const StyledTiles = styled.div`
 
 const ShoppingTiles = () => (
   <StyledTiles>
-    <Link href="/products/tents">
-      <div className="tile" id="tents-tile">
+    <Link href='/products?category=tents'>
+      <div className='tile' id='tents-tile'>
         <span>Shop Tents</span>
       </div>
     </Link>
-
-    <Link href="/products/backpacks">
-      <div className="tile" id="packs-tile">
+    <Link href='/products?category=backpacks'>
+      <div className='tile' id='packs-tile'>
         <span>Shop Backpacks</span>
       </div>
     </Link>
-
-    <Link href="/products/sleeping-bags">
-      <div className="tile" id="bags-tile">
+    <Link href='/products?category=sleeping-bags'>
+      <div className='tile' id='bags-tile'>
         <span>Shop Sleeping Bags</span>
       </div>
     </Link>

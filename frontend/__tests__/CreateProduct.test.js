@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import Router from 'next/router';
 import waait from 'waait';
 import {
-  ALL_PRODUCTS_QUERY, CreateProduct, CREATE_PRODUCT_MUTATION,
+  PRODUCTS_QUERY, CreateProduct, CREATE_PRODUCT_MUTATION,
 } from '../components';
 import { fakeItem, makePaginationMocksFor } from './testUtils';
 
@@ -73,7 +73,7 @@ describe('<CreateProduct/>', () => {
       // All Products
       {
         request: {
-          query: ALL_PRODUCTS_QUERY,
+          query: PRODUCTS_QUERY,
           variables: {
             skip: 0,
             first: 4,

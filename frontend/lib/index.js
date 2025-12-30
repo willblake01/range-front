@@ -1,3 +1,4 @@
+export { createApolloClient } from './apolloClient';
 export { calcTotalPrice } from './calcTotalPrice';
 export { CartStateProvider, useCart } from './cartState';
 export { formatMoney } from './formatMoney';
