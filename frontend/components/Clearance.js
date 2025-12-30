@@ -1,10 +1,20 @@
 import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { perPage } from '../config';
-import { DisplayError, StyledProductsList } from './shared';
-import { Pagination, Product } from '.';
+import { ProductsContainer, PaginationRow } from './styles/ProductsList.style';
+import { DisplayError, Pagination, ProductsList } from './shared';
+import { Product } from '.';
+
+const ClearancePage = styled.div`
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  color: var(--green);
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem);
+`;
 
 const Clearance = ({ page }) => {
   const { data, loading, error } = useQuery(ALL_PRODUCTS_QUERY, {
@@ -25,14 +35,19 @@ const Clearance = ({ page }) => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <>
-      <StyledProductsList>
-        {data?.products?.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-        <Pagination page={page} />
-      </StyledProductsList>
-    </>
+    <ClearancePage>
+      <ProductsContainer>
+        <ProductsList>
+          {data?.products?.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </ProductsList>
+
+        <PaginationRow>
+          <Pagination page={page} />
+        </PaginationRow>
+      </ProductsContainer>
+    </ClearancePage>
   );
 };
 

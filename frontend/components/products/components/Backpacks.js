@@ -1,11 +1,21 @@
 import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
 import NProgress from 'nprogress';
-import { DisplayError, StyledProductsList } from '../../shared';
+import { ProductsContainer, PaginationRow } from '../../styles/ProductsList.style';
+import { DisplayError, Pagination, ProductsList } from '../../shared';
 import { Product } from '../..';
 
-const Backpacks = () => {
+const BackpacksPage = styled.div`
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  color: var(--green);
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem);
+`;
+
+const Backpacks = ({ page }) => {
   const { data, loading, error } = useQuery(BACKPACKS_QUERY);
 
   useEffect(() => {
@@ -22,11 +32,17 @@ const Backpacks = () => {
   if (!backpacks) return <p>Backpacks not found.</p>;
 
   return (
-    <>
-      <StyledProductsList>
-        {backpacks?.map(product => <Product product={product} key={product.id} />)}
-      </StyledProductsList>
-    </>
+    <BackpacksPage>
+      <ProductsContainer>
+        <ProductsList>
+          {backpacks?.map(product => <Product product={product} key={product.id} />)}
+        </ProductsList>
+
+        <PaginationRow>
+          <Pagination page={page} />
+        </PaginationRow>
+      </ProductsContainer>
+    </BackpacksPage>
   );
 };
 

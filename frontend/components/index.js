@@ -15,7 +15,6 @@ export { Marketing } from './Marketing';
 export { Order } from './Order';
 export { Orders } from './orders/Orders'
 export { Page } from './Page';
-export { Pagination, PAGINATION_QUERY } from './Pagination';
 export { Parallax } from './Parallax';
 export { Product } from './products/components/Product';
 export { ProductDescription } from './ProductDescription';
