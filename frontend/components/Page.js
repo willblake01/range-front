@@ -67,6 +67,7 @@ const Page = ({ children, cool }) => (
         },
         success: {
           style: { background: '#2E5564', color: '#fff' },
+          icon: null
         },
         error: {
           style: { background: '#8E3F30', color: '#fff' },
