@@ -13,10 +13,7 @@ const SignOut = () => {
   });
   
   const handleSignOut = async () => {
-    await signout().catch((err) => {
-      toast.error(err.message);
-      return null;
-    });
+    await signout().catch(err => toast.error(err.message));
 
     toast('Signed out 👋');
 

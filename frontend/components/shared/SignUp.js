@@ -52,10 +52,7 @@ const SignUp = () => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
-    await signup().catch((err) => {
-      toast.error(err.message);
-      return null;
-    });
+    await signup().catch(err => toast.error(err.message));
 
     toast.success('Account created!');
 

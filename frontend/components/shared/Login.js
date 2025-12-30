@@ -71,6 +71,7 @@ const Login = () => {
     resetForm();
 
     const loggedInUser = res?.data?.login;
+    if (!loggedInUser) return;
 
     toast.success(`Welcome back, ${loggedInUser?.firstName || 'friend'}!`);
 
