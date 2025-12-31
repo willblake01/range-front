@@ -72,7 +72,7 @@ const CreateProduct = () => {
               return null;
             });
 
-            toast.success(`Created product "${res.data.createProduct.brand} ${res.data.createProduct.title}"`);
+            toast.success(`Created product '${res.data.createProduct.brand} ${res.data.createProduct.title}'`);
 
             clearForm();
             

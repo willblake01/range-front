@@ -93,7 +93,7 @@ const Search = () => {
     items,
     onInputValueChange({ inputValue }) {
       const term = (inputValue || '').trim();
-      const dashed = term.replace(/\s+/g, '-'); // "sleeping bags" -> "sleeping-bags"
+      const dashed = term.replace(/\s+/g, '-'); // 'sleeping bags' -> 'sleeping-bags'
       findItemsButChill({ variables: { searchTerm: term, dashedTerm: dashed } });
     },
     onSelectedItemChange({ selectedItem }) {

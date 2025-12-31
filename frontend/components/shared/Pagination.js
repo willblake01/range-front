@@ -58,7 +58,7 @@ const Pagination = ({ page, where }) => {
   const nextDisabled = page >= pageCount;
 
   return (
-    <StyledPagination aria-label="Pagination">
+    <StyledPagination aria-label='Pagination'>
       <Head>
         <title>
           Range Front - Page {page} of {pageCount}
@@ -66,7 +66,7 @@ const Pagination = ({ page, where }) => {
       </Head>
 
       {prevDisabled ? (
-        <span aria-disabled="true">← Prev</span>
+        <span aria-disabled='true'>← Prev</span>
       ) : (
         <Link href={hrefForPage(page - 1)} legacyBehavior>
           <a>← Prev</a>
@@ -77,7 +77,7 @@ const Pagination = ({ page, where }) => {
       <p>{count} Items Total</p>
 
       {nextDisabled ? (
-        <span aria-disabled="true">Next →</span>
+        <span aria-disabled='true'>Next →</span>
       ) : (
         <Link href={hrefForPage(page + 1)} legacyBehavior>
           <a>Next →</a>

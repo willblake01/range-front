@@ -1,26 +1,19 @@
-import { AlternateHeader, Footer } from '../../components/shared'
-import { Products } from '../../components'
-
-const perPage = 12
+import { AlternateHeader, Footer } from '../../components/shared';
+import { Products } from '../../components';
 
 export async function getServerSideProps(ctx) {
   const pageParam = ctx.query.page;
-  const page = typeof pageParam === "string" ? Number(pageParam) : 1;
+  const page = typeof pageParam === 'string' ? Number(pageParam) : 1;
 
   const categoryParam = ctx.query.category;
-  const category = typeof categoryParam === "string" ? categoryParam : null;
+  const category = typeof categoryParam === 'string' ? categoryParam : null;
 
-  const where = category ? { category_contains: category } : null; // ✅ serializable
-
-  return {
-    props: {
-      page,
-      where,
-    },
-  };
+  return { props: { page, category } };
 }
 
-export default function ProductsPage({ page, where }) {
+export default function ProductsPage({ page, category }) {
+  const where = category ? { category_contains: category } : undefined;
+  
   return (
     <>
       <AlternateHeader />

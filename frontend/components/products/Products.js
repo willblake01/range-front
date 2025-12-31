@@ -22,7 +22,7 @@ const Products = ({ page, where }) => {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,
-      where: where ?? undefined, // ✅ Apollo/GraphQL: undefined means “don’t send”
+      where: where ?? undefined,
     },
   });
 

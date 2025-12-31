@@ -82,22 +82,22 @@ const Nav = () => {
   const hasProductCreatePermission = user?.permissions?.includes('PRODUCTCREATE');
 
   return (
-    <NavWrapper aria-label="Main navigation">
+    <NavWrapper aria-label='Main navigation'>
       <StyledNavList>
-        <NavItem><Link href="/">Home</Link></NavItem>
-        <NavItem><Link href="/products">Shop</Link></NavItem>
-        <NavItem><Link href="/about">About</Link></NavItem>
+        <NavItem><Link href='/'>Home</Link></NavItem>
+        <NavItem><Link href='/products'>Shop</Link></NavItem>
+        <NavItem><Link href='/about'>About</Link></NavItem>
 
         {(hasAdminPermission || hasProductCreatePermission) && (
-          <NavItem><span aria-hidden="true">|</span></NavItem>
+          <NavItem><span aria-hidden='true'>|</span></NavItem>
         )}
 
         {hasAdminPermission && (
-          <NavItem><Link href="/admin">Admin</Link></NavItem>
+          <NavItem><Link href='/admin'>Admin</Link></NavItem>
         )}
 
         {(hasAdminPermission || hasProductCreatePermission) && (
-          <NavItem><Link href="/product/create">Create Product</Link></NavItem>
+          <NavItem><Link href='/product/create'>Create Product</Link></NavItem>
         )}
 
         <PushRight />
@@ -108,7 +108,7 @@ const Nav = () => {
             <NavItem><Link href={`/user/${user.id}/orders`}>Orders</Link></NavItem>
             <NavItem><SignOut /></NavItem>
             <NavItem>
-              <button type="button" onClick={openCart}>Cart</button>
+              <button type='button' onClick={openCart}>Cart</button>
             </NavItem>
             <NavItem>
               <CartCount

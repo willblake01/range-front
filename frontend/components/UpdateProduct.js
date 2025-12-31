@@ -81,7 +81,7 @@ const UpdateProduct = ({ id }) => {
               return null;
             });
 
-            toast.success(`Updated product "${res.data.updateProduct.brand} ${res.data.updateProduct.title}"`);
+            toast.success(`Updated product '${res.data.updateProduct.brand} ${res.data.updateProduct.title}'`);
 
             clearForm();
             

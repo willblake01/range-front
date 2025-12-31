@@ -59,7 +59,7 @@ const Page = ({ children, cool }) => (
   <>
     <GlobalStyles />
     <Toaster
-      position="top-right"
+      position='top-right'
       toastOptions={{
         duration: 4000,
         style: {
