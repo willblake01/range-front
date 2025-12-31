@@ -2,7 +2,7 @@
   "presets": ["next/babel"],
   "plugins": [
     [
-      "babel-plugin-styled-components",
+      "styled-components",
       {
         "ssr": true,
         "displayName": true
@@ -13,7 +13,7 @@
     "production": {
       "plugins": [
         [
-          "babel-plugin-styled-components",
+          "styled-components",
           {
             "ssr": true,
             "displayName": false
@@ -24,7 +24,7 @@
     "test": {
       "plugins": [
         [
-          "babel-plugin-styled-components",
+          "styled-components",
           {
             "ssr": false,
             "displayName": true
