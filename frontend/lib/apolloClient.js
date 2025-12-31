@@ -4,26 +4,6 @@ import { createUploadLink } from 'apollo-upload-client';
 
 let apolloClient;
 
-if (typeof window === 'undefined') {
-  const _watchQuery = ApolloClient.prototype.watchQuery;
-  ApolloClient.prototype.watchQuery = function (options) {
-    if (options && 'canonizeResults' in options) {
-      console.log('canonizeResults passed to watchQuery:', options);
-      console.trace('canonizeResults stack');
-    }
-    return _watchQuery.call(this, options);
-  };
-
-  const _query = ApolloClient.prototype.query;
-  ApolloClient.prototype.query = function (options) {
-    if (options && 'canonizeResults' in options) {
-      console.log('canonizeResults passed to query:', options);
-      console.trace('canonizeResults stack');
-    }
-    return _query.call(this, options);
-  };
-}
-
 const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',

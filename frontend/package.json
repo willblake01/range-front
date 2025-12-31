@@ -14,7 +14,7 @@
   "author": "William Blake",
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "^3.14.0",
+    "@apollo/client": "^3.13.0",
     "@apollo/link-error": "^2.0.0-beta.3",
     "@stripe/react-stripe-js": "^2.9.0",
     "@stripe/stripe-js": "^4.10.0",
