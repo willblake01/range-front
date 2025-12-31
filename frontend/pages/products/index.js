@@ -1,15 +1,26 @@
-import { useRouter } from 'next/router';
-import { AlternateHeader, Footer } from '../../components/shared';
-import { Products } from '../../components';
+import { AlternateHeader, Footer } from '../../components/shared'
+import { Products } from '../../components'
 
-const ProductsPage = () => {
-  const router = useRouter();
+const perPage = 12
 
-  const page = Number(router.query.page || 1);
-  const category = router.query.category;
+export async function getServerSideProps(ctx) {
+  const pageParam = ctx.query.page;
+  const page = typeof pageParam === "string" ? Number(pageParam) : 1;
 
-  const where = category ? { category_contains: category } : undefined;
+  const categoryParam = ctx.query.category;
+  const category = typeof categoryParam === "string" ? categoryParam : null;
 
+  const where = category ? { category_contains: category } : null; // ✅ serializable
+
+  return {
+    props: {
+      page,
+      where,
+    },
+  };
+}
+
+export default function ProductsPage({ page, where }) {
   return (
     <>
       <AlternateHeader />
@@ -17,6 +28,4 @@ const ProductsPage = () => {
       <Footer />
     </>
   );
-};
-
-export default ProductsPage;
+}

@@ -17,11 +17,12 @@ const ProductsPage = styled.div`
 `;
 
 const Products = ({ page, where }) => {
+
   const { data, loading, error } = useQuery(PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,
-      where,
+      where: where ?? undefined, // ✅ Apollo/GraphQL: undefined means “don’t send”
     },
   });
 

@@ -1,33 +1,41 @@
 const { hasPermission } = require('../utils');
 
-const Query = {
-  async products(parent, args, ctx, info) {
-    const where = args.where || {};
-    
-    // Handle Prisma 1 style OR filters for search
-    let prisma2Where = {};
-    if (where.OR) {
-      prisma2Where.OR = where.OR.map(condition => {
-        const converted = {};
-        Object.keys(condition).forEach(key => {
-          if (key.endsWith('_contains')) {
-            const field = key.replace('_contains', '');
-            converted[field] = { contains: condition[key], mode: 'insensitive' };
-          } else {
-            converted[key] = condition[key];
-          }
-        });
-        return converted;
-      });
+function convertWhere(where = {}) {
+  const out = {};
+
+  for (const [key, value] of Object.entries(where)) {
+    if (value == null) continue;
+
+    if (key === 'OR' && Array.isArray(value)) {
+      out.OR = value.map(convertWhere);
+      continue;
     }
-    
+
+    if (key === 'AND' && Array.isArray(value)) {
+      out.AND = value.map(convertWhere);
+      continue;
+    }
+
+    if (key.endsWith('_contains')) {
+      const field = key.replace('_contains', '');
+      out[field] = { contains: value, mode: 'insensitive' };
+      continue;
+    }
+
+    out[key] = value; // e.g. category: "backpacks"
+  }
+
+  return out;
+}
+
+const Query = {
+  async products(parent, args, ctx) {
+    const prismaWhere = convertWhere(args.where || {});
     return ctx.db.product.findMany({
-      where: prisma2Where,
-      skip: args.skip,
-      take: args.first,
-      include: {
-        user: true,
-      },
+      where: prismaWhere,
+      skip: args.skip ?? undefined,
+      take: args.first ?? undefined,
+      include: { user: true },
     });
   },
   async product(parent, args, ctx, info) {
@@ -38,28 +46,10 @@ const Query = {
       },
     });
   },
-  async productsConnection(parent, args, ctx, info) {
-    const where = args.where || {};
-    const aggregate = await ctx.db.product.aggregate({
-      _count: true,
-      where: where.AND ? {
-        OR: where.AND.map(condition => {
-          if (condition.title_contains) {
-            return { title: { contains: condition.title_contains, mode: 'insensitive' } };
-          }
-          if (condition.description_contains) {
-            return { description: { contains: condition.description_contains, mode: 'insensitive' } };
-          }
-          return condition;
-        })
-      } : {},
-    });
-    
-    return {
-      aggregate: {
-        count: aggregate._count,
-      },
-    };
+  async productsConnection(parent, args, ctx) {
+    const prismaWhere = convertWhere(args.where || {});
+    const count = await ctx.db.product.count({ where: prismaWhere });
+    return { aggregate: { count } };
   },
   async user(parent, args, ctx, info) {
     // Check if there is a current user ID
@@ -131,31 +121,7 @@ const Query = {
         createdAt: 'desc',
       },
     });
-  },
-  async tents(parent, args, ctx, info) {
-    return ctx.db.product.findMany({
-      where: { category: 'tents' },
-      include: {
-        user: true,
-      },
-    });
-  },
-  async sleepingBags(parent, args, ctx, info) {
-    return ctx.db.product.findMany({
-      where: { category: 'sleeping-bags' },
-      include: {
-        user: true,
-      },
-    });
-  },
-  async backpacks(parent, args, ctx, info) {
-    return ctx.db.product.findMany({
-      where: { category: 'backpacks' },
-      include: {
-        user: true,
-      },
-    });
-  },
+  }
 };
 
 module.exports = Query;

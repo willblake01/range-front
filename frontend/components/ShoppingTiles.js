@@ -50,12 +50,12 @@ const StyledTiles = styled.div`
       bottom center / cover no-repeat;
   }
 
-  #bags-tile {
+  #sleeping-bags-tile {
     background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg')
       bottom center / cover no-repeat;
   }
 
-  #packs-tile {
+  #backpacks-tile {
     background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg')
       bottom center / cover no-repeat;
   }
@@ -63,20 +63,29 @@ const StyledTiles = styled.div`
 
 const ShoppingTiles = () => (
   <StyledTiles>
-    <Link href='/products?category=tents'>
-      <div className='tile' id='tents-tile'>
+    <Link
+      href={{ pathname: '/products', query: { category: 'tents' } }}
+      legacyBehavior
+    >
+      <a className='tile' id='tents-tile'>
         <span>Shop Tents</span>
-      </div>
+      </a>
     </Link>
-    <Link href='/products?category=backpacks'>
-      <div className='tile' id='packs-tile'>
+    <Link
+      href={{ pathname: '/products', query: { category: 'backpacks' } }}
+      legacyBehavior
+    >
+      <a className='tile' id='backpacks-tile'>
         <span>Shop Backpacks</span>
-      </div>
+      </a>
     </Link>
-    <Link href='/products?category=sleeping-bags'>
-      <div className='tile' id='bags-tile'>
+    <Link
+      href={{ pathname: '/products', query: { category: 'sleeping-bags' } }}
+      legacyBehavior
+    >
+      <a className='tile' id='sleeping-bags-tile'>
         <span>Shop Sleeping Bags</span>
-      </div>
+      </a>
     </Link>
   </StyledTiles>
 );
