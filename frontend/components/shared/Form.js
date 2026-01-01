@@ -62,6 +62,7 @@ const Form = styled.form`
       height: 1rem;
       content: '';
       display: block;
+      margin-bottom: 2rem;
       background-image: linear-gradient(
         to right,
         var(--green) 0%,
