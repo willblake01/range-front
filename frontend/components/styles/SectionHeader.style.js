@@ -4,8 +4,9 @@ const StyledSectionHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   img {
-      width: 104rem;
+      width: 100%;
       margin-bottom: 0.8rem;
   }
 `;

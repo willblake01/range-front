@@ -6,7 +6,6 @@ const StyledBuyingGuide = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   margin: 0 auto;
   padding: 2rem 14rem 10rem;
-  width: 100%;
   max-width: var(--maxWidth);
   font-size: 1.4rem;
   color: var(--green);
