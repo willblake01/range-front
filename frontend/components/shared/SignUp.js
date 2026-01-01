@@ -16,23 +16,21 @@ const StyledSignUp = styled.div`
   align-items: center;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
-  margin: 0;
   padding: clamp(2rem, 5vw, 8rem);
   height: 100%;
   width: 100%;
+
   h2 {
     margin: 0;
   }
 `;
 
 const StyledFormContainer = styled.div`
-  display: flex;
   width: 60rem;
 `;
 
 const SignUp = () => {
   const router = useRouter();
-  const currentPathname = router.pathname;
 
   const { inputs, handleChange, resetForm } = useForm({
     firstName: '',
@@ -75,7 +73,8 @@ const SignUp = () => {
       <StyledFormContainer>
         <Form method='POST' onSubmit={handleSubmit}>
           <DisplayError error={error} />
-          {currentPathname === '/admin' ? <h2>Create User</h2> : <h2>Account Signup</h2>}
+          <h2>Account Signup</h2>
+
           <fieldset>
             {data?.createUser && (
               <p>

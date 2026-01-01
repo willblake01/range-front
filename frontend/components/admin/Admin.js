@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { hasPermission } from '../../lib';
 import { useUser } from '../../hooks';
-import { DisplayError, SignUp } from '../shared';
-import { Permissions } from './components';
+import { DisplayError } from '../shared';
+import { CreateUser, Permissions } from './components';
 
 const StyledAdmin = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const StyledPermissionsTableContainer = styled.div`
   }
 `;
 
-const StyledSignUpContainer = styled.div`
+const StyledCreateUserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,9 +126,9 @@ const Admin = () => {
           </StyledPermissionsTable>
         )}
       </StyledPermissionsTableContainer>
-      <StyledSignUpContainer>
-        <SignUp />
-      </StyledSignUpContainer>
+      <StyledCreateUserContainer>
+        <CreateUser />
+      </StyledCreateUserContainer>
     </StyledAdmin>
   );
 };

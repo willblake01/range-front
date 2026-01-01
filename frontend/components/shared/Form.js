@@ -5,6 +5,7 @@ const loading = keyframes`
     background-position: 0;
     rotate: 0;
   }
+    
   to {
     background-position: 100%;
     rotate: 360deg;
@@ -21,10 +22,12 @@ const Form = styled.form`
   font-weight: 600;
   width: 100%;
   background-color: var(--white);
+
   label {
     display: block;
     margin-bottom: 1rem;
   }
+
   input,
   textarea,
   select {
@@ -37,11 +40,13 @@ const Form = styled.form`
     background-color: var(--offWhite);
     height: 3.8rem;
     width: 100%;
+
     &:focus {
       outline: 0;
       border-color: var(--darkOrange);
     }
   }
+
   button,
   input[type='submit'] {
     background-color: var(--darkOrange);
@@ -52,12 +57,14 @@ const Form = styled.form`
     font-weight: 600;
     padding: 0.5rem 1.2rem;
   }
+
   fieldset {
     border: 0;
     padding: 0;
     &[disabled] {
       opacity: 0.5;
     }
+
     &::before {
       height: 1rem;
       content: '';
@@ -70,6 +77,7 @@ const Form = styled.form`
         var(--brown) 100%
       );
     }
+
     &[aria-busy='true']::before {
       background-size: 50% auto;
       animation: ${loading} 0.5s linear infinite;
