@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
-import { AddToCart } from '../../shared';
+import { AddToCart, LearnMoreButton } from '../../shared';
 import { StyledTitle } from '../..';
 import { PriceTag } from '.';
 
@@ -72,13 +72,7 @@ const Product = ({ product }) => {
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className='buttonGrid'>
-        <a
-          href={`/products/${product.category}-buying-guide`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn More 📖
-        </a>
+        <LearnMoreButton category={product.category} />
         <AddToCart id={product.id} />
       </div>
     </StyledProduct>

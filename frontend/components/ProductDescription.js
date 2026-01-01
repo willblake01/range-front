@@ -5,8 +5,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { formatMoney, hasPermission } from '../lib';
 import { useUser } from '../hooks';
-import { AddToCart } from './shared';
-import { DisplayError } from './shared';
+import { AddToCart, DisplayError, LearnMoreButton } from './shared';
 import { DeleteProduct } from '.';
 
 const StyledProductDescription = styled.div`
@@ -134,13 +133,7 @@ const ProductDescription = ({ id }) => {
             Delete 🗑️
           </DeleteProduct>
         )}
-        <a
-          href={`/products/${product.category}-buying-guide`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn More 📖
-        </a>
+        <LearnMoreButton category={product.category} />
         <AddToCart id={product.id} />
         </div>
       </div>

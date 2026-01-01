@@ -5,6 +5,7 @@ export { Footer } from './Footer';
 export { Logo } from './Logo';
 export { Form } from './Form';
 export { LargeButton } from './LargeButton';
+export { LearnMoreButton } from './LearnMoreButton';
 export { Login } from './Login';
 export { Nav } from './Nav';
 export { Pagination, PAGINATION_QUERY } from './Pagination';
