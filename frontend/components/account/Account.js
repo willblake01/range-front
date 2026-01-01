@@ -29,7 +29,6 @@ const StyledAccountHeader = styled.div`
     margin: 0 0 0.5rem 0;
   }
   p {
-    color: var(--grey);
     font-size: 1.4rem;
   }
 `;
@@ -54,13 +53,11 @@ const StyledInfoRow = styled.div`
   
   label {
     font-weight: 600;
-    color: var(--black);
     font-size: 1.4rem;
   }
   
   span {
     font-size: 1.4rem;
-    color: var(--grey);
   }
 `;
 

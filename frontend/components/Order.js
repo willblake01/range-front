@@ -91,7 +91,7 @@ const StyledOrderItems = styled.div`
   .image {
     position: relative;
     width: 30rem;
-    aspect-ratio: 3 / 2; /* pick a consistent ratio */
+    aspect-ratio: 3 / 2;
     overflow: hidden;
     border-radius: 0.6rem;
 

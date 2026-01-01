@@ -9,6 +9,7 @@ const StyledCart = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   background: white;
+  color: var(--green);
   position: fixed;
   top: 0;
   right: 0;
@@ -23,16 +24,16 @@ const StyledCart = styled.div`
   z-index: 5;
   ${(props) => props.open && `transform: translateX(0);`};
   header {
-    border-bottom: 0.5rem solid var(--black);
+    border-bottom: 0.5rem solid var(--green);
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   footer {
-    border-top: 1rem double var(--black);
+    border-top: 1rem double var(--green);
     margin-top: 2rem;
     padding-top: 2rem;
-    /* display: grid;
-    grid-template-columns: auto auto; */
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
     font-size: 3rem;
     font-weight: 900;

@@ -8,6 +8,7 @@ const StyledAbout = styled.div`
   max-width: var(--maxWidth);
   padding: clamp(2rem, 5vw, 8rem);
   font-size: 1.4rem;
+  color: var(--green);
   img {
     margin: 0 auto 5rem;
     display: block;

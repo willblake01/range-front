@@ -22,7 +22,6 @@ const StyledTiles = styled.div`
     text-decoration: none;
     overflow: hidden;
 
-    /* overlay tint */
     &::before {
       content: '';
       position: absolute;

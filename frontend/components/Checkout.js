@@ -16,7 +16,8 @@ import { calcTotalPrice, formatMoney } from '../lib';
 import { DisplayError, LargeButton } from './shared';
 
 const StyledCheckout = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   flex: 1;
   padding: 2rem;
   position: relative;
@@ -24,20 +25,19 @@ const StyledCheckout = styled.div`
   height: 100%;
   width: 100%;
   min-width: 50rem;
+  color: var(--green);
   transform: translateX(100%);
   transition: all 0.3s;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   transform: translateX(0);
 
   header {
-    border-bottom: 0.5rem solid var(--black);
+    border-bottom: 0.5rem solid var(--green);
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
 
   footer {
-    border-top: 1rem double var(--black);
+    border-top: 1rem double var(--green);
     margin-top: 2rem;
     padding-top: 2rem;
     display: grid;
@@ -90,6 +90,7 @@ const StyledCheckoutForm = styled.form`
 `;
 
 const StyledTotalPrice = styled.p`
+  color: var(--green);
   margin-bottom: 1rem;
 `;
 

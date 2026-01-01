@@ -4,11 +4,12 @@ import { AlternateHeader, Footer } from '../../components/shared';
 
 const StyledBuyingGuide = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
-  font-size: 1.4rem;
   margin: 0 auto;
   padding: 2rem 14rem 10rem;
   width: 100%;
   max-width: var(--maxWidth);
+  font-size: 1.4rem;
+  color: var(--green);
 
   h1 {
       padding-top: 2rem;

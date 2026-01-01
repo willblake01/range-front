@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 
 const StyledLargeButton = styled.button`
+  margin: 0;
   font-size: 1.5rem;
   background: none;
   border: 0;

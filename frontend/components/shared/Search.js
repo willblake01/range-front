@@ -40,7 +40,7 @@ const StyledDropDown = styled.div`
   z-index: 2;
   background: white;
   border: ${(props) => (props.isOpen ? '0.1rem solid var(--lightGrey)' : 'none')};
-  max-height: calc(8 * (5.2rem + 2rem)); /* thumb + padding-ish */
+  max-height: calc(8 * (5.2rem + 2rem));
   overflow-y: auto;
 `;
 

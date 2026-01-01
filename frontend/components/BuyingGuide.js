@@ -8,6 +8,7 @@ const StyledBuyingGuide = styled.div`
     max-width: var(--maxWidth);
     padding: 2rem 14rem 10rem;
     font-size: 1.4rem;
+    color: var(--green);
     h1 {
         padding-top: 2rem;
         font-weight: bold;
