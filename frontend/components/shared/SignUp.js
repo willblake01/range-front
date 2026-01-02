@@ -19,10 +19,6 @@ const StyledSignUp = styled.div`
   padding: clamp(2rem, 5vw, 8rem);
   height: 100%;
   width: 100%;
-
-  h2 {
-    margin: 0;
-  }
 `;
 
 const StyledFormContainer = styled.div`

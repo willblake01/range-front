@@ -23,6 +23,10 @@ const Form = styled.form`
   width: 100%;
   background-color: var(--white);
 
+  h2 {
+    margin: 0;
+  }
+
   label {
     display: block;
     margin-bottom: 1rem;
