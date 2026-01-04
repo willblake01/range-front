@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
@@ -11,6 +11,7 @@ import { CreateUser, Permissions } from './components';
 const StyledAdmin = styled.div`
   display: flex;
   flex: 1;
+  align-items: flex-start;
   justify-content: space-evenly;
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   color: var(--green);
@@ -82,8 +83,6 @@ const StyledPermissionsTable = styled.table`
 `;
 
 const Admin = () => {
-  const [users, setUsers] = useState([]);
-
   const { user, loading: userLoading, error: userError } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
@@ -91,16 +90,14 @@ const Admin = () => {
     skip: !hasAccess,
   });
 
+  const users = data?.users;
+
   useEffect(() => {
     if (usersLoading) NProgress.start();
     else NProgress.done();
 
     return () => NProgress.done();
   }, [usersLoading]);
-
-  useEffect(() => {
-    setUsers(data?.users);
-  }, [data?.users]);
 
   if (userError) return <DisplayError error={userError} />;
   if (usersError) return <DisplayError error={usersError} />;
