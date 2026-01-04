@@ -7,7 +7,7 @@ require('dotenv').config({ path: '.env' });
 const db = require('../src/db');
 
 // The data to seed in the database
-const { products } = require('./seed.ts');
+const { products } = require('./seed.js');
 
 const seedDB = async () => {
   try {
@@ -45,7 +45,7 @@ const seedDB = async () => {
 
     if (process.env.SEED_ADMIN_RESET === 'true') {
       console.log('🔐 Admin password reset via seed');
-    }
+    };
 
     console.log(`✅ Upserted user: ${seedAdmin.email} with permissions: ${seedAdmin.permissions.join(', ')}`);
     
@@ -77,7 +77,11 @@ const seedDB = async () => {
     console.log(`🎉 Database seeding completed! Created ${createdCount} products, skipped ${skippedCount} existing.`);
     process.exit(0);
   } catch (error) {
-    console.error('❌ Seed failed:', error.message);
+    if (error instanceof Error) {
+      console.error('❌ Seed failed:', error.message);
+    } else {
+      console.error('❌ Seed failed:', error);
+    }
     process.exit(1);
   }
 };
