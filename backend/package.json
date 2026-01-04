@@ -12,6 +12,9 @@
     "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
     "seed": "npm run ts-node data/seedDatabase.js"
   },
+  "prisma": {
+    "seed": "npm run seed"
+  },
   "dependencies": {
     "@prisma/client": "^4.16.2",
     "@types/nodemailer": "^6.4.2",

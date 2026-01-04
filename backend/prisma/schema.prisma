@@ -55,6 +55,7 @@ model Product {
 
 model CartItem {
   id        String   @id @default(cuid())
+  brand     String
   quantity  Int      @default(1)
   item      Product? @relation(fields: [itemId], references: [id])
   itemId    String?
@@ -66,6 +67,7 @@ model CartItem {
 
 model OrderItem {
   id          String   @id @default(cuid())
+  brand       String
   title       String
   description String
   image       String

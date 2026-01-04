@@ -162,6 +162,7 @@ const Order = ({ id }) => {
                 />
               </div>
               <div className='item-details'Product>
+                <h2>{item.brand}</h2>
                 <h2>{item.title}</h2>
                 <p>Qty: {item.quantity}</p>
                 <p>Each: {formatMoney(item.price)}</p>
@@ -185,6 +186,7 @@ const SINGLE_ORDER_QUERY = gql`
       createdAt
       items {
         id
+        brand
         title
         price
         quantity

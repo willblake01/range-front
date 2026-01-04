@@ -5,7 +5,7 @@ export { Account } from './account/Account';
 export { BuyingGuide } from './BuyingGuide';
 export { Cart } from './cart/Cart';
 export { CartCount } from './CartCount';
-export { Checkout } from './Checkout';
+export { Checkout } from './checkout/Checkout';
 export { Clearance } from './Clearance';
 export { CreateProduct } from './CreateProduct';
 export { DeleteProduct } from './DeleteProduct';

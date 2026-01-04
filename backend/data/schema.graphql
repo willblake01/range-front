@@ -25,6 +25,7 @@ type Product {
 
 type CartItem {
   id: ID!
+  brand: String!
   quantity: Int!
   item: Product
   user: User!

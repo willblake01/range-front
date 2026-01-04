@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
@@ -82,6 +82,8 @@ const StyledPermissionsTable = styled.table`
 `;
 
 const Admin = () => {
+  const [users, setUsers] = useState([]);
+
   const { user, loading: userLoading, error: userError } = useUser();
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
@@ -96,14 +98,16 @@ const Admin = () => {
     return () => NProgress.done();
   }, [usersLoading]);
 
+  useEffect(() => {
+    setUsers(data?.users);
+  }, [data?.users]);
+
   if (userError) return <DisplayError error={userError} />;
   if (usersError) return <DisplayError error={usersError} />;
   if (userLoading || usersLoading) return <p>Loading...</p>;
   
   if (!user) return <p>You must be logged in.</p>;
   if (!hasAccess) return <p>You don’t have permission to view this page.</p>;
-
-  const users = data?.users ?? [];
 
   return (
     <StyledAdmin>

@@ -26,7 +26,13 @@ const createServer = () => {
   return new ApolloServer({
     schema,
     playground: true,
-    context: req => ({ ...req, db })
+    context: ({ req, res }) => ({
+      req,
+      res,
+      db,
+      userId: req.userId,
+      user: req.user,
+    }),
   });
 };
 

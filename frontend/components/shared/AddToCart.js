@@ -1,36 +1,31 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import NProgress from 'nprogress';
+import { toast } from 'react-hot-toast';
 import { CURRENT_USER_QUERY } from '../../hooks';
-import { DisplayError } from '.';
 
-const AddToCart = ({ id }) => {
-  const router = useRouter();
-  
-  const [addToCart, { loading, error }] = useMutation(ADD_TO_CART_MUTATION, {
-    variables: { id },
-    refetchQueries: [{ query: CURRENT_USER_QUERY }],
-    onError: (error) => {
-      if (error.message.includes('You must be signed in')) {
-        router.push('/login');
-      }
-    },
+const AddToCart = ({ id }) => {  
+  const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
+    refetchQueries: [{ query: CURRENT_USER_QUERY }]
   });
 
-  useEffect(() => {
-    if (loading) NProgress.start();
-    else NProgress.done();
+  const handleAddToCart = async () => {
+    try {
+      await addToCart({ variables: { id } });
+      toast.success('Added to cart');
+    } catch (err) {
+      const message =
+        err?.graphQLErrors?.[0]?.message ||
+        err?.message ||
+        'Something went wrong';
 
-    return () => NProgress.done();
-  }, [loading]);
+      toast.error(message);
+    }
+  };
 
-  if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
   
   return (
-    <button disabled={loading} type='button' onClick={addToCart}>
+    <button disabled={loading} type='button' onClick={handleAddToCart}>
       Add{loading && 'ing'} To Cart 🛒
     </button>
   );

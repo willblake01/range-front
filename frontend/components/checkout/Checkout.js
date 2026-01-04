@@ -11,9 +11,10 @@ import {
 } from '@stripe/react-stripe-js';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
-import { CURRENT_USER_QUERY, useUser } from '../hooks';
-import { calcTotalPrice, formatMoney } from '../lib';
-import { DisplayError, LargeButton } from './shared';
+import { CURRENT_USER_QUERY, useUser } from '../../hooks';
+import { calcTotalPrice, formatMoney } from '../../lib';
+import { DisplayError, LargeButton } from '../shared';
+import { OrderItem } from './components'
 
 const StyledCheckout = styled.div`
   display: grid;
@@ -63,9 +64,11 @@ const StyledOrderItem = styled.li`
   border-bottom: 0.1rem solid var(--lightGrey);
   display: grid;
   grid-template-columns: auto 1fr auto;
+
   img {
     margin-right: 1rem;
   }
+
   h3,
   p {
     margin: 0;
@@ -108,30 +111,6 @@ const StyledTestCardInfo = styled.div`
 
 const stripeLib = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
-const OrderItem = ({ orderItem }) => {
-  const { item, quantity } = orderItem;
-  if (!item) return null;
-
-  return (
-    <>
-      <img
-        width='100'
-        src={item.image}
-        alt={item.title}
-      />
-      <div>
-        <h3>{item.title}</h3>
-        <p>
-          {formatMoney(item.price * quantity)}-
-          <em>
-            {quantity} &times; {formatMoney(item.price)} each
-          </em>
-        </p>
-      </div>
-    </>
-  );
-};
-
 const CheckoutForm = () => {
   const router = useRouter();
   const stripe = useStripe();
@@ -165,7 +144,6 @@ const CheckoutForm = () => {
         type: 'card',
         card: elements.getElement(CardElement),
       });
-      console.log(paymentMethod);
 
       // 4. Handle any errors from stripe
       if (stripeError) {
@@ -185,9 +163,6 @@ const CheckoutForm = () => {
 
       // 6. Change the page to view the order
       router.push(`/order/${orderId}`);
-
-      console.log(`Finished with the order!!`);
-      console.log(res);
 
       NProgress.done();
     } catch (err) {
@@ -255,6 +230,9 @@ const CREATE_ORDER_MUTATION = gql`
       items {
         id
         title
+        brand
+        quantity
+        price
       }
     }
   }

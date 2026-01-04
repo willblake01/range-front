@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { formatMoney } from '../../../lib';
-import { RemoveFromCart } from '../..';
 
-const StyledCartItem = styled.li`
+const StyledOrderItem = styled.div`
   display: grid;
   grid-template-columns: auto 1fr auto;
   padding: 1rem 0;
@@ -19,12 +18,12 @@ const StyledCartItem = styled.li`
   }
 `;
 
-const CartItem = ({ cartItem }) => {
-  const { item } = cartItem;
+const OrderItem = ({ orderItem }) => {
+  const { item, quantity } = orderItem;
   if (!item) return null;
 
   return (
-    <StyledCartItem>
+    <StyledOrderItem>
       <Image
         height={130}
         width={220}
@@ -35,15 +34,14 @@ const CartItem = ({ cartItem }) => {
         <h3>{item.brand}</h3>
         <h3>{item.title}</h3>
         <p>
-          {formatMoney(item.price * cartItem.quantity)}-
+          {formatMoney(item.price * quantity)}-
           <em>
-            {cartItem.quantity} &times; {formatMoney(item.price)} each
+            {quantity} &times; {formatMoney(item.price)} each
           </em>
         </p>
       </div>
-      <RemoveFromCart id={cartItem.id} />
-    </StyledCartItem>
+    </StyledOrderItem>
   );
 };
 
-export { CartItem };
+export { OrderItem };

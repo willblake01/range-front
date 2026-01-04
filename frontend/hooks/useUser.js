@@ -21,13 +21,15 @@ const CURRENT_USER_QUERY = gql`
       permissions
       cart {
         id
+        brand
         quantity
         item {
           id
-          price
-          image
+          brand
           title
           description
+          image
+          price
         }
       }
     }

@@ -49,6 +49,10 @@ const StyledCart = styled.div`
   }
 `;
 
+const StyledCartItem = styled.div`
+  border-bottom: 0.1rem solid var(--lightGrey);
+`;
+
 const StyledTotalPrice = styled.p`
   margin-bottom: 1rem;
 `;
@@ -71,7 +75,9 @@ const Cart = () => {
         </header>
         <ul>
           {user?.cart?.map((cartItem) => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
+            <StyledCartItem>
+              <CartItem key={cartItem.id} cartItem={cartItem} />
+            </StyledCartItem>
           ))}
         </ul>
         <footer>

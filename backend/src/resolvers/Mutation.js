@@ -254,47 +254,20 @@ const Mutations = {
     });
   },
 
-  async addToCart(parent, args, ctx, info) {
-
-    // 1. Make sure they are signed in
-    const { userId } = ctx.req;
-    if(!userId) {
-      throw new Error('You must be signed in!');
+  async addToCart(parent, { id }, ctx) {
+    if (!ctx.userId) {
+      throw new Error('You must be signed in to add items to your cart');
     }
 
-    // 2. Query the user's current cart
-    const existingCartItems = await ctx.db.cartItem.findMany({
-      where: {
-        userId: userId,
-        itemId: args.id,
-      },
-    });
-    const existingCartItem = existingCartItems[0];
+    const product = await ctx.db.product.findUnique({ where: { id } });
+    if (!product) throw new Error('Product not found');
 
-    // 3. Check if that item is already in their cart and increment by 1 if it is
-    if(existingCartItem) {
-      console.log('This item is already in their cart.');
-      return ctx.db.cartItem.update({
-        where: { id: existingCartItem.id },
-        data: { quantity: existingCartItem.quantity + 1 },
-        include: {
-          item: true,
-        },
-      });
-    }
-
-    // 4. If it's not, create a fresh cartItem for that user
     return ctx.db.cartItem.create({
       data: {
-        user: {
-          connect: { id: userId },
-        },
-        item: {
-          connect: { id: args.id },
-        },
-      },
-      include: {
-        item: true,
+        quantity: 1,
+        brand: product.brand,
+        item: { connect: { id } },
+        user: { connect: { id: ctx.userId } },
       },
     });
   },
@@ -346,7 +319,6 @@ const Mutations = {
     const amount = user.cart.reduce(
       (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity, 0
     );
-    console.log('Going to charge for a total of', amount);
     
     // 3. Create the payment intent with stripe
     const paymentIntent = await stripe.paymentIntents.create({
@@ -359,7 +331,6 @@ const Mutations = {
         allow_redirects: 'never'
       },
     });
-    console.log('Payment Intent created:', paymentIntent.id);
 
     // 4. Convert the cartItems to orderItems
     const orderItems = user?.cart?.map(cartItem => {
