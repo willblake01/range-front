@@ -1,6 +1,6 @@
 const { hasPermission } = require('../utils');
 
-function convertWhere(where = {}) {
+const convertWhere = (where = {}) => {
   const out = {};
 
   for (const [key, value] of Object.entries(where)) {
@@ -38,6 +38,7 @@ const Query = {
       include: { user: true },
     });
   },
+
   async product(parent, args, ctx, info) {
     return ctx.db.product.findUnique({
       where: args.where,
@@ -46,12 +47,15 @@ const Query = {
       },
     });
   },
+
   async productsConnection(parent, args, ctx) {
     const prismaWhere = convertWhere(args.where || {});
     const count = await ctx.db.product.count({ where: prismaWhere });
     return { aggregate: { count } };
   },
+
   async user(parent, args, ctx, info) {
+
     // Check if there is a current user ID
     if(!ctx.req.userId) {
       return null;
@@ -67,21 +71,40 @@ const Query = {
       },
     });
   },
+
   async users(parent, args, ctx, info) {
+
     // 1. Check if they're logged in
-    if(!ctx.req.userId) {
-      throw new Error('You must be logged in!');
-    }
+    if(!ctx.req.userId) throw new Error('You must be logged in!');
+
     // 2. Check if the user has permissions to query
     hasPermission(ctx.req.user, ['ADMIN', 'PERMISSIONUPDATE']);
+
     // 3. If they do, query all the users
-    return ctx.db.user.findMany();
+    const results = ctx.db.user.findMany({
+      skip: args.skip ?? 0,
+      take: args.first ?? 4,
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    });
+    console.log('users results:', results);
+    console.log('is array?', Array.isArray(results));
+    return results;
   },
+
+  async usersCount(parent, args, ctx) {
+    if (!ctx.userId) throw new Error('You must be logged in.');
+    hasPermission(ctx.req.user, ['ADMIN', 'PERMISSIONUPDATE']);
+
+    return ctx.db.user.count();
+  },
+
   async order(parent, args, ctx, info) {
+
     // 1. Make sure they are logged in
     if(!ctx.req.userId) {
       throw new Error('You must be logged in!');
     }
+
     // 2. Query the current order
     const order = await ctx.db.order.findUnique({
       where: { id: args.id },
@@ -101,13 +124,15 @@ const Query = {
     if(!ownsOrder && !hasPermissionToSeeOrder) {
       throw new Error('You can\'t see this bud');
     }
+
     // 4. Return the order
     return order;
   },
+
   async orders(parent, args, ctx, info) {
     const { userId } = ctx.req;
     if(!userId) {
-      throw new Error('You must be signed in!');
+      throw new Error('You must be logged in!');
     }
     return ctx.db.order.findMany({
       where: {

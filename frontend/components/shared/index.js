@@ -8,7 +8,6 @@ export { LargeButton } from './LargeButton';
 export { LearnMoreButton } from './LearnMoreButton';
 export { Login } from './Login';
 export { Nav } from './Nav';
-export { Pagination, PAGINATION_QUERY } from './Pagination';
 export { PleaseLogin } from './PleaseLogin';
 export { ProductsList } from './ProductsList';
 export { Search } from './Search';

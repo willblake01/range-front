@@ -1,40 +1,13 @@
-import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
-import { DisplayError } from './DisplayError';
-import { perPage } from '../../config';
+import { DisplayError } from '../../shared/DisplayError';
+import { Pagination } from '../../styles';
+import { perPage } from '../../../config';
 
-const StyledPagination = styled.nav`
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  align-items: stretch;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--white);
-  margin: 2rem auto;
-  border: 0.1rem solid var(--lightGrey);
-  border-radius: 1rem;
-  width: fit-content;
-
-  & > * {
-    margin: 0;
-    padding: 1.5rem 3rem;
-    border-right: 0.1rem solid var(--lightGrey);
-    &:last-child {
-      border-right: 0;
-    }
-  }
-
-  a[aria-disabled='true'] {
-    color: grey;
-    pointer-events: none;
-  }
-`;
-
-const Pagination = ({ page, where }) => {
-  const { data, loading, error } = useQuery(PAGINATION_QUERY, {
+const ProductsPagination = ({ page, where }) => {
+  const { data, loading, error } = useQuery(PRODUCTS_PAGINATION_QUERY, {
     variables: { where },
   });
 
@@ -58,7 +31,7 @@ const Pagination = ({ page, where }) => {
   const nextDisabled = page >= pageCount;
 
   return (
-    <StyledPagination aria-label='Pagination'>
+    <Pagination aria-label='Products Pagination'>
       <Head>
         <title>
           Range Front - Page {page} of {pageCount}
@@ -83,12 +56,12 @@ const Pagination = ({ page, where }) => {
           <a>Next →</a>
         </Link>
       )}
-    </StyledPagination>
+    </Pagination>
   );
 };
 
-const PAGINATION_QUERY = gql`
-  query PAGINATION_QUERY($where: ProductWhereInput) {
+const PRODUCTS_PAGINATION_QUERY = gql`
+  query PRODUCTS_PAGINATION_QUERY($where: ProductWhereInput) {
     productsConnection(where: $where) {
       aggregate {
         count
@@ -97,4 +70,4 @@ const PAGINATION_QUERY = gql`
   }
 `;
 
-export { PAGINATION_QUERY, Pagination };
+export { PRODUCTS_PAGINATION_QUERY, ProductsPagination };

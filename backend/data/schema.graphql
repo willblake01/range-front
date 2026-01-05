@@ -117,9 +117,15 @@ type Query {
   product(where: ProductWhereUniqueInput!): Product
   productsConnection(where: ProductWhereInput): ProductConnection!
   user: User
-  users: [User]!
+  users(orderBy: UserOrderByInput, skip: Int, first: Int): [User!]!
+  usersCount: Int!
   order(id: ID!): Order
   orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
+}
+
+enum UserOrderByInput {
+  createdAt_DESC
+  createdAt_ASC
 }
 
 type User {

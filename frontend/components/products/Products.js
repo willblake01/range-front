@@ -4,9 +4,9 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { perPage } from '../../config';
-import { ProductsContainer, PaginationRow } from '../styles/ProductsList.style';
-import { DisplayError, Pagination, ProductsList } from '../shared';
-import { Product } from './components';
+import { ProductsContainer, PaginationRow } from '../styles';
+import { DisplayError, ProductsList } from '../shared';
+import { ProductsPagination, Product } from './components';
 
 const ProductsPage = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
@@ -45,7 +45,7 @@ const Products = ({ page, where }) => {
           ))}
         </ProductsList>
         <PaginationRow>
-          <Pagination page={page} where={where} />
+          <ProductsPagination page={page} where={where} />
         </PaginationRow>
       </ProductsContainer>
     </ProductsPage>

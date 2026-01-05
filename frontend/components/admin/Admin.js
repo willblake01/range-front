@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { hasPermission } from '../../lib';
 import { useUser } from '../../hooks';
+import { PaginationRow } from '../styles';
 import { DisplayError } from '../shared';
-import { CreateUser, Permissions } from './components';
+import { CreateUser, Permissions, UsersPagination } from './components';
+import { USERS_PER_PAGE } from './constants';
 
 const StyledAdmin = styled.div`
   display: flex;
@@ -83,12 +86,23 @@ const StyledPermissionsTable = styled.table`
 `;
 
 const Admin = () => {
+  const router = useRouter();
+
   const { user, loading: userLoading, error: userError } = useUser();
-  
+
+  const page = Number.isFinite(Number(router.query.page)) ? Number(router.query.page) : 1;
+  const currentPage = Math.max(1, page);
+  const skip = (currentPage - 1) * USERS_PER_PAGE;
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
   const { data, loading: usersLoading, error: usersError } = useQuery(ALL_USERS_QUERY, {
     skip: !hasAccess,
+    variables: {
+      skip,
+      first: USERS_PER_PAGE,
+      orderBy: 'createdAt_DESC',
+    },
+    fetchPolicy: 'cache-and-network',
   });
 
   const users = data?.users;
@@ -112,20 +126,25 @@ const Admin = () => {
       <StyledPermissionsTableContainer>
         <h2>Manage Permissions</h2>
         {users && (
-          <StyledPermissionsTable>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Permissions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users?.map((user) => (
-                <Permissions user={user} key={user.id} />
-              ))}
-            </tbody>
-          </StyledPermissionsTable>
+          <>
+            <StyledPermissionsTable>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Permissions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users?.map((user) => (
+                  <Permissions user={user} key={user.id} />
+                ))}
+              </tbody>
+            </StyledPermissionsTable>
+            <PaginationRow>
+              <UsersPagination page={page} />
+            </PaginationRow>
+          </>
         )}
       </StyledPermissionsTableContainer>
       <StyledCreateUserContainer>
@@ -136,8 +155,8 @@ const Admin = () => {
 };
 
 const ALL_USERS_QUERY = gql`
-  query ALL_USERS_QUERY {
-    users {
+  query ALL_USERS_QUERY($skip: Int, $first: Int, $orderBy: UserOrderByInput) {
+    users(skip: $skip, first: $first, orderBy: $orderBy) {
       id
       firstName
       lastName

@@ -35,7 +35,7 @@ const SignUp = () => {
     password: ''
   });
 
-  const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
+  const [signup, { loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
     awaitRefetchQueries: true

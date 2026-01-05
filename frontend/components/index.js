@@ -25,6 +25,5 @@ export { ResetPassword } from './ResetPassword';
 export { ShoppingTiles } from './ShoppingTiles';
 export { SignOut } from './SignOut';
 export { Social } from './Social';
-export { StyledTable } from './Table'
 export { StyledTitle } from './Title';
 export { UpdateProduct } from './UpdateProduct';

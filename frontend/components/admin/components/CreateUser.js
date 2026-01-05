@@ -32,9 +32,9 @@ const CreateUser = () => {
     password: ''
   });
 
-  const [createUser, { data, loading, error }] = useMutation(CREATE_USER_MUTATION, {
+  const [createUser, { loading, error }] = useMutation(CREATE_USER_MUTATION, {
     variables: inputs,
-    refetchQueries: [{ query: ALL_USERS_QUERY }],
+    refetchQueries: ['ALL_USERS_QUERY'],
     awaitRefetchQueries: true,
   });
 
@@ -127,18 +127,6 @@ const CREATE_USER_MUTATION = gql`
       email: $email,
       password: $password
     ) {
-      id
-      firstName
-      lastName
-      email
-      permissions
-    }
-  }
-`;
-
-const ALL_USERS_QUERY = gql`
-  query ALL_USERS_QUERY {
-    users {
       id
       firstName
       lastName

@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { perPage } from '../config';
-import { ProductsContainer, PaginationRow } from './styles/ProductsList.style';
+import { ProductsContainer, PaginationRow } from './styles';
 import { DisplayError, Pagination, ProductsList } from './shared';
 import { Product } from '.';
 
