@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { perPage } from '../config';
 import { ProductsContainer, PaginationRow } from './styles';
-import { DisplayError, Pagination, ProductsList } from './shared';
-import { Product } from '.';
+import { DisplayError, ProductsList } from './shared';
+import { Product, ProductsPagination } from './products/components';
 
 const ClearancePage = styled.div`
   background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
@@ -44,7 +44,7 @@ const Clearance = ({ page }) => {
         </ProductsList>
 
         <PaginationRow>
-          <Pagination page={page} />
+          <ProductsPagination page={page} />
         </PaginationRow>
       </ProductsContainer>
     </ClearancePage>
