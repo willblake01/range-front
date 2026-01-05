@@ -84,6 +84,7 @@ const StyledPermissionsTable = styled.table`
 
 const Admin = () => {
   const { user, loading: userLoading, error: userError } = useUser();
+  
   const hasAccess = user && hasPermission(user, 'ADMIN');
   
   const { data, loading: usersLoading, error: usersError } = useQuery(ALL_USERS_QUERY, {

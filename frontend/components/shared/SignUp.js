@@ -37,9 +37,8 @@ const SignUp = () => {
 
   const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
-
-    // refectch the currently logged in user
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
+    awaitRefetchQueries: true
   });
 
   const handleSubmit = async (e) => {
@@ -52,7 +51,7 @@ const SignUp = () => {
 
     resetForm();
 
-    router.push('/');
+    router.push('/products');
   };
 
   useEffect(() => {
@@ -72,11 +71,6 @@ const SignUp = () => {
           <h2>Account Signup</h2>
 
           <fieldset>
-            {data?.createUser && (
-              <p>
-                Signed up with {data.createUser.email} - Please Go Head and Login!
-              </p>
-            )}
             <label htmlFor='email'>
               First Name
             </label>
@@ -126,7 +120,12 @@ const SignUp = () => {
 };
 
 const SIGNUP_MUTATION = gql`
-  mutation SIGNUP_MUTATION($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+  mutation SIGNUP_MUTATION(
+    $firstName: String!,
+    $lastName: String!,
+    $email: String!,
+    $password: String!
+  ) {
     signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
       id
       firstName

@@ -101,6 +101,7 @@ type Mutation {
   ): Product!
   deleteProduct(id: ID!): Product
   signup(email: String!, password: String!, firstName: String!, lastName: String!): User!
+  createUser(firstName: String!, lastName: String!, email: String!, password: String!): User!
   login(email: String!, password: String!): User!
   signout: SuccessMessage
   requestReset(email: String!): SuccessMessage

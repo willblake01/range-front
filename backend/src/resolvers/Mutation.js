@@ -100,7 +100,7 @@ const Mutations = {
       data: {
         ...args,
         password,
-        permissions: ['USER'],
+        permissions: ['USER']
       },
     });
 
@@ -111,6 +111,29 @@ const Mutations = {
     ctx.res.cookie('token', token, buildCookieOptions({ maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
     // Return the user to the browser
+    return user;
+  },
+
+  async createUser(parent, args, ctx) {
+    if (!ctx.userId) throw new Error('You must be logged in.');
+
+    // must be admin
+    if (!ctx.user?.permissions?.includes('ADMIN')) {
+      throw new Error('You do not have permission to do that.');
+    }
+
+    args.email = args.email.toLowerCase();
+
+    const password = await bcrypt.hash(args.password, 10);
+
+    const user = await ctx.db.user.create({
+      data: {
+        ...args,
+        password,
+        permissions: ['USER'],
+      },
+    });
+
     return user;
   },
 

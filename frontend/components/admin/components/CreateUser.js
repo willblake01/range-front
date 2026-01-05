@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../../../lib';
 import { DisplayError, LargeButton, Form } from '../../shared';
-import { CURRENT_USER_QUERY } from '../../../hooks';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -33,18 +32,17 @@ const CreateUser = () => {
     password: ''
   });
 
-  const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
+  const [createUser, { data, loading, error }] = useMutation(CREATE_USER_MUTATION, {
     variables: inputs,
-
-    // refectch the currently logged in user
-    refetchQueries: [{ query: CURRENT_USER_QUERY }],
+    refetchQueries: [{ query: ALL_USERS_QUERY }],
+    awaitRefetchQueries: true,
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Send the email and password to the graphqlAPI
-    await signup().catch(err => toast.error(err.message));
+    await createUser().catch(err => toast.error(err.message));
 
     toast.success('Account created!');
 
@@ -68,11 +66,6 @@ const CreateUser = () => {
 
           <h2>Create User</h2>
           <fieldset>
-            {data?.createUser && (
-              <p>
-                Signed up with {data.createUser.email} - Please Go Head and Login!
-              </p>
-            )}
             <label htmlFor='email'>
               First Name
             </label>
@@ -121,13 +114,36 @@ const CreateUser = () => {
   );
 };
 
-const SIGNUP_MUTATION = gql`
-  mutation SIGNUP_MUTATION($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-    signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
+const CREATE_USER_MUTATION = gql`
+  mutation CREATE_USER_MUTATION(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    createUser(
+      firstName: $firstName,
+      lastName: $lastName,
+      email: $email,
+      password: $password
+    ) {
       id
       firstName
       lastName
       email
+      permissions
+    }
+  }
+`;
+
+const ALL_USERS_QUERY = gql`
+  query ALL_USERS_QUERY {
+    users {
+      id
+      firstName
+      lastName
+      email
+      permissions
     }
   }
 `;
