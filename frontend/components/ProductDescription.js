@@ -5,9 +5,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { formatMoney, hasPermission } from '../lib';
 import { useUser } from '../hooks';
-import { AddToCart, DisplayError, LearnMoreButton } from './shared';
+import { AddToCart, DisplayError, LearnMoreButton, PriceTag } from './shared';
 import { DeleteProduct } from '.';
-import { PriceTag } from './products/components';
 
 const StyledProductDescription = styled.div`
   flex: 1;

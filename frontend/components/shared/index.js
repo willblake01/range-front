@@ -9,6 +9,7 @@ export { LearnMoreButton } from './LearnMoreButton';
 export { Login } from './Login';
 export { Nav } from './Nav';
 export { PleaseLogin } from './PleaseLogin';
+export { PriceTag } from './PriceTag';
 export { ProductsList } from './ProductsList';
 export { Search } from './Search';
 export { SignUp } from './SignUp';

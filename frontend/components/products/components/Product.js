@@ -2,9 +2,8 @@ import Image from 'next/image'
 import styled from 'styled-components';
 import Link from 'next/link';
 import { formatMoney } from '../../../lib';
-import { AddToCart, LearnMoreButton } from '../../shared';
+import { AddToCart, LearnMoreButton, PriceTag } from '../../shared';
 import { StyledTitle } from '../..';
-import { PriceTag } from '.';
 
 const StyledProduct = styled.div`
   display: flex;
