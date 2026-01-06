@@ -46,7 +46,7 @@ const DeleteProduct = ({ id, children }) => {
             return null;
           });
 
-          toast.success(`Deleted product '${res.data.deleteProduct.brand} ${res.data.deleteProduct.title}'`);
+          toast.success(`Deleted product ${res.data.deleteProduct.brand} ${res.data.deleteProduct.title}`);
             
           Router.push({
             pathname: `/products`,
