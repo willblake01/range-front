@@ -91,15 +91,15 @@ enum OrderOrderByInput {
 
 type Mutation {
   createProduct(
-    id: ID!
     brand: String,
     title: String,
     description: String,
     image: String,
-    largeImage: String): Product!
+    largeImage: String
     category: String,
     price: Int,
     clearance: Boolean
+  ): Product!
 
   updateProduct(
     id: ID!

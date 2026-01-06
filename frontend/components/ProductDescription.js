@@ -152,6 +152,7 @@ export const SINGLE_PRODUCT_QUERY = gql`
       category
       image
       price
+      clearance
     }
   }
 `;

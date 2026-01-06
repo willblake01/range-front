@@ -26,7 +26,7 @@ const StyledFormContainer = styled.div`
 `;
 
 const CreateProduct = () => {
-  const { inputs, handleChange, clearForm, resetForm } = useForm({
+  const { inputs, handleChange, clearForm } = useForm({
     brand: '',
     title: '',
     description: '',
@@ -148,7 +148,7 @@ const CreateProduct = () => {
                 type='checkbox'
                 id='clearance'
                 name='clearance'
-                checked={!!inputs.clearance}
+                checked={inputs.clearance}
                 onChange={handleChange}
               />
             </div>
@@ -162,7 +162,6 @@ const CreateProduct = () => {
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
-    $id: ID!
     $brand: String
     $title: String!
     $description: String!
@@ -172,7 +171,6 @@ const CREATE_PRODUCT_MUTATION = gql`
     $clearance: Boolean
   ) {
     createProduct(
-      id: $id
       brand: $brand
       title: $title
       description: $description

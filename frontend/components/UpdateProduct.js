@@ -39,7 +39,7 @@ const UpdateProduct = ({ id }) => {
   ] = useMutation(UPDATE_PRODUCT_MUTATION);
 
   // 2.5 Create some state for the form inputs:
-  const { inputs, handleChange, clearForm, resetForm } = useForm(
+  const { inputs, handleChange, clearForm } = useForm(
     data?.product || {
       id: '',
       brand: '',
@@ -49,7 +49,8 @@ const UpdateProduct = ({ id }) => {
       category: '',
       price: '',
       clearance: false
-    }
+    },
+    [data?.product?.id]
   );
 
   if (error) return <DisplayError error={error} />;
@@ -154,7 +155,7 @@ const UpdateProduct = ({ id }) => {
                 type='checkbox'
                 id='clearance'
                 name='clearance'
-                checked={!!inputs.clearance}
+                checked={inputs.clearance}
                 onChange={handleChange}
               />
             </div>
