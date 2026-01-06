@@ -7,6 +7,7 @@ import { formatMoney, hasPermission } from '../lib';
 import { useUser } from '../hooks';
 import { AddToCart, DisplayError, LearnMoreButton } from './shared';
 import { DeleteProduct } from '.';
+import { PriceTag } from './products/components';
 
 const StyledProductDescription = styled.div`
   flex: 1;
@@ -86,6 +87,12 @@ const StyledProductDescription = styled.div`
   }
 `;
 
+const StyledProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
 const ProductDescription = ({ id }) => {
   const { user } = useUser();
 
@@ -108,36 +115,39 @@ const ProductDescription = ({ id }) => {
       <Head>
         <title>Range Front | {product.title}</title>
       </Head>
-      <div className='product'>
-        <div className='image'>
-          <Image
-            src={product.image}
-            alt={product.title}
-            height={400}
-            width={600}
-          />
+      <StyledProduct>
+        {product.clearance && <PriceTag clearance={product.clearance}>Clearance</PriceTag>}
+        <div className='product'>
+          <div className='image'>
+            <Image
+              src={product.image}
+              alt={product.title}
+              height={400}
+              width={600}
+            />
+          </div>
+          <div className='details'>
+            <h1>{product.brand}</h1>
+            <h2><strong>{product.title}</strong></h2>
+            <p>{product.description}</p>
+            <h2>{formatMoney(product.price)}</h2>
+          </div>
+          <div className='buttonGrid'>
+          {user && hasPermission(user, 'PRODUCTUPDATE') && (
+            <a href={`/product/${product.id}/update`}>
+              Edit ✏️
+            </a>
+          )}
+          {user && hasPermission(user, 'PRODUCTDELETE') && (
+            <DeleteProduct id={product.id}>
+              Delete 🗑️
+            </DeleteProduct>
+          )}
+          <LearnMoreButton category={product.category} />
+          <AddToCart id={product.id} />
+          </div>
         </div>
-        <div className='details'>
-          <h1>{product.brand}</h1>
-          <h2><strong>{product.title}</strong></h2>
-          <p>{product.description}</p>
-          <h2>{formatMoney(product.price)}</h2>
-        </div>
-        <div className='buttonGrid'>
-        {user && hasPermission(user, 'PRODUCTUPDATE') && (
-          <a href={`/product/${product.id}/update`}>
-            Edit ✏️
-          </a>
-        )}
-        {user && hasPermission(user, 'PRODUCTDELETE') && (
-          <DeleteProduct id={product.id}>
-            Delete 🗑️
-          </DeleteProduct>
-        )}
-        <LearnMoreButton category={product.category} />
-        <AddToCart id={product.id} />
-        </div>
-      </div>
+      </StyledProduct>
     </StyledProductDescription>
   );
 };
