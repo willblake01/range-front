@@ -35,7 +35,7 @@ const UpdateProduct = ({ id }) => {
   // 2. We need to get the mutation to update the product
   const [
     updateProduct,
-    { data: updateData, error: updateError, loading: updateLoading },
+    { error: updateError, loading: updateLoading },
   ] = useMutation(UPDATE_PRODUCT_MUTATION);
 
   // 2.5 Create some state for the form inputs:
@@ -45,9 +45,10 @@ const UpdateProduct = ({ id }) => {
       brand: '',
       title: '',
       description: '',
-      category: '',
       image: '',
+      category: '',
       price: '',
+      clearance: false
     }
   );
 
@@ -64,13 +65,8 @@ const UpdateProduct = ({ id }) => {
 
             const res = await updateProduct({
               variables: {
-                id,
-                brand: inputs.brand,
-                title: inputs.title,
-                description: inputs.description,
-                category: inputs.category,
-                image: inputs.image,
-                price: inputs.price,
+                ...inputs,
+                price: parseInt(inputs.price, 10)
               },
             }).catch((err) => {
               toast.error(err.message);
@@ -120,16 +116,6 @@ const UpdateProduct = ({ id }) => {
               value={inputs.description}
               onChange={handleChange}
             />
-            <label htmlFor='category'>
-              Category
-            </label>
-            <input
-              type='text'
-              id='category'
-              name='category'
-              value={inputs.category}
-              onChange={handleChange}
-            />
             <label htmlFor='image'>
               Image
             </label>
@@ -138,6 +124,16 @@ const UpdateProduct = ({ id }) => {
               id='image'
               name='image'
               value={inputs.image}
+              onChange={handleChange}
+            />
+            <label htmlFor='category'>
+              Category
+            </label>
+            <input
+              type='text'
+              id='category'
+              name='category'
+              value={inputs.category}
               onChange={handleChange}
             />
             <label htmlFor='price'>
@@ -150,6 +146,18 @@ const UpdateProduct = ({ id }) => {
               value={inputs.price}
               onChange={handleChange}
             />
+            <label htmlFor='clearance'>
+              Clearance
+            </label>
+            <div className='checkbox'>
+              <input
+                type='checkbox'
+                id='clearance'
+                name='clearance'
+                checked={!!inputs.clearance}
+                onChange={handleChange}
+              />
+            </div>
             <LargeButton type='submit'>Submit</LargeButton>
           </fieldset>
         </Form>
@@ -164,26 +172,29 @@ const UPDATE_PRODUCT_MUTATION = gql`
     $brand: String
     $title: String
     $description: String
-    $category: String
     $image: String
+    $category: String
     $price: Int
+    $clearance: Boolean
   ) {
     updateProduct(
       id: $id
       brand: $brand
       title: $title
       description: $description
-      category: $category
       image: $image
+      category: $category
       price: $price
+      clearance: $clearance
     ) {
       id
       brand
       title
       description
-      category
       image
+      category
       price
+      clearance
     }
   }
 `;

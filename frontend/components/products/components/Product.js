@@ -69,7 +69,7 @@ const Product = ({ product }) => {
           <a>{product.title}</a>
         </Link>
       </StyledTitle>
-      <PriceTag>{formatMoney(product.price)}</PriceTag>
+      <PriceTag clearance={product.clearance}>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className='buttonGrid'>
         <LearnMoreButton category={product.category} />

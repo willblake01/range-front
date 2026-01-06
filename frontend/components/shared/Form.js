@@ -51,6 +51,22 @@ const Form = styled.form`
     }
   }
 
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  .checkbox input[type='checkbox'] {
+    transform: scale(1.2);
+    width: auto;
+    height: auto;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    background: none;
+  }
+
   button,
   input[type='submit'] {
     background-color: var(--darkOrange);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PriceTag = styled.span`
-  background: var(--green);
+  background: ${props => (props.clearance ? 'var(--red)' : 'var(--green)')};
   transform: rotate(3deg);
   color: white;
   font-weight: 600;

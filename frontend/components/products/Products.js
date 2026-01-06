@@ -33,21 +33,29 @@ const Products = ({ page, where }) => {
     return () => NProgress.done();
   }, [loading]);
 
+  const noProductsFound = data?.products?.length === 0;
+
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
 
   return (
     <ProductsPage>
-      <ProductsContainer>
-        <ProductsList>
-          {data?.products?.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-        </ProductsList>
-        <PaginationRow>
-          <ProductsPagination page={page} where={where} />
-        </PaginationRow>
-      </ProductsContainer>
+      {
+        noProductsFound
+          ?
+        <p>No products found.</p>
+          :
+        <ProductsContainer>
+          <ProductsList>
+            {data?.products?.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+          </ProductsList>
+          <PaginationRow>
+            <ProductsPagination page={page} where={where} />
+          </PaginationRow>
+        </ProductsContainer>
+      }
     </ProductsPage>
   );
 };
@@ -56,12 +64,13 @@ const PRODUCTS_QUERY = gql`
   query PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}, $where: ProductWhereInput) {
     products(skip: $skip, first: $first, where: $where) {
       id
-      category
       brand
       title
       description
       image
+      category
       price
+      clearance
     }
   }
 `;

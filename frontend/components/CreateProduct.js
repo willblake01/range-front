@@ -30,9 +30,10 @@ const CreateProduct = () => {
     brand: '',
     title: '',
     description: '',
-    category: '',
     image: '',
+    category: '',
     price: '',
+    clearance: false
   });
   
   const [createProduct, { loading, error }] = useMutation(
@@ -109,16 +110,6 @@ const CreateProduct = () => {
               value={inputs.description}
               onChange={handleChange}
             />
-            <label htmlFor='category'>
-              Category
-            </label>
-            <input
-              type='text'
-              id='category'
-              name='category'
-              value={inputs.category}
-              onChange={handleChange}
-            />
             <label htmlFor='image'>
               Image
             </label>
@@ -127,6 +118,16 @@ const CreateProduct = () => {
               id='image'
               name='image'
               value={inputs.image}
+              onChange={handleChange}
+            />
+            <label htmlFor='category'>
+              Category
+            </label>
+            <input
+              type='text'
+              id='category'
+              name='category'
+              value={inputs.category}
               onChange={handleChange}
             />
             <label htmlFor='price'>
@@ -139,6 +140,18 @@ const CreateProduct = () => {
               value={inputs.price}
               onChange={handleChange}
             />
+            <label htmlFor='clearance'>
+              Clearance
+            </label>
+            <div className='checkbox'>
+              <input
+                type='checkbox'
+                id='clearance'
+                name='clearance'
+                checked={!!inputs.clearance}
+                onChange={handleChange}
+              />
+            </div>
             <LargeButton  type='submit'>Submit</LargeButton>
           </fieldset>
         </Form>
@@ -149,27 +162,33 @@ const CreateProduct = () => {
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
+    $id: ID!
     $brand: String
     $title: String!
     $description: String!
-    $category: String
     $image: String
+    $category: String
     $price: Int!
+    $clearance: Boolean
   ) {
     createProduct(
+      id: $id
       brand: $brand
       title: $title
       description: $description
-      category: $category
       image: $image
+      category: $category
       price: $price
+      clearance: $clearance
     ) {
       id
       brand
       title
-      price
       description
       image
+      category
+      price
+      clearance
     }
   }
 `;

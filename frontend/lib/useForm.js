@@ -7,13 +7,11 @@ const useForm = (initial = {}) => {
   const initialValues = Object.values(initial).join('');
 
   useEffect(() => {
-
-    // This function runs when the things we are watching change
     setInputs(initial);
   }, [initialValues]);
 
   const handleChange = (e) => {
-    let { value, name, type } = e.target;
+    let { value, name, type, checked } = e.target;
     if (type === 'number') {
       value = parseInt(value);
     }
@@ -21,10 +19,8 @@ const useForm = (initial = {}) => {
       [value] = e.target.files;
     }
     setInputs({
-      
-      // copy the existing state
       ...inputs,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
@@ -39,7 +35,6 @@ const useForm = (initial = {}) => {
     setInputs(blankState);
   };
 
-  // return the things we want to surface from this custom hook
   return {
     inputs,
     handleChange,

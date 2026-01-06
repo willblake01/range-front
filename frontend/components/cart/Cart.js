@@ -75,7 +75,7 @@ const Cart = () => {
         </header>
         <ul>
           {user?.cart?.map((cartItem) => (
-            <StyledCartItem>
+            <StyledCartItem key={cartItem.id}>
               <CartItem key={cartItem.id} cartItem={cartItem} />
             </StyledCartItem>
           ))}
