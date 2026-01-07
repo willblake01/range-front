@@ -130,24 +130,24 @@ const Order = ({ id }) => {
       <StyledOrder>
         <StyledOrderDetails>
           <div className='order-row'>
-            <span className='label'>ID:</span>
-            <span className='value'>{order.id}</span>
-          </div>
-          <div className='order-row'>
             <span className='label'>Date: </span>
             <span className='value'>{formatOrderDate(order.createdAt)}</span>
+          </div>
+          <div className='order-row'>
+            <span className='label'>ID:</span>
+            <span className='value'>{order.id}</span>
           </div>
           <div className='order-row'>
             <span className='label'>Charge:</span>
             <span className='value'>{order.charge}</span>
           </div>
           <div className='order-row'>
-            <span className='label'>Total:</span>
-            <span className='value'>{formatMoney(order.total)}</span>
-          </div>
-          <div className='order-row'>
             <span className='label'>Items:</span>
             <span className='value'>{order.items.length}</span>
+          </div>
+          <div className='order-row'>
+            <span className='label'>Total:</span>
+            <span className='value'>{formatMoney(order.total)}</span>
           </div>
         </StyledOrderDetails>
         <StyledOrderItems>
