@@ -1,4 +1,4 @@
-import { PAGINATION_QUERY } from '../components/shared';
+import { PRODUCTS_PAGINATION_QUERY } from "../components/products/components";
 
 const paginationField = () => {
   return {
@@ -7,7 +7,7 @@ const paginationField = () => {
       const { skip, first } = args;
 
       // Read the number of items on the page from the cache
-      const data = cache.readQuery({ query: PAGINATION_QUERY });
+      const data = cache.readQuery({ query: PRODUCTS_PAGINATION_QUERY });
       const count = data?.productsConnection?.aggregate?.count;
       const page = skip / first + 1;
       const pages = Math.ceil(count / first);
