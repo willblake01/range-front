@@ -1,8 +1,8 @@
 
 import { render, screen } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import { CURRENT_USER_QUERY, PleaseLogin } from '../components';
-import { fakeUser } from './testUtils';
+import { fakeUser } from './utils/testUtils';
 
 const notSignedInMocks = [
   {
@@ -31,6 +31,7 @@ describe('<PleaseLogin/>', () => {
 
   it('renders the child component when the user is signed in', async () => {
     const Hey = () => <p>Hey!</p>;
+
     const { container } = render(
       <MockedProvider mocks={signedInMocks}>
         <PleaseLogin>
@@ -38,7 +39,9 @@ describe('<PleaseLogin/>', () => {
         </PleaseLogin>
       </MockedProvider>
     );
+
     await screen.findByText('Hey!');
+    
     expect(container).toContainHTML('<p>Hey!</p>');
   });
 });

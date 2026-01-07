@@ -1,10 +1,10 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import { ApolloConsumer } from '@apollo/client';
 import waait from 'waait';
 import { AddToCart, ADD_TO_CART_MUTATION, CURRENT_USER_QUERY } from '../components';
-import { fakeUser, fakeCartItem } from './testUtils';
+import { fakeUser, fakeCartItem } from './utils/testUtils';
 
 const mocks = [
   
@@ -55,13 +55,15 @@ describe('<AddToCart/>', () => {
         <AddToCart id='abc123' />
       </MockedProvider>
     );
+
     expect(container).toMatchSnapshot();
   });
 
   it('adds an item to cart when clicked', async () => {
 
-    // Here I show you how to reach directly into the apollo cache to test the data. This is against react-testing-library's whole ethos but I'm gonna show you anyway because sometimes you just gotta do it
+    // Reach directly into the apollo cache to test the data. This is against react-testing-library's whole ethos but I'm gonna show you anyway because sometimes you just gotta do it
     let apolloClient;
+
     const { container } = render(
       <MockedProvider mocks={mocks}>
         <ApolloConsumer>
@@ -93,6 +95,7 @@ describe('<AddToCart/>', () => {
     const {
       data: { authenticatedItem: me2 },
     } = await apolloClient.query({ query: CURRENT_USER_QUERY });
+    
     expect(me2.cart).toHaveLength(1);
     expect(me2.cart[0].id).toBe('omg123');
     expect(me2.cart[0].quantity).toBe(3);

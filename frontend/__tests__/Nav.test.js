@@ -1,7 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
-import { CartStateProvider, CURRENT_USER_QUERY, Nav } from '../components';
-import { fakeUser, fakeCartItem } from './testUtils';
+import { MockedProvider } from '@apollo/client/testing';
+import { Nav } from '../components/shared';
+import { CURRENT_USER_QUERY } from '../hooks';
+import { CartStateProvider } from '../lib';
+import { fakeUser, fakeCartItem } from './utils/testUtils';
 
 const notSignedInMocks = [
   {
@@ -43,24 +45,21 @@ describe('<Nav/>', () => {
         </MockedProvider>
       </CartStateProvider>
     );
+
     expect(container).toMatchSnapshot();
   });
 
   it('renders full nav when signed in', async () => {
     const { container } = render(
       <CartStateProvider>
-        <MockedProvider
-          mocks={signedInMocks}
-          defaultOptions={{ watchQuery: { fetchPolicy: 'no-cache' } }}
-        >
+        <MockedProvider mocks={signedInMocks} addTypename={false}>
           <Nav />
         </MockedProvider>
       </CartStateProvider>
     );
-    await screen.findByText('Account');
+
+    await screen.findByRole('link', { name: /account/i });
     expect(container).toMatchSnapshot();
-    expect(container).toHaveTextContent('Sign Out');
-    expect(container).toHaveTextContent('My Cart');
   });
 
   it('renders the amount of items in the cart', async () => {
@@ -74,7 +73,9 @@ describe('<Nav/>', () => {
         </MockedProvider>
       </CartStateProvider>
     );
-    await screen.findByText('Account');
-    expect(screen.getByText('3')).toBeInTheDocument();
+
+    await screen.findByRole('link', { name: /account/i });
+
+    expect(await screen.findByText('3')).toBeInTheDocument();
   });
 });

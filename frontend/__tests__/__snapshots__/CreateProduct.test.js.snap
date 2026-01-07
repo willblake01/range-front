@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateProduct/> renders and matches snapshot 1`] = `
+.c2 {
+  box-shadow: 0 0 0.5rem 0.3rem rgba(0,0,0,0.05);
+  background: rgba(0,0,0,0.02);
+  border: 0.5rem solid white;
+  padding: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.c2 h2 {
+  margin: 0;
+}
+
+.c2 label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.c2 input,
+.c2 textarea,
+.c2 select {
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+  border: 0.1rem solid transparent;
+  margin: 0 0 1rem 0;
+  background-color: var(--offWhite);
+  height: 3.8rem;
+  width: 100%;
+}
+
+.c2 input:focus,
+.c2 textarea:focus,
+.c2 select:focus {
+  outline: 0;
+  border-color: var(--darkOrange);
+}
+
+.c2 .checkbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.c2 .checkbox input[type='checkbox'] {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  width: auto;
+  height: auto;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  background: none;
+}
+
+.c2 button,
+.c2 input[type='submit'] {
+  background-color: var(--darkOrange);
+  width: auto;
+  color: white;
+  border: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+}
+
+.c2 fieldset {
+  border: 0;
+  padding: 0;
+}
+
+.c2 fieldset[disabled] {
+  opacity: 0.5;
+}
+
+.c2 fieldset::before {
+  height: 1rem;
+  content: '';
+  display: block;
+  margin-bottom: 2rem;
+  background-image: linear-gradient( to right,var(--green) 0%,var(--darkOrange) 50%,var(--brown) 100% );
+}
+
+.c2 fieldset[aria-busy='true']::before {
+  background-size: 50% auto;
+  -webkit-animation: gbFAFJ 0.5s linear infinite;
+  animation: gbFAFJ 0.5s linear infinite;
+}
+
+.c3 {
+  background-color: var(--green);
+  color: var(--offWhite);
+  width: 18rem;
+  height: 4.2rem;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 1.3rem;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 0.1rem solid transparent;
+}
+
+.c3:hover {
+  color: blue;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  color: var(--green);
+  padding: clamp(2rem,5vw,8rem);
+  height: 100%;
+  width: 100%;
+}
+
+.c1 {
+  width: 60rem;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <form
+        class="c2"
+      >
+        <h2>
+          Create Product
+        </h2>
+        <fieldset
+          aria-busy="false"
+        >
+          <label
+            for="brand"
+          >
+            Brand
+          </label>
+          <input
+            id="brand"
+            name="brand"
+            type="text"
+            value=""
+          />
+          <label
+            for="title"
+          >
+            Title
+          </label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            value=""
+          />
+          <label
+            for="description"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            type="text"
+          />
+          <label
+            for="image"
+          >
+            Image
+          </label>
+          <input
+            id="image"
+            name="image"
+            type="text"
+            value=""
+          />
+          <label
+            for="category"
+          >
+            Category
+          </label>
+          <input
+            id="category"
+            name="category"
+            type="text"
+            value=""
+          />
+          <label
+            for="price"
+          >
+            Price
+          </label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            value=""
+          />
+          <label
+            for="clearance"
+          >
+            Clearance
+          </label>
+          <div
+            class="checkbox"
+          >
+            <input
+              id="clearance"
+              name="clearance"
+              type="checkbox"
+            />
+          </div>
+          <button
+            class="c3"
+            type="submit"
+          >
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+`;

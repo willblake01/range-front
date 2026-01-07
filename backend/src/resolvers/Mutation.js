@@ -166,7 +166,7 @@ const Mutations = {
     return { message: 'Goodbye!' };
   },
 
-  async requestReset(parent, args, ctx, info) {
+  async requestResetPassword(parent, args, ctx, info) {
     args.email = args.email.toLowerCase().trim();
 
     // 1. Check if this is a real user

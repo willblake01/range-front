@@ -1,5 +1,5 @@
 import casual from 'casual';
-import { PAGINATION_QUERY } from '../components';
+import { PRODUCTS_PAGINATION_QUERY } from '../../components';
 
 // seed it so we get consistent results
 casual.seed(777);
@@ -87,23 +87,18 @@ class LocalStorageMock {
 const makePaginationMocksFor = (length) => {
   return [
     {
-      request: { query: PAGINATION_QUERY },
-      result: {
-        data: {
-          productsConnection: {
-            aggregate: {
-              count: length,
-            },
-          },
-          itemsConnection: {
-            __typename: 'aggregate',
-            aggregate: {
-              count: length,
-              __typename: 'count',
-            },
-          },
+      request: {
+        query: PRODUCTS_PAGINATION_QUERY,
+        variables: {
+          where
         },
       },
+      result: {
+        data: {
+          _allProductsMeta: { count: 50 },
+        },
+      },
+      delay: 100000
     },
   ];
 };

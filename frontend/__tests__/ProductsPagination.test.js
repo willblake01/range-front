@@ -1,26 +1,29 @@
 import { render } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
-import { Pagination } from '../components';
-import { makePaginationMocksFor } from './testUtils';
+import { MockedProvider } from '@apollo/client/testing';
+import { ProductsPagination } from '../components/products/components';
+import { makePaginationMocksFor } from './utils/testUtils';
 
-describe('<Pagination/>', () => {
-  it('displays a loading message', async () => {
-    const { container, queryByText } = render(
-      <MockedProvider mocks={makePaginationMocksFor(1)}>
-        <Pagination page={1} />
+describe('<ProductsPagination/>', () => {
+  it('displays a loading message', () => {
+    render(
+      <MockedProvider mocks={[paginationMock]} addTypename={false}>
+        <ProductsPagination page={1} />
       </MockedProvider>
     );
-    expect(queryByText('Loading...')).toBeTruthy();
+
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
   it('renders pagination for 18 items', async () => {
     const { container, findByTestId, getByTestId, debug, query } = render(
       <MockedProvider mocks={makePaginationMocksFor(18)}>
-        <Pagination page={1} />
+        <ProductsPagination page={1} />
       </MockedProvider>
     );
+
     // wait for pagination to get past loading
     await findByTestId('pagination');
+
     expect(getByTestId('totalPages')).toHaveTextContent('5');
     expect(container).toMatchSnapshot();
   });
@@ -28,10 +31,12 @@ describe('<Pagination/>', () => {
   it('disables prev button on first page', async () => {
     const { getByText, findByTestId } = render(
       <MockedProvider mocks={makePaginationMocksFor(18)}>
-        <Pagination page={1} />
+        <ProductsPagination page={1} />
       </MockedProvider>
     );
+
     await findByTestId('pagination');
+
     expect(getByText(/Prev/)).toHaveAttribute('aria-disabled', 'true');
     expect(getByText(/Next/)).toHaveAttribute('aria-disabled', 'false');
   });
@@ -39,10 +44,12 @@ describe('<Pagination/>', () => {
   it('disables next button on last page', async () => {
     const { getByText, findByTestId } = render(
       <MockedProvider mocks={makePaginationMocksFor(18)}>
-        <Pagination page={5} />
+        <ProductsPagination page={5} />
       </MockedProvider>
     );
+
     await findByTestId('pagination');
+
     expect(getByText(/Prev/)).toHaveAttribute('aria-disabled', 'false');
     expect(getByText(/Next/)).toHaveAttribute('aria-disabled', 'true');
   });
@@ -50,10 +57,12 @@ describe('<Pagination/>', () => {
   it('enables all buttons on a middle page', async () => {
     const { getByText, findByTestId } = render(
       <MockedProvider mocks={makePaginationMocksFor(18)}>
-        <Pagination page={3} />
+        <ProductsPagination page={3} />
       </MockedProvider>
     );
+
     await findByTestId('pagination');
+    
     expect(getByText(/Prev/)).toHaveAttribute('aria-disabled', 'false');
     expect(getByText(/Next/)).toHaveAttribute('aria-disabled', 'false');
   });

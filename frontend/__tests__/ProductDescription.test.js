@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import {
-  SingleProduct, SINGLE_PRODUCT_QUERY,
+  ProductDescription, SINGLE_PRODUCT_QUERY,
 } from '../components';
-import { fakeItem } from './testUtils';
+import { fakeItem } from './utils/testUtils';
 
 const item = fakeItem();
-describe('<SingleProduct/>', () => {
+describe('<ProductDescription/>', () => {
   it('renders with proper data', async () => {
     const mocks = [
       {
@@ -22,12 +22,15 @@ describe('<SingleProduct/>', () => {
         },
       },
     ];
+
     const { container } = render(
       <MockedProvider mocks={mocks}>
-        <SingleProduct id='123' />
+        <ProductDescription id='123' />
       </MockedProvider>
     );
-    await screen.findByTestId('singleProduct');
+
+    await screen.findByTestId('ProductDescription');
+
     expect(container).toMatchSnapshot();
   });
 
@@ -36,17 +39,19 @@ describe('<SingleProduct/>', () => {
       {
         request: { query: SINGLE_PRODUCT_QUERY, variables: { id: '123' } },
         result: {
-          errors: [{ message: 'Items Not Found!' }],
+          errors: [{ message: 'No products found.' }],
         },
       },
     ];
+
     const { container } = render(
       <MockedProvider mocks={mocks}>
-        <SingleProduct id='123' />
+        <ProductDescription id='123' />
       </MockedProvider>
     );
 
     await screen.findByTestId('graphql-error');
-    expect(container).toHaveTextContent('Items Not Found!');
+
+    expect(container).toHaveTextContent('No products found.');
   });
 });

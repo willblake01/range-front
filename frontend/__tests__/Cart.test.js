@@ -1,24 +1,25 @@
 
 import { render, screen, waitFor } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import userEvent from '@testing-library/user-event';
 import wait from 'waait';
-import { Cart, CartStateProvider, CURRENT_USER_QUERY, REMOVE_FROM_CART_MUTATION } from '../components';
-import { fakeUser, fakeCartItem } from './testUtils';
+import { Cart, CURRENT_USER_QUERY, REMOVE_FROM_CART_MUTATION } from '../components';
+import { CartStateProvider } from '../lib';
+import { fakeUser, fakeCartItem } from './utils/testUtils';
 
 const mocks = [
-  // {
-  //   request: { query: CURRENT_USER_QUERY },
-  //   result: {
-  //     data: {
-  //       authenticatedItem: {
-  //         __typename: 'User',
-  //         ...fakeUser(),
-  //         cart: [fakeCartItem()],
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    request: { query: CURRENT_USER_QUERY },
+    result: {
+      data: {
+        authenticatedItem: {
+          __typename: 'User',
+          ...fakeUser(),
+          cart: [fakeCartItem()],
+        },
+      },
+    },
+  },
   {
     request: { query: CURRENT_USER_QUERY },
     result: {
@@ -49,12 +50,12 @@ describe('<Cart/>', () => {
         </MockedProvider>
       </CartStateProvider>
     );
+
     await screen.findByTestId('cart');
+
     expect(container).toMatchSnapshot();
   });
-});
 
-describe('<RemoveFromCart/>', () => {
   it('updates when an item is removed', async () => {
     const { container } = render(
       <CartStateProvider>
@@ -66,13 +67,20 @@ describe('<RemoveFromCart/>', () => {
         </MockedProvider>
       </CartStateProvider>
     );
+
     await screen.findByTestId('cart');
+
     expect(container).toHaveTextContent(/You have 2 items/i);
+
     const deleteButtons = screen.getAllByTitle(/Remove Item/i);
+
     expect(deleteButtons).toHaveLength(2);
+
     userEvent.click(deleteButtons[0]);
+
     await waitFor(() => wait());
     const deleteButtonsUpdated = screen.getAllByTitle(/Remove Item/i);
+
     expect(container).toHaveTextContent(/You have 1 item/i);
     expect(deleteButtonsUpdated).toHaveLength(1);
   });

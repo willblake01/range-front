@@ -90,7 +90,7 @@ const Orders = ({ orders, loading, error }) => {
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
-
+console.log('orders', orders)
   return (
     <>
       <Head>

@@ -1,108 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Nav /> Renders a minimal Nav when signed out 1`] = `
-Array [
-  <Nav__NavStyle
-    data-test='nav'
+exports[`<Nav/> renders a minimal nav when signed out 1`] = `
+<div>
+  <nav
+    aria-label="Main navigation"
+    class="Nav__NavWrapper-bWaCeX iqKtAK"
   >
     <ul
-      className='Nav__NavStyle-sc-1i5dvnb-0 iKEzwr'
-      data-test='nav'
+      class="Nav__StyledNavList-bdbWaJ hxydIY"
     >
-      <Link
-        href='/aboutUs'
+      <li
+        class="Nav__NavItem-iApeop dlnxaM"
       >
         <a
-          href='/aboutUs'
-          onClick={[Function]}
+          href="/"
         >
-          About
+          Home
         </a>
-      </Link>
-      <Link
-        href='/items'
+      </li>
+      <li
+        class="Nav__NavItem-iApeop dlnxaM"
       >
         <a
-          href='/items'
-          onClick={[Function]}
+          href="/products"
         >
           Shop
         </a>
-      </Link>
-      <Link
-        href='/login'
+      </li>
+      <li
+        class="Nav__NavItem-iApeop dlnxaM"
       >
         <a
-          href='/login'
-          onClick={[Function]}
+          href="/about"
         >
-          Login
+          About
         </a>
-      </Link>
-      <Link
-        href='/signup'
-      >
-        <a
-          href='/signup'
-          onClick={[Function]}
-        >
-          Sign Up
-        </a>
-      </Link>
+      </li>
+      <li
+        class="Nav__PushRight-haVOAn bmRIia"
+      />
     </ul>
-  </Nav__NavStyle>,
-  <ul
-    className='Nav__NavStyle-sc-1i5dvnb-0 iKEzwr'
-    data-test='nav'
-  >
-    <Link
-      href='/aboutUs'
-    >
-      <a
-        href='/aboutUs'
-        onClick={[Function]}
-      >
-        About
-      </a>
-    </Link>
-    <Link
-      href='/items'
-    >
-      <a
-        href='/items'
-        onClick={[Function]}
-      >
-        Shop
-      </a>
-    </Link>
-    <Link
-      href='/login'
-    >
-      <a
-        href='/login'
-        onClick={[Function]}
-      >
-        Login
-      </a>
-    </Link>
-    <Link
-      href='/signup'
-    >
-      <a
-        href='/signup'
-        onClick={[Function]}
-      >
-        Sign Up
-      </a>
-    </Link>
-  </ul>,
-]
-`;
-
-exports[`<Nav /> Renders the amount of items in the cart 1`] = `
-<div
-  className='count CartCount__Dot-msbzn3-1 jlnrwr'
->
-  9
+  </nav>
 </div>
 `;

@@ -1,79 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CartCount /> Matches the snapshot 1`] = `
-<CartCount__AnimationStyles>
-  <TransitionGroup
-    childFactory={[Function]}
-    component='div'
+exports[`<CartCount/> matches the snapshot 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c0 .count {
+  display: block;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.c0 .count-enter {
+  -webkit-transform: scale(4) rotateX(0.5turn);
+  -ms-transform: scale(4) rotateX(0.5turn);
+  transform: scale(4) rotateX(0.5turn);
+}
+
+.c0 .count-enter-active {
+  -webkit-transform: rotateX(0);
+  -ms-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.c0 .count-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateX(0);
+  -ms-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.c0 .count-exit-active {
+  -webkit-transform: scale(2) rotateX(0);
+  -ms-transform: scale(2) rotateX(0);
+  transform: scale(2) rotateX(0);
+}
+
+.c1 {
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+<div>
+  <span
+    class="c0"
   >
-    <CSSTransition
-      className='count'
-      classNames='count'
-      key='11'
-      timeout={
-        Object {
-          'enter': 400,
-          'exit': 400,
-        }
-      }
-      unmountOnExit={true}
+    <div
+      class="c1"
     >
-      <CartCount__Dot>
-        11
-      </CartCount__Dot>
-    </CSSTransition>
-  </TransitionGroup>
-</CartCount__AnimationStyles>
+      11
+    </div>
+  </span>
+</div>
 `;
 
-exports[`<CartCount /> Updates via props 1`] = `
-<CartCount__AnimationStyles>
-  <TransitionGroup
-    childFactory={[Function]}
-    component='div'
-  >
-    <CSSTransition
-      className='count'
-      classNames='count'
-      key='50'
-      timeout={
-        Object {
-          'enter': 400,
-          'exit': 400,
-        }
-      }
-      unmountOnExit={true}
-    >
-      <CartCount__Dot>
-        50
-      </CartCount__Dot>
-    </CSSTransition>
-  </TransitionGroup>
-</CartCount__AnimationStyles>
-`;
+exports[`<CartCount/> updates via props 1`] = `
+.c0 {
+  position: relative;
+}
 
-exports[`<CartCount /> Updates via props 2`] = `
-<CartCount__AnimationStyles>
-  <TransitionGroup
-    childFactory={[Function]}
-    component='div'
+.c0 .count {
+  display: block;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.c0 .count-enter {
+  -webkit-transform: scale(4) rotateX(0.5turn);
+  -ms-transform: scale(4) rotateX(0.5turn);
+  transform: scale(4) rotateX(0.5turn);
+}
+
+.c0 .count-enter-active {
+  -webkit-transform: rotateX(0);
+  -ms-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.c0 .count-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateX(0);
+  -ms-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.c0 .count-exit-active {
+  -webkit-transform: scale(2) rotateX(0);
+  -ms-transform: scale(2) rotateX(0);
+  transform: scale(2) rotateX(0);
+}
+
+.c1 {
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+<div>
+  <span
+    class="c0"
   >
-    <CSSTransition
-      className='count'
-      classNames='count'
-      key='10'
-      timeout={
-        Object {
-          'enter': 400,
-          'exit': 400,
-        }
-      }
-      unmountOnExit={true}
+    <div
+      class="c1 count-enter-done"
     >
-      <CartCount__Dot>
-        10
-      </CartCount__Dot>
-    </CSSTransition>
-  </TransitionGroup>
-</CartCount__AnimationStyles>
+      12
+    </div>
+  </span>
+</div>
 `;

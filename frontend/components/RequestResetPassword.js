@@ -32,7 +32,7 @@ const RequestResetPassword = () => {
   });
 
   const [signup, { data, loading, error }] = useMutation(
-    REQUEST_RESET_MUTATION,
+    REQUEST_RESET_PASSWORD_MUTATION,
     {
       variables: inputs,
 
@@ -67,7 +67,7 @@ const RequestResetPassword = () => {
           <DisplayError error={error} />
           <fieldset>
             {data?.sendUserPasswordResetLink === null && (
-              <p>Success! Check your email for a link!</p>
+              <p>Success! Check the browser console for a reset link!</p>
             )}
 
             <label htmlFor='email'>
@@ -88,8 +88,8 @@ const RequestResetPassword = () => {
   );
 };
 
-const REQUEST_RESET_MUTATION = gql`
-  mutation REQUEST_RESET_MUTATION($email: String!) {
+const REQUEST_RESET_PASSWORD_MUTATION = gql`
+  mutation REQUEST_RESET_PASSWORD_MUTATION($email: String!) {
     RequestResetPassword(email: $email) {
       message
     }

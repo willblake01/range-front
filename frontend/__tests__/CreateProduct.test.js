@@ -1,12 +1,10 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import Router from 'next/router';
 import waait from 'waait';
-import {
-  PRODUCTS_QUERY, CreateProduct, CREATE_PRODUCT_MUTATION,
-} from '../components';
-import { fakeItem, makePaginationMocksFor } from './testUtils';
+import { CreateProduct, CREATE_PRODUCT_MUTATION, PRODUCTS_QUERY } from '../components';
+import { fakeItem, makePaginationMocksFor } from './utils/testUtils';
 
 jest.mock('next/router', () => ({
   push: jest.fn(),
@@ -88,7 +86,7 @@ describe('<CreateProduct/>', () => {
       ...makePaginationMocksFor(2),
     ];
 
-    const { container } = render(
+    render(
       <MockedProvider mocks={mocks}>
         <CreateProduct />
       </MockedProvider>
@@ -96,10 +94,12 @@ describe('<CreateProduct/>', () => {
     userEvent.type(screen.getByPlaceholderText('Name'), item.name);
 
     userEvent.clear(screen.getByPlaceholderText('Price'));
+
     userEvent.type(
       screen.getByPlaceholderText('Price'),
       item.price.toString()
     );
+
     userEvent.type(
       screen.getByPlaceholderText('Description'),
       item.description
@@ -107,7 +107,9 @@ describe('<CreateProduct/>', () => {
 
     // mock the router
     userEvent.click(screen.getByText('Submit'));
+    
     await waitFor(() => waait(500));
+
     expect(Router.push).toHaveBeenCalled();
     expect(Router.push).toHaveBeenCalledWith({
       pathname: '/product/abc123',

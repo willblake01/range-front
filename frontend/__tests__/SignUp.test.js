@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { MockedProvider } from '@apollo/react-testing';
-import { CURRENT_USER_QUERY, Signup, SIGNUP_MUTATION } from '../components';
-import { fakeUser } from './testUtils';
+import { MockedProvider } from '@apollo/client/testing';
+import { CURRENT_USER_QUERY } from '../components';
+import { SignUp, SIGNUP_MUTATION } from '../components';
+import { fakeUser } from './utils/testUtils';
 
 const me = fakeUser();
 const mocks = [
@@ -36,20 +37,21 @@ const mocks = [
   },
 ];
 
-describe('<Signup/>', () => {
+describe('<SignUp/>', () => {
   it('renders and matches snapshot', async () => {
     const { container } = render(
       <MockedProvider>
-        <Signup />
+        <SignUp />
       </MockedProvider>
     );
+
     expect(container).toMatchSnapshot();
   });
 
   it('calls the mutation properly', async () => {
-    const { container } = render(
+    render(
       <MockedProvider mocks={mocks}>
-        <Signup />
+        <SignUp />
       </MockedProvider>
     );
 
@@ -61,6 +63,7 @@ describe('<Signup/>', () => {
     // loading state
     expect(screen.getByTestId('loading')).toHaveAttribute('aria-busy', 'true');
     expect(screen.getByTestId('loading')).toHaveAttribute('disabled');
+    
     await screen.findByText(`Signed up with ${me.email} — Please Login now`);
   });
 });
