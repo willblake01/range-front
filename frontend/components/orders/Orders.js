@@ -42,6 +42,12 @@ const StyledOrder = styled.li`
   padding: 2rem;
   border: 0.1rem solid var(--offWhite);
   background: var(--white);
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
 
   .images {
     display: grid;
@@ -51,16 +57,9 @@ const StyledOrder = styled.li`
   }
 
   .order-meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
-    display: grid;
-    grid-gap: 1rem;
-    text-align: center;
-
     & > * {
       margin: 0;
-      background: rgba(0, 0, 0, 0.03);
-      padding: 1rem 0;
+      padding: 0.25rem 0;
     }
       
     strong {
@@ -117,8 +116,8 @@ const Orders = ({ orders, loading, error }) => {
                 <Link href={`/order/${order.id}`}>
                   <a style={{ display: 'block' }}>
                     <div className='order-meta'>
-                      <p>{countItemsInOrder(order)} Items</p>
-                      <p>{formatMoney(order.total)}</p>
+                      <h2>Items: {countItemsInOrder(order)}</h2>
+                      <h2>Total: {formatMoney(order.total)}</h2>
                     </div>
                     <div className='images'>
                       {order?.items?.map((item) => (
