@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styled from 'styled-components';
 import Link from 'next/link';
-import { formatMoney } from '../../../lib';
+import { formatMoney } from '@/lib';
 import { AddToCart, LearnMoreButton, PriceTag } from '../../shared';
 import { StyledTitle } from '../..';
 

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { DisplayError } from '../../shared/DisplayError';
 import { Pagination } from '../../styles';
-import { perPage } from '../../../config';
+import { perPage } from '@/config';
 
 const ProductsPagination = ({ page, where }) => {
   const { data, loading, error } = useQuery(PRODUCTS_PAGINATION_QUERY, {

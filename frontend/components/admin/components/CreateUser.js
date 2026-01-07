@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
-import { useForm } from '../../../lib';
+import { useForm } from '@/lib';
 import { DisplayError, LargeButton, Form } from '../../shared';
 
 const StyledSignUp = styled.div`

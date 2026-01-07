@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { PageMain } from '../../../../components/styles';
-import { AlternateHeader, Footer, PleaseLogin } from '../../../../components/shared';
-import { Orders } from '../../../../components';
+import { PageMain } from '@/components/styles';
+import { AlternateHeader, Footer, PleaseLogin } from '@/components/shared';
+import { Orders } from '@/components';
 
 const OrdersPage = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);

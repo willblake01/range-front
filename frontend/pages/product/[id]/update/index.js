@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import { PageMain } from '../../../../components/styles';
-import { AlternateHeader, Footer } from '../../../../components/shared';
-import { UpdateProduct } from '../../../../components';
+import { PageMain } from '@/components/styles';
+import { AlternateHeader, Footer } from '@/components/shared';
+import { UpdateProduct } from '@/components';
 
 const UpdateProductPage = () => {
   const { query } = useRouter();

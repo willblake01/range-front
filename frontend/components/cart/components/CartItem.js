@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import { formatMoney } from '../../../lib';
+import { formatMoney } from '@/lib';
 import { RemoveFromCart } from '../..';
 
 const StyledCartItem = styled.li`
