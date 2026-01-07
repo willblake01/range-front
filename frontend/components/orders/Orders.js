@@ -45,15 +45,9 @@ const StyledOrder = styled.li`
 
   .images {
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 1rem;
     margin-top: 1rem;
-
-    img {
-      height: 20rem;
-      object-fit: cover;
-      width: 100%;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
   .order-meta {
@@ -76,6 +70,24 @@ const StyledOrder = styled.li`
   }
 `;
 
+const StyledOrderItem = styled.li`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.4rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+`;
+
 const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
@@ -90,16 +102,15 @@ const Orders = ({ orders, loading, error }) => {
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
-console.log('orders', orders)
+
   return (
     <>
       <Head>
         <title>Your Orders ({orders?.length})</title>
       </Head>
       <StyledOrders>
+        {!orders.length ? <h2>No orders found.</h2> : <h2>You have {orders?.length} orders!</h2>}
         <StyledOrdersContainer>
-          {!orders.length ? <h2>No orders found.</h2> : <h2>You have {orders?.length} orders!</h2>}
-
           <StyledOrdersColumn>
             {orders?.map((order) => (
               <StyledOrder key={order.id}>
@@ -111,11 +122,12 @@ console.log('orders', orders)
                     </div>
                     <div className='images'>
                       {order?.items?.map((item) => (
-                        <img
-                          key={`image-${item.id}`}
-                          src={item.image}
-                          alt={item.title}
-                        />
+                        <StyledOrderItem key={`image-${item.id}`}>
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                          />
+                        </StyledOrderItem>
                       ))}
                     </div>
                   </a>
