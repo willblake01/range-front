@@ -104,8 +104,8 @@ const Nav = () => {
 
         {user ? (
           <>
-            <NavItem><Link href={`/user/${user.id}/account`}>Account</Link></NavItem>
-            <NavItem><Link href={`/user/${user.id}/orders`}>Orders</Link></NavItem>
+            <NavItem><Link href={`/account`}>Account</Link></NavItem>
+            <NavItem><Link href={`/orders`}>Orders</Link></NavItem>
             <NavItem><SignOut /></NavItem>
             <NavItem>
               <button type='button' onClick={openCart}>Cart</button>

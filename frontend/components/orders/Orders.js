@@ -3,8 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NProgress from 'nprogress';
-import { format } from 'date-fns';
-import { formatMoney } from '../../lib';
+import { formatMoney, formatOrderDate } from '../../lib';
 import { DisplayError } from '../shared';
 
 const StyledOrders = styled.div`
@@ -90,13 +89,6 @@ const StyledOrderItem = styled.li`
 
 const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
-};
-
-const formatOrderDate = (createdAt) => {
-  if (!createdAt) return '';
-  const ms = Number(createdAt);
-  if (!Number.isFinite(ms)) return '';
-  return format(new Date(ms), 'MMM d, yyyy');
 };
 
 const Orders = ({ orders, loading, error }) => {

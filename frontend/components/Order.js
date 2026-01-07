@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import NProgress from 'nprogress';
-import { formatMoney } from '../lib';
+import { formatMoney, formatOrderDate } from '../lib';
 import { DisplayError } from './shared';
 
 const StyledOrder = styled.div`
@@ -130,22 +130,23 @@ const Order = ({ id }) => {
       <StyledOrder>
         <StyledOrderDetails>
           <div className='order-row'>
-            <span className='label'>Order ID:</span>
+            <span className='label'>ID:</span>
             <span className='value'>{order.id}</span>
           </div>
-
+          <div className='order-row'>
+            <span className='label'>Date: </span>
+            <span className='value'>{formatOrderDate(order.createdAt)}</span>
+          </div>
           <div className='order-row'>
             <span className='label'>Charge:</span>
             <span className='value'>{order.charge}</span>
           </div>
-
           <div className='order-row'>
-            <span className='label'>Order Total:</span>
+            <span className='label'>Total:</span>
             <span className='value'>{formatMoney(order.total)}</span>
           </div>
-
           <div className='order-row'>
-            <span className='label'>Item Count:</span>
+            <span className='label'>Items:</span>
             <span className='value'>{order.items.length}</span>
           </div>
         </StyledOrderDetails>
