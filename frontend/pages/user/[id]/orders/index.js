@@ -6,7 +6,7 @@ import { Orders } from '@/components';
 
 const OrdersPage = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);
-  
+
   return (
     <>
       <AlternateHeader />
@@ -24,8 +24,9 @@ const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
     orders {
       id
-      charge
+      createdAt
       total
+      charge
       user {
         id
       }

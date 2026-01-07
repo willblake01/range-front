@@ -7,10 +7,10 @@ import { AddToCart, ADD_TO_CART_MUTATION, CURRENT_USER_QUERY } from '../componen
 import { fakeUser, fakeCartItem } from './utils/testUtils';
 
 const mocks = [
-  
+
   // First time no items
   {
-    request: { query: CURRENT_USER_QUERY },
+    request: { query: CURRENT_USER_QUERY, variables: {} },
     result: {
       data: {
         authenticatedItem: {
@@ -22,19 +22,7 @@ const mocks = [
     },
   },
 
-  // Second Time, 1 item
-  {
-    request: { query: CURRENT_USER_QUERY },
-    result: {
-      data: {
-        authenticatedItem: {
-          __typename: 'User',
-          ...fakeUser(),
-          cart: [fakeCartItem()],
-        },
-      },
-    },
-  },
+  // Add to cart mutation
   {
     request: { query: ADD_TO_CART_MUTATION, variables: { id: 'abc123' } },
     result: {
@@ -46,12 +34,32 @@ const mocks = [
       },
     },
   },
+  
+  // Second time, 1 item in cart (after mutation)
+  {
+    request: { query: CURRENT_USER_QUERY, variables: {} },
+    result: {
+      data: {
+        authenticatedItem: {
+          __typename: 'User',
+          ...fakeUser(),
+          cart: [
+            {
+              ...fakeCartItem(),
+              id: 'omg123',
+              quantity: 3,
+            },
+          ],
+        },
+      },
+    },
+  },
 ];
 
 describe('<AddToCart/>', () => {
   it('renders and matches the snap shot', async () => {
     const { container } = render(
-      <MockedProvider mocks={mocks}>
+      <MockedProvider mocks={mocks} addTypename={false}>
         <AddToCart id='abc123' />
       </MockedProvider>
     );
@@ -65,7 +73,7 @@ describe('<AddToCart/>', () => {
     let apolloClient;
 
     const { container } = render(
-      <MockedProvider mocks={mocks}>
+      <MockedProvider mocks={mocks} addTypename={false}>
         <ApolloConsumer>
           {(client) => {
             apolloClient = client;

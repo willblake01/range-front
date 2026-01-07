@@ -54,6 +54,7 @@ const StyledProductDescription = styled.div`
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 0.1rem;
+
     * {
       background: var(--white);
       border: 0.2rem solid var(--green);
@@ -67,18 +68,22 @@ const StyledProductDescription = styled.div`
     
   @media (max-width: 76.8rem) {
     padding: 2rem;
+
     .product {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+
     .image {
       grid-column: 1;
       grid-row: 1;
     }
+
     .details {
       grid-column: 1;
       grid-row: 2;
     }
+      
     .buttonGrid {
       grid-column: 1;
       grid-row: 3;

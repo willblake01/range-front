@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NProgress from 'nprogress';
+import { format } from 'date-fns';
 import { formatMoney } from '../../lib';
 import { DisplayError } from '../shared';
 
@@ -91,6 +92,13 @@ const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
 
+const formatOrderDate = (createdAt) => {
+  if (!createdAt) return '';
+  const ms = Number(createdAt);
+  if (!Number.isFinite(ms)) return '';
+  return format(new Date(ms), 'MMM d, yyyy');
+};
+
 const Orders = ({ orders, loading, error }) => {
   useEffect(() => {
     if (loading) NProgress.start();
@@ -116,6 +124,7 @@ const Orders = ({ orders, loading, error }) => {
                 <Link href={`/order/${order.id}`}>
                   <a style={{ display: 'block' }}>
                     <div className='order-meta'>
+                      <h2>Date: {formatOrderDate(order.createdAt)}</h2>
                       <h2>Items: {countItemsInOrder(order)}</h2>
                       <h2>Total: {formatMoney(order.total)}</h2>
                     </div>
