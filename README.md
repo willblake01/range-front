@@ -8,7 +8,7 @@
 ![Stripe](https://img.shields.io/badge/Payments-Stripe-635bff?logo=stripe)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-![Range Front](https://res.cloudinary.com/willblake01/image/upload/v1767065265/react-portfolio/range-front.png)
+![Range Front](./frontend/public/range-front.png)
 
 ---
 
