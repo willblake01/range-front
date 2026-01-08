@@ -90,19 +90,36 @@ const Mutations = {
   },
 
   async signup(parent, args, ctx, info) {
-    args.email = args.email.toLowerCase();
+    args.email = args.email.toLowerCase().trim();
 
     // Hash the password
     const password = await bcrypt.hash(args.password, 10);
-    
-    // Create the user in the database
-    const user = await ctx.db.user.create({
-      data: {
-        ...args,
-        password,
-        permissions: ['USER']
-      },
-    });
+
+    let user;
+    try {
+      // Create the user in the database
+      user = await ctx.db.user.create({
+        data: {
+          ...args,
+          password,
+          permissions: ['USER'],
+        },
+      });
+    } catch (err) {
+      const msg = String(err?.message || err);
+
+      // Prisma/Keystone unique constraint violation (email)
+      const isDuplicateEmail =
+        err?.code === 'P2002' ||
+        (msg.includes('Unique constraint failed') && msg.includes('(`email`)')) ||
+        (msg.toLowerCase().includes('unique') && msg.toLowerCase().includes('email'));
+
+      if (isDuplicateEmail) {
+        throw new Error('An account with that email already exists. Please sign in instead.');
+      }
+
+      throw err;
+    }
 
     // Create the JWT token for them
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
@@ -110,29 +127,43 @@ const Mutations = {
     // Set the JWT as a cookie on the response
     ctx.res.cookie('token', token, buildCookieOptions({ maxAge: 1000 * 60 * 60 * 24 * 7 }));
 
-    // Return the user to the browser
     return user;
   },
 
   async createUser(parent, args, ctx) {
     if (!ctx.userId) throw new Error('You must be logged in.');
 
-    // must be admin
     if (!ctx.user?.permissions?.includes('ADMIN')) {
       throw new Error('You do not have permission to do that.');
     }
 
-    args.email = args.email.toLowerCase();
+    args.email = args.email.toLowerCase().trim();
 
     const password = await bcrypt.hash(args.password, 10);
 
-    const user = await ctx.db.user.create({
-      data: {
-        ...args,
-        password,
-        permissions: ['USER'],
-      },
-    });
+    let user;
+    try {
+      user = await ctx.db.user.create({
+        data: {
+          ...args,
+          password,
+          permissions: ['USER'],
+        },
+      });
+    } catch (err) {
+      const msg = String(err?.message || err);
+
+      const isDuplicateEmail =
+        err?.code === 'P2002' ||
+        (msg.includes('Unique constraint failed') && msg.includes('(`email`)')) ||
+        (msg.toLowerCase().includes('unique') && msg.toLowerCase().includes('email'));
+
+      if (isDuplicateEmail) {
+        throw new Error('A user with that email already exists');
+      }
+
+      throw err;
+    }
 
     return user;
   },

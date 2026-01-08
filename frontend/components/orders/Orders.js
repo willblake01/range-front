@@ -19,7 +19,6 @@ const StyledOrders = styled.div`
 
 const StyledOrdersContainer = styled.div`
   margin: 0;
-  width: 100%;
   max-width: 90rem;
 
   h2 {

@@ -41,12 +41,24 @@ const CreateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send the email and password to the graphqlAPI
-    await createUser().catch(err => toast.error(err.message));
+    try {
+      const res = await createUser();
+      if (!res?.data?.signup?.id) return;
 
-    toast.success('Account created!');
+      toast.success('User created!');
 
-    resetForm();
+      resetForm();
+    } catch (err) {
+      const msg = err?.message || 'Create user failed';
+
+      if (/unique|already exists|email/i.test(msg)) {
+        toast.error('A user with that email already exists');
+
+        return;
+      }
+
+      toast.error(msg);
+    }
   };
 
   useEffect(() => {

@@ -44,14 +44,26 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send the email and password to the graphqlAPI
-    await signup().catch(err => toast.error(err.message));
+    try {
+      const res = await signup();
+      if (!res?.data?.signup?.id) return;
 
-    toast.success('Account created!');
+      toast.success('Account created!');
 
-    resetForm();
+      resetForm();
 
-    router.push('/products');
+      router.push('/products');
+    } catch (err) {
+      const msg = err?.message || 'Signup failed';
+
+      if (/unique|already exists|email/i.test(msg)) {
+        toast.error('That email is already in use. Try signing in instead.');
+
+        return;
+      }
+
+      toast.error(msg);
+    }
   };
 
   useEffect(() => {
@@ -69,7 +81,6 @@ const SignUp = () => {
         <Form method='POST' onSubmit={handleSubmit}>
           <DisplayError error={error} />
           <h2>Account Signup</h2>
-
           <fieldset>
             <label htmlFor='email'>
               First Name
@@ -111,7 +122,9 @@ const SignUp = () => {
               value={inputs.password}
               onChange={handleChange}
             />
-            <LargeButton type='submit'>Submit</LargeButton>
+            <LargeButton type='submit' disabled={loading}>
+              {loading ? 'Submitting...' : 'Submit'}
+            </LargeButton>
           </fieldset>
         </Form>
       </StyledFormContainer>
