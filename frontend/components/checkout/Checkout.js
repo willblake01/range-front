@@ -26,7 +26,6 @@ const StyledCheckout = styled.div`
   height: 100%;
   width: 100%;
   min-width: 50rem;
-  color: var(--green);
   transform: translateX(100%);
   transition: all 0.3s;
   transform: translateX(0);

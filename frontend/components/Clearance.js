@@ -8,9 +8,7 @@ import { ProductsContainer, PaginationRow } from './styles';
 import { DisplayError, ProductsList } from './shared';
 import { Product, ProductsPagination } from './products/components';
 
-const ClearancePage = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
-  color: var(--green);
+const StyledClearance = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: clamp(2rem, 5vw, 4rem);
@@ -32,15 +30,15 @@ const Clearance = ({ page }) => {
     return () => NProgress.done();
   }, [loading]);
 
-  const noProductsFound = data?.products?.length === 0;
+  const noProducts = data?.products?.length === 0;
 
   if (error) return <DisplayError error={error} />;
   if (loading) return <p>Loading...</p>;
 
   return (
-    <ClearancePage>
+    <StyledClearance>
       {
-        noProductsFound
+        noProducts
           ?
         <p>No products found.</p>
           : 
@@ -55,7 +53,7 @@ const Clearance = ({ page }) => {
           </PaginationRow>
         </ProductsContainer>
       }
-    </ClearancePage>
+    </StyledClearance>
   );
 };
 

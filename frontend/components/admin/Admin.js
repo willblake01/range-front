@@ -16,8 +16,6 @@ const StyledAdmin = styled.div`
   flex: 1;
   align-items: flex-start;
   justify-content: space-evenly;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
-  color: var(--green);
   width: 100%;
   margin: 0 auto;
   padding: 8rem 0;
