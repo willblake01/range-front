@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import Link from 'next/link';
 import { DisplayError } from '../../shared/DisplayError';
 import { Pagination } from '../../styles';
 import { USERS_PER_PAGE } from '../constants';
+import { USERS_PAGINATION_QUERY } from '../queries';
 
 const UsersPagination = ({ page }) => {
   const { data, loading, error } = useQuery(USERS_PAGINATION_QUERY);
@@ -43,11 +43,4 @@ const UsersPagination = ({ page }) => {
   );
 };
 
-
-const USERS_PAGINATION_QUERY = gql`
-  query USERS_PAGINATION_QUERY {
-    usersCount
-  }
-`;
-
-export { USERS_PAGINATION_QUERY, UsersPagination };
+export { UsersPagination };

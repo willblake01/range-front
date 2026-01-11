@@ -31,7 +31,7 @@ const ResetPassword = ({ token }) => {
     confirmPassword: '',
   });
   
-  const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
+  const [reset, { data, loading, error }] = useMutation(RESET_PASSWORD_MUTATION, {
     variables: inputs,
   });
   
@@ -89,8 +89,8 @@ const ResetPassword = ({ token }) => {
   );
 };
 
-const RESET_MUTATION = gql`
-  mutation RESET_MUTATION(
+const RESET_PASSWORD_MUTATION = gql`
+  mutation RESET_PASSWORD_MUTATION(
     $resetToken: String!
     $password: String!
     $confirmPassword: String!

@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
 import { toast } from 'react-hot-toast';
 import { CURRENT_USER_QUERY } from '../../hooks';
+import { ADD_TO_CART_MUTATION } from '../cart/queries';
 
 const AddToCart = ({ id }) => {  
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
@@ -30,13 +30,5 @@ const AddToCart = ({ id }) => {
     </button>
   );
 };
-
-const ADD_TO_CART_MUTATION = gql`
-  mutation ADD_TO_CART_MUTATION($id: ID!) {
-    addToCart(id: $id) {
-      id
-    }
-  }
-`;
 
 export { AddToCart };

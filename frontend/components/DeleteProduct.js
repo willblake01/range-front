@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 import toast from 'react-hot-toast';
 import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { DisplayError } from './shared';
+import { DELETE_PRODUCT_MUTATION } from './products/queries';
 
 const update = (cache, payload) => {
   cache.evict({
@@ -58,15 +58,5 @@ const DeleteProduct = ({ id, children }) => {
     </button>
   );
 };
-
-const DELETE_PRODUCT_MUTATION = gql`
-  mutation DELETE_PRODUCT_MUTATION($id: ID!) {
-    deleteProduct(id: $id) {
-      id
-      brand
-      title
-    }
-  }
-`;
 
 export { DeleteProduct };

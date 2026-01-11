@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import { PageMain } from '../../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../../components/shared';
 import { ProductDescription } from '../../components';
+import { SINGLE_PRODUCT_QUERY } from '../../components/products/queries';
 
 const ProductDescriptionPage = () => {
   const { query } = useRouter();
@@ -29,20 +29,5 @@ const ProductDescriptionPage = () => {
     </>
   )
 };
-
-export const SINGLE_PRODUCT_QUERY = gql`
-  query SINGLE_PRODUCT_QUERY($id: ID!) {
-    product(where: { id: $id }) {
-      id
-      brand
-      title
-      description
-      category
-      image
-      price
-      clearance
-    }
-  }
-`;
 
 export default ProductDescriptionPage;

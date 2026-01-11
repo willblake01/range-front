@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
+import { REMOVE_FROM_CART_MUTATION } from './cart';
 
 const StyledLargeButton = styled.button`
   margin: 0;
@@ -41,13 +41,5 @@ const RemoveFromCart = ({ id }) => {
     </StyledLargeButton>
   );
 };
-
-const REMOVE_FROM_CART_MUTATION = gql`
-  mutation REMOVE_FROM_CART_MUTATION($id: ID!) {
-    removeFromCart(id: $id) {
-      id
-    }
-  }
-`;
 
 export { RemoveFromCart };

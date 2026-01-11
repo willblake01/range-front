@@ -2,10 +2,9 @@ import Router from 'next/router';
 import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
-import { SINGLE_PRODUCT_QUERY } from '../pages/product/[id]';
+import { SINGLE_PRODUCT_QUERY, UPDATE_PRODUCT_MUTATION } from './products/queries';
 
 const StyledUpdateProduct = styled.div`
   display: flex;
@@ -164,38 +163,5 @@ const UpdateProduct = ({ id }) => {
     </StyledUpdateProduct>
   );
 };
-
-const UPDATE_PRODUCT_MUTATION = gql`
-  mutation UPDATE_PRODUCT_MUTATION(
-    $id: ID!
-    $brand: String
-    $title: String
-    $description: String
-    $image: String
-    $category: String
-    $price: Int
-    $clearance: Boolean
-  ) {
-    updateProduct(
-      id: $id
-      brand: $brand
-      title: $title
-      description: $description
-      image: $image
-      category: $category
-      price: $price
-      clearance: $clearance
-    ) {
-      id
-      brand
-      title
-      description
-      image
-      category
-      price
-      clearance
-    }
-  }
-`;
 
 export { UpdateProduct };

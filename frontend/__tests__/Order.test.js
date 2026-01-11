@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
-import { Order, SINGLE_ORDER_QUERY } from '../components';
+import { Order } from '../components';
+import { SINGLE_ORDER_QUERY } from '../pages/order/[id]';
 import { fakeOrder } from './utils/testUtils';
 
 const order = fakeOrder();

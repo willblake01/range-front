@@ -1,10 +1,13 @@
+import { PageMain } from '../components/styles';
 import { AlternateHeader, Footer } from '../components/shared';
 import { About } from '../components';
 
 const AboutPage = () => (
   <>
     <AlternateHeader />
-    <About />
+    <PageMain>
+      <About />
+    </PageMain>
     <Footer />
   </>
 );

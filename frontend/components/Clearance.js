@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
 import NProgress from 'nprogress';
 import { perPage } from '../config';
 import { ProductsContainer, PaginationRow } from './styles';
 import { DisplayError, ProductsList } from './shared';
 import { Product, ProductsPagination } from './products/components';
+import { PRODUCTS_QUERY } from './products';
 
 const StyledClearance = styled.div`
   width: 100%;
@@ -57,23 +57,4 @@ const Clearance = ({ page }) => {
   );
 };
 
-const PRODUCTS_QUERY = gql`
-  query PRODUCTS_QUERY(
-    $skip: Int = 0
-    $first: Int = ${perPage}
-    $where: ProductWhereInput
-  ) {
-    products(skip: $skip, first: $first, where: $where) {
-      id
-      brand
-      title
-      description
-      image
-      category
-      price
-      clearance
-    }
-  }
-`;
-
-export { PRODUCTS_QUERY, Clearance };
+export { Clearance };

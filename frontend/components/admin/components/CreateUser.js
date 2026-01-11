@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '@/lib';
 import { DisplayError, LargeButton, Form } from '../../shared';
+import { CREATE_USER_MUTATION } from '../queries';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -125,27 +125,5 @@ const CreateUser = () => {
     </StyledSignUp>
   );
 };
-
-const CREATE_USER_MUTATION = gql`
-  mutation CREATE_USER_MUTATION(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    createUser(
-      firstName: $firstName,
-      lastName: $lastName,
-      email: $email,
-      password: $password
-    ) {
-      id
-      firstName
-      lastName
-      email
-      permissions
-    }
-  }
-`;
 
 export { CreateUser };

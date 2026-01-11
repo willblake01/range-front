@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
 import { DisplayError } from '../../shared';
+import { UPDATE_PERMISSIONS_MUTATION } from '../queries';
 
 const possiblePermissions = [
   'ADMIN',
@@ -61,17 +61,5 @@ const Permissions = ({ user }) => {
     </tr>
   );
 };
-
-const UPDATE_PERMISSIONS_MUTATION = gql`
-  mutation UPDATE_PERMISSIONS_MUTATION($permissions: [Permission], $userId: ID!) {
-    updatePermissions(permissions: $permissions, userId: $userId) {
-      id
-      firstName
-      lastName
-      email
-      permissions
-    }
-  }
-`;
 
 export { Permissions };

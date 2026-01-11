@@ -2,13 +2,12 @@ import Image from 'next/image'
 import styled from 'styled-components';
 
 const StyledAbout = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
   width: 100%;
   margin: 0 auto;
   max-width: var(--maxWidth);
   padding: clamp(2rem, 5vw, 8rem);
   font-size: 1.4rem;
-  color: var(--green);
+
   img {
     margin: 0 auto 5rem;
     display: block;

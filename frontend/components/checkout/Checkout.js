@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
 import {
@@ -14,7 +13,8 @@ import NProgress from 'nprogress';
 import { CURRENT_USER_QUERY, useUser } from '../../hooks';
 import { calcTotalPrice, formatMoney } from '../../lib';
 import { DisplayError, LargeButton } from '../shared';
-import { OrderItem } from './components'
+import { OrderItem } from './components';
+import { CREATE_ORDER_MUTATION } from '../orders/queries';
 
 const StyledCheckout = styled.div`
   display: grid;
@@ -128,53 +128,46 @@ const CheckoutForm = () => {
   );
 
   const handleSubmit = async (e) => {
-
-    // 1. Stop the form from submitting and turn the loader on
     e.preventDefault();
     setError(null);
 
-    // 2. Start the page transition
+    if (!stripe || !elements) return;
+
     NProgress.start();
     setSubmitting(true);
 
     try {
-      // 3. Create the payment method via stripe (Token comes back here if successful)
-      const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: elements.getElement(CardElement),
-      });
+      const { error: stripeError, paymentMethod } =
+        await stripe.createPaymentMethod({
+          type: 'card',
+          card: elements.getElement(CardElement),
+        });
 
-      // 4. Handle any errors from stripe
       if (stripeError) {
         setError(stripeError);
+        return;
+      }
 
-        NProgress.done();
-
-        return; // stops the checkout from happening
-      };
-
-      // 5. Send the token from step 3 to our keystone server, via a custom mutation!
       const res = await checkout({
         variables: { token: paymentMethod.id },
       });
 
       const orderId = res?.data?.createOrder?.id;
+      if (!orderId) {
+        setError(new Error('Checkout failed. Please try again.'));
+        return;
+      }
 
-      // 6. Change the page to view the order
       router.push(`/order/${orderId}`);
-
-      NProgress.done();
     } catch (err) {
       setError(err);
     } finally {
       setSubmitting(false);
       NProgress.done();
-    };
+    }
   };
 
   if (userError) return <DisplayError error={userError} />;
-  if (graphQLError) return <DisplayError error={graphQLError} />;
-
   if (userLoading) return <p>Loading...</p>;
   if (!user) return <p>Please sign in to checkout.</p>;
 
@@ -219,22 +212,5 @@ const Checkout = () => {
     </Elements>
   );
 };
-
-const CREATE_ORDER_MUTATION = gql`
-  mutation CREATE_ORDER_MUTATION($token: String!) {
-    createOrder(token: $token) {
-      id
-      charge
-      total
-      items {
-        id
-        title
-        brand
-        quantity
-        price
-      }
-    }
-  }
-`;
 
 export { Checkout };

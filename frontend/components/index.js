@@ -17,7 +17,7 @@ export { Page } from './Page';
 export { Parallax } from './Parallax';
 export { Product } from './products/components/Product';
 export { ProductDescription } from './ProductDescription';
-export { PRODUCTS_QUERY, Products } from './products/Products';
+export { Products } from './products/Products';
 export { RemoveFromCart } from './RemoveFromCart';
 export { RequestResetPassword } from './RequestResetPassword';
 export { RequirePermission } from './RequirePermission';

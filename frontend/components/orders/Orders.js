@@ -1,10 +1,7 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
-import NProgress from 'nprogress';
 import { formatMoney, formatOrderDate } from '../../lib';
-import { DisplayError } from '../shared';
 
 const StyledOrders = styled.div`
   display: flex;
@@ -88,24 +85,14 @@ const countItemsInOrder = (order) => {
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 };
 
-const Orders = ({ orders, loading, error }) => {
-  useEffect(() => {
-    if (loading) NProgress.start();
-    else NProgress.done();
-
-    return () => NProgress.done();
-  }, [loading]);
-
-  if (error) return <DisplayError error={error} />;
-  if (loading) return <p>Loading...</p>;
-
+const Orders = ({ orders }) => {
   return (
     <>
       <Head>
         <title>Your Orders ({orders?.length})</title>
       </Head>
       <StyledOrders>
-        {!orders.length ? <h2>No orders found.</h2> : <h2>You have {orders?.length} orders!</h2>}
+        {!orders?.length ? <h2>No orders found.</h2> : <h2>You have {orders?.length} orders!</h2>}
         <StyledOrdersContainer>
           <StyledOrdersColumn>
             {orders?.map((order) => (

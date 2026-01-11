@@ -1,19 +1,12 @@
-import { useEffect } from 'react';
 import Image from 'next/image'
 import styled from 'styled-components';
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import Head from 'next/head';
-import NProgress from 'nprogress';
 import { formatMoney, formatOrderDate } from '../lib';
-import { DisplayError } from './shared';
 
 const StyledOrder = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
-  color: var(--green);
   margin: 0;
   padding: clamp(2rem, 5vw, 8rem);
   width: 100%;
@@ -101,27 +94,7 @@ const StyledOrderItems = styled.div`
   }
 `;
 
-const Order = ({ id }) => {
-  const safeId = Array.isArray(id) ? id[0] : id;
-
-  const { data, loading, error } = useQuery(SINGLE_ORDER_QUERY, {
-    variables: { id: safeId },
-    skip: !id,
-  });
-
-  useEffect(() => {
-    if (loading) NProgress.start();
-    else NProgress.done();
-
-    return () => NProgress.done();
-  }, [loading]);
-
-  if (error) return <DisplayError error={error} />;
-  if (loading) return <p>Loading...</p>;
-
-  const order = data?.order;
-  if (!order) return <p>No order found.</p>;
-  
+const Order = ({ order }) => {
   return (
     <>
       <Head>
@@ -177,29 +150,5 @@ const Order = ({ id }) => {
     </>
   );
 };
-
-const SINGLE_ORDER_QUERY = gql`
-  query SINGLE_ORDER_QUERY($id: ID!) {
-    order(id: $id) {
-      id
-      total
-      charge
-      createdAt
-      items {
-        id
-        brand
-        title
-        price
-        quantity
-        image
-      }
-      user {
-        id
-        firstName
-        lastName
-      }
-    }
-  }
-`;
 
 export { Order };

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { useUser } from '../../hooks';
-import { DisplayError } from '../shared';
 
 const StyledAccount = styled.div`
   display: flex;
@@ -65,12 +63,7 @@ const PermissionsList = styled.div`
   gap: 0.5rem 1rem;
 `;
 
-const Account = () => {
-  const { user, loading, error } = useUser();
-
-  if (error) return <DisplayError error={error} />;
-  if (loading) return <p>Loading...</p>;
-
+const Account = ({ user }) => {
   return (
     <StyledAccount>
       <StyledFormContainer>

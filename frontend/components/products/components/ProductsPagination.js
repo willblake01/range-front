@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
 import { DisplayError } from '../../shared/DisplayError';
 import { Pagination } from '../../styles';
 import { perPage } from '@/config';
+import { PRODUCTS_PAGINATION_QUERY } from '../queries';
 
 const ProductsPagination = ({ page, where }) => {
   const { data, loading, error } = useQuery(PRODUCTS_PAGINATION_QUERY, {
@@ -59,15 +59,5 @@ const ProductsPagination = ({ page, where }) => {
     </Pagination>
   );
 };
-
-const PRODUCTS_PAGINATION_QUERY = gql`
-  query PRODUCTS_PAGINATION_QUERY($where: ProductWhereInput) {
-    productsConnection(where: $where) {
-      aggregate {
-        count
-      }
-    }
-  }
-`;
 
 export { PRODUCTS_PAGINATION_QUERY, ProductsPagination };

@@ -3,11 +3,10 @@ import Router from 'next/router';
 import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
-import { PRODUCTS_QUERY } from '.';
+import { CREATE_PRODUCT_MUTATION } from './products/queries';
 
 const StyledCreateProduct = styled.div`
   display: flex;
@@ -41,7 +40,7 @@ const CreateProduct = () => {
         ...inputs,
         price: parseInt(inputs.price, 10)
       },
-      refetchQueries: [{ query: PRODUCTS_QUERY }],
+      refetchQueries: ['PRODUCTS_QUERY']
     }
   );
 
@@ -66,6 +65,8 @@ const CreateProduct = () => {
               toast.error(err.message);
               return null;
             });
+
+            if (!res?.data?.createProduct) return;
 
             toast.success(`Created product ${res.data.createProduct.brand} ${res.data.createProduct.title}`);
 
@@ -157,36 +158,5 @@ const CreateProduct = () => {
     </StyledCreateProduct>
   );
 };
-
-const CREATE_PRODUCT_MUTATION = gql`
-  mutation CREATE_PRODUCT_MUTATION(
-    $brand: String
-    $title: String!
-    $description: String!
-    $image: String
-    $category: String
-    $price: Int!
-    $clearance: Boolean
-  ) {
-    createProduct(
-      brand: $brand
-      title: $title
-      description: $description
-      image: $image
-      category: $category
-      price: $price
-      clearance: $clearance
-    ) {
-      id
-      brand
-      title
-      description
-      image
-      category
-      price
-      clearance
-    }
-  }
-`;
 
 export { CreateProduct };
