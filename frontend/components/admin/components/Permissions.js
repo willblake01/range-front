@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { DisplayError } from '../../shared';
-import { UPDATE_PERMISSIONS_MUTATION } from '../queries';
+import { UPDATE_PERMISSIONS_MUTATION } from '../../graphql/admin';
 
 const possiblePermissions = [
   'ADMIN',

@@ -1,5 +1,5 @@
 import casual from 'casual';
-import { PRODUCTS_PAGINATION_QUERY } from '../components';
+import { PRODUCTS_PAGINATION_QUERY } from '../components/graphql/products';
 
 // seed it so we get consistent results
 casual.seed(777);

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { DisplayError } from './shared';
-import { DELETE_PRODUCT_MUTATION } from './products/queries';
+import { DELETE_PRODUCT_MUTATION } from './graphql/products';
 
 const update = (cache, payload) => {
   cache.evict({

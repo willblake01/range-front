@@ -14,7 +14,7 @@ import { CURRENT_USER_QUERY, useUser } from '../../hooks';
 import { calcTotalPrice, formatMoney } from '../../lib';
 import { DisplayError, LargeButton } from '../shared';
 import { OrderItem } from './components';
-import { CREATE_ORDER_MUTATION } from '../orders/queries';
+import { CREATE_ORDER_MUTATION } from '../graphql/orders';
 
 const StyledCheckout = styled.div`
   display: grid;

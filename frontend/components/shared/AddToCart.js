@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { toast } from 'react-hot-toast';
 import { CURRENT_USER_QUERY } from '../../hooks';
-import { ADD_TO_CART_MUTATION } from '../cart/queries';
+import { ADD_TO_CART_MUTATION } from '../graphql/cart';
 
 const AddToCart = ({ id }) => {  
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {

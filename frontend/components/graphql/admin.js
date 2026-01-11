@@ -1,7 +1,7 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
-const ALL_USERS_QUERY = gql`
-  query ALL_USERS_QUERY($skip: Int, $first: Int, $orderBy: UserOrderByInput) {
+const USERS_QUERY = gql`
+  query USERS_QUERY($skip: Int, $first: Int, $orderBy: UserOrderByInput) {
     users(skip: $skip, first: $first, orderBy: $orderBy) {
       id
       firstName
@@ -52,4 +52,4 @@ const USERS_PAGINATION_QUERY = gql`
   }
 `;
 
-export { ALL_USERS_QUERY, CREATE_USER_MUTATION, UPDATE_PERMISSIONS_MUTATION, USERS_PAGINATION_QUERY };
+export { USERS_QUERY, CREATE_USER_MUTATION, UPDATE_PERMISSIONS_MUTATION, USERS_PAGINATION_QUERY };

@@ -5,7 +5,7 @@ import { perPage } from '../../config';
 import { PageMain } from '../../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../../components/shared';
 import { Products } from '../../components';
-import { PRODUCTS_QUERY } from '../../components/products';
+import { PRODUCTS_QUERY } from '../../components/graphql/products';
 
 export const getServerSideProps = async (ctx) => {
   const pageParam = ctx.query.page;

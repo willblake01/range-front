@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
-import { REMOVE_FROM_CART_MUTATION } from './cart';
+import { REMOVE_FROM_CART_MUTATION } from './graphql/cart';
 
 const StyledLargeButton = styled.button`
   margin: 0;

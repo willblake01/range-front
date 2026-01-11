@@ -5,7 +5,7 @@ import NProgress from 'nprogress';
 import { PageMain } from '../../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../../components/shared';
 import { Order } from '../../components';
-import { SINGLE_ORDER_QUERY } from '../../components/orders/queries';
+import { SINGLE_ORDER_QUERY } from '../../components/graphql/orders';
 
 const OrderPage = () => {
   const { query } = useRouter();

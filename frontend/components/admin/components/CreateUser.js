@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '@/lib';
 import { DisplayError, LargeButton, Form } from '../../shared';
-import { CREATE_USER_MUTATION } from '../queries';
+import { CREATE_USER_MUTATION } from '../../graphql/admin';
 
 const StyledSignUp = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const CreateUser = () => {
 
   const [createUser, { loading, error }] = useMutation(CREATE_USER_MUTATION, {
     variables: inputs,
-    refetchQueries: ['ALL_USERS_QUERY'],
+    refetchQueries: ['USERS_QUERY'],
     awaitRefetchQueries: true,
   });
 

@@ -8,7 +8,7 @@ import { PageMain } from '../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../components/shared';
 import { Admin } from '../components';
 import { USERS_PER_PAGE } from '../components/admin/constants';
-import { ALL_USERS_QUERY } from '../components/admin';
+import { USERS_QUERY } from '../components/graphql/admin';
 
 const AdminPage = () => {
   const router = useRouter();
@@ -22,7 +22,7 @@ const AdminPage = () => {
   const hasAccess =
   !!user && (hasPermission(user, 'ADMIN') || hasPermission(user, 'PERMISSIONUPDATE'));
 
-  const { data, loading: usersLoading, error: usersError } = useQuery(ALL_USERS_QUERY, {
+  const { data, loading: usersLoading, error: usersError } = useQuery(USERS_QUERY, {
     skip: !hasAccess,
     variables: { skip, first: USERS_PER_PAGE, orderBy: 'createdAt_DESC' },
     fetchPolicy: 'cache-and-network',

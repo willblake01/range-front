@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { DisplayError } from '../../shared/DisplayError';
 import { Pagination } from '../../styles';
 import { USERS_PER_PAGE } from '../constants';
-import { USERS_PAGINATION_QUERY } from '../queries';
+import { USERS_PAGINATION_QUERY } from '../../graphql/admin';
 
 const UsersPagination = ({ page }) => {
   const { data, loading, error } = useQuery(USERS_PAGINATION_QUERY);

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';

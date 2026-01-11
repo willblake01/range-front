@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { PageMain } from '../../components/styles';
 import { AlternateHeader, DisplayError, Footer } from '../../components/shared';
 import { ProductDescription } from '../../components';
-import { SINGLE_PRODUCT_QUERY } from '../../components/products/queries';
+import { SINGLE_PRODUCT_QUERY } from '../../components/graphql/products';
 
 const ProductDescriptionPage = () => {
   const { query } = useRouter();

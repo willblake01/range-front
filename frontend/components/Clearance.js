@@ -6,7 +6,7 @@ import { perPage } from '../config';
 import { ProductsContainer, PaginationRow } from './styles';
 import { DisplayError, ProductsList } from './shared';
 import { Product, ProductsPagination } from './products/components';
-import { PRODUCTS_QUERY } from './products';
+import { PRODUCTS_QUERY } from './graphql/products';
 
 const StyledClearance = styled.div`
   width: 100%;

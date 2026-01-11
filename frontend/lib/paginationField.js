@@ -1,4 +1,4 @@
-import { PRODUCTS_PAGINATION_QUERY } from "../components/products/components";
+import { PRODUCTS_PAGINATION_QUERY } from "../components/graphql/products";
 
 const paginationField = () => {
   return {

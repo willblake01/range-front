@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
-import { CREATE_PRODUCT_MUTATION } from './products/queries';
+import { CREATE_PRODUCT_MUTATION } from './graphql/products';
 
 const StyledCreateProduct = styled.div`
   display: flex;

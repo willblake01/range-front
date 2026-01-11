@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 import { PageMain } from '@/components/styles';
 import { AlternateHeader, DisplayError, Footer, PleaseLogin } from '@/components/shared';
 import { Orders } from '@/components';
-import { USER_ORDERS_QUERY } from '../../components/orders';
+import { USER_ORDERS_QUERY } from '../../components/graphql/orders';
 
 const OrdersPage = () => {
   const { data, loading, error } = useQuery(USER_ORDERS_QUERY);

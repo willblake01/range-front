@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useMutation, useQuery } from '@apollo/client';
 import { useForm } from '../lib';
 import { DisplayError, LargeButton, Form } from './shared';
-import { SINGLE_PRODUCT_QUERY, UPDATE_PRODUCT_MUTATION } from './products/queries';
+import { SINGLE_PRODUCT_QUERY, UPDATE_PRODUCT_MUTATION } from './graphql/products';
 
 const StyledUpdateProduct = styled.div`
   display: flex;

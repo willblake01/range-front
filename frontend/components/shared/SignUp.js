@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import NProgress from 'nprogress';
 import { useForm } from '../../lib';

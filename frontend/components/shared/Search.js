@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
 import { useLazyQuery } from '@apollo/client';
 import { useCombobox } from 'downshift';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 import debounce from 'lodash.debounce';
 
 const glow = keyframes`

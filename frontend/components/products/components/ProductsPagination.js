@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { DisplayError } from '../../shared/DisplayError';
 import { Pagination } from '../../styles';
 import { perPage } from '@/config';
-import { PRODUCTS_PAGINATION_QUERY } from '../queries';
+import { PRODUCTS_PAGINATION_QUERY } from '../../graphql/products';
 
 const ProductsPagination = ({ page, where }) => {
   const { data, loading, error } = useQuery(PRODUCTS_PAGINATION_QUERY, {
