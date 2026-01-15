@@ -70,6 +70,40 @@
 
 ---
 
+## 🏗️ Architecture
+
+* **Frontend:** Server-rendered **Next.js** application leveraging **Apollo Client** for efficient GraphQL data fetching, normalized caching, and optimistic UI updates.
+* **API Layer:** **Node.js GraphQL** service implementing domain-driven resolvers, role-based access control (RBAC), and permission-aware mutations.
+* **Data Layer:** **PostgreSQL** database accessed via **Prisma ORM**, enforcing schema-level constraints, relations, and transactional integrity.
+* **Payments:** **Stripe** integration supporting secure checkout flows, server-side payment intents, and webhook-driven order state reconciliation.
+* **Authentication & Security:** JWT-based session management, bcrypt password hashing, and server-side authorization checks to protect sensitive operations.
+* **Deployment & Infrastructure:**
+  * **Vercel** for frontend hosting with edge caching and fast global delivery
+  * **Render** for backend GraphQL API and managed PostgreSQL
+
+### System Flow
+
+```text
+Client Browser
+   ↓
+Next.js (Vercel)
+   ↓ Apollo Client (GraphQL)
+Node.js API (Render)
+   ↓ Prisma ORM
+PostgreSQL
+   ↓
+Stripe (Payments & Webhooks)
+```
+
+### Engineering Focus
+
+* Clear separation of concerns between presentation, API, and data layers
+* Production-grade auth, authorization, and payment handling
+* Scalable GraphQL schema design supporting admin and user workflows
+* Deployed architecture mirroring real-world SaaS commerce systems
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
