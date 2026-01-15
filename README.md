@@ -12,8 +12,7 @@
 
 ---
 
-**Range Front** is a full-stack faux e-commerce application for a fictional outdoor gear company.
-It demonstrates real-world patterns for authentication, payments, cart state, and order management using a modern React + GraphQL stack.
+**Range Front** is a full-stack commerce platform demonstrating role-based access control, GraphQL API design, payment workflows, and production deployment.
 
 🔗 **Live demo:**
 [https://range-front.vercel.app/](https://range-front.vercel.app/)

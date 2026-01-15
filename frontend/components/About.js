@@ -22,12 +22,12 @@ const About = () => (
       height={800}
       width={2000}
     />
-    <p>At RangeFront, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand
-    behind all our products with a 100% satisfaction guarantee, and we design our own line of award-winning RangeFront
+    <p>At Range Front, we love to get outside and play, and we know first-hand the importance of quality outdoor gear. We stand
+    behind all our products with a 100% satisfaction guarantee, and we design our own line of award-winning Range Front
     brand gear and clothing. Whether you're new to outdoor adventure or a seasoned pro, we gladly share our enthusiasm
     for our products—and the trails, slopes and waterways where we play.</p>
-    <p>Each year, RangeFront donates millions of dollars to support conservation efforts nationwide and sends dedicated teams
-    of volunteers—members, customers and RangeFront employees—to build trails, clean up beaches, restore local habitats
+    <p>Each year, Range Front donates millions of dollars to support conservation efforts nationwide and sends dedicated teams
+    of volunteers—members, customers and Range Front employees—to build trails, clean up beaches, restore local habitats
     and more... Through responsible business practices across the company, we strive to reduce our environmental footprint.</p>
     <p>What began as a group of 3 coding buddies is now the nation's largest consumer cooperative. But no matter how large we
     grow, our roots remain firmly planted in the outdoors. Our passion for outdoor adventure is clear, whether you visit
@@ -35,7 +35,7 @@ const About = () => (
     <p>By staying true to our roots, we've earned a place on FORTUNE magazine's list of the '100 Best Companies to Work For'
     every year since the rankings began in 1998. We work hard to earn our reputation for quality and integrity every
     day.</p>
-    <p>At RangeFront, we inspire, educate and outfit for a lifetime of outdoor adventure and stewardship.</p>
+    <p>At Range Front, we inspire, educate and outfit for a lifetime of outdoor adventure and stewardship.</p>
   </StyledAbout>
 );
 
