@@ -41,6 +41,7 @@ const StyledProductDescription = styled.div`
     display: flex;
     flex-direction: column;
     grid-row: 1;
+    font-size: 1.4rem;
   }
 
   .buttonGrid {
