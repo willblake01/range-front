@@ -104,6 +104,17 @@ Stripe (Payments & Webhooks)
 
 ---
 
+## ⚡️ Performance & UX
+
+* **Core Web Vitals instrumentation:** Real-user performance metrics (LCP, INP, CLS) are tracked in production using Vercel Speed Insights to ensure consistent, measurable UX quality.
+* **Optimistic UI patterns:** Apollo Client optimistic mutations provide instant feedback for cart and admin actions while maintaining eventual consistency with the backend.
+* **Perceived performance:** Route transition feedback via NProgress and toast notifications keeps user interactions responsive and predictable.
+* **Efficient data fetching:** Normalized GraphQL caching minimizes over-fetching and redundant network requests.
+* **Layout stability:** Image dimensions and UI structure are designed to prevent layout shifts during loading.
+* **Resilient API UX:** Frontend loading and error states account for backend latency and cold starts, ensuring graceful degradation.
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
