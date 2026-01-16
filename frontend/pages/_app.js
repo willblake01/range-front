@@ -8,7 +8,7 @@ import { CartStateProvider } from '../lib';
 import { Page } from '../components';
 import { initializeApollo } from '../lib/apolloClient';
 import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
