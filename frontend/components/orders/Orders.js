@@ -63,7 +63,7 @@ const StyledOrder = styled.li`
   }
 `;
 
-const StyledOrderItem = styled.li`
+const StyledOrderItem = styled.div`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -97,8 +97,8 @@ const Orders = ({ orders }) => {
           <StyledOrdersColumn>
             {orders?.map((order) => (
               <StyledOrder key={order.id}>
-                <Link href={`/order/${order.id}`}>
-                  <a style={{ display: 'block' }}>
+                <Link href={`/order/${order.id}`} style={{ display: 'block' }}>
+                  <>
                     <div className='order-meta'>
                       <h2>Date: {formatOrderDate(order.createdAt)}</h2>
                       <h2>Items: {countItemsInOrder(order)}</h2>
@@ -114,7 +114,7 @@ const Orders = ({ orders }) => {
                         </StyledOrderItem>
                       ))}
                     </div>
-                  </a>
+                  </>
                 </Link>
               </StyledOrder>
             ))}

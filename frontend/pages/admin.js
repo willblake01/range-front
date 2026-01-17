@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import NProgress from 'nprogress';
 import { hasPermission } from '../lib';
 import { useUser } from '../hooks';
 import { PageMain } from '../components/styles';
-import { AlternateHeader, DisplayError, Footer } from '../components/shared';
+import { AlternateHeader, DisplayError, Footer, PleaseLogin } from '../components/shared';
 import { Admin } from '../components';
 import { USERS_PER_PAGE } from '../components/admin/constants';
 import { USERS_QUERY } from '../components/graphql/admin';
@@ -28,24 +28,31 @@ const AdminPage = () => {
     fetchPolicy: 'cache-and-network',
   });
 
+  const isLoading = userLoading || (hasAccess && usersLoading);
+
   useEffect(() => {
-    const loading = userLoading || usersLoading;
-    loading ? NProgress.start() : NProgress.done();
+    isLoading ? NProgress.start() : NProgress.done();
 
     return () => NProgress.done();
-  }, [userLoading, usersLoading]);
+  }, [isLoading]);
 
-  if (userError) return <DisplayError error={userError} />;
-  if (usersError) return <DisplayError error={usersError} />;
-  if (userLoading || (hasAccess && usersLoading)) return <p>Loading...</p>;
-  if (!user) return <p>You must be logged in.</p>;
-  if (!hasAccess) return <p>You don’t have permission to view this page.</p>;
+  let content = React.ReactNode;
+
+  if (userError) content = <DisplayError error={userError} />;
+  else if (usersError) content = <DisplayError error={usersError} />;
+  else if (isLoading) return <p>Loading...</p>;
+  else if (!hasAccess)
+    content = <p>You don’t have permission to view this page.</p>;
+  else
+    content = <Admin page={currentPage} users={data?.users ?? []} />;
 
   return (
     <>
       <AlternateHeader />
       <PageMain>
-        <Admin page={currentPage} users={data?.users ?? []} />
+        <PleaseLogin>
+          {content}
+        </PleaseLogin>
       </PageMain>
       <Footer />
     </>
