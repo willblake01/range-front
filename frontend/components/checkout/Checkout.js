@@ -75,6 +75,7 @@ const StyledOrderItem = styled.li`
 `;
 
 const StyledCheckoutForm = styled.form`
+  background: var(--white);
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.04);
   border: 0.1rem solid rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;

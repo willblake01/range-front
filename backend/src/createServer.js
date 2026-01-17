@@ -1,8 +1,8 @@
 const { ApolloServer, gql, makeExecutableSchema } = require('apollo-server-express');
 const { importSchema } = require('graphql-import');
 const path = require('path');
-const Mutation = require('./resolvers/Mutation');
-const Query = require('./resolvers/Query');
+const Mutation = require('./graphql/resolvers/Mutation');
+const Query = require('./graphql/resolvers/Query');
 const db = require('./db');
 
 const typeDefsFile = importSchema(path.resolve(__dirname, '../data/schema.graphql'));

@@ -2,9 +2,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
-const { transport, makeANiceEmail } = require('../mail');
-const { hasPermission } = require('../utils');
-const stripe = require('../stripe');
+const { hasPermission } = require('../../utils/permissions');
+const { sendOrderReceipt } = require('../../lib/sendOrderReceipt');
+const stripe = require('../../stripe');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -218,19 +218,6 @@ const Mutations = {
     // TEMP: Log reset token to console for development (disable email)
     console.log('🔑 Password Reset Token:', resetToken);
     console.log('🔗 Reset URL:', `${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}`);
-    
-    // TODO: Configure email in production
-    // const mailRes = await transport.sendMail({
-    //   from: 'willblakebooking@gmail.com',
-    //   to: user.email,
-    //   subject: 'Your Password Reset Token',
-    //   html: makeANiceEmail(`Your Password Reset Token is Here!
-    //   \n\n
-    //   <a href='${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}'>Click here to reset</a>`
-    //   ),
-    // });
-    
-    // 4. Return the message
 
     return { message: 'Check your terminal for the reset link!' };
   },
@@ -412,11 +399,20 @@ const Mutations = {
         user: { connect: { id: userId } },
       },
       include: {
+        user: { select: { id: true, email: true } },
         items: true,
       },
     });
 
-    // 6. Clean up - clear the user's cart, delete cartItems
+    // 6. Email order receipt
+    if (order.user?.email) {
+      sendOrderReceipt({
+        to: order.user.email,
+        order,
+      });
+    }
+
+    // 7. Clean up - clear the user's cart, delete cartItems
     const cartItemIds = user?.cart?.map(cartItem => cartItem.id);
     await ctx.db.cartItem.deleteMany({
       where: {

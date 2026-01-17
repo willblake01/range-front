@@ -1,4 +1,4 @@
-const { hasPermission } = require('../utils');
+const { hasPermission } = require('../../utils/permissions');
 
 const convertWhere = (where = {}) => {
   const out = {};
