@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { PageMain } from '../components/styles';
-import { AlternateHeader, Footer, PleaseLogin } from '../components/shared';
+import { AlternateHeader, Footer } from '../components/shared';
 import { Clearance } from '../components';
 
 const ClearancePage = () => {
@@ -12,9 +12,7 @@ const ClearancePage = () => {
     <>
       <AlternateHeader />
       <PageMain>
-        <PleaseLogin>
-          <Clearance page={page} />
-        </PleaseLogin>
+        <Clearance page={page} />
       </PageMain>
       <Footer />
     </>
