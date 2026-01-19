@@ -82,6 +82,7 @@
 * **Deployment & Infrastructure:**
   * **Vercel** for frontend hosting with edge caching and fast global delivery
   * **Render** for backend GraphQL API and managed PostgreSQL
+  * **Resend** for webhook-triggered transactional email delivery (order receipts)
 
 ### System Flow
 
