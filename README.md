@@ -25,6 +25,7 @@
 * 👤 User authentication & authorization
 * 🔐 Secure password hashing and JWT sessions
 * 💳 Stripe-powered checkout flow
+* 📧 Transactional email receipts sent via Stripe webhooks
 * 📦 Order history with itemized orders
 * 🧾 Admin product & user management
 * ⚡ Optimistic UI updates with Apollo Client
@@ -76,6 +77,7 @@
 * **API Layer:** **Node.js GraphQL** service implementing domain-driven resolvers, role-based access control (RBAC), and permission-aware mutations.
 * **Data Layer:** **PostgreSQL** database accessed via **Prisma ORM**, enforcing schema-level constraints, relations, and transactional integrity.
 * **Payments:** **Stripe** integration supporting secure checkout flows, server-side payment intents, and webhook-driven order state reconciliation.
+* **Payments & Notifications:** Stripe webhooks drive order finalization and transactional email receipts, ensuring post-payment side effects occur server-side and remain idempotent.
 * **Authentication & Security:** JWT-based session management, bcrypt password hashing, and server-side authorization checks to protect sensitive operations.
 * **Deployment & Infrastructure:**
   * **Vercel** for frontend hosting with edge caching and fast global delivery
