@@ -45,17 +45,17 @@ const StyledTiles = styled.div`
   }
 
   #tents-tile {
-    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509890/range-front/shop_tents.jpg')
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1770301266/range-front/shop_tents.webp')
       bottom center / cover no-repeat;
   }
 
   #sleeping-bags-tile {
-    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_sleepingBags.jpg')
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1770301527/range-front/shop_sleeping_bags.webp')
       bottom center / cover no-repeat;
   }
 
   #backpacks-tile {
-    background: url('https://res.cloudinary.com/willblake01/image/upload/v1538509889/range-front/shop_backpacks.jpg')
+    background: url('https://res.cloudinary.com/willblake01/image/upload/v1770301445/range-front/shop_backpacks.webp')
       bottom center / cover no-repeat;
   }
 `;

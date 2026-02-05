@@ -12,7 +12,7 @@ const fakeItem = () => ({
   user: null,
   photo: {
     image: {
-      publicUrlTransformed: 'dog.jpg',
+      publicUrlTransformed: 'dog.webp',
     },
   },
   name: 'dogs are best',
@@ -34,7 +34,7 @@ const fakeOrderItem = () => ({
   __typename: 'OrderItem',
   id: casual.uuid,
   image: {
-    image: `${casual.word}.jpg`,
+    image: `${casual.word}.webp`,
   },
   name: casual.words(),
   price: 4234,

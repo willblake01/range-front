@@ -3,7 +3,7 @@ import { StyledSectionHeader } from '../../components/styles';
 import { AlternateHeader, Footer } from '../../components/shared';
 
 const StyledBuyingGuide = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770300599/range-front/topography.webp');
   margin: 0 auto;
   padding: 2rem 14rem 10rem;
   width: 100%;
@@ -48,7 +48,7 @@ const BuyingGuide = () => (
     <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Tent</h1>
-        <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_tent.jpg' alt='tents' />
+        <img src='https://res.cloudinary.com/willblake01/image/upload/v1770302988/range-front/choose_tent.webp' alt='tents' />
       </StyledSectionHeader>
       <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
       or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your

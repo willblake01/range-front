@@ -3,7 +3,7 @@ import { StyledSectionHeader } from '../../components/styles';
 import { AlternateHeader, Footer } from '../../components/shared';
 
 const StyledBuyingGuide = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770300599/range-front/topography.webp');
   margin: 0 auto;
   padding: 2rem 14rem 10rem;
   width: 100%;
@@ -48,7 +48,7 @@ const BuyingGuide = () => (
     <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Backpack</h1>
-        <img src='https://res.cloudinary.com/willblake01/image/upload/v1538509882/range-front/choose_backpack.jpg' alt='backpacks' />
+        <img src='https://res.cloudinary.com/willblake01/image/upload/v1770303250/range-front/choose_sleeping_bag.webp' alt='backpacks' />
       </StyledSectionHeader>
       <p>Planning to buy a new pack for the backcountry? There are three main areas where you'll need to make choices:</p>
       <p className='boldPara'>Backpack capacity: </p>

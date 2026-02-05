@@ -12,7 +12,7 @@ const StyledSignUp = styled.div`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/f_auto,q_auto/v1538509893/range-front/topography.png');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770300599/range-front/topography.webp');
   color: var(--green);
   margin: 0;
   padding: clamp(2rem, 5vw, 8rem);
