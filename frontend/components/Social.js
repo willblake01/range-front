@@ -21,7 +21,7 @@ const Social = () => (
       rel='noopener noreferrer'
     >
       <img
-        src='https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/facebook.svg'
+        src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1538509883/range-front/facebook.svg'
         alt='facebook'
         className='social-icon'
       />
@@ -32,7 +32,7 @@ const Social = () => (
       rel='noopener noreferrer'  
     >
       <img
-        src='https://res.cloudinary.com/willblake01/image/upload/v1538509883/range-front/instagram.svg'
+        src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1538509883/range-front/instagram.svg'
         alt='instagram'
         className='social-icon'
       />
@@ -43,7 +43,7 @@ const Social = () => (
       rel='noopener noreferrer'
     >
       <img
-        src='https://res.cloudinary.com/willblake01/image/upload/v1538509893/range-front/twitter.svg'
+        src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1538509893/range-front/twitter.svg'
         alt='twitter'
         className='social-icon'
       />

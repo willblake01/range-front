@@ -8,7 +8,7 @@ const StyledMarketing = styled.div`
   justify-content: center;
   height: 60rem;
   width: 100%;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770302914/range-front/marketing_img.webp');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302914/range-front/marketing_img.webp');
   background-repeat: no-repeat;
   background-size: cover;
 `;

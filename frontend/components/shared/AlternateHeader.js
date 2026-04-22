@@ -5,7 +5,7 @@ import { Cart } from '..';
 const StyledAlternateHeader = styled.header`
   display: grid;
   grid-template-columns: 1fr;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770302647/range-front/mountain-range.webp');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302647/range-front/mountain-range.webp');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;

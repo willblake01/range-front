@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Header } from '../components/Header';
+import { Header } from '../components';
 import { Footer } from '../components/shared';
 import { AcceptedPayments, Marketing, Parallax, ShoppingTiles } from '../components';
 

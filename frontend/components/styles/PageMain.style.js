@@ -4,7 +4,7 @@ const PageMain = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/v1770300599/range-front/topography.webp');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770300599/range-front/topography.webp');
   color: var(--green);
   width: 100%;
 `;

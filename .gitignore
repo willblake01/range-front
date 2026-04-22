@@ -13,4 +13,5 @@ log/*.log
 log/*.log.[0-9]
 *.next
 *.vscode/
+*.idea/
 *file:/
