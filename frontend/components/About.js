@@ -17,8 +17,8 @@ const StyledAbout = styled.div`
 const About = () => (
   <StyledAbout>
     <Image
-      src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303570/range-front/about_us.webp'
-      alt='about us'
+      src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303570/range-front/about-us/hero-image.webp'
+      alt='hero image'
       height={800}
       width={2000}
     />

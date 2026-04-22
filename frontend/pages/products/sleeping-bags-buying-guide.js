@@ -3,7 +3,7 @@ import { StyledSectionHeader } from '../../components/styles';
 import { AlternateHeader, Footer } from '../../components/shared';
 
 const StyledBuyingGuide = styled.div`
-  background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770300599/range-front/topography.webp');
+  background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770300599/range-front/shared/topography.webp');
   margin: 0 auto;
   padding: 2rem 14rem 10rem;
   max-width: var(--maxWidth);

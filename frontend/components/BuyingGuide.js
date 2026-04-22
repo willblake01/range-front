@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledSectionHeader } from './styles';
 
 const StyledBuyingGuide = styled.div`
-    background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770300599/range-front/topography.webp');
+    background-image: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770300599/range-front/shared/topography.webp');
     width: 100%;
     margin: 0 auto;
     max-width: var(--maxWidth);
@@ -39,7 +39,7 @@ const BuyingGuide = () => (
   <StyledBuyingGuide>
     <StyledSectionHeader>
       <h1>How to Choose a Tent</h1>
-      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302988/range-front/choose_tent.webp' alt='tents' />
+      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302988/range-front/buying-guide/choose-tent.webp' alt='tents' />
     </StyledSectionHeader>
     <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
     or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your
@@ -93,7 +93,7 @@ const BuyingGuide = () => (
 
     <StyledSectionHeader>
       <h1>How to Choose a Sleeping Bag</h1>
-      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303250/range-front/choose_sleeping_bag.webp' alt='sleeping bags' />
+      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303250/range-front/buying-guide/choose-sleeping-bag.webp' alt='sleeping bags' />
     </StyledSectionHeader>
     <p>While backpacking bags focus on minimizing weight, sleeping bags for car or family camping are all about comfort. What's
     the best sleeping bag for you? This article discusses what features to look for when shopping for a sleeping bag
@@ -156,7 +156,7 @@ const BuyingGuide = () => (
 
     <StyledSectionHeader>
       <h1>How to Choose a Backpack</h1>
-      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303336/range-front/choose_backpack.webp' alt='backpacks' />
+      <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303336/range-front/buying-guide/choose-backpack.webp' alt='backpacks' />
     </StyledSectionHeader>
     <p>Planning to buy a new pack for the backcountry? There are three main areas where you'll need to make choices:</p>
     <p className='boldPara'>Backpack capacity: </p>
