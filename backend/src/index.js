@@ -51,7 +51,8 @@ app.use(async (req, res, next) => {
 
 const allowList = [
   'http://localhost:7777',
-  'https://range-front.vercel.app'
+  'https://range-front.vercel.app',
+  'https://range-front-backend.onrender.com'
 ];
 
 // Mount Apollo middleware here.
