@@ -47,7 +47,7 @@ const BuyingGuide = () => (
     <AlternateHeader />
     <StyledBuyingGuide>
       <StyledSectionHeader>
-        <h1>How to Choose a Backpack</h1>
+        <h1>How to Choose a Pack</h1>
         <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303336/range-front/buying-guide/choose-backpack.webp' alt='Choose pack.' />
       </StyledSectionHeader>
       <p>Planning to buy a new pack for the backcountry? There are three main areas where you'll need to make choices:</p>
