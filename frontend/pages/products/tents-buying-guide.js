@@ -48,7 +48,7 @@ const BuyingGuide = () => (
     <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Tent</h1>
-        <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302988/range-front/choose_tent.webp' alt='tents' />
+        <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302988/range-front/buying-guide/choose-tent.webp' alt='Choose tent.' />
       </StyledSectionHeader>
       <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
       or it's simply your base camp for nearby activities, this article will help you find the right camping tent—your

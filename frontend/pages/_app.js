@@ -22,7 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta
           name='description'
-          content='Range Front is a faux outdoor gear marketplace for backpacks, tents, and adventure equipment.'
+          content='Range Front is a faux outdoor gear marketplace for packs, tents, and adventure equipment.'
         />
       </Head>
 

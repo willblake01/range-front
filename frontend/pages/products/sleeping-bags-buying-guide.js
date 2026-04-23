@@ -47,7 +47,7 @@ const BuyingGuide = () => (
     <StyledBuyingGuide>
       <StyledSectionHeader>
         <h1>How to Choose a Sleeping Bag</h1>
-        <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303250/range-front/choose_sleeping_bag.webp' alt='sleeping bags' />
+        <img src='https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770303250/range-front/buying-guide/choose-sleeping-bag.webp' alt='Choose sleeping bags.' />
       </StyledSectionHeader>
       <p>While backpacking bags focus on minimizing weight, sleeping bags for car or family camping are all about comfort. What's
       the best sleeping bag for you? This article discusses what features to look for when shopping for a sleeping bag

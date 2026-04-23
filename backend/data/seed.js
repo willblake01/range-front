@@ -254,7 +254,7 @@ const products = [
   {
     brand: 'Osprey',
     title: 'Manta AG 36 Hydration Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'The Osprey Manta AG 36 hydration pack covers a wide range of hiking-related activities. It\'s updated with a well-ventilated Anti-Gravity suspension, sleek exterior and well-placed organization.',
     price: 17500,
     image: 'https://res.cloudinary.com/willblake01/image/upload/v1770302724/range-front/products/packs/osprey/manta-ag-36-hydration-pack.webp',
@@ -268,7 +268,7 @@ const products = [
   {
     brand: 'Marmot',
     title: 'Graviton 34 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Experience fast-and-light mountain travel at it\'s finest when you carry your gear in the Marmot Graviton 34 pack. Its ventilated harness and wraparound zipper offer breathable comfort and easy access.',
     price: 15900,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302503/range-front/products/packs/marmot/graviton-34-pack.webp',
@@ -282,7 +282,7 @@ const products = [
   {
     brand: 'Osprey',
     title: 'Talon 6 Hydration Waistpack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'The Osprey Talon 6 hydration waistpack for men is perfect for those quick outdoor excursions that are light on gear.',
     price: 7500,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302436/range-front/products/packs/osprey/talon-6-hydration-pack.webp',
@@ -296,7 +296,7 @@ const products = [
   {
     brand: 'Osprey',
     title: 'Kyte 46 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Explore alpine steeps or a canyon floor with the women-specific, lightweight Osprey Kyte 46 pack. It offers advanced weight distribution, a sleeping bag compartment and an integrated raincover.',
     price: 18000,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302374/range-front/products/packs/osprey/kyte-46-pack.webp',
@@ -310,7 +310,7 @@ const products = [
   {
     brand: 'Kelty',
     title: 'Trekker 65 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Carrying on a tradition of indestructible construction and plenty of pockets, the Kelty Trekker 65 pack offers a simple, comfortable, lightweight design that makes it a favorite on the trail.',
     price: 17995,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302297/range-front/products/packs/kelty/trekker-65-pack.webp',
@@ -324,7 +324,7 @@ const products = [
   {
     brand: 'Deuter',
     title: 'Kid Comfort Air Child Carrier',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Day hikes and all-day family outings are a breeze for both parent and child with the advanced comfort, ventilation and generous gear storage of the lightweight Deuter Kid Comfort Air Child Carrier.',
     price: 24000,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302234/range-front/products/packs/deuter/kid-comfort-air-child-carrier.webp',
@@ -338,7 +338,7 @@ const products = [
   {
     brand: 'Osprey',
     title: 'Atmos AG 65 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Don\'t abandon comfort just because you\'re leaving your creature comforts at home. The Osprey Atmos AG 65 pack uses Anti-Gravity™ technology to distribute the load and provide a dreamlike fit.',
     price: 27000,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302153/range-front/products/packs/osprey/atmos-ag-65-pack.webp',
@@ -352,7 +352,7 @@ const products = [
   {
     brand: 'Gregory',
     title: 'Baltoro 65 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Winner of Backpacker magazine\'s 2015 Editors\' Choice Gold Award, this multiday pack with customizable suspension excels equally on long winter weekends and extended trips with a minimalist gear list.',
     price: 29995,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770302066/range-front/products/packs/gregory/baltoro-65-pack.webp',
@@ -366,7 +366,7 @@ const products = [
   {
     brand: 'REI Co-op',
     title: 'Traverse 65 Pack',
-    category: 'backpacks',
+    category: 'packs',
     description: 'Great for overnighters and weekend trips, the women\'s REI Co-op Traverse 65 pack offers advanced load handling and all-day comfort.',
     price: 24900,
     image: 'https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770301976/range-front/products/packs/rei-co-op/traverse-65-pack.webp',

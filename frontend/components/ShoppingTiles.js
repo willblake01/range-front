@@ -54,8 +54,8 @@ const StyledTiles = styled.div`
       bottom center / cover no-repeat;
   }
 
-  #backpacks-tile {
-    background: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770301445/range-front/shopping-tiles/shop-backpacks.webp')
+  #packs-tile {
+    background: url('https://res.cloudinary.com/willblake01/image/upload/q_auto/f_auto/v1770301445/range-front/shopping-tiles/shop-packs.webp')
       bottom center / cover no-repeat;
   }
 `;
@@ -71,11 +71,11 @@ const ShoppingTiles = () => (
       </a>
     </Link>
     <Link
-      href={{ pathname: '/products', query: { category: 'backpacks' } }}
+      href={{ pathname: '/products', query: { category: 'packs' } }}
       legacyBehavior
     >
-      <a className='tile' id='backpacks-tile'>
-        <span>Shop Backpacks</span>
+      <a className='tile' id='packs-tile'>
+        <span>Shop packs</span>
       </a>
     </Link>
     <Link

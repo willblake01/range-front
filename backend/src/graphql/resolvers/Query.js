@@ -22,7 +22,7 @@ const convertWhere = (where = {}) => {
       continue;
     }
 
-    out[key] = value; // e.g. category: "backpacks"
+    out[key] = value; // e.g. category: "packs"
   }
 
   return out;

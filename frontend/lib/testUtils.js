@@ -67,7 +67,7 @@ const fakeOrder = () => ({
       description: 'Nice pack',
       image: 'https://example.com/pack.webp',
       largeImage: 'https://example.com/pack-large.webp',
-      category: 'tents',
+      category: 'packs',
       price: 20000,
       quantity: 1,
       clearance: false
